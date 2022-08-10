@@ -5,6 +5,7 @@
   },
   "include": [
     "src/**/*",
+    "tests/**/*",
     "jest.config.js"
   ],
   "references": [
