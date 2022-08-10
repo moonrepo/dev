@@ -2,6 +2,7 @@
   "private": true,
   "name": "moon-dev",
   "scripts": {
+    "moon": "$(yarn bin moon)",
     "prerelease": "node scripts/releaseCheck.mjs && yarn run pack && yarn run check",
     "release": "yarn prerelease && lerna version --conventional-commits --changelog-preset conventional-changelog-beemo --create-release github --push && lerna publish from-git",
     "setup": "moon run :build",

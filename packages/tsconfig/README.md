@@ -1,6 +1,6 @@
 # tsconfig-moon
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
 [![npm version](https://badge.fury.io/js/tsconfig-moon.svg)](https://www.npmjs.com/package/tsconfig-moon)
 [![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/tsconfig)](https://www.npmjs.com/package/tsconfig-moon)
 

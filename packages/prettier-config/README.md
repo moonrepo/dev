@@ -1,6 +1,6 @@
 # prettier-config-moon
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
 [![npm version](https://badge.fury.io/js/prettier-config-moon.svg)](https://www.npmjs.com/package/prettier-config-moon)
 [![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/prettier-config)](https://www.npmjs.com/package/prettier-config-moon)
 

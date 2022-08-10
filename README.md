@@ -1,8 +1,8 @@
 # moon development
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/%40moon%config-babel.svg)](https://www.npmjs.com/package/@moon/config-babel)
-[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/config-babel)](https://www.npmjs.com/package/@moon/config-babel)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![npm version](https://badge.fury.io/js/%40moonrepo%dev.svg)](https://www.npmjs.com/package/@moonrepo/dev)
+[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/dev)](https://www.npmjs.com/package/@moon/dev)
 
 This repository is a collection of moon owned and maintained configurations and presets for common
 developer tools -- primarily tools used by moonrepo and its authors.
