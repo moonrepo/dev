@@ -1,0 +1,21 @@
+{
+  "extends": "tsconfig-beemo/tsconfig.workspaces.json",
+  "files": [],
+  "references": [
+    {
+      "path": "packages/babel-preset"
+    },
+    {
+      "path": "packages/constants"
+    },
+    {
+      "path": "packages/eslint-config"
+    },
+    {
+      "path": "packages/jest-preset"
+    },
+    {
+      "path": "packages/jest-preset/tests"
+    }
+  ]
+}

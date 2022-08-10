@@ -1,0 +1,39 @@
+{
+  "name": "@beemo/config-constants",
+  "version": "2.2.0",
+  "release": "1624590167003",
+  "description": "Reusable constants for Beemo configurations.",
+  "keywords": [
+    "beemo",
+    "constants"
+  ],
+  "main": "./lib/index.js",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dts/**/*.d.ts",
+    "lib/**/*.{js,map}",
+    "src/**/*.{ts,tsx,json}"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:beemojs/dev.git",
+    "directory": "packages/constants"
+  },
+  "author": "Miles Johnson",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=14.15.0",
+    "npm": ">=6.14.0"
+  },
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/milesjohnson"
+  },
+  "packemon": {
+    "format": "lib",
+    "platform": "node"
+  }
+}

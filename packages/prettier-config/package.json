@@ -1,0 +1,29 @@
+{
+  "name": "prettier-config-beemo",
+  "version": "2.0.0",
+  "release": "1624590167003",
+  "description": "Reusable Prettier config for Beemo configured projects.",
+  "keywords": [
+    "prettier",
+    "config",
+    "beemo"
+  ],
+  "main": "./prettier.json",
+  "files": [
+    "prettier.json"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:beemojs/dev.git",
+    "directory": "packages/prettier-config"
+  },
+  "author": "Miles Johnson",
+  "license": "MIT",
+  "publishConfig": {
+    "access": "public"
+  },
+  "funding": {
+    "type": "ko-fi",
+    "url": "https://ko-fi.com/milesjohnson"
+  }
+}

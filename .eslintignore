@@ -1,0 +1,4 @@
+dts/
+lib/
+*.d.ts
+*.json

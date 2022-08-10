@@ -1,0 +1,9 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Beemo with React",
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "lib": ["dom"],
+    "jsx": "react"
+  }
+}

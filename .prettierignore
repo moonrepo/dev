@@ -1,0 +1,6 @@
+coverage/
+dts/
+lib/
+CHANGELOG.md
+*.json
+.yarn

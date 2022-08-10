@@ -1,0 +1,19 @@
+{
+  "extends": "tsconfig-beemo/tsconfig.workspaces.json",
+  "compilerOptions": {
+    "composite": false,
+    "emitDeclarationOnly": false,
+    "isolatedModules": false,
+    "noEmit": true,
+    "rootDir": "."
+  },
+  "include": [
+    "**/*",
+    "../../../types/**/*"
+  ],
+  "references": [
+    {
+      "path": ".."
+    }
+  ]
+}
