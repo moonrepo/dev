@@ -25,6 +25,8 @@ tasks:
       - '--addEngines'
       - '--addExports'
       - '--declaration'
+      - '--declarationConfig'
+      - 'tsconfig.build.json'
     deps:
       - '^:build'
     inputs:
