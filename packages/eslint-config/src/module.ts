@@ -128,6 +128,13 @@ const config: eslint.Linter.Config = {
 				'import/no-default-export': 'off',
 			},
 		},
+		// Standard JS files have different semantics
+		{
+			files: ['*.js'],
+			rules: {
+				'import/no-commonjs': 'off',
+			},
+		},
 	],
 };
 

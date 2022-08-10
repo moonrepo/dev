@@ -1,12 +1,9 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "declarationDir": "dts",
-    "outDir": "dts",
-    "rootDir": "src"
+    "outDir": "../../.moon/types/packages/babel-preset"
   },
   "include": [
-    "src/**/*",
-    "../../types/**/*"
+    "src/**/*"
   ]
 }

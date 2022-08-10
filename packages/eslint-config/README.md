@@ -1,6 +1,6 @@
 # eslint-config-moon
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
 [![npm version](https://badge.fury.io/js/eslint-config-moon.svg)](https://www.npmjs.com/package/eslint-config-moon)
 [![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/eslint-config)](https://www.npmjs.com/package/eslint-config-moon)
 

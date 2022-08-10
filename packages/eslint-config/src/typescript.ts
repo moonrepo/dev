@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import type eslint from 'eslint';
-import { getRootTsConfig, PROJECT_ROOT,WORKSPACE_ROOT } from '@moonrepo/dev';
+import { getRootTsConfig, PROJECT_ROOT, WORKSPACE_ROOT } from '@moonrepo/dev';
 
 let project: string[] | string = '';
 

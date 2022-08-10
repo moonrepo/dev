@@ -2,7 +2,7 @@ name: PR
 on: pull_request
 jobs:
   conventional:
-    name: Conventional Title
+    name: Conventional title
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3

@@ -1,12 +1,12 @@
-name: Build
+name: Pipeline
 on:
   push:
     branches:
       - master
   pull_request:
 jobs:
-  test:
-    name: Test
+  ci:
+    name: CI
     runs-on: ubuntu-latest
     strategy:
       matrix:
@@ -16,15 +16,10 @@ jobs:
       - uses: actions/checkout@v3
       - uses: actions/setup-node@v3
         with:
+          cache: yarn
           node-version: ${{ matrix.node-version }}
+      - uses: moonrepo/tool-version-action@v1
+        with:
+          node: ${{ matrix.node-version }}
       - run: yarn install --immutable
-      - run: yarn run build
-      - run: yarn run check
-  pack:
-    name: Pack
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-node@v3
-      - run: yarn install --immutable
-      - run: yarn run pack
+      - run: yarn moon ci

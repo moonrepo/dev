@@ -1,19 +1,19 @@
-# moon Development
+# moon development
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/%40moon%config-babel.svg)](https://www.npmjs.com/package/@moon/config-babel)
-[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/config-babel)](https://www.npmjs.com/package/@moon/config-babel)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![npm version](https://badge.fury.io/js/%40moonrepo%dev.svg)](https://www.npmjs.com/package/@moonrepo/dev)
+[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/dev)](https://www.npmjs.com/package/@moon/dev)
 
 This repository is a collection of moon owned and maintained configurations and presets for common
-developer tools -- primarily tools used by the moon project and its authors.
+developer tools -- primarily tools used by moonrepo and its authors.
 
-It aims to provide a modern, developer accessible, convention over configuration approach to
-TypeScript (and React) only projects!
+It aims to provide a strict, modern, developer accessible, convention over configuration approach to
+JavaScript, TypeScript, and React projects!
 
 ## Packages
 
-The following packages are not tied to [moon](https://moon.dev) directly, and can be used
-stand-alone within their respective tools.
+The following packages are not tied to [moon](https://github.com/moonrepo/moon) directly, and can be
+used stand-alone within their respective tools.
 
 - [babel-preset-moon](./packages/babel-preset) - Babel preset that utilizes `env`, `typescript`, and
   `react` presets.
@@ -21,16 +21,13 @@ stand-alone within their respective tools.
   `react`, and a handful of other plugins.
 - [jest-preset-moon](./packages/jest-preset) - Jest preset that utilizes the circus runner, and
   provides code coverage.
-- [prettier-config-moon](./packages/prettier-config) - Prettier config that aligns with community
-  standards.
-- [tsconfig-moon](./packages/tsconfig) - TypeScript configs for normal, react, and workspace based
+- [prettier-config-moon](./packages/prettier-config) - Prettier config that aligns with
+  accessibility and community standards.
+- [tsconfig-moon](./packages/tsconfig) - TypeScript configs for normal, react, and reference based
   projects.
 
-And last but not least, the `dev` package that pieces everything together to provide an official
-moon [configuration module](https://moon.dev/docs/provider).
-
-- [@moon/dev](./packages/dev) - Pre-packaged configuration module for general use (if you don't want
-  to manage your own).
+And last but not least, the [@moonrepo/dev](./packages/dev) package that provides helpers, constans,
+and more. This should rarely be used directly!
 
 ## Contributing
 
