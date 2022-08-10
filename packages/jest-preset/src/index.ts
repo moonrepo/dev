@@ -6,12 +6,12 @@ import {
 	EXTENSIONS_WITHOUT_DOT,
 	IGNORE_LIST,
 	NON_JS_REGEX,
-	ROOT,
 	TEST_FILES_GLOB,
-} from '@beemo/config-constants';
+	WORKSPACE_ROOT,
+} from '@moonrepo/dev';
 
 const setupFilesAfterEnv: string[] = [];
-const setupFilePath = path.join(ROOT, 'tests/setup.ts');
+const setupFilePath = path.join(WORKSPACE_ROOT, 'tests/setup.ts');
 
 // Only include the file if it exists, otherwise Jest throws an error
 if (fs.existsSync(setupFilePath)) {
@@ -33,9 +33,9 @@ const config = {
 		},
 	},
 	globals: {
-		[`__DEV__`]: true,
-		[`__TEST__`]: true,
-		[`__PROD__`]: true,
+		__DEV__: true,
+		__PROD__: true,
+		__TEST__: true,
 	},
 	moduleFileExtensions: [...EXTENSIONS_WITHOUT_DOT, 'json', 'node'],
 	moduleNameMapper: {

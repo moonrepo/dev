@@ -1,26 +1,26 @@
-# eslint-config-beemo
+# eslint-config-moon
 
-[![Build Status](https://github.com/beemojs/dev/workflows/Build/badge.svg)](https://github.com/beemojs/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/eslint-config-beemo.svg)](https://www.npmjs.com/package/eslint-config-beemo)
-[![npm deps](https://david-dm.org/beemojs/dev.svg?path=packages/eslint-config)](https://www.npmjs.com/package/eslint-config-beemo)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![npm version](https://badge.fury.io/js/eslint-config-moon.svg)](https://www.npmjs.com/package/eslint-config-moon)
+[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/eslint-config)](https://www.npmjs.com/package/eslint-config-moon)
 
 A modern TypeScript-only ESLint config with optional presets. Expands upon the amazing
 [Airbnb config](https://www.npmjs.com/package/eslint-config-airbnb-base) to provide the latest
 ECMAScript features, enforce popular patterns, and align with the wider community.
 
 ```bash
-yarn install --dev eslint eslint-config-beemo
+yarn install --dev eslint eslint-config-moon
 ```
 
 ## Setup
 
-Extend the `beemo` config in your root `.eslintrc.js`. Additional [presets](#presets) are available
+Extend the `moon` config in your root `.eslintrc.js`. Additional [presets](#presets) are available
 for additional rules.
 
 ```js
 module.exports = {
 	root: true,
-	extends: ['beemo'],
+	extends: ['moon'],
 };
 ```
 
@@ -28,13 +28,13 @@ module.exports = {
 
 The following additional configs can also be extended, but are not enabled by default.
 
-- `beemo/browser` - Sets the environment to the browser/DOM and enables the
+- `moon/browser` - Sets the environment to the browser/DOM and enables the
   [compat](https://www.npmjs.com/package/eslint-plugin-compat) plugin. Should _not_ be used with the
   `node` preset.
-- `beemo/node` - Sets the environment to Node.js and enables the
+- `moon/node` - Sets the environment to Node.js and enables the
   [node](https://www.npmjs.com/package/eslint-plugin-node) plugin. Should _not_ be used with the
   `browser` preset.
-- `beemo/react` - Enables the [react](https://www.npmjs.com/package/eslint-plugin-react),
+- `moon/react` - Enables the [react](https://www.npmjs.com/package/eslint-plugin-react),
   [react-hooks](https://www.npmjs.com/package/eslint-plugin-react-hooks),
   [react-perf](https://www.npmjs.com/package/eslint-plugin-react-perf), and
   [jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) plugins.

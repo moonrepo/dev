@@ -1,23 +1,22 @@
 import fs from 'fs';
 import path from 'path';
 import type eslint from 'eslint';
-import {
-	getPackageVersion,
-	getRootProjectReferences,
-	getRootTSConfig,
-	ROOT,
-	TSCONFIG_JSON_PATH,
-} from '@beemo/config-constants';
+import { getRootTsConfig, PROJECT_ROOT,WORKSPACE_ROOT } from '@moonrepo/dev';
 
-const tsVersion = getPackageVersion('typescript');
-const tsConfig = getRootTSConfig();
 let project: string[] | string = '';
+
+// When running on the command line, we only want to use types from the local config.
+const tsConfigProjectPath = path.join(PROJECT_ROOT, 'tsconfig.json');
+
+if (fs.existsSync(tsConfigProjectPath)) {
+	project = tsConfigProjectPath;
+}
 
 // Some very large projects will run out of memory when using project references,
 // so we support a custom tsconfig to work around this issue.
-const tsConfigEslintPath = path.join(ROOT, 'tsconfig.eslint.json');
+const tsConfigEslintPath = path.join(WORKSPACE_ROOT, 'tsconfig.eslint.json');
 
-if (fs.existsSync(tsConfigEslintPath)) {
+if (!project && fs.existsSync(tsConfigEslintPath)) {
 	project = tsConfigEslintPath;
 }
 
@@ -25,12 +24,10 @@ if (fs.existsSync(tsConfigEslintPath)) {
 // to every tsconfig.json in the graph.
 if (!project) {
 	project =
-		getRootProjectReferences()?.map((ref) => path.join(ROOT, ref.path, 'tsconfig.json')) ??
-		TSCONFIG_JSON_PATH;
+		getRootTsConfig()?.references?.map((ref) =>
+			path.join(WORKSPACE_ROOT, ref.path, 'tsconfig.json'),
+		) ?? path.join(WORKSPACE_ROOT, 'tsconfig.json');
 }
-
-const isUnknownCatch =
-	tsConfig.compilerOptions?.strict ?? tsConfig.compilerOptions?.useUnknownInCatchVariables;
 
 const config: eslint.Linter.Config = {
 	plugins: ['@typescript-eslint'],
@@ -168,7 +165,7 @@ const config: eslint.Linter.Config = {
 		'@typescript-eslint/consistent-type-imports': 'off',
 		'@typescript-eslint/naming-convention': 'off',
 		'@typescript-eslint/no-dynamic-delete': 'off',
-		'@typescript-eslint/no-implicit-any-catch': tsVersion >= 4.4 && isUnknownCatch ? 'off' : 'warn',
+		'@typescript-eslint/no-implicit-any-catch': 'error',
 		'@typescript-eslint/no-magic-numbers': 'off',
 		'@typescript-eslint/no-require-imports': 'off',
 		'@typescript-eslint/no-type-alias': 'off',

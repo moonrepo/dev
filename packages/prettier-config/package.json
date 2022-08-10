@@ -1,12 +1,11 @@
 {
-  "name": "prettier-config-beemo",
-  "version": "2.0.0",
-  "release": "1624590167003",
-  "description": "Reusable Prettier config for Beemo configured projects.",
+  "name": "prettier-config-moon",
+  "version": "0.0.0",
+  "description": "Strict Prettier config with a focus on accessibility.",
   "keywords": [
     "prettier",
     "config",
-    "beemo"
+    "moon"
   ],
   "main": "./prettier.json",
   "files": [
@@ -14,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:beemojs/dev.git",
+    "url": "git@github.com:moonrepo/dev.git",
     "directory": "packages/prettier-config"
   },
   "author": "Miles Johnson",

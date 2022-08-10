@@ -1,5 +1,5 @@
 import type eslint from 'eslint';
-import { EXTENSIONS_PATTERN, TESTS_LIST } from '@beemo/config-constants';
+import { EXTENSIONS_PATTERN, TESTS_LIST } from '@moonrepo/dev';
 
 const jestConfig: eslint.Linter.ConfigOverride = {
 	files: TESTS_LIST,

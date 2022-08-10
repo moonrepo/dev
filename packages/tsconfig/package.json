@@ -1,21 +1,22 @@
 {
-  "name": "tsconfig-beemo",
-  "version": "1.1.0",
-  "release": "1624590167003",
-  "description": "Pre-packaged tsconfig.json's for Beemo configured projects.",
+  "name": "tsconfig-moon",
+  "version": "0.0.0",
+  "description": "Strict tsconfig.json's for modern projects.",
   "keywords": [
     "typescript",
     "tsconfig",
-    "beemo"
+    "moon",
+    "react",
+    "project refs"
   ],
   "files": [
     "tsconfig.json",
     "tsconfig.react.json",
-    "tsconfig.workspaces.json"
+    "tsconfig.projects.json"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:beemojs/dev.git",
+    "url": "git@github.com:moonrepo/dev.git",
     "directory": "packages/tsconfig"
   },
   "author": "Miles Johnson",

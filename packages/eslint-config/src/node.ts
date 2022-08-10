@@ -1,5 +1,5 @@
 import type eslint from 'eslint';
-import { getTargetNodeRuntime } from '@beemo/config-constants';
+import { getTargetNodeRuntime } from '@moonrepo/dev';
 
 const nodeVersion = getTargetNodeRuntime();
 

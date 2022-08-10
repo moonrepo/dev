@@ -1,0 +1,3 @@
+{
+  "extends": "tsconfig-moon/tsconfig.projects.json"
+}

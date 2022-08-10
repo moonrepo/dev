@@ -1,6 +1,6 @@
 export type PluginItem = string | [string, object];
 
-export interface BabelPresetBeemoOptions {
+export interface BabelPresetMoonOptions {
 	decorators?: boolean;
 	loose?: boolean;
 	modules?: boolean;
@@ -8,16 +8,17 @@ export interface BabelPresetBeemoOptions {
 	targets?: Record<string, string> | string[] | string;
 }
 
-export default function babelPresetBeemo(
+export default function babelPresetMoon(
 	api: unknown,
-	{ decorators, loose, modules, react, targets }: BabelPresetBeemoOptions = {},
+	{ decorators, loose, modules, react, targets }: BabelPresetMoonOptions = {},
 ) {
 	let looseMode = loose ?? false;
 
 	const plugins: PluginItem[] = [
 		'@babel/plugin-proposal-export-default-from',
 		'@babel/plugin-proposal-export-namespace-from',
-		['babel-plugin-transform-dev', { evaluate: false }],
+		'babel-plugin-conditional-invariant',
+		'babel-plugin-env-constants',
 	];
 
 	// When using decorators, we must apply loose to explicit plugins
@@ -36,19 +37,18 @@ export default function babelPresetBeemo(
 		[
 			'@babel/preset-env',
 			{
-				// Always use async/await
+				bugfixes: true,
 				exclude: [
 					'@babel/plugin-transform-regenerator',
 					'@babel/plugin-transform-async-to-generator',
 				],
 				loose: looseMode,
 				modules: modules ? false : 'auto',
-				useBuiltIns: false,
-				bugfixes: true,
 				shippedProposals: true,
 				// Only target node since this is for development
 				// Revisit in Babel v8: https://babeljs.io/docs/en/options#no-targets
 				targets: targets ?? { node: 'current' },
+				useBuiltIns: false,
 			},
 		],
 		['@babel/preset-typescript', { allowDeclareFields: true }],

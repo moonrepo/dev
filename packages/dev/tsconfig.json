@@ -1,14 +1,10 @@
 {
-  "extends": "tsconfig-beemo/tsconfig.workspaces.json",
+  "extends": "../../tsconfig.options.json",
   "compilerOptions": {
     "declarationDir": "dts",
     "outDir": "dts",
     "rootDir": "src"
   },
-  "exclude": [
-    "dts",
-    "tests"
-  ],
   "include": [
     "src/**/*",
     "../../types/**/*"

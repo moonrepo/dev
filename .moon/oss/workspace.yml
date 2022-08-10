@@ -1,0 +1,30 @@
+$schema: 'https://moonrepo.dev/schemas/workspace.json'
+
+actionRunner:
+  inheritColorsForPipedTasks: true
+  logRunningCommand: true
+
+node:
+  version: '16.16.0'
+  packageManager: 'yarn'
+  yarn:
+    version: '3.2.2'
+  dedupeOnLockfileChange: true
+  dependencyVersionFormat: 'workspace-caret'
+  syncProjectWorkspaceDependencies: true
+  syncVersionManagerConfig: 'nvm'
+
+  # Do not add an engines constraint as its abrasive for open source.
+  addEnginesConstraint: false
+
+  # Do not infer functionality from `package.json`, as we want to encourage
+  # consumers to embrace moon.
+  inferTasksFromScripts: false
+
+typescript:
+  createMissingConfig: false
+  syncProjectReferences: true
+
+vcs:
+  manager: 'git'
+  defaultBranch: 'master'

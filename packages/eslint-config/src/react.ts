@@ -1,5 +1,5 @@
 import type eslint from 'eslint';
-import { CASE_SENSITIVE, getPackageVersion } from '@beemo/config-constants';
+import { CASE_SENSITIVE, getPackageVersion } from '@moonrepo/dev';
 
 const reactVersion = getPackageVersion('react');
 

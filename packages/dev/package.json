@@ -1,10 +1,9 @@
 {
-  "name": "@beemo/config-constants",
-  "version": "2.2.0",
-  "release": "1624590167003",
-  "description": "Reusable constants for Beemo configurations.",
+  "name": "@moonrepo/dev",
+  "version": "0.0.0",
+  "description": "Reusable constants and helpers for moon configurations.",
   "keywords": [
-    "beemo",
+    "moon",
     "constants"
   ],
   "main": "./lib/index.js",
@@ -16,8 +15,8 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:beemojs/dev.git",
-    "directory": "packages/constants"
+    "url": "git@github.com:moonrepo/dev.git",
+    "directory": "packages/dev"
   },
   "author": "Miles Johnson",
   "license": "MIT",
@@ -35,5 +34,18 @@
   "packemon": {
     "format": "lib",
     "platform": "node"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "node": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    ".": {
+      "types": "./dts/index.d.ts",
+      "node": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
   }
 }

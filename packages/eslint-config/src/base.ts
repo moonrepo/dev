@@ -1,5 +1,7 @@
 import type eslint from 'eslint';
-import { CASE_SENSITIVE } from '@beemo/config-constants';
+import { CASE_SENSITIVE, getTargetNodeRuntime } from '@moonrepo/dev';
+
+const nodeVersion = getTargetNodeRuntime();
 
 // The following rules are either overriding Airbnb's defaults,
 // or they are enabling new rules that aren't in Airbnb yet.
@@ -80,8 +82,7 @@ const config: eslint.Linter.Config = {
 		'no-restricted-syntax': 'off',
 
 		// Not available on enough platforms yet
-		// TODO: Enable in the future!
-		'prefer-object-has-own': 'off',
+		'prefer-object-has-own': nodeVersion >= 16.9 ? 'error' : 'off',
 	},
 };
 

@@ -1,45 +1,36 @@
-# Beemo Development
+# moon Development
 
-[![Build Status](https://github.com/beemojs/dev/workflows/Build/badge.svg)](https://github.com/beemojs/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/%40beemo%config-babel.svg)](https://www.npmjs.com/package/@beemo/config-babel)
-[![npm deps](https://david-dm.org/beemojs/dev.svg?path=packages/config-babel)](https://www.npmjs.com/package/@beemo/config-babel)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![npm version](https://badge.fury.io/js/%40moon%config-babel.svg)](https://www.npmjs.com/package/@moon/config-babel)
+[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/config-babel)](https://www.npmjs.com/package/@moon/config-babel)
 
-This repository is a collection of Beemo owned and maintained configurations and presets for common
-developer tools -- primarily tools used by the Beemo project and its authors.
+This repository is a collection of moon owned and maintained configurations and presets for common
+developer tools -- primarily tools used by the moon project and its authors.
 
 It aims to provide a modern, developer accessible, convention over configuration approach to
 TypeScript (and React) only projects!
 
 ## Packages
 
-The following packages are not tied to [Beemo](https://beemo.dev) directly, and can be used
+The following packages are not tied to [moon](https://moon.dev) directly, and can be used
 stand-alone within their respective tools.
 
-- [babel-preset-beemo](./packages/babel-preset) - Babel preset that utilizes `env`, `typescript`,
-  and `react` presets.
-- [eslint-config-beemo](./packages/eslint-config) - ESLint config that extends `airbnb`, `unicorn`,
+- [babel-preset-moon](./packages/babel-preset) - Babel preset that utilizes `env`, `typescript`, and
+  `react` presets.
+- [eslint-config-moon](./packages/eslint-config) - ESLint config that extends `airbnb`, `unicorn`,
   `react`, and a handful of other plugins.
-- [jest-preset-beemo](./packages/jest-preset) - Jest preset that utilizes the circus runner, and
+- [jest-preset-moon](./packages/jest-preset) - Jest preset that utilizes the circus runner, and
   provides code coverage.
-- [prettier-config-beemo](./packages/prettier-config) - Prettier config that aligns with community
+- [prettier-config-moon](./packages/prettier-config) - Prettier config that aligns with community
   standards.
-- [tsconfig-beemo](./packages/tsconfig) - TypeScript configs for normal, react, and workspace based
+- [tsconfig-moon](./packages/tsconfig) - TypeScript configs for normal, react, and workspace based
   projects.
 
-The following packages are configurations meant for
-[Beemo drivers](https://beemo.dev/docs/provider), and are based on the packages above.
-
-- [@beemo/config-babel](./packages/config-babel) - Config for the Babel driver.
-- [@beemo/config-eslint](./packages/config-eslint) - Config for the ESLint driver.
-- [@beemo/config-jest](./packages/config-jest) - Config for the Jest driver.
-- [@beemo/config-prettier](./packages/config-prettier) - Config for the Prettier driver.
-- [@beemo/config-typescript](./packages/config-typescript) - Config for the TypeScript driver.
-
 And last but not least, the `dev` package that pieces everything together to provide an official
-Beemo [configuration module](https://beemo.dev/docs/provider).
+moon [configuration module](https://moon.dev/docs/provider).
 
-- [@beemo/dev](./packages/dev) - Pre-packaged configuration module for general use (if you don't
-  want to manage your own).
+- [@moon/dev](./packages/dev) - Pre-packaged configuration module for general use (if you don't want
+  to manage your own).
 
 ## Contributing
 

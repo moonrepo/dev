@@ -1,0 +1,3 @@
+$schema: 'https://moonrepo.dev/schemas/global-project.json'
+
+extends: './oss/project-packages.yml'

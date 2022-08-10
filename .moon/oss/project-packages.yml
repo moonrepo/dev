@@ -1,0 +1,105 @@
+$schema: 'https://moonrepo.dev/schemas/global-project.json'
+
+fileGroups:
+  configs:
+    - '*.{js,json}'
+  sources:
+    - 'src/**/*'
+    - 'types/**/*'
+  tests:
+    - 'tests/**/*.test.*'
+    - '**/__tests__/**/*'
+  assets:
+    - 'assets/**/*'
+    - 'images/**/*'
+    - 'static/**/*'
+    - '**/*.{scss,css}'
+    - '**/*.mdx'
+
+tasks:
+  # https://moonrepo.dev/docs/guides/examples/packemon
+  build:
+    command: 'packemon'
+    args:
+      - 'build'
+      - '--addEngines'
+      - '--addExports'
+      - '--declaration'
+    deps:
+      - '^:build'
+    inputs:
+      - '@globs(sources)'
+      - 'package.json'
+      - 'tsconfig.json'
+      - '/tsconfig.options.json'
+    outputs:
+      - 'lib'
+      - 'dts'
+    env:
+      NODE_ENV: 'production'
+
+  # https://moonrepo.dev/docs/guides/examples/prettier
+  format:
+    command: 'prettier'
+    args:
+      - '--config'
+      - '@in(4)'
+      - '--ignore-path'
+      - '@in(3)'
+      - '--check'
+      - '.'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '**/*.{md,mdx,yml,yaml,json}'
+      - '/.prettierignore'
+      - '/.prettierrc.js'
+    options:
+      cache: false
+
+  # https://moonrepo.dev/docs/guides/examples/eslint
+  lint:
+    command: 'eslint'
+    args:
+      - '--ext'
+      - '.js,.jsx,.ts,.tsx'
+      - '--fix'
+      - '--report-unused-disable-directives'
+      - '--no-error-on-unmatched-pattern'
+      - '--exit-on-fatal-error'
+      - '--ignore-path'
+      - '@in(4)'
+      - '.'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - '@globs(configs)'
+      - '**/.eslintrc.*'
+      - '/.eslintignore'
+      - '/.eslintrc.*'
+
+  # https://moonrepo.dev/docs/guides/examples/jest
+  test:
+    command: 'jest'
+    args:
+      - '--coverage'
+      - '--passWithNoTests'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - 'jest.config.*'
+
+  # https://moonrepo.dev/docs/guides/examples/typescript
+  typecheck:
+    command: 'tsc'
+    args:
+      - '--build'
+      - '--pretty'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(tests)'
+      - 'tsconfig.json'
+      - 'tsconfig.*.json'
+      - '/tsconfig.options.json'
+    outputs:
+      - 'dts'

@@ -1,12 +1,12 @@
 {
-  "extends": "tsconfig-beemo/tsconfig.workspaces.json",
+  "extends": "./tsconfig.options.json",
   "files": [],
   "references": [
     {
       "path": "packages/babel-preset"
     },
     {
-      "path": "packages/constants"
+      "path": "packages/dev"
     },
     {
       "path": "packages/eslint-config"
@@ -15,7 +15,7 @@
       "path": "packages/jest-preset"
     },
     {
-      "path": "packages/jest-preset/tests"
+      "path": "packages/tsconfig"
     }
   ]
 }

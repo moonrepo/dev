@@ -1,5 +1,5 @@
 import type eslint from 'eslint';
-import { ECMA_VERSION } from '@beemo/config-constants';
+import { ECMA_VERSION } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	parser: '@typescript-eslint/parser',
@@ -19,9 +19,9 @@ const config: eslint.Linter.Config = {
 		[`es${ECMA_VERSION}`]: true,
 	},
 	globals: {
-		[`__DEV__`]: 'readonly',
-		[`__TEST__`]: 'readonly',
-		[`__PROD__`]: 'readonly',
+		__DEV__: 'readonly',
+		__PROD__: 'readonly',
+		__TEST__: 'readonly',
 	},
 	parserOptions: {
 		sourceType: 'module',

@@ -1,4 +1,9 @@
+cjs/
+coverage/
 dts/
+esm/
 lib/
+mjs/
+node_modules/
 *.d.ts
 *.json

@@ -1,5 +1,5 @@
 import type eslint from 'eslint';
-import { TESTS_LIST } from '@beemo/config-constants';
+import { TESTS_LIST } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	plugins: ['compat'],
@@ -13,9 +13,6 @@ const config: eslint.Linter.Config = {
 	overrides: [
 		{
 			files: TESTS_LIST,
-			env: {
-				browser: false,
-			},
 			rules: {
 				// Disable within tests as its noisy
 				'compact/compat': 'off',

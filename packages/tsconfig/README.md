@@ -1,14 +1,14 @@
-# tsconfig-beemo
+# tsconfig-moon
 
-[![Build Status](https://github.com/beemojs/dev/workflows/Build/badge.svg)](https://github.com/beemojs/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/tsconfig-beemo.svg)](https://www.npmjs.com/package/tsconfig-beemo)
-[![npm deps](https://david-dm.org/beemojs/dev.svg?path=packages/tsconfig)](https://www.npmjs.com/package/tsconfig-beemo)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![npm version](https://badge.fury.io/js/tsconfig-moon.svg)](https://www.npmjs.com/package/tsconfig-moon)
+[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/tsconfig)](https://www.npmjs.com/package/tsconfig-moon)
 
 Pre-packaged and modern TypeScript `tsconfig.json`s. Each config assumes that TypeScript will _only_
 be used as a type checker and _not_ a compiler.
 
 ```bash
-yarn install --dev tsconfig-beemo
+yarn install --dev tsconfig-moon
 ```
 
 ## Setup
@@ -17,7 +17,7 @@ Extend the config from your root `tsconfig.json`.
 
 ```json
 {
-	"extends": "tsconfig-beemo/tsconfig.json",
+	"extends": "tsconfig-moon/tsconfig.json",
 	"include": ["src/**/*"]
 }
 ```
@@ -31,7 +31,7 @@ Extend the config from your root `tsconfig.json`.
   - Enables ES interoperability and isolation.
   - Enables the `esnext` lib.
   - Targets `es2022` (since we only type check).
-- Supports project references through the `tsconfig.workspaces.json` config.
+- Supports project references through the `tsconfig.projects.json` config.
   - Enables declaration emitting.
 - Supports React through the `tsconfig.react.json` config.
   - Enables the `dom` lib.

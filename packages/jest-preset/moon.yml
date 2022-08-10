@@ -1,0 +1,9 @@
+dependsOn:
+  - 'dev'
+
+tasks:
+  test:
+    args:
+      - '--no-coverage'
+    deps:
+      - 'babel-preset:build'

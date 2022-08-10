@@ -1,23 +1,21 @@
 {
-  "name": "jest-preset-beemo",
-  "version": "2.2.1",
-  "release": "1624590167003",
-  "description": "Jest preset for Beemo configured projects.",
+  "name": "jest-preset-moon",
+  "version": "0.0.0",
+  "description": "Jest preset for moon configured projects.",
   "keywords": [
     "jest-preset",
-    "beemo"
+    "moon"
   ],
   "main": "./lib/index.js",
   "types": "./dts/index.d.ts",
   "files": [
     "dts/**/*.d.ts",
-    "jest-preset.js",
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:beemojs/dev.git",
+    "url": "git@github.com:moonrepo/dev.git",
     "directory": "packages/jest-preset"
   },
   "author": "Miles Johnson",
@@ -33,7 +31,7 @@
     "jest": ">=26.0.0"
   },
   "dependencies": {
-    "@beemo/config-constants": "^2.2.0",
+    "@moonrepo/dev": "^0.0.0",
     "@types/jest": "^28.1.6",
     "jest-circus": "^28.1.3",
     "jest-environment-jsdom": "^28.1.3"
@@ -52,5 +50,19 @@
     },
     "format": "lib",
     "platform": "node"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./jest-preset": "./lib/index.js",
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "node": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    ".": {
+      "types": "./dts/index.d.ts",
+      "node": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
   }
 }

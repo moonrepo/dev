@@ -1,12 +1,11 @@
 {
-  "name": "eslint-config-beemo",
-  "version": "2.1.2",
-  "release": "1624590167003",
-  "description": "Reusable ESLint config for Beemo configured projects.",
+  "name": "eslint-config-moon",
+  "version": "0.0.0",
+  "description": "Reusable ESLint config for moon configured projects.",
   "keywords": [
     "eslint-config",
     "airbnb",
-    "beemo",
+    "moon",
     "react",
     "typescript"
   ],
@@ -22,7 +21,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:beemojs/dev.git",
+    "url": "git@github.com:moonrepo/dev.git",
     "directory": "packages/eslint-config"
   },
   "author": "Miles Johnson",
@@ -35,10 +34,10 @@
     "npm": ">=6.14.0"
   },
   "peerDependencies": {
-    "eslint": "^7.0.0 || ^8.0.0"
+    "eslint": "^8.0.0"
   },
   "dependencies": {
-    "@beemo/config-constants": "^2.2.0",
+    "@moonrepo/dev": "^0.0.0",
     "@typescript-eslint/eslint-plugin": "^5.30.7",
     "@typescript-eslint/parser": "^5.30.7",
     "eslint-config-airbnb-base": "^15.0.0",
@@ -66,5 +65,18 @@
   "packemon": {
     "format": "lib",
     "platform": "node"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "node": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    ".": {
+      "types": "./dts/index.d.ts",
+      "node": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
   }
 }

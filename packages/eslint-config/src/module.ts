@@ -1,11 +1,6 @@
 import { builtinModules } from 'module';
 import type eslint from 'eslint';
-import {
-	EXTENSIONS,
-	IGNORE_LIST,
-	NON_JS_REGEX,
-	TS_PATH_PREFIX_REGEX,
-} from '@beemo/config-constants';
+import { EXTENSIONS, IGNORE_LIST, NON_JS_REGEX, TS_PATH_PREFIX_REGEX } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	plugins: ['import', 'simple-import-sort'],
@@ -25,8 +20,14 @@ const config: eslint.Linter.Config = {
 	// https://github.com/airbnb/javascript/blob/master/packages/eslint-config-airbnb-base/rules/imports.js
 	rules: {
 		// Doesnt play nice with TypeScript
+		// https://typescript-eslint.io/docs/linting/troubleshooting#eslint-plugin-import
 		'import/default': 'off',
+		'import/named': 'off',
+		'import/namespace': 'off',
 		'import/no-cycle': 'off',
+		'import/no-deprecated': 'off',
+		'import/no-named-as-default': 'off',
+		'import/no-named-as-default-member': 'off',
 
 		// Too controversial / abrasive
 		'import/max-dependencies': 'off',
@@ -66,9 +67,6 @@ const config: eslint.Linter.Config = {
 			{ commonjs: true, caseSensitiveStrict: true, ignore: [TS_PATH_PREFIX_REGEX] },
 		],
 
-		// Avoid using deprecated APIs
-		'import/no-deprecated': 'error',
-
 		// Prefer modern ESM and MJS code
 		'import/no-amd': 'error',
 		'import/no-commonjs': [
@@ -80,9 +78,9 @@ const config: eslint.Linter.Config = {
 		],
 		'import/no-import-module-exports': 'error',
 
-		// Prefer named exports (over default) as they provide a better package setup
+		// Prefer named exports (over default) as they provide a better experience
 		'import/no-anonymous-default-export': 'off',
-		'import/no-default-export': 'warn',
+		'import/no-default-export': 'error',
 		'import/no-named-export': 'off',
 		'import/prefer-default-export': 'off',
 
@@ -99,9 +97,10 @@ const config: eslint.Linter.Config = {
 						'^\\u0000',
 						// Node built-ins
 						`^(${builtinModules.join('|')})$`,
-						// React NPM packages
+						// React/Solid NPM packages
 						'^react',
 						'^@react',
+						'^solid',
 						// NPM packages
 						'^[a-z]',
 						// Scoped NPM packages
@@ -124,7 +123,7 @@ const config: eslint.Linter.Config = {
 	overrides: [
 		// Allow default exports from package indexes
 		{
-			files: ['**/index.ts', '**/index.tsx', '**/index.cts', '**/index.mts'],
+			files: ['**/index.*'],
 			rules: {
 				'import/no-default-export': 'off',
 			},

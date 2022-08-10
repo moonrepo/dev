@@ -1,15 +1,15 @@
-# babel-preset-beemo
+# babel-preset-moon
 
-[![Build Status](https://github.com/beemojs/dev/workflows/Build/badge.svg)](https://github.com/beemojs/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/babel-preset-beemo.svg)](https://www.npmjs.com/package/babel-preset-beemo)
-[![npm deps](https://david-dm.org/beemojs/dev.svg?path=packages/babel-preset)](https://www.npmjs.com/package/babel-preset-beemo)
+[![Build Status](https://github.com/moonrepo/dev/workflows/Build/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
+[![npm version](https://badge.fury.io/js/babel-preset-moon.svg)](https://www.npmjs.com/package/babel-preset-moon)
+[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/babel-preset)](https://www.npmjs.com/package/babel-preset-moon)
 
 A modern Babel preset with built-in TypeScript support. Is designed for unit testing, linting, and
-local development only -- it _should not_ be used for package building, use
-[Packemon](https://packemon.dev) instead.
+local development only -- it _should not_ be used for web applications or package building (use
+[Packemon](https://packemon.dev) instead).
 
 ```bash
-yarn install --dev babel-preset-beemo
+yarn install --dev babel-preset-moon
 ```
 
 ## Setup
@@ -18,7 +18,7 @@ Add the preset to your root `babel.config.js`.
 
 ```js
 module.exports = {
-	presets: ['beemo'],
+	presets: ['moon'],
 };
 ```
 
@@ -29,7 +29,8 @@ module.exports = {
 - Enables native `async`/`await` and avoids Regenerator.
 - Enables `export` default and namespace from syntax.
 - Supports the `react` preset and both JSX runtimes.
-- Converts `__DEV__` conditionals to `process.env` checks.
+- Converts `__DEV__`, `__PROD__`, and `__TEST__` to `process.env` checks.
+- Wraps `invariant()` in `process.env` conditionals.
 
 ## Options
 
@@ -47,6 +48,6 @@ The following options can be passed to the preset.
 
 ```js
 module.exports = {
-	presets: [['beemo', { decorators: true, react: 'automatic' }]],
+	presets: [['moon', { decorators: true, react: 'automatic' }]],
 };
 ```

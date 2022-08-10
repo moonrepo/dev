@@ -1,11 +1,10 @@
 {
-  "name": "babel-preset-beemo",
-  "version": "2.0.1",
-  "release": "1624590167003",
-  "description": "Babel preset for Beemo configured projects.",
+  "name": "babel-preset-moon",
+  "version": "0.0.0",
+  "description": "Babel preset for tooling development.",
   "keywords": [
     "babel-preset",
-    "beemo",
+    "moon",
     "node",
     "env",
     "typescript",
@@ -20,7 +19,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:beemojs/dev.git",
+    "url": "git@github.com:moonrepo/dev.git",
     "directory": "packages/babel-preset"
   },
   "author": "Miles Johnson",
@@ -37,17 +36,18 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-decorators": "^7.18.9",
-    "@babel/plugin-proposal-export-default-from": "^7.18.9",
+    "@babel/plugin-proposal-decorators": "^7.18.10",
+    "@babel/plugin-proposal-export-default-from": "^7.18.10",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@babel/plugin-proposal-private-methods": "^7.18.6",
-    "@babel/preset-env": "^7.18.9",
+    "@babel/preset-env": "^7.18.10",
     "@babel/preset-react": "^7.18.6",
     "@babel/preset-typescript": "^7.18.6",
-    "babel-plugin-transform-dev": "^2.0.1"
+    "babel-plugin-conditional-invariant": "^2.0.1",
+    "babel-plugin-env-constants": "^2.0.1"
   },
   "devDependencies": {
-    "@babel/core": "^7.18.9"
+    "@babel/core": "^7.18.10"
   },
   "funding": {
     "type": "ko-fi",
@@ -56,5 +56,18 @@
   "packemon": {
     "format": "lib",
     "platform": "node"
+  },
+  "exports": {
+    "./package.json": "./package.json",
+    "./*": {
+      "types": "./dts/*.d.ts",
+      "node": "./lib/*.js",
+      "default": "./lib/*.js"
+    },
+    ".": {
+      "types": "./dts/index.d.ts",
+      "node": "./lib/index.js",
+      "default": "./lib/index.js"
+    }
   }
 }

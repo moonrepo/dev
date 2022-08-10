@@ -1,9 +1,5 @@
-import path from 'path';
-
-// eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
-export const ROOT = process.env.BEEMO_ROOT || process.cwd();
-export const PACKAGE_JSON_PATH = path.join(ROOT, 'package.json');
-export const TSCONFIG_JSON_PATH = path.join(ROOT, 'tsconfig.json');
+export const WORKSPACE_ROOT = process.env.MOON_WORKSPACE_ROOT ?? process.cwd();
+export const PROJECT_ROOT = process.env.MOON_PROJECT_ROOT ?? process.cwd();
 
 // Support consistent sorting across the board
 // Its off since simple-import-sort doesnt support it!
@@ -26,7 +22,7 @@ export const IGNORE_LIST = [
 	'umd/',
 ];
 
-// Supported file extenes
+// Supported file extensions
 export const EXTENSIONS = ['.ts', '.tsx', '.cts', '.mts', '.js', '.jsx', '.cjs', '.mjs'];
 export const EXTENSIONS_WITHOUT_DOT = EXTENSIONS.map((ext) => ext.slice(1));
 export const EXTENSIONS_PATTERN = EXTENSIONS_WITHOUT_DOT.join(',');
