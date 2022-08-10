@@ -17,7 +17,6 @@ const config: eslint.Linter.Config = {
 		'node/no-deprecated-api': 'error',
 		'node/no-unpublished-bin': 'error',
 		'node/no-unpublished-import': 'error',
-		'node/no-unpublished-require': 'error',
 		'node/no-unsupported-features/es-builtins': 'error',
 		'node/no-unsupported-features/node-builtins': 'error',
 		'node/shebang': 'error',
@@ -50,6 +49,7 @@ const config: eslint.Linter.Config = {
 		'node/no-extraneous-require': 'off',
 		'node/no-missing-import': 'off',
 		'node/no-missing-require': 'off',
+		'node/no-unpublished-require': 'off',
 
 		// This is a common occurrence in node scripts
 		'global-require': 'off',

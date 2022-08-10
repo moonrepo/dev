@@ -4,7 +4,8 @@
     "outDir": "../../.moon/types/packages/jest-preset"
   },
   "include": [
-    "src/**/*"
+    "src/**/*",
+    "jest.config.js"
   ],
   "references": [
     {
