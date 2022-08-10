@@ -1,14 +1,10 @@
 {
   "private": true,
   "name": "moon-dev",
-  "version": "0.0.0",
   "scripts": {
-    "check": "yarn run type && yarn run test && yarn run lint",
-    "lint": "eslint --cache --fix packages/*/{src,tests}/**/*.ts",
     "prerelease": "node scripts/releaseCheck.mjs && yarn run pack && yarn run check",
     "release": "yarn prerelease && lerna version --conventional-commits --changelog-preset conventional-changelog-beemo --create-release github --push && lerna publish from-git",
     "setup": "moon run :build",
-    "test": "jest",
     "version": "yarn install && git add yarn.lock"
   },
   "workspaces": [
