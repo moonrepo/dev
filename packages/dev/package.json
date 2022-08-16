@@ -8,7 +8,11 @@
   ],
   "main": "./lib/index.js",
   "types": "./dts/index.d.ts",
+  "bin": {
+    "lerna-release": "./bin/lerna-release.sh"
+  },
   "files": [
+    "bin/**/*",
     "dts/**/*.d.ts",
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
