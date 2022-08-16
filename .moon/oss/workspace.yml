@@ -24,3 +24,7 @@ node:
 typescript:
   createMissingConfig: false
   syncProjectReferences: true
+
+vcs:
+  manager: 'git'
+  defaultBranch: 'master'
