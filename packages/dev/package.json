@@ -9,10 +9,9 @@
   "main": "./lib/index.js",
   "types": "./dts/index.d.ts",
   "bin": {
-    "lerna-release": "./bin/lerna-release.sh"
+    "lerna-release": "./lib/bin/lernaRelease.js"
   },
   "files": [
-    "bin/**/*",
     "dts/**/*.d.ts",
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
@@ -51,5 +50,8 @@
       "node": "./lib/index.js",
       "default": "./lib/index.js"
     }
+  },
+  "dependencies": {
+    "execa": "^5.1.1"
   }
 }

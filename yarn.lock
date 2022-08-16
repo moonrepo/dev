@@ -2914,6 +2914,8 @@ __metadata:
 "@moonrepo/dev@^0.0.2, @moonrepo/dev@workspace:packages/dev":
   version: 0.0.0-use.local
   resolution: "@moonrepo/dev@workspace:packages/dev"
+  dependencies:
+    execa: ^5.1.1
   bin:
     lerna-release: ./bin/lerna-release.sh
   languageName: unknown
