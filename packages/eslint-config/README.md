@@ -2,11 +2,11 @@
 
 [![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
 [![npm version](https://badge.fury.io/js/eslint-config-moon.svg)](https://www.npmjs.com/package/eslint-config-moon)
-[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/eslint-config)](https://www.npmjs.com/package/eslint-config-moon)
 
-A modern TypeScript-only ESLint config with optional presets. Expands upon the amazing
-[Airbnb config](https://www.npmjs.com/package/eslint-config-airbnb-base) to provide the latest
-ECMAScript features, enforce popular patterns, and align with the wider community.
+A modern and strict ESLint configuration with optional presets and first-class TypeScript support.
+Expands upon the amazing [Airbnb config](https://www.npmjs.com/package/eslint-config-airbnb-base) to
+provide the latest ECMAScript features, enforce popular patterns, and align with the wider
+community.
 
 ```bash
 yarn install --dev eslint eslint-config-moon
@@ -39,7 +39,7 @@ The following additional configs can also be extended, but are not enabled by de
   [react-perf](https://www.npmjs.com/package/eslint-plugin-react-perf), and
   [jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) plugins.
   - Only applies to `*.tsx` files and also extends the `browser` preset.
-  - Enables automatic JSX runtime if root `react` version is 17+.
+  - Enables automatic JSX runtime if `react` version is 17+.
 
 ## Features
 

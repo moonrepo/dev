@@ -1,7 +1,7 @@
 {
   "name": "babel-preset-moon",
   "version": "0.0.0",
-  "description": "Babel preset for tooling development.",
+  "description": "A modern Babel preset for tooling development.",
   "keywords": [
     "babel-preset",
     "moon",

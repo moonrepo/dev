@@ -1,7 +1,7 @@
 {
   "name": "eslint-config-moon",
   "version": "0.0.0",
-  "description": "Reusable ESLint config for moon configured projects.",
+  "description": "A modern and strict ESLint configuration.",
   "keywords": [
     "eslint-config",
     "airbnb",

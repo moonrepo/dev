@@ -2,13 +2,13 @@
 
 [![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
 [![npm version](https://badge.fury.io/js/%40moonrepo%dev.svg)](https://www.npmjs.com/package/@moonrepo/dev)
-[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/dev)](https://www.npmjs.com/package/@moon/dev)
 
 This repository is a collection of moon owned and maintained configurations and presets for common
 developer tools -- primarily tools used by moonrepo and its authors.
 
 It aims to provide a strict, modern, developer accessible, convention over configuration approach to
-JavaScript, TypeScript, and React projects!
+JavaScript, TypeScript, and React projects! All of these configs have been designed for local and
+developer tooling based development!
 
 ## Packages
 
@@ -31,9 +31,9 @@ and more. This should rarely be used directly!
 
 ## Contributing
 
-So... all these configs are personal preference and won't change drastically. You're welcome to use
-them as-is, but changes are unlikely to land. Feel free to create an issue otherwise so that we can
-discuss the intended change.
+All these configs are personal preference and won't change drastically. You're welcome to use them
+as-is, but major changes are unlikely to land. Feel free to create an issue otherwise so that we can
+discuss any intended change.
 
 ### Why tabs over spaces?
 

@@ -1,7 +1,7 @@
 {
   "name": "jest-preset-moon",
   "version": "0.0.0",
-  "description": "Jest preset for moon configured projects.",
+  "description": "A modern Jest preset for tooling development.",
   "keywords": [
     "jest-preset",
     "moon"
@@ -10,6 +10,7 @@
   "types": "./dts/index.d.ts",
   "files": [
     "dts/**/*.d.ts",
+    "jest-preset.js",
     "lib/**/*.{js,map}",
     "src/**/*.{ts,tsx,json}"
   ],
