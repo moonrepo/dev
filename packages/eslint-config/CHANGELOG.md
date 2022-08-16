@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 0.0.2 - 2022-08-16
+
+#### 🐞 Fixes
+
+- Add overrides for config files (`*.config.js`). (#3) ([f2f2070](https://github.com/moonrepo/dev/commit/f2f2070)), closes [#3](https://github.com/moonrepo/dev/issues/3)
+
+#### 📦 Dependencies
+
+- Update all to latest. ([eb34fff](https://github.com/moonrepo/dev/commit/eb34fff))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 0.0.1 - 2022-08-16
 
 #### 🐞 Fixes
