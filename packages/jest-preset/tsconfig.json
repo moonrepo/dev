@@ -6,7 +6,8 @@
   "include": [
     "src/**/*",
     "tests/**/*",
-    "jest.config.js"
+    "jest.config.js",
+    "jest-preset.js"
   ],
   "references": [
     {
