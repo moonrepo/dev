@@ -4,9 +4,8 @@
   "scripts": {
     "build": "packemon build",
     "moon": "$(yarn bin moon) --color",
-    "prerelease": "node scripts/releaseCheck.mjs && yarn run pack && yarn run check",
+    "prerelease": "node scripts/releaseCheck.mjs && yarn moon run :build",
     "release": "yarn prerelease && lerna version --conventional-commits --changelog-preset conventional-changelog-beemo --create-release github --push && lerna publish from-git",
-    "setup": "yarn moon run :build",
     "version": "yarn install && git add yarn.lock"
   },
   "workspaces": [
