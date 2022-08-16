@@ -2911,13 +2911,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/dev@^0.0.2, @moonrepo/dev@workspace:packages/dev":
+"@moonrepo/dev@^0.0.2, @moonrepo/dev@workspace:*, @moonrepo/dev@workspace:packages/dev":
   version: 0.0.0-use.local
   resolution: "@moonrepo/dev@workspace:packages/dev"
   dependencies:
     execa: ^5.1.1
   bin:
-    lerna-release: ./bin/lerna-release.sh
+    lerna-release: ./lib/bin/lernaRelease.js
   languageName: unknown
   linkType: soft
 
@@ -8829,6 +8829,7 @@ __metadata:
   dependencies:
     "@babel/core": ^7.18.10
     "@moonrepo/cli": ^0.11.1
+    "@moonrepo/dev": "workspace:*"
     conventional-changelog-beemo: ^3.0.1
     eslint: ^8.22.0
     jest: ^28.1.3
