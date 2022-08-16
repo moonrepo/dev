@@ -34,7 +34,10 @@ export const TEST_FILES_GLOB = `**/{tests,__tests__}/**/*.test.{${EXTENSIONS_PAT
 export const TEST_UTILS_GLOB = `**/{tests,__tests__}/**/*.{${EXTENSIONS_PATTERN}}`;
 
 // List of globs to find all test related files
-export const TESTS_LIST = [TEST_FILES_GLOB, TEST_UTILS_GLOB, `test.{${EXTENSIONS_PATTERN}}`];
+export const TESTS_LIST = [TEST_FILES_GLOB, TEST_UTILS_GLOB, `**/test.{${EXTENSIONS_PATTERN}}`];
+
+// List of globs to find config related files
+export const CONFIGS_LIST = ['**/.*.{js,cjs}', '**/*.config.{js,cjs}'];
 
 // Pattern of file extensions
 export const NON_JS_REGEX = '\\.(css|sass|scss|less|gif|png|jpg|jpeg|svg|gql|graphql|yml|yaml)$';

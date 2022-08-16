@@ -1,4 +1,4 @@
 module.exports = {
 	root: true,
-	extends: ['moon/node', 'moon'],
+	extends: ['moon', 'moon/node'],
 };
