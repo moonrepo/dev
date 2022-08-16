@@ -111,5 +111,3 @@ tasks:
       - 'tsconfig.json'
       - 'tsconfig.*.json'
       - '/tsconfig.options.json'
-    outputs:
-      - 'dts'
