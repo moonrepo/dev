@@ -15,10 +15,10 @@
     "@babel/core": "^7.18.10",
     "@moonrepo/cli": "^0.11.1",
     "conventional-changelog-beemo": "^3.0.1",
-    "eslint": "^8.20.0",
+    "eslint": "^8.22.0",
     "jest": "^28.1.3",
     "jest-circus": "^28.1.3",
-    "lerna": "^5.4.2",
+    "lerna": "^5.4.3",
     "packemon": "^2.3.3",
     "prettier": "^2.7.1",
     "typescript": "^4.7.4"
