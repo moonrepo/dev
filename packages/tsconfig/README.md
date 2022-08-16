@@ -2,10 +2,9 @@
 
 [![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
 [![npm version](https://badge.fury.io/js/tsconfig-moon.svg)](https://www.npmjs.com/package/tsconfig-moon)
-[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/tsconfig)](https://www.npmjs.com/package/tsconfig-moon)
 
-Pre-packaged and modern TypeScript `tsconfig.json`s. Each config assumes that TypeScript will _only_
-be used as a type checker and _not_ a compiler.
+Pre-packaged, strict, and modern TypeScript `tsconfig.json`s. Each config assumes that TypeScript
+will _only_ be used as a type checker and _not_ a compiler.
 
 ```bash
 yarn install --dev tsconfig-moon

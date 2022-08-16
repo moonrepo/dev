@@ -2,7 +2,6 @@
 
 [![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
 [![npm version](https://badge.fury.io/js/babel-preset-moon.svg)](https://www.npmjs.com/package/babel-preset-moon)
-[![npm deps](https://david-dm.org/moonrepo/dev.svg?path=packages/babel-preset)](https://www.npmjs.com/package/babel-preset-moon)
 
 A modern Babel preset with built-in TypeScript support. Is designed for unit testing, linting, and
 local development only -- it _should not_ be used for web applications or package building (use
