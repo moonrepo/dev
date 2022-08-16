@@ -41,8 +41,8 @@ const reactConfig: eslint.Linter.ConfigOverride = {
 		'react/jsx-wrap-multilines': 'off',
 
 		// Support the new JSX runtime when available
-		'react/react-in-jsx-scope': reactVersion > 17 ? 'off' : 'error',
-		'react/jsx-uses-react': reactVersion > 17 ? 'off' : 'error',
+		'react/react-in-jsx-scope': reactVersion >= 17 ? 'off' : 'error',
+		'react/jsx-uses-react': reactVersion >= 17 ? 'off' : 'error',
 
 		// Align with the DOM instead, avoid "is" prefix
 		'react/boolean-prop-naming': 'off',
