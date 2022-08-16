@@ -24,4 +24,5 @@ jobs:
         with:
           node: ${{ matrix.node-version }}
       - run: yarn install --immutable
+      - run: yarn build
       - run: yarn moon ci
