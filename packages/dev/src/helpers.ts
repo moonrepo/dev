@@ -49,6 +49,16 @@ export function getProjectPackageJson(file?: string): PackageJson | null {
 	return loadPackageJson(file ?? path.join(PROJECT_ROOT, 'package.json'));
 }
 
+export function getClosestPackageJson(startingDir: string): PackageJson {
+	const packagePath = path.join(startingDir, 'package.json');
+
+	if (fs.existsSync(packagePath)) {
+		return loadPackageJson(packagePath)!;
+	}
+
+	return getClosestPackageJson(path.dirname(startingDir));
+}
+
 // NODE.JS
 
 let nodeVersion: number;

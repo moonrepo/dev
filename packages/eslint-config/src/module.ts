@@ -1,6 +1,12 @@
 import { builtinModules } from 'module';
 import type eslint from 'eslint';
-import { EXTENSIONS, IGNORE_LIST, NON_JS_REGEX, TS_PATH_PREFIX_REGEX } from '@moonrepo/dev';
+import {
+	CONFIGS_LIST,
+	EXTENSIONS,
+	IGNORE_LIST,
+	NON_JS_REGEX,
+	TS_PATH_PREFIX_REGEX,
+} from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	plugins: ['import', 'simple-import-sort'],
@@ -128,9 +134,9 @@ const config: eslint.Linter.Config = {
 				'import/no-default-export': 'off',
 			},
 		},
-		// Standard JS files have different semantics
+		// Config files have different semantics
 		{
-			files: ['*.js'],
+			files: CONFIGS_LIST,
 			rules: {
 				'import/no-commonjs': 'off',
 			},

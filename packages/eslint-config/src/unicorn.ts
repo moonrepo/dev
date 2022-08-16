@@ -1,5 +1,5 @@
 import type eslint from 'eslint';
-import { getTargetNodeRuntime } from '@moonrepo/dev';
+import { CONFIGS_LIST, getTargetNodeRuntime } from '@moonrepo/dev';
 
 const nodeVersion = getTargetNodeRuntime();
 
@@ -148,6 +148,15 @@ const config: eslint.Linter.Config = {
 		'unicorn/prefer-at': 'off',
 		'unicorn/prefer-string-replace-all': 'off',
 	},
+	overrides: [
+		// Config files have different semantics
+		{
+			files: CONFIGS_LIST,
+			rules: {
+				'unicorn/prefer-module': 'off',
+			},
+		},
+	],
 };
 
 export default config;

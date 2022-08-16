@@ -1,5 +1,5 @@
 import type eslint from 'eslint';
-import { TESTS_LIST } from '@moonrepo/dev';
+import { CONFIGS_LIST, TESTS_LIST } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	plugins: ['compat'],
@@ -12,7 +12,7 @@ const config: eslint.Linter.Config = {
 	},
 	overrides: [
 		{
-			files: TESTS_LIST,
+			files: [...CONFIGS_LIST, ...TESTS_LIST],
 			rules: {
 				// Disable within tests as its noisy
 				'compact/compat': 'off',
