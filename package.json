@@ -1,12 +1,11 @@
 {
   "private": true,
   "name": "moon-dev",
+  "version": "1.0.0",
   "scripts": {
-    "build": "packemon build",
     "moon": "$(yarn bin moon) --color",
-    "prerelease": "node scripts/releaseCheck.mjs && yarn moon run :build",
-    "release": "yarn prerelease && lerna version --conventional-commits --changelog-preset conventional-changelog-beemo --create-release github --push && lerna publish from-git",
-    "version": "yarn install && git add yarn.lock"
+    "release": "yarn moon run :build && lerna-release",
+    "setup": "packemon build"
   },
   "workspaces": [
     "packages/*"
@@ -14,7 +13,7 @@
   "devDependencies": {
     "@babel/core": "^7.18.10",
     "@moonrepo/cli": "^0.11.1",
-    "conventional-changelog-beemo": "^3.0.1",
+    "@moonrepo/dev": "workspace:*",
     "eslint": "^8.22.0",
     "jest": "^28.1.3",
     "jest-circus": "^28.1.3",

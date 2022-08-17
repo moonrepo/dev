@@ -8,6 +8,9 @@
   ],
   "main": "./lib/index.js",
   "types": "./dts/index.d.ts",
+  "bin": {
+    "lerna-release": "./lib/bin/lernaRelease.js"
+  },
   "files": [
     "dts/**/*.d.ts",
     "lib/**/*.{js,map}",
@@ -47,5 +50,9 @@
       "node": "./lib/index.js",
       "default": "./lib/index.js"
     }
+  },
+  "dependencies": {
+    "conventional-changelog-beemo": "^3.0.1",
+    "execa": "^5.1.1"
   }
 }
