@@ -8,8 +8,8 @@ This repository is a collection of moon owned and maintained configurations and 
 developer tools -- primarily tools used by moonrepo and its authors.
 
 It aims to provide a strict, modern, developer accessible, convention over configuration approach to
-JavaScript, TypeScript, and React projects! All of these configs have been designed for local and
-developer tooling based development!
+JavaScript, TypeScript (first), and React/Solid projects! All of these configs have been designed
+for local and developer tooling based development!
 
 ## Packages
 

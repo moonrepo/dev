@@ -29,6 +29,7 @@ module.exports = {
 - Enables native `async`/`await` and avoids Regenerator.
 - Enables `export` default and namespace from syntax.
 - Supports the `react` preset and both JSX runtimes.
+- Supports the `solid` preset with SSR and hydration.
 - Converts `__DEV__`, `__PROD__`, and `__TEST__` to `process.env` checks.
 - Wraps `invariant()` in `process.env` conditionals.
 
@@ -43,6 +44,7 @@ The following options can be passed to the preset.
   (`auto` modules).
 - `react` (`boolean | classic | automatic`) - Enable the React plugin and the defined JSX runtime.
   Defaults to `false`.
+- `solid` (`boolean | ssr`) - Enable the Solid.js plugin. Hydration is always enabled.
 - `targets` (`Record<string, string> | string[] | string`) - Override the target environment.
   Defaults to Node.js `current`.
 
