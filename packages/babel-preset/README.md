@@ -1,14 +1,15 @@
 # babel-preset-moon
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/babel-preset-moon.svg)](https://www.npmjs.com/package/babel-preset-moon)
+![build status](https://img.shields.io/github/workflow/status/moonrepo/dev/Pipeline)
+![npm version](https://img.shields.io/npm/v/babel-preset-moon)
+![npm license](https://img.shields.io/npm/l/babel-preset-moon)
 
 A modern Babel preset with built-in TypeScript support. Is designed for unit testing, linting, and
 local development only -- it _should not_ be used for web applications or package building (use
 [Packemon](https://packemon.dev) instead).
 
 ```bash
-yarn install --dev babel-preset-moon
+yarn add --dev babel-preset-moon
 ```
 
 ## Setup

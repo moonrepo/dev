@@ -1,13 +1,14 @@
 # tsconfig-moon
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/tsconfig-moon.svg)](https://www.npmjs.com/package/tsconfig-moon)
+![build status](https://img.shields.io/github/workflow/status/moonrepo/dev/Pipeline)
+![npm version](https://img.shields.io/npm/v/tsconfig-moon)
+![npm license](https://img.shields.io/npm/l/tsconfig-moon)
 
 Pre-packaged, strict, and modern TypeScript `tsconfig.json`s. Each config assumes that TypeScript
 will _only_ be used as a type checker and _not_ a compiler.
 
 ```bash
-yarn install --dev tsconfig-moon
+yarn add --dev tsconfig-moon
 ```
 
 ## Setup
