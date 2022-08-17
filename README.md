@@ -30,7 +30,9 @@ used stand-alone within their respective tools.
 And last but not least, the [@moonrepo/dev](./packages/dev) package that provides helpers, constans,
 and more. This should rarely be used directly!
 
-## Contributing
+## FAQ
+
+### Can I contribute changes?
 
 All these configs are personal preference and won't change drastically. You're welcome to use them
 as-is, but major changes are unlikely to land. Feel free to create an issue otherwise so that we can
@@ -41,3 +43,21 @@ discuss any intended change.
 The JavaScript ecosystem heavily prefers spaces over tabs. However, tabs are more accessible as they
 allow developers with vision impairments to control their indentation and improve its readability.
 Preferring accessibility compliance over a stylistic choice is always the better option.
+
+### How are packages versioned?
+
+To start, this repo utilizes [conventional commits](https://www.conventionalcommits.org/en/v1.0.0/)
+for versioning and publishing. We achieve this by requiring a
+[specific prefix](https://github.com/beemojs/conventional-changelog-beemo#type) in pull request
+titles. With that being said, the versioning strategy is as follows:
+
+- Patch
+  - Dependency upgrades.
+  - Bug fixes.
+- Minor
+  - Enabling or disabling settings or lint rules.
+  - Adding new dependencies (like babel plugins).
+  - Adding new features.
+- Major
+  - Node.js minimum requirements / upgraes.
+  - Major version upgrades for tools (e.g., eslint 7 -> 8).
