@@ -187,6 +187,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@babel/helper-module-imports@npm:7.16.0":
+  version: 7.16.0
+  resolution: "@babel/helper-module-imports@npm:7.16.0"
+  dependencies:
+    "@babel/types": ^7.16.0
+  checksum: 8e1eb9ac39440e52080b87c78d8d318e7c93658bdd0f3ce0019c908de88cbddafdc241f392898c0b0ba81fc52c8c6d2f9cc1b163ac5ed2a474d49b11646b7516
+  languageName: node
+  linkType: hard
+
 "@babel/helper-module-imports@npm:^7.10.4, @babel/helper-module-imports@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/helper-module-imports@npm:7.18.6"
@@ -718,7 +727,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-syntax-jsx@npm:^7.18.6":
+"@babel/plugin-syntax-jsx@npm:^7.16.5, @babel/plugin-syntax-jsx@npm:^7.18.6":
   version: 7.18.6
   resolution: "@babel/plugin-syntax-jsx@npm:7.18.6"
   dependencies:
@@ -1472,7 +1481,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/types@npm:^7.0.0, @babel/types@npm:^7.18.10, @babel/types@npm:^7.18.6, @babel/types@npm:^7.18.9, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
+"@babel/types@npm:^7.0.0, @babel/types@npm:^7.16.0, @babel/types@npm:^7.18.10, @babel/types@npm:^7.18.6, @babel/types@npm:^7.18.9, @babel/types@npm:^7.3.0, @babel/types@npm:^7.3.3, @babel/types@npm:^7.4.4, @babel/types@npm:^7.8.3":
   version: 7.18.10
   resolution: "@babel/types@npm:7.18.10"
   dependencies:
@@ -4365,6 +4374,20 @@ __metadata:
   languageName: node
   linkType: hard
 
+"babel-plugin-jsx-dom-expressions@npm:^0.33.14":
+  version: 0.33.14
+  resolution: "babel-plugin-jsx-dom-expressions@npm:0.33.14"
+  dependencies:
+    "@babel/helper-module-imports": 7.16.0
+    "@babel/plugin-syntax-jsx": ^7.16.5
+    "@babel/types": ^7.16.0
+    html-entities: 2.3.2
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: a697b4a46e1faa4c6d52530d23237bd06ac6a757d258ce8411fe62e11e819a03b7fe8a5722f3199bebb2bc46ff1fcf701c8dc2b5d77bbba47649dafac402fb46
+  languageName: node
+  linkType: hard
+
 "babel-plugin-polyfill-corejs2@npm:^0.3.2":
   version: 0.3.2
   resolution: "babel-plugin-polyfill-corejs2@npm:0.3.2"
@@ -4450,10 +4473,22 @@ __metadata:
     "@babel/preset-typescript": ^7.18.6
     babel-plugin-conditional-invariant: ^2.0.1
     babel-plugin-env-constants: ^2.0.1
+    babel-preset-solid: ^1.4.8
   peerDependencies:
     "@babel/core": ">=7.0.0"
   languageName: unknown
   linkType: soft
+
+"babel-preset-solid@npm:^1.4.8":
+  version: 1.4.8
+  resolution: "babel-preset-solid@npm:1.4.8"
+  dependencies:
+    babel-plugin-jsx-dom-expressions: ^0.33.14
+  peerDependencies:
+    "@babel/core": ^7.0.0
+  checksum: e3776daeca80e01344f9ad356864bbb14e2ba60dea618c8c0fd09bef487d1020a4215a1c6b9ecaf959a68e142b3dd7653ec5748eba7584cfa9c84693fff364b7
+  languageName: node
+  linkType: hard
 
 "balanced-match@npm:^1.0.0":
   version: 1.0.2
@@ -6882,6 +6917,13 @@ __metadata:
   dependencies:
     whatwg-encoding: ^2.0.0
   checksum: 8d806aa00487e279e5ccb573366a951a9f68f65c90298eac9c3a2b440a7ffe46615aff2995a2f61c6746c639234e6179a97e18ca5ccbbf93d3725ef2099a4502
+  languageName: node
+  linkType: hard
+
+"html-entities@npm:2.3.2":
+  version: 2.3.2
+  resolution: "html-entities@npm:2.3.2"
+  checksum: 522d8d202df301ff51b517a379e642023ed5c81ea9fb5674ffad88cff386165733d00b6089d5c2fcc644e44777d6072017b6216d8fa40f271d3610420d00a886
   languageName: node
   linkType: hard
 

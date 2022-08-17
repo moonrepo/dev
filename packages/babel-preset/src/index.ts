@@ -8,12 +8,13 @@ export interface BabelPresetMoonOptions {
 	loose?: boolean;
 	modules?: boolean;
 	react?: boolean | 'automatic' | 'classic';
+	solid?: boolean | 'ssr';
 	targets?: Record<string, string> | string[] | string;
 }
 
 export default function babelPresetMoon(
 	api: unknown,
-	{ decorators, loose, modules, react, targets }: BabelPresetMoonOptions = {},
+	{ decorators, loose, modules, react, solid, targets }: BabelPresetMoonOptions = {},
 ) {
 	let looseMode = loose ?? false;
 
@@ -64,6 +65,13 @@ export default function babelPresetMoon(
 				development: __DEV__,
 				runtime: react === 'automatic' ? 'automatic' : 'classic',
 			},
+		]);
+	}
+
+	if (solid) {
+		presets.push([
+			'babel-preset-solid',
+			{ generate: solid === 'ssr' ? 'ssr' : 'dom', hydratable: true },
 		]);
 	}
 
