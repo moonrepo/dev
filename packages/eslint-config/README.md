@@ -1,7 +1,8 @@
 # eslint-config-moon
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/eslint-config-moon.svg)](https://www.npmjs.com/package/eslint-config-moon)
+![build status](https://img.shields.io/github/workflow/status/moonrepo/dev/Pipeline)
+![npm version](https://img.shields.io/npm/v/eslint-config-moon)
+![npm license](https://img.shields.io/npm/l/eslint-config-moon)
 
 A modern and strict ESLint configuration with optional presets and first-class TypeScript support.
 Expands upon the amazing [Airbnb config](https://www.npmjs.com/package/eslint-config-airbnb-base) to
@@ -9,7 +10,7 @@ provide the latest ECMAScript features, enforce popular patterns, and align with
 community.
 
 ```bash
-yarn install --dev eslint eslint-config-moon
+yarn add --dev eslint eslint-config-moon
 ```
 
 ## Setup

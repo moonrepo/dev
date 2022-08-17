@@ -1,12 +1,13 @@
 # jest-preset-moon
 
-[![Build Status](https://github.com/moonrepo/dev/workflows/Pipeline/badge.svg)](https://github.com/moonrepo/dev/actions?query=branch%3Amaster)
-[![npm version](https://badge.fury.io/js/jest-preset-moon.svg)](https://www.npmjs.com/package/jest-preset-moon)
+![build status](https://img.shields.io/github/workflow/status/moonrepo/dev/Pipeline)
+![npm version](https://img.shields.io/npm/v/jest-preset-moon)
+![npm license](https://img.shields.io/npm/l/jest-preset-moon)
 
 A modern Jest preset that provides code coverage and performance out of the box.
 
 ```bash
-yarn install --dev jest-preset-moon
+yarn add --dev jest-preset-moon
 ```
 
 ## Setup
