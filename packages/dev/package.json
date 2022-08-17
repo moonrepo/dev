@@ -1,6 +1,6 @@
 {
   "name": "@moonrepo/dev",
-  "version": "0.0.2",
+  "version": "0.1.0",
   "description": "Reusable constants and helpers for moon configurations.",
   "keywords": [
     "moon",

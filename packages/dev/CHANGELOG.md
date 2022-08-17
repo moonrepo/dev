@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 0.1.0 - 2022-08-17
+
+#### 🎉 Release
+
+- Prepare for initial release. (#5) ([e1e00f1](https://github.com/moonrepo/dev/commit/e1e00f1)), closes [#5](https://github.com/moonrepo/dev/issues/5)
+
+#### 🚀 Updates
+
+- Add a basic release script using lerna. (#4) ([e934001](https://github.com/moonrepo/dev/commit/e934001)), closes [#4](https://github.com/moonrepo/dev/issues/4)
+
+**Note:** Version bump only for package @moonrepo/dev
+
+
+
+
+
 ### 0.0.2 - 2022-08-16
 
 #### 🐞 Fixes
