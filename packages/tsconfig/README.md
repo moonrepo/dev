@@ -36,5 +36,6 @@ Extend the config from your root `tsconfig.json`.
 - Supports React through the `tsconfig.react.json` config.
   - Enables the `dom` lib.
   - Sets JSX transform to `react`.
+- Supports Solid.js through the `tsconfig.solid.json` config.
 - Strict and performant by default (of course).
 - Does _not_ check JavaScript files.

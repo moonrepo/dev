@@ -7,11 +7,13 @@
     "tsconfig",
     "moon",
     "react",
+    "solid",
     "project refs"
   ],
   "files": [
     "tsconfig.json",
     "tsconfig.react.json",
+    "tsconfig.solid.json",
     "tsconfig.projects.json"
   ],
   "repository": {

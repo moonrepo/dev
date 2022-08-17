@@ -41,6 +41,8 @@ The following additional configs can also be extended, but are not enabled by de
   [jsx-a11y](https://www.npmjs.com/package/eslint-plugin-jsx-a11y) plugins.
   - Only applies to `*.tsx` files and also extends the `browser` preset.
   - Enables automatic JSX runtime if `react` version is 17+.
+- `moon/solid` - Enables the [solid](https://www.npmjs.com/package/eslint-plugin-solid) plugin.
+  - Only applies to `*.tsx` files and also extends the `browser` preset.
 
 ## Features
 
