@@ -54,5 +54,6 @@
   "dependencies": {
     "conventional-changelog-beemo": "^3.0.1",
     "execa": "^5.1.1"
-  }
+  },
+  "release": "1660800474437"
 }
