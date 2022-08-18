@@ -20,8 +20,8 @@ for additional rules.
 
 ```js
 module.exports = {
-	root: true,
-	extends: ['moon'],
+  root: true,
+  extends: ['moon'],
 };
 ```
 
