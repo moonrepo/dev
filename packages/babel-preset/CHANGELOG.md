@@ -3,6 +3,26 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 1.0.0 - 2022-08-18
+
+#### 🎉 Release
+
+- Promote to major. ([c59b5a3](https://github.com/moonrepo/dev/commit/c59b5a3))
+
+#### 📦 Dependencies
+
+- Set to major prerelease versions. ([75aef5b](https://github.com/moonrepo/dev/commit/75aef5b))
+
+#### 📘 Docs
+
+- Reformat readmes. ([9fb70e4](https://github.com/moonrepo/dev/commit/9fb70e4))
+
+**Note:** Version bump only for package babel-preset-moon
+
+
+
+
+
 # 0.1.0 - 2022-08-17
 
 #### 🎉 Release

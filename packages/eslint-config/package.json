@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-moon",
-  "version": "1.0.0-alpha.0",
+  "version": "1.0.0",
   "description": "A modern and strict ESLint configuration.",
   "keywords": [
     "eslint-config",
@@ -38,7 +38,7 @@
     "eslint": "^8.0.0"
   },
   "dependencies": {
-    "@moonrepo/dev": "^1.0.0-alpha.0",
+    "@moonrepo/dev": "^1.0.0",
     "@typescript-eslint/eslint-plugin": "^5.33.1",
     "@typescript-eslint/parser": "^5.33.1",
     "eslint-config-airbnb-base": "^15.0.0",
