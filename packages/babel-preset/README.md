@@ -18,7 +18,7 @@ Add the preset to your root `babel.config.js`.
 
 ```js
 module.exports = {
-	presets: ['moon'],
+  presets: ['moon'],
 };
 ```
 
@@ -50,6 +50,6 @@ The following options can be passed to the preset.
 
 ```js
 module.exports = {
-	presets: [['moon', { decorators: true, react: 'automatic' }]],
+  presets: [['moon', { decorators: true, react: 'automatic' }]],
 };
 ```

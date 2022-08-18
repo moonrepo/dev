@@ -17,8 +17,8 @@ Extend the config from your root `tsconfig.json`.
 
 ```json
 {
-	"extends": "tsconfig-moon/tsconfig.json",
-	"include": ["src/**/*"]
+  "extends": "tsconfig-moon/tsconfig.json",
+  "include": ["src/**/*"]
 }
 ```
 
