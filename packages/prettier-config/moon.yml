@@ -1,3 +1,4 @@
 workspace:
   inheritedTasks:
     exclude: ['build', 'typecheck']
+  typescript: false

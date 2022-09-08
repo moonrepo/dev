@@ -2,7 +2,7 @@ $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
 extends: './oss/workspace.yml'
 
-actionRunner:
+runner:
   implicitInputs:
     - 'package.json'
     - '/.moon/oss/project.yml'

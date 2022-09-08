@@ -1,9 +1,5 @@
 $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
-actionRunner:
-  inheritColorsForPipedTasks: true
-  logRunningCommand: true
-
 node:
   version: '16.16.0'
   packageManager: 'yarn'
@@ -24,6 +20,10 @@ node:
 typescript:
   createMissingConfig: false
   syncProjectReferences: true
+
+runner:
+  inheritColorsForPipedTasks: true
+  logRunningCommand: true
 
 vcs:
   manager: 'git'
