@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.0.1 - 2022-09-08
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-jest]** Update to v27. ([ed75f3a](https://github.com/moonrepo/dev/commit/ed75f3a))
+- **[eslint-plugin-react]** Update to v7.31.7. ([56ac28b](https://github.com/moonrepo/dev/commit/56ac28b))
+- **[eslint-plugin-simple-import-sort]** Update to v8. ([d56c163](https://github.com/moonrepo/dev/commit/d56c163))
+- **[eslint]** Update to v8.23. ([7f2b0a4](https://github.com/moonrepo/dev/commit/7f2b0a4))
+- **[typescript-eslint]** Update to v5.36. ([70d200b](https://github.com/moonrepo/dev/commit/70d200b))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 # 1.0.0 - 2022-08-18
 
 #### 🎉 Release

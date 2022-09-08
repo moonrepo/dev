@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.0.1 - 2022-09-08
+
+#### 📦 Dependencies
+
+- **[moon]** Update to v0.13. ([125d3d3](https://github.com/moonrepo/dev/commit/125d3d3))
+
+**Note:** Version bump only for package prettier-config-moon
+
+
+
+
+
 # 1.0.0 - 2022-08-18
 
 #### 🎉 Release
