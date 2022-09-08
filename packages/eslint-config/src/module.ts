@@ -102,6 +102,7 @@ const config: eslint.Linter.Config = {
 						// Side-effects
 						'^\\u0000',
 						// Node built-ins
+						`^node:`,
 						`^(${builtinModules.join('|')})$`,
 						// React/Solid NPM packages
 						'^react',
