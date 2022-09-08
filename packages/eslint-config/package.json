@@ -57,8 +57,8 @@
     "eslint-plugin-unicorn": "^43.0.2"
   },
   "devDependencies": {
-    "@types/eslint": "^8.4.5",
-    "eslint": "^8.22.0"
+    "@types/eslint": "^8.4.6",
+    "eslint": "^8.23.0"
   },
   "funding": {
     "type": "ko-fi",
