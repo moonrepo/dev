@@ -1,10 +1,10 @@
 $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
 node:
-  version: '16.16.0'
+  version: '16.17.0'
   packageManager: 'yarn'
   yarn:
-    version: '3.2.2'
+    version: '3.2.3'
   dedupeOnLockfileChange: true
   dependencyVersionFormat: 'workspace-caret'
   syncProjectWorkspaceDependencies: true
