@@ -31,7 +31,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.18.10, @babel/core@npm:^7.19.0":
+"@babel/core@npm:^7.11.6, @babel/core@npm:^7.12.3, @babel/core@npm:^7.19.0":
   version: 7.19.0
   resolution: "@babel/core@npm:7.19.0"
   dependencies:
@@ -418,7 +418,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/plugin-proposal-decorators@npm:^7.18.10, @babel/plugin-proposal-decorators@npm:^7.19.0":
+"@babel/plugin-proposal-decorators@npm:^7.19.0":
   version: 7.19.0
   resolution: "@babel/plugin-proposal-decorators@npm:7.19.0"
   dependencies:
@@ -1292,7 +1292,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@babel/preset-env@npm:^7.18.10, @babel/preset-env@npm:^7.19.0":
+"@babel/preset-env@npm:^7.19.0":
   version: 7.19.0
   resolution: "@babel/preset-env@npm:7.19.0"
   dependencies:
@@ -3429,126 +3429,126 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@swc/core-android-arm-eabi@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-android-arm-eabi@npm:1.2.248"
+"@swc/core-android-arm-eabi@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-android-arm-eabi@npm:1.3.2"
   dependencies:
     "@swc/wasm": 1.2.122
   conditions: os=android & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-android-arm64@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-android-arm64@npm:1.2.248"
+"@swc/core-android-arm64@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-android-arm64@npm:1.3.2"
   dependencies:
     "@swc/wasm": 1.2.130
   conditions: os=android & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-arm64@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-darwin-arm64@npm:1.2.248"
+"@swc/core-darwin-arm64@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-darwin-arm64@npm:1.3.2"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-darwin-x64@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-darwin-x64@npm:1.2.248"
+"@swc/core-darwin-x64@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-darwin-x64@npm:1.3.2"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-freebsd-x64@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-freebsd-x64@npm:1.2.248"
+"@swc/core-freebsd-x64@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-freebsd-x64@npm:1.3.2"
   dependencies:
     "@swc/wasm": 1.2.130
   conditions: os=freebsd & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm-gnueabihf@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.2.248"
+"@swc/core-linux-arm-gnueabihf@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-linux-arm-gnueabihf@npm:1.3.2"
   dependencies:
     "@swc/wasm": 1.2.130
   conditions: os=linux & cpu=arm
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-gnu@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-linux-arm64-gnu@npm:1.2.248"
+"@swc/core-linux-arm64-gnu@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-linux-arm64-gnu@npm:1.3.2"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-arm64-musl@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-linux-arm64-musl@npm:1.2.248"
+"@swc/core-linux-arm64-musl@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-linux-arm64-musl@npm:1.3.2"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-gnu@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-linux-x64-gnu@npm:1.2.248"
+"@swc/core-linux-x64-gnu@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-linux-x64-gnu@npm:1.3.2"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@swc/core-linux-x64-musl@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-linux-x64-musl@npm:1.2.248"
+"@swc/core-linux-x64-musl@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-linux-x64-musl@npm:1.3.2"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@swc/core-win32-arm64-msvc@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-win32-arm64-msvc@npm:1.2.248"
+"@swc/core-win32-arm64-msvc@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-win32-arm64-msvc@npm:1.3.2"
   dependencies:
     "@swc/wasm": 1.2.130
   conditions: os=win32 & cpu=arm64
   languageName: node
   linkType: hard
 
-"@swc/core-win32-ia32-msvc@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-win32-ia32-msvc@npm:1.2.248"
+"@swc/core-win32-ia32-msvc@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-win32-ia32-msvc@npm:1.3.2"
   dependencies:
     "@swc/wasm": 1.2.130
   conditions: os=win32 & cpu=ia32
   languageName: node
   linkType: hard
 
-"@swc/core-win32-x64-msvc@npm:1.2.248":
-  version: 1.2.248
-  resolution: "@swc/core-win32-x64-msvc@npm:1.2.248"
+"@swc/core-win32-x64-msvc@npm:1.3.2":
+  version: 1.3.2
+  resolution: "@swc/core-win32-x64-msvc@npm:1.3.2"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
 
-"@swc/core@npm:^1.2.241":
-  version: 1.2.248
-  resolution: "@swc/core@npm:1.2.248"
+"@swc/core@npm:^1.2.248":
+  version: 1.3.2
+  resolution: "@swc/core@npm:1.3.2"
   dependencies:
-    "@swc/core-android-arm-eabi": 1.2.248
-    "@swc/core-android-arm64": 1.2.248
-    "@swc/core-darwin-arm64": 1.2.248
-    "@swc/core-darwin-x64": 1.2.248
-    "@swc/core-freebsd-x64": 1.2.248
-    "@swc/core-linux-arm-gnueabihf": 1.2.248
-    "@swc/core-linux-arm64-gnu": 1.2.248
-    "@swc/core-linux-arm64-musl": 1.2.248
-    "@swc/core-linux-x64-gnu": 1.2.248
-    "@swc/core-linux-x64-musl": 1.2.248
-    "@swc/core-win32-arm64-msvc": 1.2.248
-    "@swc/core-win32-ia32-msvc": 1.2.248
-    "@swc/core-win32-x64-msvc": 1.2.248
+    "@swc/core-android-arm-eabi": 1.3.2
+    "@swc/core-android-arm64": 1.3.2
+    "@swc/core-darwin-arm64": 1.3.2
+    "@swc/core-darwin-x64": 1.3.2
+    "@swc/core-freebsd-x64": 1.3.2
+    "@swc/core-linux-arm-gnueabihf": 1.3.2
+    "@swc/core-linux-arm64-gnu": 1.3.2
+    "@swc/core-linux-arm64-musl": 1.3.2
+    "@swc/core-linux-x64-gnu": 1.3.2
+    "@swc/core-linux-x64-musl": 1.3.2
+    "@swc/core-win32-arm64-msvc": 1.3.2
+    "@swc/core-win32-ia32-msvc": 1.3.2
+    "@swc/core-win32-x64-msvc": 1.3.2
   dependenciesMeta:
     "@swc/core-android-arm-eabi":
       optional: true
@@ -3578,7 +3578,7 @@ __metadata:
       optional: true
   bin:
     swcx: run_swcx.js
-  checksum: fda7fe0f3d4c3f38e14ccad2299a2dbb0107e7a1eb17437caa6dbe7e99a3bf9fc4a3a4ae0e8c7aa9da4f4da278b9b2015a607b70504379c54bf8b9107b2522bf
+  checksum: c2c83d0e6b4c56d65fb3723aa0be5e777823a6efe5b12702d4d44827a6c6dd8fac3c5dec7ff45222c7b22b4084bffc846f8497d697e61a1706817977256a65dc
   languageName: node
   linkType: hard
 
@@ -4333,14 +4333,14 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-cjs-esm-interop@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "babel-plugin-cjs-esm-interop@npm:2.0.4"
+"babel-plugin-cjs-esm-interop@npm:^2.0.5":
+  version: 2.0.5
+  resolution: "babel-plugin-cjs-esm-interop@npm:2.0.5"
   dependencies:
     "@babel/helper-module-imports": ^7.18.6
   peerDependencies:
     "@babel/core": ^7.0.0
-  checksum: 1315e74592301145da25753f3efa602a33ef7f273a24136ccd7faa6ab7691fa1928edb5639853b5d7d2cadb89503791df527936393c55d527a6512cc9eb807f4
+  checksum: 6fcb8bb5c9e4246d1a21ecf47db5136971891c701acb949ccb812c4a8904aead17cb323d41a5be65ecf2b15ed2351ad855ebd4874e1422d8322950976375894a
   languageName: node
   linkType: hard
 
@@ -4501,7 +4501,7 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"babel-preset-solid@npm:^1.5.1, babel-preset-solid@npm:^1.5.4":
+"babel-preset-solid@npm:^1.5.4":
   version: 1.5.4
   resolution: "babel-preset-solid@npm:1.5.4"
   dependencies:
@@ -8631,12 +8631,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"magic-string@npm:^0.26.2":
-  version: 0.26.2
-  resolution: "magic-string@npm:0.26.2"
+"magic-string@npm:^0.26.3":
+  version: 0.26.4
+  resolution: "magic-string@npm:0.26.4"
   dependencies:
     sourcemap-codec: ^1.4.8
-  checksum: b4db4e2b370ac8d9ffc6443a2b591b75364bf1fc9121b5a4068d5b89804abff6709d1fa4a0e0c2d54f2e61e0e44db83efdfe219a5ab0ba6d25ee1f2b51fbed55
+  checksum: dbb5d356361e5ff257e49e554d6a3b5a96019d0c1bcc0cf4f896cad27b6b6efcef0f58369757b3305653e1292c902d5831d16ae834d8285168b8303d04f188e9
   languageName: node
   linkType: hard
 
@@ -8962,7 +8962,7 @@ __metadata:
     jest: ^29.0.2
     jest-circus: ^29.0.2
     lerna: ^5.5.0
-    packemon: ^2.4.0
+    packemon: ^2.4.1
     prettier: ^2.7.1
     typescript: ^4.8.3
   languageName: unknown
@@ -9646,13 +9646,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"packemon@npm:^2.4.0":
-  version: 2.4.0
-  resolution: "packemon@npm:2.4.0"
+"packemon@npm:^2.4.1":
+  version: 2.4.1
+  resolution: "packemon@npm:2.4.1"
   dependencies:
-    "@babel/core": ^7.18.10
-    "@babel/plugin-proposal-decorators": ^7.18.10
-    "@babel/preset-env": ^7.18.10
+    "@babel/core": ^7.19.0
+    "@babel/plugin-proposal-decorators": ^7.19.0
+    "@babel/preset-env": ^7.19.0
     "@babel/preset-flow": ^7.18.6
     "@babel/preset-react": ^7.18.6
     "@babel/preset-typescript": ^7.18.6
@@ -9667,11 +9667,11 @@ __metadata:
     "@rollup/plugin-commonjs": ^22.0.2
     "@rollup/plugin-json": ^4.1.0
     "@rollup/plugin-node-resolve": ^13.3.0
-    "@swc/core": ^1.2.241
-    babel-plugin-cjs-esm-interop: ^2.0.4
+    "@swc/core": ^1.2.248
+    babel-plugin-cjs-esm-interop: ^2.0.5
     babel-plugin-conditional-invariant: ^2.0.2
     babel-plugin-env-constants: ^2.0.2
-    babel-preset-solid: ^1.5.1
+    babel-preset-solid: ^1.5.4
     browserslist: ^4.21.3
     execa: ^5.1.1
     fast-glob: ^3.2.11
@@ -9680,13 +9680,13 @@ __metadata:
     ink: ^3.2.0
     ink-progress-bar: ^3.0.0
     ink-spinner: ^4.0.3
-    magic-string: ^0.26.2
+    magic-string: ^0.26.3
     micromatch: ^4.0.5
     npm-packlist: ^5.1.1
     react: ^17.0.2
     resolve: ^1.22.1
     rimraf: ^3.0.2
-    rollup: ^2.78.1
+    rollup: ^2.79.0
     rollup-plugin-node-externals: ^4.1.1
     rollup-plugin-polyfill-node: ^0.10.2
     semver: ^7.3.7
@@ -9701,7 +9701,7 @@ __metadata:
       optional: true
   bin:
     packemon: cjs/bin.cjs
-  checksum: 52782354efadc969af84b88265b2cb49164e5a314b3e34718d886a830e7cae33ca45cf64e2f8ea43ad36e9735183ae58b85768a5925a0712f2e563ad9a391107
+  checksum: 06db40a40dce819b61a56ac4cbda504e783c3385f69a89b54a7739a50c7b1a59d4c2ca5bb0e2c6f8b48b2921546343077c261c78c9ad6080d837e871ddd3d10c
   languageName: node
   linkType: hard
 
@@ -10544,9 +10544,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"rollup@npm:^2.78.1":
-  version: 2.79.0
-  resolution: "rollup@npm:2.79.0"
+"rollup@npm:^2.79.0":
+  version: 2.79.1
+  resolution: "rollup@npm:2.79.1"
   dependencies:
     fsevents: ~2.3.2
   dependenciesMeta:
@@ -10554,7 +10554,7 @@ __metadata:
       optional: true
   bin:
     rollup: dist/bin/rollup
-  checksum: 166f1ffea1898e157003920065b3a328e7012ea6808860ee8fe5d1ce94804fcce9985c95a3c0f7fe9c611aff0d09a70f073f1d6f715c8faba28e4e40f71ee3bb
+  checksum: 6a2bf167b3587d4df709b37d149ad0300692cc5deb510f89ac7bdc77c8738c9546ae3de9322b0968e1ed2b0e984571f5f55aae28fa7de4cfcb1bc5402a4e2be6
   languageName: node
   linkType: hard
 
