@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.0.2 - 2022-09-22
+
+#### 📦 Dependencies
+
+- **[eslint]** Update core and plugins to latest patch. ([cfb35ad](https://github.com/moonrepo/dev/commit/cfb35ad))
+- **[typescript-eslint]** Update to v5.38. ([2327aca](https://github.com/moonrepo/dev/commit/2327aca))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 1.0.1 - 2022-09-08
 
 #### 📦 Dependencies

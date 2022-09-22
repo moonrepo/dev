@@ -1,6 +1,6 @@
 {
   "name": "eslint-config-moon",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A modern and strict ESLint configuration.",
   "keywords": [
     "eslint-config",
