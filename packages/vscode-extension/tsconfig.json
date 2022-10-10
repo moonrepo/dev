@@ -4,6 +4,7 @@
     "outDir": "../../.moon/types/packages/vscode-extension"
   },
   "include": [
+    ".eslintrc.js",
     "src/**/*"
   ]
 }

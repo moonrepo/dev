@@ -1,0 +1,11 @@
+workspace:
+  inheritedTasks:
+    exclude: ['build']
+
+tasks:
+  build:
+    command: 'yarn run compile'
+    inputs:
+      - 'src/**/*'
+    outputs:
+      - 'lib'

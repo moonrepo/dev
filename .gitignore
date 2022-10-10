@@ -6,7 +6,6 @@ logs/
 .eslintcache
 .idea
 .npm
-.vscode
 .yarnclean
 
 # Directories
