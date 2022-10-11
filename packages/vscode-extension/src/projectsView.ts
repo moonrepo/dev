@@ -10,8 +10,23 @@ import vscode, {
 	Uri,
 } from 'vscode';
 import { execMoon, findMoonBin } from './moon';
-import type { Project, Task as ProjectTask, ProjectType } from '@moonrepo/types';
+import type { Project, Task as ProjectTask, ProjectType, ProjectLanguage } from '@moonrepo/types';
 import path from 'path';
+
+const LANGUAGE_MANIFESTS: Partial<Record<ProjectLanguage, string>> = {
+	javascript: 'package.json',
+	typescript: 'tsconfig.json',
+};
+
+// https://devicon.dev
+function createLangIcon(context: vscode.ExtensionContext, name: ProjectLanguage) {
+	const icon = context.asAbsolutePath(path.join(`assets/langs/${name}.svg`));
+
+	return {
+		dark: icon,
+		light: icon,
+	};
+}
 
 class NoTasks extends TreeItem {
 	constructor() {
@@ -54,55 +69,50 @@ class TaskItem extends TreeItem {
 }
 
 class ProjectItem extends TreeItem {
+	context: vscode.ExtensionContext;
 	parent: ProjectCategoryItem;
 	project: Project;
 	tasks: TaskItem[];
 
-	constructor(parent: ProjectCategoryItem, project: Project) {
+	constructor(context: vscode.ExtensionContext, parent: ProjectCategoryItem, project: Project) {
 		super(project.id, TreeItemCollapsibleState.Collapsed);
 
+		this.context = context;
 		this.parent = parent;
 		this.project = project;
 		this.id = project.id;
-		this.iconPath = ThemeIcon.File;
-		this.resourceUri = Uri.file(path.join(project.root, 'moon.yml'));
 		this.contextValue = 'project';
 
-		const metadata = project.config.project;
+		const { language, project: metadata } = project.config;
 
 		if (metadata) {
-			this.label = metadata.name;
-			this.tooltip = metadata.description;
+			this.tooltip = `${metadata.name} - ${metadata.description}`;
 		}
 
 		this.tasks = Object.values(project.tasks).map((task) => new TaskItem(this, task));
-
-		switch (project.config.language) {
-			case 'javascript':
-				this.resourceUri = Uri.file(path.join(project.root, 'package.json'));
-				break;
-			case 'typescript':
-				this.resourceUri = Uri.file(path.join(project.root, 'tsconfig.json'));
-				break;
-			default:
-				break;
-		}
+		this.resourceUri = Uri.file(
+			path.join(project.root, LANGUAGE_MANIFESTS[language] || 'moon.yml'),
+		);
+		this.iconPath =
+			language === 'unknown' ? new ThemeIcon('question') : createLangIcon(this.context, language);
 	}
 }
 
 class ProjectCategoryItem extends TreeItem {
+	context: vscode.ExtensionContext;
 	projects: ProjectItem[] = [];
 
-	constructor(type: ProjectType, projects: Project[]) {
+	constructor(context: vscode.ExtensionContext, type: ProjectType, projects: Project[]) {
 		super(type, TreeItemCollapsibleState.Expanded);
 
+		this.context = context;
 		this.id = type;
 		this.contextValue = 'projectCategory';
 		this.projects = projects
 			.filter(
 				(project) => project.config.type === type || (type === 'unknown' && !project.config.type),
 			)
-			.map((project) => new ProjectItem(this, project));
+			.map((project) => new ProjectItem(context, this, project));
 
 		switch (type) {
 			case 'application':
@@ -122,9 +132,11 @@ class ProjectCategoryItem extends TreeItem {
 }
 
 export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
+	context: vscode.ExtensionContext;
 	workspaceRoot: string;
 
-	constructor(workspaceRoot: string) {
+	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {
+		this.context = context;
 		this.workspaceRoot = workspaceRoot;
 	}
 
@@ -154,10 +166,10 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		};
 
 		return [
-			new ProjectCategoryItem('application', projects),
-			new ProjectCategoryItem('library', projects),
-			new ProjectCategoryItem('tool', projects),
-			new ProjectCategoryItem('unknown', projects),
+			new ProjectCategoryItem(this.context, 'application', projects),
+			new ProjectCategoryItem(this.context, 'library', projects),
+			new ProjectCategoryItem(this.context, 'tool', projects),
+			new ProjectCategoryItem(this.context, 'unknown', projects),
 		].filter((cat) => cat.projects.length > 0);
 	}
 

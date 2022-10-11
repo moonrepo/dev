@@ -2,6 +2,13 @@ workspace:
   inheritedTasks:
     exclude: ['build']
 
+project:
+  name: 'VS Code extension'
+  description: 'This is to purely test metadata in the extension.'
+  channel: ''
+  owner: ''
+  maintainers: []
+
 tasks:
   build:
     command: 'yarn run compile'

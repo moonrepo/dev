@@ -15,7 +15,10 @@ export function activate(context: vscode.ExtensionContext) {
 
 	console.log({ workingDir, workspaceRoot });
 
-	vscode.window.registerTreeDataProvider('moonProjects', new ProjectsProvider(workspaceRoot));
+	vscode.window.registerTreeDataProvider(
+		'moonProjects',
+		new ProjectsProvider(context, workspaceRoot),
+	);
 
 	// The command has been defined in the package.json file
 	// Now provide the implementation of the command with registerCommand
