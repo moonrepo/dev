@@ -22,16 +22,63 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:moon.helloWorld"
+    "onCommand:moon.helloWorld",
+    "onView:moonProjects"
   ],
   "main": "./lib/extension.js",
   "contributes": {
+    "configuration": [
+      {
+        "title": "moon",
+        "properties": {
+          "moon.binPath": {
+            "type": "string",
+            "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
+          },
+          "moon.workspaceRoot": {
+            "type": "string",
+            "default": ".",
+            "markdownDescription": "Relative path from the editor root to moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
+          }
+        }
+      }
+    ],
+    "colors": [
+      {
+        "id": "moon.lang.javascript",
+        "description": "JavaScript brand color.",
+        "defaults": {
+          "dark": "#e4d04b",
+          "light": "#e4d04b",
+          "highContrast": "#e4d04b",
+          "highContrastLght": "#e4d04b"
+        }
+      },
+      {
+        "id": "moon.lang.typescript",
+        "description": "TypeScript brand color.",
+        "defaults": {
+          "dark": "#3178c6",
+          "light": "#3178c6",
+          "highContrast": "#3178c6",
+          "highContrastLght": "#3178c6"
+        }
+      }
+    ],
     "commands": [
       {
         "command": "moon.helloWorld",
         "title": "Hello World"
       }
-    ]
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "moonProjects",
+          "name": "moon"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
@@ -39,7 +86,11 @@
     "watch": "npm run compile -- --sourcemap --watch",
     "package": ""
   },
+  "dependencies": {
+    "execa": "^5.0.0"
+  },
   "devDependencies": {
+    "@moonrepo/types": "^0.0.4",
     "@types/vscode": "^1.72.0",
     "@vscode/test-electron": "^2.1.5",
     "esbuild": "^0.15.10",
