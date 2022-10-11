@@ -59,7 +59,7 @@ class TaskItem extends TreeItem {
 				this.iconPath = new ThemeIcon('wrench');
 				break;
 			case 'run':
-				this.iconPath = new ThemeIcon('run');
+				this.iconPath = new ThemeIcon('run-all');
 				break;
 			case 'test':
 				this.iconPath = new ThemeIcon('beaker');
@@ -165,12 +165,19 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			projects: Project[];
 		};
 
-		return [
+		const categories = [
 			new ProjectCategoryItem(this.context, 'application', projects),
 			new ProjectCategoryItem(this.context, 'library', projects),
 			new ProjectCategoryItem(this.context, 'tool', projects),
 			new ProjectCategoryItem(this.context, 'unknown', projects),
 		].filter((cat) => cat.projects.length > 0);
+
+		// If only 1 category, flatten the projects list
+		if (categories.length === 1) {
+			return categories[0].projects;
+		}
+
+		return categories;
 	}
 
 	getTreeItem(element: TreeItem): TreeItem | Thenable<TreeItem> {
@@ -185,7 +192,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			TaskScope.Workspace,
 			target,
 			'moon',
-			new ShellExecution(findMoonBin(this.workspaceRoot), ['run', target], {
+			new ShellExecution(findMoonBin(this.workspaceRoot)!, ['run', target], {
 				cwd: this.workspaceRoot,
 			}),
 		);

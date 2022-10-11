@@ -1,24 +1,24 @@
-import vscode, { Task } from 'vscode';
+import vscode from 'vscode';
 import fs from 'fs';
 import path from 'path';
-import os from 'os';
 import execa from 'execa';
 
-export function findMoonBin(workspaceRoot: string): string {
-	const config = vscode.workspace.getConfiguration('moon');
-	const binPath = path.join(
-		workspaceRoot,
-		config.get('binPath') ||
-			`node_modules/@moonrepo/cli/${os.platform() === 'win32' ? 'moon.exe' : 'moon'}`,
-	);
+export function findMoonBin(workspaceRoot: string): string | null {
+	let binPath = vscode.workspace.getConfiguration('moon').get('binPath', 'moon');
 
-	console.log({ binPath });
+	if (process.platform === 'win32' && !binPath.endsWith('.exe')) {
+		binPath += '.exe';
+	}
+
+	if (!path.isAbsolute(binPath)) {
+		binPath = path.join(workspaceRoot, binPath);
+	}
 
 	if (fs.existsSync(binPath)) {
 		return binPath;
 	}
 
-	throw new Error('TODO');
+	return null;
 }
 
 export function findWorkspaceRoot(startingDir: string): string | null {
@@ -39,7 +39,7 @@ export function findWorkspaceRoot(startingDir: string): string | null {
 
 export async function execMoon(args: string[], workspaceRoot: string): Promise<string> {
 	try {
-		const result = await execa(findMoonBin(workspaceRoot), args, { cwd: workspaceRoot });
+		const result = await execa(findMoonBin(workspaceRoot)!, args, { cwd: workspaceRoot });
 
 		return result.stdout;
 	} catch (error) {

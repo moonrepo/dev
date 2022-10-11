@@ -5,6 +5,7 @@
   "publisher": "moonrepo",
   "displayName": "moon",
   "description": "Control panel and console for moon.",
+  "markdown": "github",
   "keywords": [
     "moon",
     "moonrepo",
@@ -22,7 +23,7 @@
     "Other"
   ],
   "activationEvents": [
-    "onCommand:moon.helloWorld",
+    "onCommand:moon.openSettings",
     "onView:moonProjects"
   ],
   "main": "./lib/extension.js",
@@ -33,6 +34,7 @@
         "properties": {
           "moon.binPath": {
             "type": "string",
+            "default": "node_modules/@moonrepo/cli/moon",
             "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
           },
           "moon.workspaceRoot": {
@@ -43,32 +45,10 @@
         }
       }
     ],
-    "colors": [
-      {
-        "id": "moon.lang.javascript",
-        "description": "JavaScript brand color.",
-        "defaults": {
-          "dark": "#e4d04b",
-          "light": "#e4d04b",
-          "highContrast": "#e4d04b",
-          "highContrastLght": "#e4d04b"
-        }
-      },
-      {
-        "id": "moon.lang.typescript",
-        "description": "TypeScript brand color.",
-        "defaults": {
-          "dark": "#3178c6",
-          "light": "#3178c6",
-          "highContrast": "#3178c6",
-          "highContrastLght": "#3178c6"
-        }
-      }
-    ],
     "commands": [
       {
-        "command": "moon.helloWorld",
-        "title": "Hello World"
+        "command": "moon.openSettings",
+        "title": "moon: Open settings"
       }
     ],
     "views": {
@@ -78,7 +58,19 @@
           "name": "moon"
         }
       ]
-    }
+    },
+    "viewsWelcome": [
+      {
+        "view": "moonProjects",
+        "contents": "Unable to find the workspace root. Has moon been installed?\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "when": "!moon.inWorkspaceRoot"
+      },
+      {
+        "view": "moonProjects",
+        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
+        "when": "moon.inWorkspaceRoot && !moon.hasBinary"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
