@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/types/packages/babel-preset"
+    "outDir": "../../.moon/cache/types/packages/babel-preset"
   },
   "include": [
     "src/**/*"

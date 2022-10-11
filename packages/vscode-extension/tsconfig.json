@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/types/packages/vscode-extension"
+    "outDir": "../../.moon/cache/types/packages/vscode-extension"
   },
   "include": [
     ".eslintrc.js",

@@ -27,8 +27,6 @@ tasks:
       - '--declaration'
       - '--declarationConfig'
       - 'tsconfig.build.json'
-    deps:
-      - '^:build'
     inputs:
       - '@globs(sources)'
       - 'package.json'
@@ -50,8 +48,6 @@ tasks:
       - '@in(3)'
       - '--check'
       - '.'
-    deps:
-      - '^:build'
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'
@@ -74,8 +70,6 @@ tasks:
       - '--ignore-path'
       - '@in(4)'
       - '.'
-    deps:
-      - '^:build'
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'
@@ -87,8 +81,6 @@ tasks:
   # https://moonrepo.dev/docs/guides/examples/jest
   test:
     command: 'jest'
-    deps:
-      - '^:build'
     args:
       - '--coverage'
       - '--passWithNoTests'
@@ -103,8 +95,6 @@ tasks:
     args:
       - '--build'
       - '--pretty'
-    deps:
-      - '^:build'
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'
