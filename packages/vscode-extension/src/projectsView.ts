@@ -1,17 +1,17 @@
+import path from 'path';
 import vscode, {
 	ShellExecution,
 	Task,
 	TaskGroup,
+	tasks,
 	TaskScope,
 	ThemeIcon,
-	tasks,
 	TreeItem,
 	TreeItemCollapsibleState,
 	Uri,
 } from 'vscode';
+import type { Project, ProjectLanguage, ProjectType, Task as ProjectTask } from '@moonrepo/types';
 import { execMoon, findMoonBin } from './moon';
-import type { Project, Task as ProjectTask, ProjectType, ProjectLanguage } from '@moonrepo/types';
-import path from 'path';
 
 const LANGUAGE_MANIFESTS: Partial<Record<ProjectLanguage, string>> = {
 	javascript: 'package.json',
@@ -49,9 +49,9 @@ class TaskItem extends TreeItem {
 		this.contextValue = 'projectTask';
 		this.description = [task.command, ...task.args].join(' ');
 		this.command = {
-			title: 'Run task',
-			command: 'moon.runTarget',
 			arguments: [task.target],
+			command: 'moon.runTarget',
+			title: 'Run task',
 		};
 
 		switch (task.type) {
@@ -91,7 +91,7 @@ class ProjectItem extends TreeItem {
 
 		this.tasks = Object.values(project.tasks).map((task) => new TaskItem(this, task));
 		this.resourceUri = Uri.file(
-			path.join(project.root, LANGUAGE_MANIFESTS[language] || 'moon.yml'),
+			path.join(project.root, LANGUAGE_MANIFESTS[language] ?? 'moon.yml'),
 		);
 		this.iconPath =
 			language === 'unknown' ? new ThemeIcon('question') : createLangIcon(this.context, language);
@@ -180,7 +180,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		return categories;
 	}
 
-	getTreeItem(element: TreeItem): TreeItem | Thenable<TreeItem> {
+	getTreeItem(element: TreeItem): Thenable<TreeItem> | TreeItem {
 		return element;
 	}
 
@@ -188,7 +188,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		const { target } = item.task;
 
 		const task = new Task(
-			{ type: 'moon', target },
+			{ target, type: 'moon' },
 			TaskScope.Workspace,
 			target,
 			'moon',

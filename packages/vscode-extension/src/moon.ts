@@ -1,7 +1,7 @@
-import vscode from 'vscode';
 import fs from 'fs';
 import path from 'path';
 import execa from 'execa';
+import vscode from 'vscode';
 
 export function findMoonBin(workspaceRoot: string): string | null {
 	let binPath = vscode.workspace.getConfiguration('moon').get('binPath', 'moon');
@@ -42,7 +42,7 @@ export async function execMoon(args: string[], workspaceRoot: string): Promise<s
 		const result = await execa(findMoonBin(workspaceRoot)!, args, { cwd: workspaceRoot });
 
 		return result.stdout;
-	} catch (error) {
+	} catch (error: unknown) {
 		console.error(error);
 
 		throw error;

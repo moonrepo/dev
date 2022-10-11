@@ -1,5 +1,5 @@
-import vscode from 'vscode';
 import path from 'path';
+import vscode from 'vscode';
 import { findMoonBin, findWorkspaceRoot } from './moon';
 import { ProjectsProvider } from './projectsView';
 
@@ -12,16 +12,16 @@ export function activate(context: vscode.ExtensionContext) {
 	const workspaceRoot = findWorkspaceRoot(path.join(workingDir, config.get('workspaceRoot', '.')));
 	const binPath = workspaceRoot ? findMoonBin(workspaceRoot) : null;
 
-	console.log({ workingDir, workspaceRoot, binPath });
+	console.log({ binPath, workingDir, workspaceRoot });
 
 	// Define contexts used for empty views
-	vscode.commands.executeCommand('setContext', 'moon.inWorkspaceRoot', workspaceRoot !== null);
-	vscode.commands.executeCommand('setContext', 'moon.hasBinary', binPath !== null);
+	void vscode.commands.executeCommand('setContext', 'moon.inWorkspaceRoot', workspaceRoot !== null);
+	void vscode.commands.executeCommand('setContext', 'moon.hasBinary', binPath !== null);
 
 	context.subscriptions.push(
 		// For convenience, open the moon settings page
 		vscode.commands.registerCommand('moon.openSettings', () => {
-			vscode.commands.executeCommand('workbench.action.openSettings', 'moon');
+			void vscode.commands.executeCommand('workbench.action.openSettings', 'moon');
 		}),
 	);
 
