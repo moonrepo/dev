@@ -24,6 +24,7 @@
   ],
   "activationEvents": [
     "onCommand:moon.openSettings",
+    "onCommand:moon.runTargetByInput",
     "onView:moonProjects",
     "workspaceContains:moon.yml"
   ],
@@ -58,28 +59,13 @@
       },
       {
         "command": "moon.runTarget",
-        "title": "moon: Run the target in the terminal",
+        "title": "moon: Run the target",
         "icon": "$(run)"
-      }
-    ],
-    "views": {
-      "explorer": [
-        {
-          "id": "moonProjects",
-          "name": "moon"
-        }
-      ]
-    },
-    "viewsWelcome": [
-      {
-        "view": "moonProjects",
-        "contents": "Unable to find the workspace root. Has moon been installed?\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
-        "when": "!moon.inWorkspaceRoot"
       },
       {
-        "view": "moonProjects",
-        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
-        "when": "moon.inWorkspaceRoot && !moon.hasBinary"
+        "command": "moon.runTargetByInput",
+        "title": "moon: Run a target",
+        "when": "moon.hasBinary"
       }
     ],
     "menus": {
@@ -103,7 +89,40 @@
           "group": "inline"
         }
       ]
-    }
+    },
+    "taskDefinitions": [
+      {
+        "type": "moon",
+        "required": ["target"],
+        "properties": {
+          "target": {
+            "type": "string",
+            "description": "Target to run in the terminal."
+          }
+        },
+        "when": "moon.hasBinary && shellExecutionSupported"
+      }
+    ],
+    "views": {
+      "explorer": [
+        {
+          "id": "moonProjects",
+          "name": "moon"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "moonProjects",
+        "contents": "Unable to find the workspace root. Has moon been installed?\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "when": "!moon.inWorkspaceRoot"
+      },
+      {
+        "view": "moonProjects",
+        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
+        "when": "moon.inWorkspaceRoot && !moon.hasBinary"
+      }
+    ]
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",

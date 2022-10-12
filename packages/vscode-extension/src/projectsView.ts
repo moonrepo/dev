@@ -2,18 +2,15 @@ import path from 'path';
 import vscode, {
 	Event,
 	EventEmitter,
-	ShellExecution,
-	Task,
 	TaskGroup,
-	tasks,
-	TaskScope,
 	ThemeIcon,
 	TreeItem,
 	TreeItemCollapsibleState,
 	Uri,
 } from 'vscode';
 import type { Project, ProjectLanguage, ProjectType, Task as ProjectTask } from '@moonrepo/types';
-import { execMoon, findMoonBin } from './moon';
+import { execMoon } from './moon';
+import { runTarget } from './commands';
 
 const LANGUAGE_MANIFESTS: Partial<Record<ProjectLanguage, string>> = {
 	javascript: 'package.json',
@@ -32,7 +29,7 @@ function createLangIcon(context: vscode.ExtensionContext, name: ProjectLanguage)
 
 class NoTasks extends TreeItem {
 	constructor() {
-		super('No tasks in project.', TreeItemCollapsibleState.None);
+		super('No tasks in project', TreeItemCollapsibleState.None);
 
 		this.contextValue = 'noProjectTasks';
 	}
@@ -50,11 +47,6 @@ class TaskItem extends TreeItem {
 		this.id = task.target;
 		this.contextValue = 'projectTask';
 		this.description = [task.command, ...task.args].join(' ');
-		// this.command = {
-		// 	arguments: [task.target],
-		// 	command: 'moon.runTarget',
-		// 	title: 'Run target',
-		// };
 
 		switch (task.type) {
 			case 'build':
@@ -209,27 +201,15 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	}
 
 	async runTarget(item: TaskItem) {
-		const { target } = item.task;
-
-		const task = new Task(
-			{ target, type: 'moon' },
-			TaskScope.Workspace,
-			`moon run ${target}`,
-			'moon',
-			new ShellExecution(findMoonBin(this.workspaceRoot)!, ['run', target], {
-				cwd: this.workspaceRoot,
-			}),
-		);
-
-		switch (item.task.type) {
-			case 'build':
-				task.group = TaskGroup.Build;
-				break;
-			default:
-				task.group = TaskGroup.Test;
-				break;
-		}
-
-		await tasks.executeTask(task);
+		await runTarget(item.task.target, this.workspaceRoot, (task) => {
+			switch (item.task.type) {
+				case 'build':
+					task.group = TaskGroup.Build;
+					break;
+				default:
+					task.group = TaskGroup.Test;
+					break;
+			}
+		});
 	}
 }
