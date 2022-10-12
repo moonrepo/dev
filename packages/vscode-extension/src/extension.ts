@@ -3,13 +3,15 @@ import vscode from 'vscode';
 import { findMoonBin, findWorkspaceRoot } from './moon';
 import { ProjectsProvider } from './projectsView';
 
-export function activate(context: vscode.ExtensionContext) {
+export async function activate(context: vscode.ExtensionContext) {
 	const config = vscode.workspace.getConfiguration('moon');
 	const workingDir =
-		vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0
-			? vscode.workspace.workspaceFolders[0].uri.fsPath
-			: process.cwd();
-	const workspaceRoot = findWorkspaceRoot(path.join(workingDir, config.get('workspaceRoot', '.')));
+		// vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0
+		// 	? vscode.workspace.workspaceFolders[0].uri.fsPath :
+		process.cwd();
+	const workspaceRoot = await findWorkspaceRoot(
+		path.join(workingDir, config.get('workspaceRoot', '.')),
+	);
 	const binPath = workspaceRoot ? findMoonBin(workspaceRoot) : null;
 
 	console.log({ binPath, workingDir, workspaceRoot });
@@ -29,9 +31,11 @@ export function activate(context: vscode.ExtensionContext) {
 		return;
 	}
 
-	vscode.window.registerTreeDataProvider(
-		'moonProjects',
-		new ProjectsProvider(context, workspaceRoot),
+	context.subscriptions.push(
+		vscode.window.createTreeView('moonProjects', {
+			treeDataProvider: new ProjectsProvider(context, workspaceRoot),
+			showCollapseAll: true,
+		}),
 	);
 }
 

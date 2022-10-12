@@ -1,5 +1,7 @@
 import path from 'path';
 import vscode, {
+	Event,
+	EventEmitter,
 	ShellExecution,
 	Task,
 	TaskGroup,
@@ -48,11 +50,11 @@ class TaskItem extends TreeItem {
 		this.id = task.target;
 		this.contextValue = 'projectTask';
 		this.description = [task.command, ...task.args].join(' ');
-		this.command = {
-			arguments: [task.target],
-			command: 'moon.runTarget',
-			title: 'Run task',
-		};
+		// this.command = {
+		// 	arguments: [task.target],
+		// 	command: 'moon.runTarget',
+		// 	title: 'Run target',
+		// };
 
 		switch (task.type) {
 			case 'build':
@@ -133,11 +135,20 @@ class ProjectCategoryItem extends TreeItem {
 
 export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	context: vscode.ExtensionContext;
+	projects?: Project[];
 	workspaceRoot: string;
+
+	private _onDidChangeTreeData: EventEmitter<TreeItem | null> = new EventEmitter<TreeItem | null>();
+	onDidChangeTreeData: Event<TreeItem | null> = this._onDidChangeTreeData.event;
 
 	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {
 		this.context = context;
 		this.workspaceRoot = workspaceRoot;
+
+		context.subscriptions.push(
+			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
+			vscode.commands.registerCommand('moon.runTarget', this.runTarget, this),
+		);
 	}
 
 	getParent(element: TreeItem): vscode.ProviderResult<TreeItem> {
@@ -161,15 +172,21 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			return element.projects;
 		}
 
-		const { projects } = JSON.parse(await execMoon(['query', 'projects'], this.workspaceRoot)) as {
-			projects: Project[];
-		};
+		if (!this.projects) {
+			const { projects } = JSON.parse(
+				await execMoon(['query', 'projects'], this.workspaceRoot),
+			) as {
+				projects: Project[];
+			};
+
+			this.projects = projects.sort((a, d) => a.id.localeCompare(d.id));
+		}
 
 		const categories = [
-			new ProjectCategoryItem(this.context, 'application', projects),
-			new ProjectCategoryItem(this.context, 'library', projects),
-			new ProjectCategoryItem(this.context, 'tool', projects),
-			new ProjectCategoryItem(this.context, 'unknown', projects),
+			new ProjectCategoryItem(this.context, 'application', this.projects),
+			new ProjectCategoryItem(this.context, 'library', this.projects),
+			new ProjectCategoryItem(this.context, 'tool', this.projects),
+			new ProjectCategoryItem(this.context, 'unknown', this.projects),
 		].filter((cat) => cat.projects.length > 0);
 
 		// If only 1 category, flatten the projects list
@@ -184,13 +201,18 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		return element;
 	}
 
+	refresh() {
+		this.projects = undefined;
+		this._onDidChangeTreeData.fire(null);
+	}
+
 	async runTarget(item: TaskItem) {
 		const { target } = item.task;
 
 		const task = new Task(
 			{ target, type: 'moon' },
 			TaskScope.Workspace,
-			target,
+			`moon run ${target}`,
 			'moon',
 			new ShellExecution(findMoonBin(this.workspaceRoot)!, ['run', target], {
 				cwd: this.workspaceRoot,
@@ -201,10 +223,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			case 'build':
 				task.group = TaskGroup.Build;
 				break;
-			case 'run':
-				task.group = TaskGroup.Test;
-				break;
-			case 'test':
+			default:
 				task.group = TaskGroup.Test;
 				break;
 		}

@@ -21,7 +21,19 @@ export function findMoonBin(workspaceRoot: string): string | null {
 	return null;
 }
 
-export function findWorkspaceRoot(startingDir: string): string | null {
+export async function findWorkspaceRoot(startingDir: string): Promise<string | null> {
+	// const baseRoot = vscode.workspace.getConfiguration('moon').get('workspaceRoot', '.');
+
+	// const files = await workspace.findFiles('**/package.json');
+
+	// console.log({ baseRoot, files });
+
+	// if (files.length > 0 && files[0].scheme === 'file') {
+	// 	return files[0].fsPath;
+	// }
+
+	// return null;
+
 	const moonDir = path.join(startingDir, '.moon');
 
 	if (fs.existsSync(moonDir)) {

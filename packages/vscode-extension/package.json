@@ -24,31 +24,42 @@
   ],
   "activationEvents": [
     "onCommand:moon.openSettings",
-    "onView:moonProjects"
+    "onView:moonProjects",
+    "workspaceContains:moon.yml"
   ],
   "main": "./lib/extension.js",
   "contributes": {
-    "configuration": [
-      {
-        "title": "moon",
-        "properties": {
-          "moon.binPath": {
-            "type": "string",
-            "default": "node_modules/@moonrepo/cli/moon",
-            "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
-          },
-          "moon.workspaceRoot": {
-            "type": "string",
-            "default": ".",
-            "markdownDescription": "Relative path from the editor root to moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
-          }
+    "configuration": {
+      "id": "moon",
+      "type": "object",
+      "title": "moon",
+      "properties": {
+        "moon.binPath": {
+          "type": "string",
+          "default": "node_modules/@moonrepo/cli/moon",
+          "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
+        },
+        "moon.workspaceRoot": {
+          "type": "string",
+          "default": ".",
+          "markdownDescription": "Relative path from the editor root to moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
         }
       }
-    ],
+    },
     "commands": [
       {
         "command": "moon.openSettings",
         "title": "moon: Open settings"
+      },
+      {
+        "command": "moon.refreshProjects",
+        "title": "moon: Refresh projects",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "moon.runTarget",
+        "title": "moon: Run the target in the terminal",
+        "icon": "$(run)"
       }
     ],
     "views": {
@@ -70,7 +81,29 @@
         "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
         "when": "moon.inWorkspaceRoot && !moon.hasBinary"
       }
-    ]
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "moon.runTarget",
+          "when": "false"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "moon.refreshProjects",
+          "when": "view == moonProjects && moon.hasBinary",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "moon.runTarget",
+          "when": "view == moonProjects && viewItem == projectTask",
+          "group": "inline"
+        }
+      ]
+    }
   },
   "scripts": {
     "vscode:prepublish": "yarn run package",
