@@ -33,8 +33,8 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(
 		vscode.window.createTreeView('moonProjects', {
-			treeDataProvider: new ProjectsProvider(context, workspaceRoot),
 			showCollapseAll: true,
+			treeDataProvider: new ProjectsProvider(context, workspaceRoot),
 		}),
 	);
 }

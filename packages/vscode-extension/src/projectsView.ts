@@ -138,12 +138,14 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	projects?: Project[];
 	workspaceRoot: string;
 
-	private _onDidChangeTreeData: EventEmitter<TreeItem | null> = new EventEmitter<TreeItem | null>();
-	onDidChangeTreeData: Event<TreeItem | null> = this._onDidChangeTreeData.event;
+	onDidChangeTreeDataEmitter: EventEmitter<TreeItem | null>;
+	onDidChangeTreeData: Event<TreeItem | null>;
 
 	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {
 		this.context = context;
 		this.workspaceRoot = workspaceRoot;
+		this.onDidChangeTreeDataEmitter = new EventEmitter<TreeItem | null>();
+		this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
 
 		context.subscriptions.push(
 			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
@@ -203,7 +205,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 	refresh() {
 		this.projects = undefined;
-		this._onDidChangeTreeData.fire(null);
+		this.onDidChangeTreeDataEmitter.fire(null);
 	}
 
 	async runTarget(item: TaskItem) {
