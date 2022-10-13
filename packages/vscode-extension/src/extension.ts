@@ -1,18 +1,11 @@
-import path from 'path';
 import vscode from 'vscode';
 import { runTargetByInput } from './commands';
 import { findMoonBin, findWorkspaceRoot } from './moon';
 import { ProjectsProvider } from './projectsView';
 
 export async function activate(context: vscode.ExtensionContext) {
-	const config = vscode.workspace.getConfiguration('moon');
-	const workingDir =
-		// vscode.workspace.workspaceFolders && vscode.workspace.workspaceFolders.length > 0
-		// 	? vscode.workspace.workspaceFolders[0].uri.fsPath :
-		process.cwd();
-	const workspaceRoot = await findWorkspaceRoot(
-		path.join(workingDir, config.get('workspaceRoot', '.')),
-	);
+	const workingDir = vscode.workspace.workspaceFolders?.[0];
+	const workspaceRoot = workingDir ? await findWorkspaceRoot(workingDir) : null;
 	const binPath = workspaceRoot ? findMoonBin(workspaceRoot) : null;
 
 	console.log({ binPath, workingDir, workspaceRoot });

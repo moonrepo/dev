@@ -21,32 +21,21 @@ export function findMoonBin(workspaceRoot: string): string | null {
 	return null;
 }
 
-export async function findWorkspaceRoot(startingDir: string): Promise<string | null> {
-	// const baseRoot = vscode.workspace.getConfiguration('moon').get('workspaceRoot', '.');
+export async function findWorkspaceRoot(
+	workingDir: vscode.WorkspaceFolder,
+): Promise<string | null> {
+	const baseRoot = vscode.workspace.getConfiguration('moon').get('workspaceRoot', '.');
 
-	// const files = await workspace.findFiles('**/package.json');
+	const files = await vscode.workspace.findFiles(
+		new vscode.RelativePattern(workingDir, path.join(baseRoot, '.moon/*.yml')),
+	);
 
-	// console.log({ baseRoot, files });
-
-	// if (files.length > 0 && files[0].scheme === 'file') {
-	// 	return files[0].fsPath;
-	// }
-
-	// return null;
-
-	const moonDir = path.join(startingDir, '.moon');
-
-	if (fs.existsSync(moonDir)) {
-		return startingDir;
+	// Return folder containing the `.moon` folder
+	if (files.length > 0 && files[0].scheme === 'file') {
+		return path.dirname(path.dirname(files[0].fsPath));
 	}
 
-	const parent = path.dirname(startingDir);
-
-	if (!parent || parent === '.' || parent === '/') {
-		return null;
-	}
-
-	return findWorkspaceRoot(parent);
+	return null;
 }
 
 export async function execMoon(args: string[], workspaceRoot: string): Promise<string> {
