@@ -27,6 +27,7 @@
     "onCommand:moon.runTargetByInput",
     "onView:moonProjects",
     "onView:moonProjectsExternal",
+    "onView:moonLastRun",
     "workspaceContains:moon.yml"
   ],
   "main": "./lib/extension.js",
@@ -104,7 +105,9 @@
     "taskDefinitions": [
       {
         "type": "moon",
-        "required": ["target"],
+        "required": [
+          "target"
+        ],
         "properties": {
           "target": {
             "type": "string",
@@ -133,7 +136,13 @@
       "moon-console": [
         {
           "id": "moonProjects",
-          "name": "projects"
+          "name": "Projects"
+        },
+        {
+          "id": "moonLastRun",
+          "name": "Last run report",
+          "type": "webview",
+          "when": "moon.inWorkspaceRoot"
         }
       ]
     },
@@ -167,6 +176,8 @@
     "package": ""
   },
   "dependencies": {
+    "@moonrepo/report": "^0.0.1",
+    "@vscode/webview-ui-toolkit": "^1.1.0",
     "execa": "^5.0.0"
   },
   "devDependencies": {

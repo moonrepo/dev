@@ -1,5 +1,6 @@
 import vscode from 'vscode';
 import { runTargetByInput } from './commands';
+import { LastRunProvider } from './lastRunView';
 import { findMoonBin, findWorkspaceRoot } from './moon';
 import { ProjectsProvider } from './projectsView';
 
@@ -42,6 +43,11 @@ export async function activate(context: vscode.ExtensionContext) {
 			showCollapseAll: true,
 			treeDataProvider: projectsProvider,
 		}),
+
+		vscode.window.registerWebviewViewProvider(
+			'moonLastRun',
+			new LastRunProvider(context, workspaceRoot),
+		),
 	);
 }
 

@@ -11,7 +11,7 @@ export async function runTarget(
 		TaskScope.Workspace,
 		`moon run ${target}`,
 		'moon',
-		new ShellExecution(findMoonBin(workspaceRoot)!, ['run', target], {
+		new ShellExecution(findMoonBin(workspaceRoot)!, ['run', target, '--report'], {
 			cwd: workspaceRoot,
 		}),
 	);

@@ -2881,6 +2881,46 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@microsoft/fast-element@npm:^1.10.5, @microsoft/fast-element@npm:^1.6.2, @microsoft/fast-element@npm:^1.9.0":
+  version: 1.10.5
+  resolution: "@microsoft/fast-element@npm:1.10.5"
+  checksum: 2aa233cb87b26b52a7a0d3b98ab37efeb587ad9648a6213d15afcaa5ee18c05fd03592c2159cef2b41d2c09dea2b8e4baeeb294b3bc8e5daea9e35c450e974db
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-foundation@npm:^2.38.0, @microsoft/fast-foundation@npm:^2.41.1":
+  version: 2.46.14
+  resolution: "@microsoft/fast-foundation@npm:2.46.14"
+  dependencies:
+    "@microsoft/fast-element": ^1.10.5
+    "@microsoft/fast-web-utilities": ^5.4.1
+    tabbable: ^5.2.0
+    tslib: ^1.13.0
+  checksum: 68a3f586b78dfc68228566a51be0f0134641723df3f9bcf9b6f9ffd3f882901106ced94bc1fc7e90020568e5a221459544db11b239c141d88bd3a3e53bbe59d2
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-react-wrapper@npm:^0.1.18":
+  version: 0.1.48
+  resolution: "@microsoft/fast-react-wrapper@npm:0.1.48"
+  dependencies:
+    "@microsoft/fast-element": ^1.9.0
+    "@microsoft/fast-foundation": ^2.41.1
+  peerDependencies:
+    react: ">=16.9.0"
+  checksum: 6641cc9875f17e6e381d16c27441ff3503ed87e8e826fa1ae8e8cbb1b4457372532bc09cd6a6d3f78110b296104b7baa7295019e403879797de66c22a6178af1
+  languageName: node
+  linkType: hard
+
+"@microsoft/fast-web-utilities@npm:^5.4.1":
+  version: 5.4.1
+  resolution: "@microsoft/fast-web-utilities@npm:5.4.1"
+  dependencies:
+    exenv-es6: ^1.1.1
+  checksum: 303e87847f962944f474e3716c3eb305668243916ca9e0719e26bb9a32346144bc958d915c103776b3e552cea0f0f6233f839fad66adfdf96a8436b947288ca7
+  languageName: node
+  linkType: hard
+
 "@moonrepo/cli@npm:^0.16.1":
   version: 0.16.1
   resolution: "@moonrepo/cli@npm:0.16.1"
@@ -2974,10 +3014,26 @@ __metadata:
   languageName: unknown
   linkType: soft
 
+"@moonrepo/report@npm:^0.0.1":
+  version: 0.0.1
+  resolution: "@moonrepo/report@npm:0.0.1"
+  dependencies:
+    "@moonrepo/types": ^0.0.5
+  checksum: 1fea5f688296a8bab4b9d0d28ca073b8b408b38f8e2bac5ad7482588c973671628f863e526e994c766c0f0384a1018d7fa7fe4f8b6a39d9b829daad4831448e5
+  languageName: node
+  linkType: hard
+
 "@moonrepo/types@npm:^0.0.4":
   version: 0.0.4
   resolution: "@moonrepo/types@npm:0.0.4"
   checksum: 995b1787b6c0161c972e959c2052aa3c6ac0be7f64233e5e34e5de5dfe43b9b17f1b4ba7e393d212f72a08607270231427c1c6bc5c1cc2746077bd6b4da6776b
+  languageName: node
+  linkType: hard
+
+"@moonrepo/types@npm:^0.0.5":
+  version: 0.0.5
+  resolution: "@moonrepo/types@npm:0.0.5"
+  checksum: 22fee36afaf3bd478213b2e0c7c776d6247e5bc00471b4e019a8a92a3a0df37484d68acb80ee81b984196fda7db5d474f43c90fd8ba92a6b0c318e7e868558b3
   languageName: node
   linkType: hard
 
@@ -4003,6 +4059,19 @@ __metadata:
     rimraf: ^3.0.2
     unzipper: ^0.10.11
   checksum: 8696a2783370bad5852551e888b21047f416c4f4428669c46cd2f98d54694aea2d818189795682364f83316f0f407741c519cc1cf1ac20d5cad85f955fae8107
+  languageName: node
+  linkType: hard
+
+"@vscode/webview-ui-toolkit@npm:^1.1.0":
+  version: 1.1.0
+  resolution: "@vscode/webview-ui-toolkit@npm:1.1.0"
+  dependencies:
+    "@microsoft/fast-element": ^1.6.2
+    "@microsoft/fast-foundation": ^2.38.0
+    "@microsoft/fast-react-wrapper": ^0.1.18
+  peerDependencies:
+    react: ">=16.9.0"
+  checksum: 04e1643811125b7b7237cf47f4be7e39f07cce405616a1b06f95e8739d94e8a7c29a59b614c37591ffc96d01756f4b6724742635f50def8fd125265a86257983
   languageName: node
   linkType: hard
 
@@ -6743,6 +6812,13 @@ __metadata:
     signal-exit: ^3.0.3
     strip-final-newline: ^2.0.0
   checksum: fba9022c8c8c15ed862847e94c252b3d946036d7547af310e344a527e59021fd8b6bb0723883ea87044dc4f0201f949046993124a42ccb0855cae5bf8c786343
+  languageName: node
+  linkType: hard
+
+"exenv-es6@npm:^1.1.1":
+  version: 1.1.1
+  resolution: "exenv-es6@npm:1.1.1"
+  checksum: 7f2aa12025e6f06c48dc286f380cf3183bb19c6017b36d91695034a3e5124a7235c4f8ff24ca2eb88ae801322f0f99605cedfcfd996a5fcbba7669320e2a448e
   languageName: node
   linkType: hard
 
@@ -9580,9 +9656,11 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "moon@workspace:packages/vscode-extension"
   dependencies:
+    "@moonrepo/report": ^0.0.1
     "@moonrepo/types": ^0.0.4
     "@types/vscode": ^1.72.0
     "@vscode/test-electron": ^2.1.5
+    "@vscode/webview-ui-toolkit": ^1.1.0
     esbuild: ^0.15.10
     execa: ^5.0.0
     vsce: ^2.11.0
@@ -11892,6 +11970,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"tabbable@npm:^5.2.0":
+  version: 5.3.3
+  resolution: "tabbable@npm:5.3.3"
+  checksum: 1aa56e1bb617cc10616c407f4e756f0607f3e2d30f9803664d70b85db037ca27e75918ed1c71443f3dc902e21dc9f991ce4b52d63a538c9b69b3218d3babcd70
+  languageName: node
+  linkType: hard
+
 "tar-fs@npm:^2.0.0":
   version: 2.1.1
   resolution: "tar-fs@npm:2.1.1"
@@ -12113,7 +12198,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"tslib@npm:^1.8.1":
+"tslib@npm:^1.13.0, tslib@npm:^1.8.1":
   version: 1.14.1
   resolution: "tslib@npm:1.14.1"
   checksum: dbe628ef87f66691d5d2959b3e41b9ca0045c3ee3c7c7b906cc1e328b39f199bb1ad9e671c39025bd56122ac57dfbf7385a94843b1cc07c60a4db74795829acd
