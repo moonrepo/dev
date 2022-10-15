@@ -1,21 +1,43 @@
 # moon
 
-This is the README for your extension "moon". After writing up a brief description, we recommend
-including the following sections.
+While moon provides a powerful and robust command line, an in-editor interface with deep integration
+can provide a much better developer experience, and that's exactly what this moon console does!
+
+Whether you're just learning, or an experienced veteran, this console will take you to the moon!
 
 ## Features
-
-Enjoy all the awesome features of moon!
 
 ### Projects view
 
 The backbone of moon is the projects view. In this view, all moon configured projects will be
-listed, categorized by their `type`.
+listed, categorized by their `type`, and designated with their `language`.
 
-Each project can then be expanded to view all available tasks. Tasks can be ran by clicking the ">"
+Each project can then be expanded to view all available tasks. Tasks can be ran by clicking the `▶`
 icon, or using the command palette.
 
-![Screenshot of projects view]()
+<img
+src="https://raw.githubusercontent.com/moonrepo/dev/vscode-ext/packages/vscode-extension/images/projects-view.png"
+alt="Screenshot of projects view" width="300px" />
+
+> This view is available in both the "Explorer" and "moon" sections.
+
+### Last run view
+
+Information about the last ran target will be displayed in a beautiful table with detailed stats.
+Only tasks ran from the extension, or with `--report` on the command line will be displayed here.
+
+<img
+src="https://raw.githubusercontent.com/moonrepo/dev/vscode-ext/packages/vscode-extension/images/last-run-view.png"
+alt="Screenshot of last run view" width="300px" />
+
+### Control panel
+
+To provide the best experience, all major features, enhancements, and integrations can be found
+within the moon specific control panel. Simply click the moon icon in the activity bar!
+
+<img
+src="https://raw.githubusercontent.com/moonrepo/dev/vscode-ext/packages/vscode-extension/images/activity-icon.png"
+alt="Screenshot of moon activity" width="50px"  />
 
 ## Requirements
 
@@ -54,3 +76,4 @@ prefixed with "moon".
 - [ ] Schema validation for YAML configs
 - [ ] moon language server
 - [ ] Auto-completion
+- [ ] In-editor code generation

@@ -5,7 +5,7 @@
   "name": "moon",
   "publisher": "moonrepo",
   "displayName": "moon",
-  "description": "Control panel and console for moon.",
+  "description": "Control panel and integrated console for moon.",
   "icon": "assets/moon-banner.jpg",
   "markdown": "github",
   "keywords": [

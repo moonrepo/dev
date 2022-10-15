@@ -4,7 +4,13 @@
   "useWorkspaces": true,
   "command": {
     "publish": {
-      "ignoreChanges": ["*.md"]
+      "ignoreChanges": [
+        "*.md"
+      ],
+      "noPrivate": true
+    },
+    "version": {
+      "noPrivate": true
     }
   }
 }
