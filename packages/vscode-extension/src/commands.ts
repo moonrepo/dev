@@ -11,7 +11,7 @@ export async function runTarget(
 		TaskScope.Workspace,
 		`moon run ${target}`,
 		'moon',
-		new ShellExecution(findMoonBin(workspaceRoot)!, ['run', target, '--report'], {
+		new ShellExecution(findMoonBin(workspaceRoot)!, ['run', ...target.split(' '), '--report'], {
 			cwd: workspaceRoot,
 		}),
 	);
@@ -24,7 +24,7 @@ export async function runTarget(
 export async function runTargetByInput(workspaceRoot: string) {
 	const target = await vscode.window.showInputBox({
 		prompt: 'In the format of "project:task" or ":task".',
-		title: 'Target',
+		title: 'Target(s)',
 	});
 
 	if (target) {

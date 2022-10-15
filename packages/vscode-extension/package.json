@@ -102,21 +102,6 @@
         }
       ]
     },
-    "taskDefinitions": [
-      {
-        "type": "moon",
-        "required": [
-          "target"
-        ],
-        "properties": {
-          "target": {
-            "type": "string",
-            "description": "Target to run in the terminal."
-          }
-        },
-        "when": "moon.hasBinary && shellExecutionSupported"
-      }
-    ],
     "viewsContainers": {
       "activitybar": [
         {
