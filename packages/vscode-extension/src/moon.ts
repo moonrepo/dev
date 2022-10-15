@@ -43,7 +43,7 @@ export function isRealBin(binPath: string): boolean {
 
 	// When in the moonrepo/moon repository, the binary is actually fake,
 	// so we need to account for that!
-	return stats.size > 70;
+	return stats.size > 100;
 }
 
 export async function execMoon(args: string[], workspaceRoot: string): Promise<string> {
