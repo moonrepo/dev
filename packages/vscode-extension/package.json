@@ -1,10 +1,12 @@
 {
   "private": true,
+  "preview": true,
   "version": "0.0.1",
   "name": "moon",
   "publisher": "moonrepo",
   "displayName": "moon",
   "description": "Control panel and console for moon.",
+  "icon": "assets/moon-banner.jpg",
   "markdown": "github",
   "keywords": [
     "moon",
@@ -16,12 +18,22 @@
     "console"
   ],
   "engines": {
-    "vscode": "^1.72.0"
+    "vscode": "^1.66.0"
   },
   "categories": [
     "Testing",
     "Other"
   ],
+  "sponsor": {
+    "url": "https://github.com/moonrepo/dev"
+  },
+  "qna": "https://github.com/moonrepo/dev/discussions",
+  "homepage": "https://github.com/moonrepo/dev/tree/master/packages/vscode-extension",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:moonrepo/dev.git",
+    "directory": "packages/vscode-extension"
+  },
   "activationEvents": [
     "onCommand:moon.openSettings",
     "onCommand:moon.runTargetByInput",
@@ -55,11 +67,6 @@
         "title": "moon: Open settings"
       },
       {
-        "command": "moon.runTargetByInput",
-        "title": "moon: Run a target",
-        "when": "moon.hasBinary"
-      },
-      {
         "command": "moon.refreshProjects",
         "title": "moon: Refresh projects",
         "icon": "$(refresh)"
@@ -70,6 +77,10 @@
         "icon": "$(run)"
       },
       {
+        "command": "moon.runTargetByInput",
+        "title": "moon: Run one or many targets"
+      },
+      {
         "command": "moon.viewProject",
         "title": "moon: View selected project",
         "icon": "$(open-preview)"
@@ -78,8 +89,16 @@
     "menus": {
       "commandPalette": [
         {
+          "command": "moon.refreshProjects",
+          "when": "moon.hasBinary"
+        },
+        {
           "command": "moon.runTarget",
           "when": "false"
+        },
+        {
+          "command": "moon.runTargetByInput",
+          "when": "moon.hasBinary"
         },
         {
           "command": "moon.viewProject",
@@ -174,10 +193,10 @@
     ]
   },
   "scripts": {
-    "vscode:prepublish": "yarn run package",
     "compile": "esbuild src/extension.ts --bundle --outfile=lib/extension.js --external:vscode --format=cjs --platform=node --target=node14",
-    "watch": "npm run compile -- --sourcemap --watch",
-    "package": ""
+    "watch": "yarn run compile --sourcemap --watch",
+    "package": "vsce package",
+    "publish": "vsce publish"
   },
   "dependencies": {
     "@moonrepo/report": "^0.0.1",
@@ -186,7 +205,7 @@
   },
   "devDependencies": {
     "@moonrepo/types": "^0.0.5",
-    "@types/vscode": "^1.72.0",
+    "@types/vscode": "^1.66.0",
     "@vscode/test-electron": "^2.1.5",
     "esbuild": "^0.15.10",
     "vsce": "^2.11.0"

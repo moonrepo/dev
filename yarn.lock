@@ -3896,7 +3896,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vscode@npm:^1.72.0":
+"@types/vscode@npm:^1.66.0":
   version: 1.72.0
   resolution: "@types/vscode@npm:1.72.0"
   checksum: 590ec21d01d737176f231fde1cafae31e9774891cc3c89cc7167167c0d88a91547c5a9f2103f4e778804f4f55724e9e1d2e3499448e8cea0d33786a1c728e4b6
@@ -9651,7 +9651,7 @@ __metadata:
   dependencies:
     "@moonrepo/report": ^0.0.1
     "@moonrepo/types": ^0.0.5
-    "@types/vscode": ^1.72.0
+    "@types/vscode": ^1.66.0
     "@vscode/test-electron": ^2.1.5
     "@vscode/webview-ui-toolkit": ^1.1.0
     esbuild: ^0.15.10
