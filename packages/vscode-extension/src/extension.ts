@@ -9,17 +9,14 @@ export async function activate(context: vscode.ExtensionContext) {
 	const workspaceRoot = workingDir ? await findWorkspaceRoot(workingDir) : null;
 	const binPath = workspaceRoot ? findMoonBin(workspaceRoot) : null;
 
-	console.log({ binPath, workingDir, workspaceRoot });
-
 	// Define contexts used for empty views
 	void vscode.commands.executeCommand('setContext', 'moon.inWorkspaceRoot', workspaceRoot !== null);
 	void vscode.commands.executeCommand('setContext', 'moon.hasBinary', binPath !== null);
 
 	context.subscriptions.push(
-		// For convenience, open the moon settings page
-		vscode.commands.registerCommand('moon.openSettings', () => {
-			void vscode.commands.executeCommand('workbench.action.openSettings', 'moon');
-		}),
+		vscode.commands.registerCommand('moon.openSettings', () =>
+			vscode.commands.executeCommand('workbench.action.openSettings', 'moon'),
+		),
 	);
 
 	if (!workspaceRoot || !binPath) {
@@ -30,9 +27,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(
 		// Create a "moon run <target>" task
-		vscode.commands.registerCommand('moon.runTargetByInput', () => {
-			runTargetByInput(workspaceRoot);
-		}),
+		vscode.commands.registerCommand('moon.runTargetByInput', () => runTargetByInput(workspaceRoot)),
 
 		// Create a tree view for all moon projects
 		vscode.window.createTreeView('moonProjects', {
@@ -44,6 +39,7 @@ export async function activate(context: vscode.ExtensionContext) {
 			treeDataProvider: projectsProvider,
 		}),
 
+		// Create a webview for last run report
 		vscode.window.registerWebviewViewProvider(
 			'moonLastRun',
 			new LastRunProvider(context, workspaceRoot),

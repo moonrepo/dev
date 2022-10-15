@@ -23,8 +23,8 @@ export async function runTarget(
 
 export async function runTargetByInput(workspaceRoot: string) {
 	const target = await vscode.window.showInputBox({
+		prompt: 'In the format of "project:task" or ":task".',
 		title: 'Target',
-		prompt: 'In the format of "project:task".',
 	});
 
 	if (target) {

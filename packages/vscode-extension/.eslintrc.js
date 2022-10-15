@@ -4,6 +4,7 @@ module.exports = {
 	rules: {
 		'max-classes-per-file': 'off',
 		'no-console': 'off',
+		'no-param-reassign': 'off',
 		// We want to use exhaustive checks
 		'default-case': 'off',
 		// The `vscode` import isn't real

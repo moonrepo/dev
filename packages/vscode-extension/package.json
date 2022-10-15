@@ -140,7 +140,7 @@
         },
         {
           "id": "moonLastRun",
-          "name": "Last run report",
+          "name": "Last run",
           "type": "webview",
           "when": "moon.inWorkspaceRoot"
         }
