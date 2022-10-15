@@ -6,7 +6,11 @@
   "publisher": "moonrepo",
   "displayName": "moon console",
   "description": "Control panel and integrated console for moon.",
-  "icon": "assets/moon-banner.jpg",
+  "icon": "assets/moon-banner.png",
+  "galleryBanner": {
+    "color": "#00111e",
+    "theme": "dark"
+  },
   "markdown": "github",
   "keywords": [
     "moon",
