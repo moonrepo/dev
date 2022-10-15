@@ -195,7 +195,7 @@
   "scripts": {
     "compile": "esbuild src/extension.ts --bundle --outfile=lib/extension.js --external:vscode --format=cjs --platform=node --target=node14",
     "watch": "yarn run compile --sourcemap --watch",
-    "package": "vsce package",
+    "package": "vsce package --no-dependencies",
     "publish": "vsce publish"
   },
   "dependencies": {
