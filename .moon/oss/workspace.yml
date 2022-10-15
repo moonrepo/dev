@@ -5,6 +5,10 @@ node:
   packageManager: 'yarn'
   yarn:
     version: '3.2.3'
+    plugins:
+      - 'interactive-tools'
+      - 'version'
+      - 'workspace-tools'
   dedupeOnLockfileChange: true
   dependencyVersionFormat: 'workspace-caret'
   syncProjectWorkspaceDependencies: true
@@ -19,9 +23,12 @@ node:
 
 typescript:
   createMissingConfig: false
+  routeOutDirToCache: true
   syncProjectReferences: true
 
 runner:
+  implicitDeps:
+    - '^:build'
   inheritColorsForPipedTasks: true
   logRunningCommand: true
 

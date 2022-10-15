@@ -1,0 +1,213 @@
+{
+  "private": true,
+  "preview": true,
+  "version": "0.0.1",
+  "name": "moon",
+  "publisher": "moonrepo",
+  "displayName": "moon",
+  "description": "Control panel and integrated console for moon.",
+  "icon": "assets/moon-banner.jpg",
+  "markdown": "github",
+  "keywords": [
+    "moon",
+    "moonrepo",
+    "build",
+    "system",
+    "ci",
+    "cd",
+    "console"
+  ],
+  "engines": {
+    "vscode": "^1.66.0"
+  },
+  "categories": [
+    "Testing",
+    "Other"
+  ],
+  "sponsor": {
+    "url": "https://github.com/moonrepo/dev"
+  },
+  "qna": "https://github.com/moonrepo/dev/discussions",
+  "homepage": "https://github.com/moonrepo/dev/tree/master/packages/vscode-extension",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:moonrepo/dev.git",
+    "directory": "packages/vscode-extension"
+  },
+  "activationEvents": [
+    "onCommand:moon.openSettings",
+    "onCommand:moon.runTargetByInput",
+    "onView:moonProjects",
+    "onView:moonProjectsExternal",
+    "onView:moonLastRun",
+    "workspaceContains:moon.yml"
+  ],
+  "main": "./lib/extension.js",
+  "contributes": {
+    "configuration": {
+      "id": "moon",
+      "type": "object",
+      "title": "moon",
+      "properties": {
+        "moon.binPath": {
+          "type": "string",
+          "default": "node_modules/@moonrepo/cli/moon",
+          "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
+        },
+        "moon.workspaceRoot": {
+          "type": "string",
+          "default": ".",
+          "markdownDescription": "Relative path from the editor root to moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "moon.openSettings",
+        "title": "moon: Open settings"
+      },
+      {
+        "command": "moon.refreshProjects",
+        "title": "moon: Refresh projects",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "moon.runTarget",
+        "title": "moon: Run the target",
+        "icon": "$(run)"
+      },
+      {
+        "command": "moon.runTargetByInput",
+        "title": "moon: Run one or many targets"
+      },
+      {
+        "command": "moon.viewProject",
+        "title": "moon: View selected project",
+        "icon": "$(open-preview)"
+      }
+    ],
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "moon.refreshProjects",
+          "when": "moon.hasBinary"
+        },
+        {
+          "command": "moon.runTarget",
+          "when": "false"
+        },
+        {
+          "command": "moon.runTargetByInput",
+          "when": "moon.hasBinary"
+        },
+        {
+          "command": "moon.viewProject",
+          "when": "false"
+        }
+      ],
+      "view/title": [
+        {
+          "command": "moon.refreshProjects",
+          "when": "view == moonProjects && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.refreshProjects",
+          "when": "view == moonProjectsExternal && moon.hasBinary",
+          "group": "navigation"
+        }
+      ],
+      "view/item/context": [
+        {
+          "command": "moon.runTarget",
+          "when": "view == moonProjects && viewItem == projectTask",
+          "group": "inline"
+        },
+        {
+          "command": "moon.viewProject",
+          "when": "view == moonProjects && viewItem == project",
+          "group": "inline"
+        },
+        {
+          "command": "moon.runTarget",
+          "when": "view == moonProjectsExternal && viewItem == projectTask",
+          "group": "inline"
+        },
+        {
+          "command": "moon.viewProject",
+          "when": "view == moonProjectsExternal && viewItem == project",
+          "group": "inline"
+        }
+      ]
+    },
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "moonConsole",
+          "title": "moon console",
+          "icon": "assets/moon.svg"
+        }
+      ]
+    },
+    "views": {
+      "explorer": [
+        {
+          "id": "moonProjectsExternal",
+          "name": "moon"
+        }
+      ],
+      "moonConsole": [
+        {
+          "id": "moonProjects",
+          "name": "Projects"
+        },
+        {
+          "id": "moonLastRun",
+          "name": "Last run",
+          "type": "webview",
+          "when": "moon.inWorkspaceRoot"
+        }
+      ]
+    },
+    "viewsWelcome": [
+      {
+        "view": "moonProjects",
+        "contents": "Unable to find the workspace root. Has moon been installed?\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "when": "!moon.inWorkspaceRoot"
+      },
+      {
+        "view": "moonProjects",
+        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
+        "when": "moon.inWorkspaceRoot && !moon.hasBinary"
+      },
+      {
+        "view": "moonProjectsExternal",
+        "contents": "Unable to find the workspace root. Has moon been installed?\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "when": "!moon.inWorkspaceRoot"
+      },
+      {
+        "view": "moonProjectsExternal",
+        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
+        "when": "moon.inWorkspaceRoot && !moon.hasBinary"
+      }
+    ]
+  },
+  "scripts": {
+    "compile": "esbuild src/extension.ts --bundle --outfile=lib/extension.js --external:vscode --format=cjs --platform=node --target=node14",
+    "watch": "yarn run compile --sourcemap --watch",
+    "package": "vsce package --no-dependencies",
+    "publish": "vsce publish"
+  },
+  "dependencies": {
+    "@moonrepo/report": "^0.0.1",
+    "@vscode/webview-ui-toolkit": "^1.1.0",
+    "execa": "^5.0.0"
+  },
+  "devDependencies": {
+    "@moonrepo/types": "^0.0.5",
+    "@types/vscode": "^1.66.0",
+    "@vscode/test-electron": "^2.1.5",
+    "esbuild": "^0.15.10",
+    "vsce": "^2.11.0"
+  }
+}

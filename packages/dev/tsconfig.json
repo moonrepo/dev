@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/types/packages/dev"
+    "outDir": "../../.moon/cache/types/packages/dev"
   },
   "include": [
     "src/**/*"

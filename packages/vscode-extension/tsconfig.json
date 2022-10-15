@@ -1,9 +1,10 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/cache/types/packages/babel-preset"
+    "outDir": "../../.moon/cache/types/packages/vscode-extension"
   },
   "include": [
+    ".eslintrc.js",
     "src/**/*"
   ]
 }

@@ -1,7 +1,7 @@
 {
   "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "outDir": "../../.moon/types/packages/eslint-config"
+    "outDir": "../../.moon/cache/types/packages/eslint-config"
   },
   "include": [
     "src/**/*",

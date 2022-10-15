@@ -1,0 +1,20 @@
+type: 'library'
+
+project:
+  name: 'VS Code extension'
+  description: 'This is to purely test metadata in the extension.'
+  channel: ''
+  owner: ''
+  maintainers: []
+
+workspace:
+  inheritedTasks:
+    exclude: ['build']
+
+tasks:
+  build:
+    command: 'yarn run compile'
+    inputs:
+      - 'src/**/*'
+    outputs:
+      - 'lib'

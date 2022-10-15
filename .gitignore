@@ -6,7 +6,6 @@ logs/
 .eslintcache
 .idea
 .npm
-.vscode
 .yarnclean
 
 # Directories
@@ -38,4 +37,3 @@ node_modules/
 
 # Moon
 .moon/cache
-.moon/types

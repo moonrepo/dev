@@ -15,7 +15,7 @@
       "path": "packages/jest-preset"
     },
     {
-      "path": "packages/tsconfig"
+      "path": "packages/vscode-extension"
     }
   ]
 }
