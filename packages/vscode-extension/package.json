@@ -1,8 +1,8 @@
 {
   "private": true,
   "preview": true,
-  "version": "0.0.1",
-  "name": "moon",
+  "version": "0.1.0",
+  "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon",
   "description": "Control panel and integrated console for moon.",
@@ -196,7 +196,7 @@
     "compile": "esbuild src/extension.ts --bundle --outfile=lib/extension.js --external:vscode --format=cjs --platform=node --target=node14",
     "watch": "yarn run compile --sourcemap --watch",
     "package": "vsce package --no-dependencies",
-    "publish": "vsce publish"
+    "publish": "vsce publish --no-dependencies --no-git-tag-version --message 'Release [ci skip]'"
   },
   "dependencies": {
     "@moonrepo/report": "^0.0.1",

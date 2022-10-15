@@ -25,6 +25,7 @@ node_modules/
 *.min.js
 *.map
 *.tsbuildinfo
+*.vsix
 
 # Yarn
 .yarn/*
