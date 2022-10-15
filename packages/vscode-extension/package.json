@@ -1,7 +1,7 @@
 {
   "private": true,
   "preview": true,
-  "version": "0.1.0",
+  "version": "0.1.1",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -204,7 +204,6 @@
   },
   "dependencies": {
     "@moonrepo/report": "^0.0.1",
-    "@vscode/webview-ui-toolkit": "^1.1.0",
     "execa": "^5.0.0"
   },
   "devDependencies": {
