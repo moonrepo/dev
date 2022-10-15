@@ -31,13 +31,9 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 	}
 
 	resolveWebviewView(webviewView: vscode.WebviewView): Thenable<void> | void {
-		const workspaceUri = vscode.workspace.workspaceFolders?.[0].uri;
-
 		webviewView.webview.options = {
 			enableScripts: true,
-			localResourceRoots: this.workspaceRoot.includes('moon-dev')
-				? [workspaceUri!]
-				: [this.context.extensionUri],
+			localResourceRoots: [this.context.extensionUri],
 		};
 
 		this.view = webviewView;
