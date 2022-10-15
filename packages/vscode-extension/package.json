@@ -55,6 +55,11 @@
         "title": "moon: Open settings"
       },
       {
+        "command": "moon.runTargetByInput",
+        "title": "moon: Run a target",
+        "when": "moon.hasBinary"
+      },
+      {
         "command": "moon.refreshProjects",
         "title": "moon: Refresh projects",
         "icon": "$(refresh)"
@@ -65,9 +70,9 @@
         "icon": "$(run)"
       },
       {
-        "command": "moon.runTargetByInput",
-        "title": "moon: Run a target",
-        "when": "moon.hasBinary"
+        "command": "moon.viewProject",
+        "title": "moon: View selected project",
+        "icon": "$(open-preview)"
       }
     ],
     "menus": {
@@ -96,8 +101,18 @@
           "group": "inline"
         },
         {
+          "command": "moon.viewProject",
+          "when": "view == moonProjects && viewItem == project",
+          "group": "inline"
+        },
+        {
           "command": "moon.runTarget",
           "when": "view == moonProjectsExternal && viewItem == projectTask",
+          "group": "inline"
+        },
+        {
+          "command": "moon.viewProject",
+          "when": "view == moonProjectsExternal && viewItem == project",
           "group": "inline"
         }
       ]
@@ -105,7 +120,7 @@
     "viewsContainers": {
       "activitybar": [
         {
-          "id": "moon-console",
+          "id": "moonConsole",
           "title": "moon console",
           "icon": "assets/moon.svg"
         }
@@ -118,7 +133,7 @@
           "name": "moon"
         }
       ],
-      "moon-console": [
+      "moonConsole": [
         {
           "id": "moonProjects",
           "name": "Projects"

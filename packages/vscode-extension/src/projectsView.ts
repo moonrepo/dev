@@ -1,3 +1,4 @@
+import fs from 'fs';
 import path from 'path';
 import vscode, {
 	Event,
@@ -151,6 +152,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		context.subscriptions.push(
 			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
 			vscode.commands.registerCommand('moon.runTarget', this.runTarget, this),
+			vscode.commands.registerCommand('moon.viewProject', this.viewProject, this),
 			watcher,
 		);
 	}
@@ -221,5 +223,18 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 					break;
 			}
 		});
+	}
+
+	async viewProject(item: ProjectItem) {
+		await vscode.commands.executeCommand('workbench.view.explorer');
+
+		const configUri = Uri.file(path.join(item.project.root, 'moon.yml'));
+
+		await vscode.commands.executeCommand(
+			'vscode.open',
+			fs.existsSync(configUri.fsPath) ? configUri : item.resourceUri,
+		);
+
+		// await vscode.commands.executeCommand('vscode.openFolder', Uri.file(item.project.root));
 	}
 }

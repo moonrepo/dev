@@ -1,6 +1,4 @@
-workspace:
-  inheritedTasks:
-    exclude: ['build']
+type: 'library'
 
 project:
   name: 'VS Code extension'
@@ -8,6 +6,10 @@ project:
   channel: ''
   owner: ''
   maintainers: []
+
+workspace:
+  inheritedTasks:
+    exclude: ['build']
 
 tasks:
   build:

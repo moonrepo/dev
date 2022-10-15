@@ -1,3 +1,5 @@
+type: 'library'
+
 workspace:
   inheritedTasks:
     exclude: ['build', 'typecheck']
