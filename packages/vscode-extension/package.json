@@ -4,7 +4,7 @@
   "version": "0.1.0",
   "name": "moon-console",
   "publisher": "moonrepo",
-  "displayName": "moon",
+  "displayName": "moon console",
   "description": "Control panel and integrated console for moon.",
   "icon": "assets/moon-banner.jpg",
   "markdown": "github",
@@ -13,9 +13,9 @@
     "moonrepo",
     "build",
     "system",
-    "ci",
-    "cd",
-    "console"
+    "console",
+    "projects",
+    "tasks"
   ],
   "engines": {
     "vscode": "^1.66.0"

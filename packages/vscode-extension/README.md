@@ -16,7 +16,7 @@ Each project can then be expanded to view all available tasks. Tasks can be ran 
 icon, or using the command palette.
 
 <img
-src="https://raw.githubusercontent.com/moonrepo/dev/vscode-ext/packages/vscode-extension/images/projects-view.png"
+src="https://raw.githubusercontent.com/moonrepo/dev/master/packages/vscode-extension/images/projects-view.png"
 alt="Screenshot of projects view" width="300px" />
 
 > This view is available in both the "Explorer" and "moon" sections.
@@ -27,7 +27,7 @@ Information about the last ran target will be displayed in a beautiful table wit
 Only tasks ran from the extension, or with `--report` on the command line will be displayed here.
 
 <img
-src="https://raw.githubusercontent.com/moonrepo/dev/vscode-ext/packages/vscode-extension/images/last-run-view.png"
+src="https://raw.githubusercontent.com/moonrepo/dev/master/packages/vscode-extension/images/last-run-view.png"
 alt="Screenshot of last run view" width="300px" />
 
 ### Control panel
@@ -36,7 +36,7 @@ To provide the best experience, all major features, enhancements, and integratio
 within the moon specific control panel. Simply click the moon icon in the activity bar!
 
 <img
-src="https://raw.githubusercontent.com/moonrepo/dev/vscode-ext/packages/vscode-extension/images/activity-icon.png"
+src="https://raw.githubusercontent.com/moonrepo/dev/master/packages/vscode-extension/images/activity-icon.png"
 alt="Screenshot of moon activity" width="50px"  />
 
 ## Requirements
