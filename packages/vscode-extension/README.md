@@ -1,31 +1,35 @@
-# moon README
+# moon
 
 This is the README for your extension "moon". After writing up a brief description, we recommend
 including the following sections.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action.
-Image paths are relative to this README file.
+Enjoy all the awesome features of moon!
 
-For example if there is an image subfolder under your extension project workspace:
+### Projects view
 
-\!\[feature X\]\(images/feature-x.png\)
+The backbone of moon is the projects view. In this view, all moon configured projects will be
+listed, categorized by their `type`.
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your
-> extension! We recommend short, focused animations that are easy to follow.
+Each project can then be expanded to view all available tasks. Tasks can be ran by clicking the ">"
+icon, or using the command palette.
+
+![Screenshot of projects view]()
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and
-configure them.
+This extension requires moon itself to be installed within the opened VS Code workspace. Learn more
+about [installing and configuring moon](https://moonrepo.dev/docs/install)!
 
 ## Settings
+
+The following settings are available for this extension.
 
 - `moon.workspaceRoot` - Relative path from the opened folder to moon's workspace root. Defaults to
   "`.`". This is useful if moon is initialized in a sub-folder.
 - `moon.binPath` - Relative path from moon's workspace root to the moon binary. Defaults to
-  `node_modules/@moonrepo/cli/moon`.
+  `node_modules/@moonrepo/cli/moon`. _Windows will auto-suffix with `.exe`!_
 
 ## Commands
 
