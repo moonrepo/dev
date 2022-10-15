@@ -3023,13 +3023,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/types@npm:^0.0.4":
-  version: 0.0.4
-  resolution: "@moonrepo/types@npm:0.0.4"
-  checksum: 995b1787b6c0161c972e959c2052aa3c6ac0be7f64233e5e34e5de5dfe43b9b17f1b4ba7e393d212f72a08607270231427c1c6bc5c1cc2746077bd6b4da6776b
-  languageName: node
-  linkType: hard
-
 "@moonrepo/types@npm:^0.0.5":
   version: 0.0.5
   resolution: "@moonrepo/types@npm:0.0.5"
@@ -9657,7 +9650,7 @@ __metadata:
   resolution: "moon@workspace:packages/vscode-extension"
   dependencies:
     "@moonrepo/report": ^0.0.1
-    "@moonrepo/types": ^0.0.4
+    "@moonrepo/types": ^0.0.5
     "@types/vscode": ^1.72.0
     "@vscode/test-electron": ^2.1.5
     "@vscode/webview-ui-toolkit": ^1.1.0
