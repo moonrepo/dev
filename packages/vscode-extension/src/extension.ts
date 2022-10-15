@@ -1,7 +1,7 @@
 import vscode from 'vscode';
 import { runTargetByInput } from './commands';
 import { LastRunProvider } from './lastRunView';
-import { findMoonBin, findWorkspaceRoot } from './moon';
+import { findMoonBin, findWorkspaceRoot, isRealBin } from './moon';
 import { ProjectsProvider } from './projectsView';
 
 export async function activate(context: vscode.ExtensionContext) {
@@ -11,11 +11,15 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	// Define contexts used for empty views
 	void vscode.commands.executeCommand('setContext', 'moon.inWorkspaceRoot', workspaceRoot !== null);
-	void vscode.commands.executeCommand('setContext', 'moon.hasBinary', binPath !== null);
+	void vscode.commands.executeCommand(
+		'setContext',
+		'moon.hasBinary',
+		binPath !== null && isRealBin(binPath),
+	);
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand('moon.openSettings', () =>
-			vscode.commands.executeCommand('workbench.action.openSettings', 'moon'),
+			vscode.commands.executeCommand('workbench.action.openSettings', '@ext:moonrepo.moon-console'),
 		),
 	);
 

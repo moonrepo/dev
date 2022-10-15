@@ -78,7 +78,7 @@
       {
         "command": "moon.runTarget",
         "title": "moon: Run the target",
-        "icon": "$(run)"
+        "icon": "$(terminal)"
       },
       {
         "command": "moon.runTargetByInput",
