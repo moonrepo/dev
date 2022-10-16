@@ -64,6 +64,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/import-style': 'off',
 		'unicorn/no-abusive-eslint-disable': 'error',
 		'unicorn/no-array-method-this-argument': 'error',
+		'unicorn/no-unnecessary-await': 'error',
 		'unicorn/no-useless-fallback-in-spread': 'error',
 		'unicorn/no-useless-length-check': 'error',
 		'unicorn/no-useless-undefined': 'off',
