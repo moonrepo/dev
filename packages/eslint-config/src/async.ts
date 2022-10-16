@@ -13,6 +13,7 @@ const config: eslint.Linter.Config = {
 		// Ensure proper control flow
 		'promise/catch-or-return': 'error',
 		'promise/no-return-wrap': ['error', { allowReject: true }],
+		'promise/no-multiple-resolved': 'error',
 		'promise/no-nesting': 'error',
 		'promise/no-return-in-finally': 'error',
 
