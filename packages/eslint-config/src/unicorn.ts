@@ -54,6 +54,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/no-useless-spread': 'error',
 		'unicorn/no-useless-switch-case': 'error',
 		'unicorn/numeric-separators-style': 'error',
+		'unicorn/switch-case-braces': ['error', 'avoid'],
 		'unicorn/throw-new-error': 'error',
 
 		// Ensure todo's are finished
