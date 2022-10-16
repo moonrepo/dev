@@ -56,6 +56,7 @@ const config: eslint.Linter.Config = {
 		'require-atomic-updates': 'error',
 
 		// Prefer compact syntax when applicable
+		'logical-assignment-operators': 'error',
 		'prefer-exponentiation-operator': 'error',
 		'prefer-regex-literals': ['error', { disallowRedundantWrapping: true }],
 
