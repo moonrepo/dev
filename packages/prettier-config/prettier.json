@@ -15,13 +15,21 @@
   "useTabs": true,
   "overrides": [
     {
-      "files": ["*.json", "*.yml", "*.yaml", "*.md", "*.mdx"],
+      "files": [
+        "*.json",
+        "*.yml",
+        "*.yaml",
+        "*.md",
+        "*.mdx"
+      ],
       "options": {
         "useTabs": false
       }
     },
     {
-      "files": ["*.json"],
+      "files": [
+        "*.json"
+      ],
       "options": {
         "parser": "json-stringify"
       }

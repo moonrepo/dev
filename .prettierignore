@@ -6,5 +6,4 @@ lib/
 mjs/
 node_modules/
 CHANGELOG.md
-*.json
 .yarn

@@ -7,10 +7,10 @@
       "ignoreChanges": [
         "*.md"
       ],
-      "noPrivate": true
+      "private": false
     },
     "version": {
-      "noPrivate": true
+      "private": false
     }
   }
 }
