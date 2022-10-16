@@ -203,13 +203,13 @@
   },
   "dependencies": {
     "@moonrepo/report": "^0.0.1",
-    "execa": "^5.0.0"
+    "execa": "^5.1.1"
   },
   "devDependencies": {
     "@moonrepo/types": "^0.0.5",
     "@types/vscode": "^1.66.0",
     "@vscode/test-electron": "^2.1.5",
-    "esbuild": "^0.15.10",
+    "esbuild": "^0.15.11",
     "vsce": "^2.11.0"
   }
 }
