@@ -38,6 +38,15 @@ export async function findWorkspaceRoot(
 	return null;
 }
 
+export function isRealBin(binPath: string): boolean {
+	const stats = fs.statSync(binPath);
+
+	// When in the moonrepo/moon repository, the binary is actually fake,
+	// so we need to account for that!
+	// eslint-disable-next-line no-magic-numbers
+	return stats.size > 100;
+}
+
 export async function execMoon(args: string[], workspaceRoot: string): Promise<string> {
 	try {
 		const result = await execa(findMoonBin(workspaceRoot)!, args, { cwd: workspaceRoot });

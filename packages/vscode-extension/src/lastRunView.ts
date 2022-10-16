@@ -31,13 +31,9 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 	}
 
 	resolveWebviewView(webviewView: vscode.WebviewView): Thenable<void> | void {
-		const workspaceUri = vscode.workspace.workspaceFolders?.[0].uri;
-
 		webviewView.webview.options = {
 			enableScripts: true,
-			localResourceRoots: this.workspaceRoot.includes('moon-dev')
-				? [workspaceUri!]
-				: [this.context.extensionUri],
+			localResourceRoots: [this.context.extensionUri],
 		};
 
 		this.view = webviewView;
@@ -57,16 +53,6 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 	}
 
 	renderHtml(content: string) {
-		const toolkitUri = this.view?.webview.asWebviewUri(
-			vscode.Uri.joinPath(
-				this.context.extensionUri,
-				// Traverse upwards because of Yarn workspaces
-				this.workspaceRoot.includes('moon-dev')
-					? '../../node_modules/@vscode/webview-ui-toolkit/dist/toolkit.js'
-					: 'node_modules/@vscode/webview-ui-toolkit/dist/toolkit.js',
-			),
-		);
-
 		const cssUri = this.view?.webview.asWebviewUri(
 			vscode.Uri.joinPath(this.context.extensionUri, 'assets/webview.css'),
 		);
@@ -77,7 +63,7 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 					<meta charset="UTF-8">
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<title>moon - Last run report</title>
-					<script type="module" src="${toolkitUri}"></script>
+					<script type="module" src="https://unpkg.com/@vscode/webview-ui-toolkit@latest/dist/toolkit.min.js"></script>
 					<link href="${cssUri}" rel="stylesheet">
 				</head>
 				<body>
