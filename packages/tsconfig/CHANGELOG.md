@@ -1,7 +1,21 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.1.0 - 2022-10-16
+
+#### 🚀 Updates
+
+- Implement initial VSCode extension infrastructure. (#10)
+  ([37612f9](https://github.com/moonrepo/dev/commit/37612f9)), closes
+  [#10](https://github.com/moonrepo/dev/issues/10)
+
+#### 🛠 Internals
+
+- Update prettier ignore rules. ([aee403e](https://github.com/moonrepo/dev/commit/aee403e))
+
+**Note:** Version bump only for package tsconfig-moon
 
 ### 1.0.1 - 2022-09-08
 
@@ -10,10 +24,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[moon]** Update to v0.13. ([125d3d3](https://github.com/moonrepo/dev/commit/125d3d3))
 
 **Note:** Version bump only for package tsconfig-moon
-
-
-
-
 
 # 1.0.0 - 2022-08-18
 
@@ -31,34 +41,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package tsconfig-moon
 
-
-
-
-
 # 0.1.0 - 2022-08-17
 
 #### 🎉 Release
 
-- Prepare for initial release. (#5) ([e1e00f1](https://github.com/moonrepo/dev/commit/e1e00f1)), closes [#5](https://github.com/moonrepo/dev/issues/5)
+- Prepare for initial release. (#5) ([e1e00f1](https://github.com/moonrepo/dev/commit/e1e00f1)),
+  closes [#5](https://github.com/moonrepo/dev/issues/5)
 
 #### 🚀 Updates
 
-- Add Solid.js support. (#6) ([e2a5bae](https://github.com/moonrepo/dev/commit/e2a5bae)), closes [#6](https://github.com/moonrepo/dev/issues/6)
+- Add Solid.js support. (#6) ([e2a5bae](https://github.com/moonrepo/dev/commit/e2a5bae)), closes
+  [#6](https://github.com/moonrepo/dev/issues/6)
 
 **Note:** Version bump only for package tsconfig-moon
-
-
-
-
 
 ### 0.0.1 - 2022-08-16
 
 #### 🐞 Fixes
 
-- Some final polish before beta release. (#2) ([ea37025](https://github.com/moonrepo/dev/commit/ea37025)), closes [#2](https://github.com/moonrepo/dev/issues/2)
+- Some final polish before beta release. (#2)
+  ([ea37025](https://github.com/moonrepo/dev/commit/ea37025)), closes
+  [#2](https://github.com/moonrepo/dev/issues/2)
 
 #### 📘 Docs
 
-- Update readmes and rework builds. (#1) ([408dcb6](https://github.com/moonrepo/dev/commit/408dcb6)), closes [#1](https://github.com/moonrepo/dev/issues/1)
+- Update readmes and rework builds. (#1)
+  ([408dcb6](https://github.com/moonrepo/dev/commit/408dcb6)), closes
+  [#1](https://github.com/moonrepo/dev/issues/1)
 
 **Note:** Version bump only for package tsconfig-moon

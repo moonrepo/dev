@@ -1,7 +1,35 @@
 # Change Log
 
-All notable changes to this project will be documented in this file.
-See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+## 1.1.0 - 2022-10-16
+
+#### 🚀 Updates
+
+- Enabled `logical-assignment-operators` rule.
+  ([cfdbfa1](https://github.com/moonrepo/dev/commit/cfdbfa1))
+- Enabled `unicorn/no-unnecessary-await` rule.
+  ([3c94650](https://github.com/moonrepo/dev/commit/3c94650))
+- Enabled `unicorn/switch-case-braces` rule.
+  ([35b82de](https://github.com/moonrepo/dev/commit/35b82de))
+- Implement initial VSCode extension infrastructure. (#10)
+  ([37612f9](https://github.com/moonrepo/dev/commit/37612f9)), closes
+  [#10](https://github.com/moonrepo/dev/issues/10)
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-jest]** Update to v27.1.2.
+  ([7a03594](https://github.com/moonrepo/dev/commit/7a03594))
+- **[eslint-plugin-promise]** Update to v6.1.
+  ([c27d52d](https://github.com/moonrepo/dev/commit/c27d52d))
+- **[eslint-plugin-unicorn]** Update to v44.
+  ([5ee0e7d](https://github.com/moonrepo/dev/commit/5ee0e7d))
+- **[eslint]** Update to v8.25. ([68227ec](https://github.com/moonrepo/dev/commit/68227ec))
+- **[typescript-eslint]** Update to v5.40.
+  ([f40c8ef](https://github.com/moonrepo/dev/commit/f40c8ef))
+
+**Note:** Version bump only for package eslint-config-moon
 
 ### 1.0.3 - 2022-09-29
 
@@ -11,38 +39,32 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 1.0.2 - 2022-09-22
 
 #### 📦 Dependencies
 
-- **[eslint]** Update core and plugins to latest patch. ([cfb35ad](https://github.com/moonrepo/dev/commit/cfb35ad))
-- **[typescript-eslint]** Update to v5.38. ([2327aca](https://github.com/moonrepo/dev/commit/2327aca))
+- **[eslint]** Update core and plugins to latest patch.
+  ([cfb35ad](https://github.com/moonrepo/dev/commit/cfb35ad))
+- **[typescript-eslint]** Update to v5.38.
+  ([2327aca](https://github.com/moonrepo/dev/commit/2327aca))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 1.0.1 - 2022-09-08
 
 #### 📦 Dependencies
 
-- **[eslint-plugin-jest]** Update to v27. ([ed75f3a](https://github.com/moonrepo/dev/commit/ed75f3a))
-- **[eslint-plugin-react]** Update to v7.31.7. ([56ac28b](https://github.com/moonrepo/dev/commit/56ac28b))
-- **[eslint-plugin-simple-import-sort]** Update to v8. ([d56c163](https://github.com/moonrepo/dev/commit/d56c163))
+- **[eslint-plugin-jest]** Update to v27.
+  ([ed75f3a](https://github.com/moonrepo/dev/commit/ed75f3a))
+- **[eslint-plugin-react]** Update to v7.31.7.
+  ([56ac28b](https://github.com/moonrepo/dev/commit/56ac28b))
+- **[eslint-plugin-simple-import-sort]** Update to v8.
+  ([d56c163](https://github.com/moonrepo/dev/commit/d56c163))
 - **[eslint]** Update to v8.23. ([7f2b0a4](https://github.com/moonrepo/dev/commit/7f2b0a4))
-- **[typescript-eslint]** Update to v5.36. ([70d200b](https://github.com/moonrepo/dev/commit/70d200b))
+- **[typescript-eslint]** Update to v5.36.
+  ([70d200b](https://github.com/moonrepo/dev/commit/70d200b))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 # 1.0.0 - 2022-08-18
 
@@ -60,31 +82,27 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 # 0.1.0 - 2022-08-17
 
 #### 🎉 Release
 
-- Prepare for initial release. (#5) ([e1e00f1](https://github.com/moonrepo/dev/commit/e1e00f1)), closes [#5](https://github.com/moonrepo/dev/issues/5)
+- Prepare for initial release. (#5) ([e1e00f1](https://github.com/moonrepo/dev/commit/e1e00f1)),
+  closes [#5](https://github.com/moonrepo/dev/issues/5)
 
 #### 🚀 Updates
 
-- Add Solid.js support. (#6) ([e2a5bae](https://github.com/moonrepo/dev/commit/e2a5bae)), closes [#6](https://github.com/moonrepo/dev/issues/6)
+- Add Solid.js support. (#6) ([e2a5bae](https://github.com/moonrepo/dev/commit/e2a5bae)), closes
+  [#6](https://github.com/moonrepo/dev/issues/6)
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 0.0.2 - 2022-08-16
 
 #### 🐞 Fixes
 
-- Add overrides for config files (`*.config.js`). (#3) ([f2f2070](https://github.com/moonrepo/dev/commit/f2f2070)), closes [#3](https://github.com/moonrepo/dev/issues/3)
+- Add overrides for config files (`*.config.js`). (#3)
+  ([f2f2070](https://github.com/moonrepo/dev/commit/f2f2070)), closes
+  [#3](https://github.com/moonrepo/dev/issues/3)
 
 #### 📦 Dependencies
 
@@ -92,18 +110,18 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 0.0.1 - 2022-08-16
 
 #### 🐞 Fixes
 
-- Some final polish before beta release. (#2) ([ea37025](https://github.com/moonrepo/dev/commit/ea37025)), closes [#2](https://github.com/moonrepo/dev/issues/2)
+- Some final polish before beta release. (#2)
+  ([ea37025](https://github.com/moonrepo/dev/commit/ea37025)), closes
+  [#2](https://github.com/moonrepo/dev/issues/2)
 
 #### 📘 Docs
 
-- Update readmes and rework builds. (#1) ([408dcb6](https://github.com/moonrepo/dev/commit/408dcb6)), closes [#1](https://github.com/moonrepo/dev/issues/1)
+- Update readmes and rework builds. (#1)
+  ([408dcb6](https://github.com/moonrepo/dev/commit/408dcb6)), closes
+  [#1](https://github.com/moonrepo/dev/issues/1)
 
 **Note:** Version bump only for package eslint-config-moon
