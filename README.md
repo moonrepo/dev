@@ -1,20 +1,27 @@
-# moon development configs
+# moon development
 
 ![build status](https://img.shields.io/github/workflow/status/moonrepo/dev/Pipeline)
 ![npm version](https://img.shields.io/npm/v/@moonrepo/dev)
 ![npm license](https://img.shields.io/npm/l/@moonrepo/dev)
 
-This repository is a collection of moon owned and maintained configurations and presets for common
-developer tools -- primarily tools used by moonrepo and its authors.
+This repository is a collection of moon owned and maintained developer tools and shared
+configurations/presets for common JavaScript tooling -- primarily tools used by moonrepo and its
+authors.
 
-It aims to provide a strict, modern, developer accessible, convention over configuration approach to
-JavaScript, TypeScript (first), and React/Solid projects! All of these configs have been designed
-for local and developer tooling based development!
+## Editor extensions
 
-## Packages
+This repo houses the official moon VS Code extension,
+[moonrepo.moon-console](./packages/vscode-extension)! It is currently under heavy development, but
+is in a usable condition.
+
+## Shared configurations
 
 The following packages are not tied to [moon](https://github.com/moonrepo/moon) directly, and can be
-used stand-alone within their respective tools.
+used stand-alone within their respective JavaScript tools.
+
+They aim to provide a strict, modern, developer accessible, convention over configuration approach
+to JavaScript, TypeScript (first), and React/Solid projects! All of these configs have been designed
+for local and developer tooling based development!
 
 - [babel-preset-moon](./packages/babel-preset) - Babel preset that utilizes `env`, `typescript`, and
   `react` presets.
@@ -34,9 +41,11 @@ and more. This should rarely be used directly!
 
 ### Can I contribute changes?
 
-All these configs are personal preference and won't change drastically. You're welcome to use them
-as-is, but major changes are unlikely to land. Feel free to create an issue otherwise so that we can
-discuss any intended change.
+For the VS Code extension, yes!
+
+For the configs, they're basically personal preference and won't change drastically. You're welcome
+to use them as-is, but major changes are unlikely to land. Feel free to create an issue otherwise,
+so that we can discuss any intended change.
 
 ### Why tabs over spaces?
 
@@ -59,5 +68,5 @@ titles. With that being said, the versioning strategy is as follows:
   - Adding new dependencies (like babel plugins).
   - Adding new features.
 - Major
-  - Node.js minimum requirements / upgraes.
+  - Node.js minimum requirements / upgrades.
   - Major version upgrades for tools (e.g., eslint 7 -> 8).
