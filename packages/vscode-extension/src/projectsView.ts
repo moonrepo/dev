@@ -10,7 +10,7 @@ import vscode, {
 	Uri,
 } from 'vscode';
 import type { Project, ProjectLanguage, ProjectType, Task as ProjectTask } from '@moonrepo/types';
-import { runTarget } from './commands';
+import { checkProject, runTarget } from './commands';
 import { execMoon } from './moon';
 
 const LANGUAGE_MANIFESTS: Partial<Record<ProjectLanguage, string>> = {
@@ -54,7 +54,7 @@ class TaskItem extends TreeItem {
 				this.iconPath = new ThemeIcon('wrench');
 				break;
 			case 'run':
-				this.iconPath = new ThemeIcon('run-all');
+				this.iconPath = new ThemeIcon('terminal');
 				break;
 			case 'test':
 				this.iconPath = new ThemeIcon('beaker');
@@ -152,6 +152,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		context.subscriptions.push(
 			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
 			vscode.commands.registerCommand('moon.runTarget', this.runTarget, this),
+			vscode.commands.registerCommand('moon.checkProject', this.checkProject, this),
 			vscode.commands.registerCommand('moon.viewProject', this.viewProject, this),
 			watcher,
 		);
@@ -223,6 +224,10 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 					break;
 			}
 		});
+	}
+
+	async checkProject(item: ProjectItem) {
+		await checkProject(item.project.id, this.workspaceRoot);
 	}
 
 	async viewProject(item: ProjectItem) {
