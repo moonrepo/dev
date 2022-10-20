@@ -1,5 +1,32 @@
 import vscode, { ShellExecution, Task, TaskScope } from 'vscode';
-import { findMoonBin } from './moon';
+import { findMoonBin, getMoonVersion } from './moon';
+
+export async function checkProject(
+	project: string,
+	workspaceRoot: string,
+	modifier?: (task: Task) => void,
+) {
+	const args = ['check', project];
+	const version = await getMoonVersion(workspaceRoot);
+
+	if (version >= 0.17) {
+		args.push('--report');
+	}
+
+	const task = new Task(
+		{ project, type: 'moon' },
+		TaskScope.Workspace,
+		`moon check ${project}`,
+		'moon',
+		new ShellExecution(findMoonBin(workspaceRoot)!, args, {
+			cwd: workspaceRoot,
+		}),
+	);
+
+	modifier?.(task);
+
+	await vscode.tasks.executeTask(task);
+}
 
 export async function runTarget(
 	target: string,

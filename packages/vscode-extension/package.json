@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.1.2",
+  "version": "0.2.0",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -75,9 +75,14 @@
         "icon": "$(refresh)"
       },
       {
+        "command": "moon.checkProject",
+        "title": "moon: Run all buildable and testable targets",
+        "icon": "$(run-all)"
+      },
+      {
         "command": "moon.runTarget",
         "title": "moon: Run the target",
-        "icon": "$(terminal)"
+        "icon": "$(run)"
       },
       {
         "command": "moon.runTargetByInput",
@@ -94,6 +99,10 @@
         {
           "command": "moon.refreshProjects",
           "when": "moon.hasBinary"
+        },
+        {
+          "command": "moon.checkProject",
+          "when": "false"
         },
         {
           "command": "moon.runTarget",
@@ -129,7 +138,12 @@
         {
           "command": "moon.viewProject",
           "when": "view == moonProjects && viewItem == project",
-          "group": "inline"
+          "group": "inline@0"
+        },
+        {
+          "command": "moon.checkProject",
+          "when": "view == moonProjects && viewItem == project",
+          "group": "inline@1"
         },
         {
           "command": "moon.runTarget",
@@ -139,7 +153,12 @@
         {
           "command": "moon.viewProject",
           "when": "view == moonProjectsExternal && viewItem == project",
-          "group": "inline"
+          "group": "inline@0"
+        },
+        {
+          "command": "moon.checkProject",
+          "when": "view == moonProjectsExternal && viewItem == project",
+          "group": "inline@1"
         }
       ]
     },

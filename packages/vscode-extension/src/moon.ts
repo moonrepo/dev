@@ -43,7 +43,6 @@ export function isRealBin(binPath: string): boolean {
 
 	// When in the moonrepo/moon repository, the binary is actually fake,
 	// so we need to account for that!
-	// eslint-disable-next-line no-magic-numbers
 	return stats.size > 100;
 }
 
@@ -56,5 +55,19 @@ export async function execMoon(args: string[], workspaceRoot: string): Promise<s
 		console.error(error);
 
 		throw error;
+	}
+}
+
+export async function getMoonVersion(workspaceRoot: string): Promise<number> {
+	try {
+		const result = await execMoon(['--version'], workspaceRoot);
+
+		// Output is: moon 0.0.0
+		const parts = result.split(' ');
+
+		// We only need major and minor
+		return Number.parseFloat(parts[parts.length - 1]);
+	} catch {
+		return 0;
 	}
 }

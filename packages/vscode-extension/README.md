@@ -70,6 +70,7 @@ prefixed with "moon".
   - [x] List tasks
   - [x] Categorize tasks based on type
   - [x] Run a task
+  - [x] Check a project
 - [x] Last run view
 - [x] Commands and command palette
 - [x] Watches and reacts to file system changes.
@@ -77,3 +78,4 @@ prefixed with "moon".
 - [ ] moon language server
 - [ ] Auto-completion
 - [ ] In-editor code generation
+- [ ] Graph visualizer
