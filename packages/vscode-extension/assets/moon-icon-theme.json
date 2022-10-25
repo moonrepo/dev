@@ -1,0 +1,22 @@
+{
+  "iconDefinitions": {
+    "_file": {
+      "iconPath": "./icons/file.svg"
+    },
+    "_folder": {
+      "iconPath": "./icons/folder.svg"
+    },
+    "_folderOpen": {
+      "iconPath": "./icons/folder-open.svg"
+    }
+  },
+  "fileNames": {
+    "moon.yml": "_file"
+  },
+  "folderNames": {
+    ".moon": "_folder"
+  },
+  "folderNamesExpanded": {
+    ".moon": "_folderOpen"
+  }
+}
