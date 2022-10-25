@@ -140,21 +140,27 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		this.onDidChangeTreeDataEmitter = new EventEmitter<TreeItem | null>();
 		this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
 
+		const wsDir = vscode.workspace.workspaceFolders?.[0] ?? workspaceRoot;
+
 		// When `.moon/workspace.yml` is changed, refresh projects
-		const watcher = vscode.workspace.createFileSystemWatcher(
-			new vscode.RelativePattern(
-				vscode.workspace.workspaceFolders?.[0] ?? workspaceRoot,
-				'.moon/workspace.yml',
-			),
+		const watcher1 = vscode.workspace.createFileSystemWatcher(
+			new vscode.RelativePattern(wsDir, '.moon/*.yml'),
 		);
-		watcher.onDidChange(this.refresh, this);
+		watcher1.onDidChange(this.refresh, this);
+
+		// When `moon.yml` is changed, refresh projects
+		const watcher2 = vscode.workspace.createFileSystemWatcher(
+			new vscode.RelativePattern(wsDir, '**/moon.yml'),
+		);
+		watcher2.onDidChange(this.refresh, this);
 
 		context.subscriptions.push(
 			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
 			vscode.commands.registerCommand('moon.runTarget', this.runTarget, this),
 			vscode.commands.registerCommand('moon.checkProject', this.checkProject, this),
 			vscode.commands.registerCommand('moon.viewProject', this.viewProject, this),
-			watcher,
+			watcher1,
+			watcher2,
 		);
 	}
 
