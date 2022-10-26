@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.1.1 - 2022-10-26
+
+#### 📦 Dependencies
+
+- **[babel-preset-solid]** Update to v1.6.
+  ([2b37f8f](https://github.com/moonrepo/dev/commit/2b37f8f))
+
+**Note:** Version bump only for package babel-preset-moon
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.1.0 - 2022-10-16
 
 #### 🚀 Updates

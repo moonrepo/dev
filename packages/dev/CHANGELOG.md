@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.0 - 2022-10-26
+
+#### 🚀 Updates
+
+- Update rules to use `package.json` in cwd instead of root. (#17)
+  ([1edc1c1](https://github.com/moonrepo/dev/commit/1edc1c1)), closes
+  [#17](https://github.com/moonrepo/dev/issues/17)
+
+**Note:** Version bump only for package @moonrepo/dev
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.1.0 - 2022-10-16
 
 #### 🚀 Updates
