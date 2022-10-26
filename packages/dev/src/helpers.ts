@@ -88,6 +88,17 @@ export function getTargetNodeRuntime(): number {
 	return nodeVersion;
 }
 
+export function getParentNodeRuntime(): number {
+	const pkg = getClosestPackageJson(process.cwd());
+	const version = pkg.engines?.node;
+
+	if (version) {
+		return parseVersion(version);
+	}
+
+	return getTargetNodeRuntime();
+}
+
 // PACKAGES
 
 export function getPackageVersion(pkgName: string): number {
