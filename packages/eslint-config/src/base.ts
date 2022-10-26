@@ -1,7 +1,7 @@
 import type eslint from 'eslint';
-import { CASE_SENSITIVE, getTargetNodeRuntime } from '@moonrepo/dev';
+import { CASE_SENSITIVE, getParentNodeRuntime } from '@moonrepo/dev';
 
-const nodeVersion = getTargetNodeRuntime();
+const nodeVersion = getParentNodeRuntime();
 
 // The following rules are either overriding Airbnb's defaults,
 // or they are enabling new rules that aren't in Airbnb yet.

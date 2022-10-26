@@ -1,7 +1,7 @@
 import type eslint from 'eslint';
-import { CONFIGS_LIST, getTargetNodeRuntime } from '@moonrepo/dev';
+import { CONFIGS_LIST, getParentNodeRuntime } from '@moonrepo/dev';
 
-const nodeVersion = getTargetNodeRuntime();
+const nodeVersion = getParentNodeRuntime();
 
 const config: eslint.Linter.Config = {
 	plugins: ['unicorn'],

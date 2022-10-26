@@ -1,7 +1,7 @@
 import type eslint from 'eslint';
-import { getTargetNodeRuntime } from '@moonrepo/dev';
+import { getParentNodeRuntime } from '@moonrepo/dev';
 
-const nodeVersion = getTargetNodeRuntime();
+const nodeVersion = getParentNodeRuntime();
 
 const config: eslint.Linter.Config = {
 	plugins: ['node', 'compat'],
