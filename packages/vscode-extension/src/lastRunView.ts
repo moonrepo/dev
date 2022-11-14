@@ -83,14 +83,14 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 			const report = JSON.parse(fs.readFileSync(runReportPath, 'utf8')) as RunReport;
 
 			const tableRows = prepareReportActions(report, SLOW_THRESHOLD_SECS).map(
-				(action, index) => `
+				(action) => `
 					<tr>
 						<td>
 							<span class="action-icon">${action.icon}</span>
 						</td>
 						<td>
 							<span class="action-label">${action.label}</span><br />
-							${action.time} | ${report.actions[index].status} ${this.formatComments(action.comments)}
+							${action.time} | ${action.status} ${this.formatComments(action.comments)}
 						</td>
 					</tr>
 				`,
