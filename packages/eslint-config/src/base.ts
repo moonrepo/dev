@@ -45,6 +45,7 @@ const config: eslint.Linter.Config = {
 		'no-constructor-return': 'error',
 		'no-div-regex': 'error',
 		'no-dupe-else-if': 'error',
+		'no-empty-static-block': 'error',
 		'no-import-assign': 'error',
 		'no-native-reassign': 'error',
 		'no-promise-executor-return': 'error',
