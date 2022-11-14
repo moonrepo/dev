@@ -12,7 +12,7 @@
     "packages/*"
   ],
   "devDependencies": {
-    "@babel/core": "^7.19.6",
+    "@babel/core": "^7.20.2",
     "@moonrepo/cli": "^0.17.0",
     "@moonrepo/dev": "workspace:*",
     "eslint": "^8.26.0",
