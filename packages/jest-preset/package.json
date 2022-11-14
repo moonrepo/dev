@@ -1,6 +1,6 @@
 {
   "name": "jest-preset-moon",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "A modern Jest preset for tooling development.",
   "keywords": [
     "jest-preset",

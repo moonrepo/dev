@@ -3,6 +3,25 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 - 2022-11-14
+
+#### 🚀 Updates
+
+- Enabled `no-empty-static-block` rule. ([9a6292f](https://github.com/moonrepo/dev/commit/9a6292f))
+- Enabled `no-new-native-nonconstructor` rule.
+  ([45624a3](https://github.com/moonrepo/dev/commit/45624a3))
+
+#### 📦 Dependencies
+
+- **[eslint]** Update to v8.27. ([39a0a29](https://github.com/moonrepo/dev/commit/39a0a29))
+
+**Note:** Version bump only for package eslint-config-moon
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.2.0 - 2022-10-26
 
 #### 🚀 Updates
