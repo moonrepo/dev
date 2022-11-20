@@ -145,3 +145,42 @@ export function getRootTsConfig(): TsConfigJson {
 export function getProjectTsConfig(file?: string): TsConfigJson | null {
 	return loadTsConfig(file ?? path.join(PROJECT_ROOT, 'tsconfig.json'));
 }
+
+export function getClosestTsConfig(startingDir: string): TsConfigJson {
+	const packagePath = path.join(startingDir, 'tsconfig.json');
+
+	if (fs.existsSync(packagePath)) {
+		return loadTsConfig(packagePath)!;
+	}
+
+	return getClosestTsConfig(path.dirname(startingDir));
+}
+
+export function getTsProjectForEslint(): string[] {
+	// Some very large projects will run out of memory when using project references,
+	// so we support a custom tsconfig to work around this issue
+	const tsConfigEslintPath = path.join(process.cwd(), 'tsconfig.eslint.json');
+
+	if (!fs.existsSync(tsConfigEslintPath)) {
+		return [tsConfigEslintPath];
+	}
+
+	// When running on the command line, we only want to use types from the local config
+	const tsConfigProjectPath = path.join(PROJECT_ROOT, 'tsconfig.json');
+
+	if (fs.existsSync(tsConfigProjectPath)) {
+		return [tsConfigProjectPath];
+	}
+
+	// Otherwise, if the consumer is using project references, we need to include a path
+	// to every tsconfig.json in the graph
+	const tsConfigRoot = getRootTsConfig();
+
+	if (tsConfigRoot.references && tsConfigRoot.references.length > 0) {
+		return tsConfigRoot.references.map((ref) =>
+			path.join(WORKSPACE_ROOT, ref.path, 'tsconfig.json'),
+		);
+	}
+
+	return [path.join(WORKSPACE_ROOT, 'tsconfig.json')];
+}
