@@ -33,6 +33,7 @@ Extend the config from your root `tsconfig.json`.
   - Targets `es2022` (since we only type check).
 - Supports project references through the `tsconfig.projects.json` config.
   - Enables declaration emitting.
+  - Enables incremental compilation.
 - Supports React through the `tsconfig.react.json` config.
   - Enables the `dom` lib.
   - Sets JSX transform to `react`.
