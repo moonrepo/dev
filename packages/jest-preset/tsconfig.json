@@ -11,6 +11,9 @@
   ],
   "references": [
     {
+      "path": "./tsconfig.build.json"
+    },
+    {
       "path": "../dev"
     }
   ]
