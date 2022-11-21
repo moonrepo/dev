@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.1.3 - 2022-11-21
+
+#### 🛠 Internals
+
+- Improve TypeScript project references. (#20)
+  ([b9dfb3e](https://github.com/moonrepo/dev/commit/b9dfb3e)), closes
+  [#20](https://github.com/moonrepo/dev/issues/20)
+
+**Note:** Version bump only for package babel-preset-moon
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ### 1.1.2 - 2022-11-14
 
 #### 📦 Dependencies

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.2.0 - 2022-11-21
+
+#### 🚀 Updates
+
+- Enable `incremental` compiler option. ([998d878](https://github.com/moonrepo/dev/commit/998d878))
+
+**Note:** Version bump only for package tsconfig-moon
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.1.0 - 2022-10-16
 
 #### 🚀 Updates
