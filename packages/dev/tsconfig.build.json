@@ -1,7 +1,6 @@
 {
-  "extends": "./tsconfig.json",
+  "extends": "../../tsconfig.options.json",
   "compilerOptions": {
-    "declarationDir": "dts",
     "outDir": "dts",
     "rootDir": "src"
   },
