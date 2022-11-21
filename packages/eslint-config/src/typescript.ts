@@ -1,38 +1,10 @@
-import fs from 'fs';
-import path from 'path';
 import type eslint from 'eslint';
-import { getRootTsConfig, PROJECT_ROOT, WORKSPACE_ROOT } from '@moonrepo/dev';
-
-let project: string[] | string = '';
-
-// When running on the command line, we only want to use types from the local config.
-const tsConfigProjectPath = path.join(PROJECT_ROOT, 'tsconfig.json');
-
-if (fs.existsSync(tsConfigProjectPath)) {
-	project = tsConfigProjectPath;
-}
-
-// Some very large projects will run out of memory when using project references,
-// so we support a custom tsconfig to work around this issue.
-const tsConfigEslintPath = path.join(WORKSPACE_ROOT, 'tsconfig.eslint.json');
-
-if (!project && fs.existsSync(tsConfigEslintPath)) {
-	project = tsConfigEslintPath;
-}
-
-// Otherwise, if the consumer is using project references, we need to include a path
-// to every tsconfig.json in the graph.
-if (!project) {
-	project =
-		getRootTsConfig()?.references?.map((ref) =>
-			path.join(WORKSPACE_ROOT, ref.path, 'tsconfig.json'),
-		) ?? path.join(WORKSPACE_ROOT, 'tsconfig.json');
-}
+import { getTsProjectForEslint } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	plugins: ['@typescript-eslint'],
 	parserOptions: {
-		project,
+		project: getTsProjectForEslint(),
 	},
 	rules: {
 		// Disabled by Prettier: https://github.com/prettier/eslint-config-prettier/blob/main/index.js#L95
