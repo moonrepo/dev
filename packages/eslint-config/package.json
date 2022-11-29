@@ -45,11 +45,11 @@
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-compat": "^4.0.2",
     "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jest": "^27.1.5",
+    "eslint-plugin-jest": "^27.1.6",
     "eslint-plugin-jsx-a11y": "^6.6.1",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^6.1.1",
-    "eslint-plugin-react": "^7.31.10",
+    "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-perf": "^3.3.1",
     "eslint-plugin-simple-import-sort": "^8.0.0",
@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@types/eslint": "^8.4.10",
-    "eslint": "^8.27.0"
+    "eslint": "^8.28.0"
   },
   "funding": {
     "type": "ko-fi",
