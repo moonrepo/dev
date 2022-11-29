@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.2.1 - 2022-11-29
+
+#### 📦 Dependencies
+
+- **[moon]** Update to v0.20. ([3dbbbc0](https://github.com/moonrepo/dev/commit/3dbbbc0))
+
+**Note:** Version bump only for package tsconfig-moon
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.2.0 - 2022-11-21
 
 #### 🚀 Updates

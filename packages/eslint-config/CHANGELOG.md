@@ -3,6 +3,23 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.4.1 - 2022-11-29
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-solid]** Update to v0.9.1.
+  ([c5baad0](https://github.com/moonrepo/dev/commit/c5baad0))
+- **[eslint]** Update to v8.28. ([e95022b](https://github.com/moonrepo/dev/commit/e95022b))
+- **[typescript-eslint]** Update to v5.45.
+  ([a34c6e4](https://github.com/moonrepo/dev/commit/a34c6e4))
+
+**Note:** Version bump only for package eslint-config-moon
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## 1.4.0 - 2022-11-21
 
 #### 🚀 Updates
