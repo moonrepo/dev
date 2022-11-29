@@ -142,7 +142,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 		const wsDir = vscode.workspace.workspaceFolders?.[0] ?? workspaceRoot;
 
-		// When `.moon/workspace.yml` is changed, refresh projects
+		// When `.moon/*.yml` is changed, refresh projects
 		const watcher1 = vscode.workspace.createFileSystemWatcher(
 			new vscode.RelativePattern(wsDir, '.moon/*.yml'),
 		);
