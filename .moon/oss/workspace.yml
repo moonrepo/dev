@@ -1,48 +1,5 @@
 $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
-# https://moonrepo.dev/docs/config/workspace#node
-node:
-  version: '18.12.0'
-  packageManager: 'yarn'
-  yarn:
-    version: '3.2.4'
-    plugins:
-      - 'interactive-tools'
-      - 'version'
-      - 'workspace-tools'
-
-  # Do not add an engines constraint as its abrasive for open source.
-  addEnginesConstraint: false
-
-  # Always dedupe lockfile to keep it healthy.
-  dedupeOnLockfileChange: true
-
-  # Use workspace ranges when syncing projects.
-  dependencyVersionFormat: 'workspace-caret'
-  syncProjectWorkspaceDependencies: true
-
-  # Allow contributors to easily use the correct version.
-  syncVersionManagerConfig: 'nvm'
-
-  # Do not infer functionality from `package.json`, as we want to encourage
-  # consumers to embrace moon.
-  aliasPackageNames: null
-  inferTasksFromScripts: false
-
-# https://moonrepo.dev/docs/config/workspace#typescript
-typescript:
-  # Always create a missing config so we can catch misconfigured projects.
-  createMissingConfig: true
-
-  # Always route project reference declarations outside of the project.
-  routeOutDirToCache: true
-
-  # Always sync project references to keep it healthy.
-  syncProjectReferences: true
-
-  # Do not add path aliases, as this may be abrasive. Consumers can opt-in.
-  syncProjectReferencesToPaths: false
-
 # https://moonrepo.dev/docs/config/workspace#runner
 runner:
   # Instead of fine tuning each project, always build dependencies and rely on the cache.
