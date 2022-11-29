@@ -6388,7 +6388,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-perf: ^3.3.1
     eslint-plugin-simple-import-sort: ^8.0.0
-    eslint-plugin-solid: ^0.8.0
+    eslint-plugin-solid: ^0.9.1
     eslint-plugin-unicorn: ^44.0.2
   peerDependencies:
     eslint: ^8.0.0
@@ -6596,9 +6596,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-solid@npm:^0.8.0":
-  version: 0.8.0
-  resolution: "eslint-plugin-solid@npm:0.8.0"
+"eslint-plugin-solid@npm:^0.9.1":
+  version: 0.9.1
+  resolution: "eslint-plugin-solid@npm:0.9.1"
   dependencies:
     "@typescript-eslint/utils": ^5.30.7
     is-html: ^2.0.0
@@ -6608,7 +6608,7 @@ __metadata:
     style-to-object: ^0.3.0
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 67b688fac1517030584e7024b93e798fe338eeeebaa1bb8bed422e36fd02739b40ca2bf644de945d9df8d4cf36787fe1a26d0f78e5dc750c1959b45d6b49222c
+  checksum: eceb68cdac1ae21033f995299bc2fde065951387b8894d62c458166f60386a058d190ef8f1fa830fcac87f70cc25fd1f19f1d1dfc4dc9a165c4422cee70013e5
   languageName: node
   linkType: hard
 
