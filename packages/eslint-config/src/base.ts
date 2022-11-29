@@ -71,6 +71,7 @@ const config: eslint.Linter.Config = {
 			{
 				ignore: [-3, -2, -1, 0, 1, 2, 3],
 				ignoreArrayIndexes: true,
+				ignoreClassFieldInitialValues: true,
 				enforceConst: true,
 			},
 		],
