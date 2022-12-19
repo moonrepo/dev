@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.3.2",
+  "version": "0.4.0",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -225,7 +225,7 @@
     "execa": "^5.1.1"
   },
   "devDependencies": {
-    "@moonrepo/types": "^0.0.9",
+    "@moonrepo/types": "^0.0.11",
     "@types/vscode": "^1.66.0",
     "@vscode/test-electron": "^2.2.1",
     "esbuild": "^0.16.9",
