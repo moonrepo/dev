@@ -58,7 +58,7 @@
   },
   "devDependencies": {
     "@types/eslint": "^8.4.10",
-    "eslint": "^8.28.0"
+    "eslint": "^8.30.0"
   },
   "funding": {
     "type": "ko-fi",
