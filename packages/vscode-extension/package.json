@@ -227,8 +227,8 @@
   "devDependencies": {
     "@moonrepo/types": "^0.0.9",
     "@types/vscode": "^1.66.0",
-    "@vscode/test-electron": "^2.2.0",
-    "esbuild": "^0.15.16",
-    "vsce": "^2.14.0"
+    "@vscode/test-electron": "^2.2.1",
+    "esbuild": "^0.16.9",
+    "vsce": "^2.15.0"
   }
 }
