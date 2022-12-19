@@ -1,6 +1,6 @@
 ## 0.4.0
 
-- Added supported for 5 new language icons: Go, PHP, Python, Ruby, Rust
+- Added support for 5 new language icons: Go, PHP, Python, Ruby, Rust
 
 ## 0.3.0
 
