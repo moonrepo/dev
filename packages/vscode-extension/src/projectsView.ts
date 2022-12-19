@@ -13,9 +13,17 @@ import type { Project, ProjectLanguage, ProjectType, Task as ProjectTask } from 
 import { checkProject, runTarget } from './commands';
 import { execMoon } from './moon';
 
-const LANGUAGE_MANIFESTS: Partial<Record<ProjectLanguage, string>> = {
+const LANGUAGE_MANIFESTS: Record<ProjectLanguage, string> = {
+	bash: '',
+	batch: '',
+	go: 'go.mod',
 	javascript: 'package.json',
+	php: 'composer.json',
+	python: 'pyproject.toml',
+	ruby: 'Gemfile',
+	rust: 'Cargo.toml',
 	typescript: 'tsconfig.json',
+	unknown: '',
 };
 
 // https://devicon.dev
@@ -86,7 +94,7 @@ class ProjectItem extends TreeItem {
 
 		this.tasks = Object.values(project.tasks).map((task) => new TaskItem(this, task));
 		this.resourceUri = Uri.file(
-			path.join(project.root, LANGUAGE_MANIFESTS[language] ?? 'moon.yml'),
+			path.join(project.root, LANGUAGE_MANIFESTS[language] || 'moon.yml'),
 		);
 		this.iconPath =
 			language === 'unknown' ? new ThemeIcon('question') : createLangIcon(this.context, language);

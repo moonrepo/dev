@@ -1,3 +1,7 @@
+## 0.4.0
+
+- Added support for 5 new language icons: Go, PHP, Python, Ruby, Rust
+
 ## 0.3.0
 
 - Changes to `moon.yml` will now automatically refresh projects.
