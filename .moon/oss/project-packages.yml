@@ -46,19 +46,19 @@ tasks:
   format:
     command: 'prettier'
     args:
+      - '--config'
+      - '@in(1)'
       - '--ignore-path'
-      - '@in(4)'
+      - '@in(0)'
       - '--check'
       - '.'
     inputs:
+      - '/.prettierignore'
+      - '/.prettierrc.js'
       - '@globs(configs)'
       - '@globs(sources)'
       - '@globs(tests)'
       - '**/*.{md,mdx,yml,yaml,json}'
-      - '/.prettierignore'
-      - '/.prettierrc.js'
-    # options:
-    #   cache: false
 
   # https://moonrepo.dev/docs/guides/examples/eslint
   lint:
