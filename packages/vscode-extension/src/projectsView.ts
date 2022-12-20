@@ -86,7 +86,8 @@ class ProjectItem extends TreeItem {
 		this.id = project.id;
 		this.contextValue = 'project';
 
-		const { language, project: metadata } = project.config;
+		const { language } = project;
+		const { project: metadata } = project.config;
 
 		if (metadata) {
 			this.tooltip = `${metadata.name} - ${metadata.description}`;
