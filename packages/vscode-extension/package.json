@@ -92,6 +92,11 @@
         "command": "moon.viewProject",
         "title": "moon: View selected project",
         "icon": "$(open-preview)"
+      },
+      {
+        "command": "moon.viewProjectGraph",
+        "title": "moon: View project graph",
+        "icon": "$(type-hierarchy)"
       }
     ],
     "menus": {
@@ -115,6 +120,10 @@
         {
           "command": "moon.viewProject",
           "when": "false"
+        },
+        {
+          "command": "moon.viewProjectGraph",
+          "when": "moon.hasBinary"
         }
       ],
       "view/title": [
@@ -125,6 +134,16 @@
         },
         {
           "command": "moon.refreshProjects",
+          "when": "view == moonProjectsExternal && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewProjectGraph",
+          "when": "view == moonProjects && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewProjectGraph",
           "when": "view == moonProjectsExternal && moon.hasBinary",
           "group": "navigation"
         }

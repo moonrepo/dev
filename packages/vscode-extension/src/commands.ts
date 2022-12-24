@@ -58,3 +58,17 @@ export async function runTargetByInput(workspaceRoot: string) {
 		await runTarget(target, workspaceRoot);
 	}
 }
+
+export async function viewProjectGraph(workspaceRoot: string) {
+	const task = new Task(
+		{ type: 'moon' },
+		TaskScope.Workspace,
+		'moon project-graph',
+		'moon',
+		new ShellExecution(findMoonBin(workspaceRoot)!, ['project-graph', '--dot'], {
+			cwd: workspaceRoot,
+		}),
+	);
+
+	await vscode.tasks.executeTask(task);
+}
