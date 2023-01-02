@@ -66,7 +66,7 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 					<script type="module" src="https://unpkg.com/@vscode/webview-ui-toolkit@latest"></script>
 					<link href="${cssUri}" rel="stylesheet">
 				</head>
-				<body>
+				<body class="body">
 					${content}
 				</body>
 			</html>`;

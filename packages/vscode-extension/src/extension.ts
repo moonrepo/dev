@@ -1,5 +1,5 @@
 import vscode from 'vscode';
-import { runTargetByInput, viewProjectGraph } from './commands';
+import { runTargetByInput, viewDepGraph, viewProjectGraph } from './commands';
 import { LastRunProvider } from './lastRunView';
 import { findMoonBin, findWorkspaceRoot, isRealBin } from './moon';
 import { ProjectsProvider } from './projectsView';
@@ -34,11 +34,6 @@ export async function activate(context: vscode.ExtensionContext) {
 		// moon run <target>"
 		vscode.commands.registerCommand('moon.runTargetByInput', () => runTargetByInput(workspaceRoot)),
 
-		// moon project-graph
-		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
-			viewProjectGraph(context, workspaceRoot),
-		),
-
 		// Create a tree view for all moon projects
 		vscode.window.createTreeView('moonProjects', {
 			showCollapseAll: true,
@@ -50,7 +45,12 @@ export async function activate(context: vscode.ExtensionContext) {
 		}),
 
 		// Create graph visualizers
-		// vscode.window.createWebviewPanel('moonDepGraph', 'moon dependency graph', ViewColumn.Beside),
+		vscode.commands.registerCommand('moon.viewDepGraph', () =>
+			viewDepGraph(context, workspaceRoot),
+		),
+		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
+			viewProjectGraph(context, workspaceRoot),
+		),
 
 		// Create a webview for last run report
 		vscode.window.registerWebviewViewProvider(

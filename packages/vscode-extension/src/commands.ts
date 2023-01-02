@@ -60,6 +60,10 @@ export async function runTargetByInput(workspaceRoot: string) {
 	}
 }
 
+export async function viewDepGraph(context: vscode.ExtensionContext, workspaceRoot: string) {
+	await new GraphVisualizerView(context, workspaceRoot, 'dep-graph').renderPanel();
+}
+
 export async function viewProjectGraph(context: vscode.ExtensionContext, workspaceRoot: string) {
 	await new GraphVisualizerView(context, workspaceRoot, 'project-graph').renderPanel();
 }
