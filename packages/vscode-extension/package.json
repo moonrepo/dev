@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.4.1",
+  "version": "0.5.0",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -92,6 +92,16 @@
         "command": "moon.viewProject",
         "title": "moon: View selected project",
         "icon": "$(open-preview)"
+      },
+      {
+        "command": "moon.viewDepGraph",
+        "title": "moon: View dependency graph",
+        "icon": "$(gather)"
+      },
+      {
+        "command": "moon.viewProjectGraph",
+        "title": "moon: View project graph",
+        "icon": "$(type-hierarchy-sub)"
       }
     ],
     "menus": {
@@ -115,6 +125,14 @@
         {
           "command": "moon.viewProject",
           "when": "false"
+        },
+        {
+          "command": "moon.viewDepGraph",
+          "when": "moon.hasBinary"
+        },
+        {
+          "command": "moon.viewProjectGraph",
+          "when": "moon.hasBinary"
         }
       ],
       "view/title": [
@@ -125,6 +143,26 @@
         },
         {
           "command": "moon.refreshProjects",
+          "when": "view == moonProjectsExternal && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewDepGraph",
+          "when": "view == moonProjects && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewDepGraph",
+          "when": "view == moonProjectsExternal && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewProjectGraph",
+          "when": "view == moonProjects && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewProjectGraph",
           "when": "view == moonProjectsExternal && moon.hasBinary",
           "group": "navigation"
         }

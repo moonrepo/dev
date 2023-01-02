@@ -63,10 +63,10 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 					<meta charset="UTF-8">
 					<meta name="viewport" content="width=device-width, initial-scale=1.0">
 					<title>moon - Last run report</title>
-					<script type="module" src="https://unpkg.com/@vscode/webview-ui-toolkit@latest/dist/toolkit.min.js"></script>
+					<script type="module" src="https://unpkg.com/@vscode/webview-ui-toolkit@latest"></script>
 					<link href="${cssUri}" rel="stylesheet">
 				</head>
-				<body>
+				<body class="body">
 					${content}
 				</body>
 			</html>`;
