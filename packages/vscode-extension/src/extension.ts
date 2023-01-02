@@ -30,8 +30,7 @@ export async function activate(context: vscode.ExtensionContext) {
 	const projectsProvider = new ProjectsProvider(context, workspaceRoot);
 
 	context.subscriptions.push(
-		// Create commands:
-		// moon run <target>"
+		// Create a "moon run <target>" task
 		vscode.commands.registerCommand('moon.runTargetByInput', () => runTargetByInput(workspaceRoot)),
 
 		// Create a tree view for all moon projects
