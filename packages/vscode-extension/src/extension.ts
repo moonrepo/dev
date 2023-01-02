@@ -35,7 +35,9 @@ export async function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('moon.runTargetByInput', () => runTargetByInput(workspaceRoot)),
 
 		// moon project-graph
-		vscode.commands.registerCommand('moon.viewProjectGraph', () => viewProjectGraph(workspaceRoot)),
+		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
+			viewProjectGraph(context, workspaceRoot),
+		),
 
 		// Create a tree view for all moon projects
 		vscode.window.createTreeView('moonProjects', {
@@ -46,6 +48,9 @@ export async function activate(context: vscode.ExtensionContext) {
 			showCollapseAll: true,
 			treeDataProvider: projectsProvider,
 		}),
+
+		// Create graph visualizers
+		// vscode.window.createWebviewPanel('moonDepGraph', 'moon dependency graph', ViewColumn.Beside),
 
 		// Create a webview for last run report
 		vscode.window.registerWebviewViewProvider(

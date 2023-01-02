@@ -1,4 +1,5 @@
 import vscode, { ShellExecution, Task, TaskScope } from 'vscode';
+import { GraphVisualizerView } from './graphVisualizerView';
 import { findMoonBin, getMoonVersion } from './moon';
 
 export async function checkProject(
@@ -9,7 +10,7 @@ export async function checkProject(
 	const args = ['check', project];
 	const version = await getMoonVersion(workspaceRoot);
 
-	if (version >= 0.17) {
+	if (Number.parseFloat(version) >= 0.17) {
 		args.push('--report');
 	}
 
@@ -59,16 +60,6 @@ export async function runTargetByInput(workspaceRoot: string) {
 	}
 }
 
-export async function viewProjectGraph(workspaceRoot: string) {
-	const task = new Task(
-		{ type: 'moon' },
-		TaskScope.Workspace,
-		'moon project-graph',
-		'moon',
-		new ShellExecution(findMoonBin(workspaceRoot)!, ['project-graph', '--dot'], {
-			cwd: workspaceRoot,
-		}),
-	);
-
-	await vscode.tasks.executeTask(task);
+export async function viewProjectGraph(context: vscode.ExtensionContext, workspaceRoot: string) {
+	await new GraphVisualizerView(context, workspaceRoot, 'project-graph').renderPanel();
 }

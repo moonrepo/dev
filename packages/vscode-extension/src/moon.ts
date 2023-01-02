@@ -58,7 +58,7 @@ export async function execMoon(args: string[], workspaceRoot: string): Promise<s
 	}
 }
 
-export async function getMoonVersion(workspaceRoot: string): Promise<number> {
+export async function getMoonVersion(workspaceRoot: string): Promise<string> {
 	try {
 		const result = await execMoon(['--version'], workspaceRoot);
 
@@ -66,8 +66,8 @@ export async function getMoonVersion(workspaceRoot: string): Promise<number> {
 		const parts = result.split(' ');
 
 		// We only need major and minor
-		return Number.parseFloat(parts[parts.length - 1]);
+		return parts[parts.length - 1];
 	} catch {
-		return 0;
+		return '0.0.0';
 	}
 }
