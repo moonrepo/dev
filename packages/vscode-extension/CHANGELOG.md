@@ -1,3 +1,7 @@
+## 0.5.0
+
+- Added dependency and project graph in-editor visualization support.
+
 ## 0.4.0
 
 - Added support for 5 new language icons: Go, PHP, Python, Ruby, Rust
