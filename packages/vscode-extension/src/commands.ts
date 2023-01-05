@@ -1,3 +1,4 @@
+import { satisfies } from 'semver';
 import vscode, { ShellExecution, Task, TaskScope } from 'vscode';
 import { GraphVisualizerView } from './graphVisualizerView';
 import { findMoonBin, getMoonVersion } from './moon';
@@ -10,7 +11,7 @@ export async function checkProject(
 	const args = ['check', project];
 	const version = await getMoonVersion(workspaceRoot);
 
-	if (Number.parseFloat(version) >= 0.17) {
+	if (satisfies(version, '>=0.17.0')) {
 		args.push('--report');
 	}
 

@@ -1,3 +1,4 @@
+import { satisfies } from 'semver';
 import vscode, { ViewColumn } from 'vscode';
 import { execMoon, getMoonVersion } from './moon';
 
@@ -59,7 +60,7 @@ export class GraphVisualizerView {
 	async renderPanel() {
 		const version = await getMoonVersion(this.workspaceRoot);
 
-		if (version === '0.21.3' || Number.parseFloat(version) >= 0.22) {
+		if (satisfies(version, '>=0.21.3')) {
 			const data = await execMoon([this.type, '--json'], this.workspaceRoot);
 
 			this.panel.webview.html = this.renderHtml(
