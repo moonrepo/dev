@@ -111,7 +111,7 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 			`);
 		} else {
 			this.view.webview.html = this.renderHtml(`
-				No run report found. Run a target through the projects view, or pass <code>--report</code> on the command line.
+				No run report found. Run a target through the projects view or on the command line.
 			`);
 		}
 	}
