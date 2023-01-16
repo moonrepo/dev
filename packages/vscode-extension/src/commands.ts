@@ -11,7 +11,7 @@ export async function checkProject(
 	const args = ['check', project];
 	const version = await getMoonVersion(workspaceRoot);
 
-	if (satisfies(version, '>=0.17.0')) {
+	if (satisfies(version, '>=0.17.0 && <0.22.0')) {
 		args.push('--report');
 	}
 
@@ -35,12 +35,19 @@ export async function runTarget(
 	workspaceRoot: string,
 	modifier?: (task: Task) => void,
 ) {
+	const args = ['run', ...target.split(' ')];
+	const version = await getMoonVersion(workspaceRoot);
+
+	if (satisfies(version, '<0.22.0')) {
+		args.push('--report');
+	}
+
 	const task = new Task(
 		{ target, type: 'moon' },
 		TaskScope.Workspace,
 		`moon run ${target}`,
 		'moon',
-		new ShellExecution(findMoonBin(workspaceRoot)!, ['run', ...target.split(' '), '--report'], {
+		new ShellExecution(findMoonBin(workspaceRoot)!, args, {
 			cwd: workspaceRoot,
 		}),
 	);
