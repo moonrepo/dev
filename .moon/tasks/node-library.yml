@@ -1,0 +1,22 @@
+$schema: 'https://moonrepo.dev/schemas/tasks.json'
+
+tasks:
+  # https://moonrepo.dev/docs/guides/examples/packemon
+  build:
+    command: 'packemon'
+    args:
+      - 'build'
+      - '--addEngines'
+      - '--addExports'
+      - '--declaration'
+      - '--declarationConfig'
+      - 'tsconfig.build.json'
+    inputs:
+      - '@globs(sources)'
+      - '@globs(typescript)'
+      - 'package.json'
+    outputs:
+      - 'lib'
+      - 'dts'
+    env:
+      NODE_ENV: 'production'
