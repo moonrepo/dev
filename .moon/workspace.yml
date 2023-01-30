@@ -1,16 +1,16 @@
 $schema: 'https://moonrepo.dev/schemas/workspace.json'
 
-extends: './oss/workspace.yml'
-
-runner:
-  implicitInputs:
-    - 'package.json'
-    - '/.moon/oss/project.yml'
-    - '/.moon/oss/toolchain.yml'
-    - '/.moon/oss/workspace.yml'
-    - '/.moon/project.yml'
-    - '/.moon/toolchain.yml'
-    - '/.moon/workspace.yml'
-
 projects:
   - 'packages/*'
+
+# https://moonrepo.dev/docs/config/workspace#runner
+runner:
+  # Colors are nice...
+  inheritColorsForPipedTasks: true
+  # Always log the command so consumers understand what's happening.
+  logRunningCommand: true
+
+# https://moonrepo.dev/docs/config/workspace#vcs
+vcs:
+  manager: 'git'
+  defaultBranch: 'master'
