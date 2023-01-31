@@ -53,12 +53,12 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-perf": "^3.3.1",
     "eslint-plugin-simple-import-sort": "^10.0.0",
-    "eslint-plugin-solid": "^0.9.1",
+    "eslint-plugin-solid": "^0.9.4",
     "eslint-plugin-unicorn": "^44.0.2"
   },
   "devDependencies": {
     "@types/eslint": "^8.4.10",
-    "eslint": "^8.32.0"
+    "eslint": "^8.33.0"
   },
   "funding": {
     "type": "ko-fi",
