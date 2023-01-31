@@ -1,5 +1,22 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+### 1.1.4 - 2023-01-31
+
+#### 📦 Dependencies
+
+- **[jest]** Update to v27.4. ([0f74a71](https://github.com/moonrepo/dev/commit/0f74a71))
+
+**Note:** Version bump only for package jest-preset-moon
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

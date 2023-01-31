@@ -1,6 +1,6 @@
 {
   "name": "jest-preset-moon",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "A modern Jest preset for tooling development.",
   "keywords": [
     "jest-preset",
@@ -32,7 +32,7 @@
     "jest": ">=26.0.0"
   },
   "dependencies": {
-    "@moonrepo/dev": "^1.3.0",
+    "@moonrepo/dev": "^1.3.1",
     "@types/jest": "^29.4.0",
     "jest-circus": "^29.4.1",
     "jest-environment-jsdom": "^29.4.1"

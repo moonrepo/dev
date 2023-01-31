@@ -1,5 +1,22 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+### 1.3.1 - 2023-01-31
+
+#### 📦 Dependencies
+
+- **[moon]** Update to v0.23. ([f95b29f](https://github.com/moonrepo/dev/commit/f95b29f))
+
+**Note:** Version bump only for package @moonrepo/dev
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 

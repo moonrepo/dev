@@ -1,5 +1,31 @@
 # Change Log
 
+All notable changes to this project will be documented in this file.
+See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+### 1.4.2 - 2023-01-31
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-import]** Update to v2.27.5. ([5813488](https://github.com/moonrepo/dev/commit/5813488))
+- **[eslint-plugin-jest]** Update to v27.2.1. ([16ab793](https://github.com/moonrepo/dev/commit/16ab793))
+- **[eslint-plugin-jsx-a11y]** Update to v6.7.1. ([006b47a](https://github.com/moonrepo/dev/commit/006b47a))
+- **[eslint-plugin-react]** Update to v7.32.2. ([5d0548c](https://github.com/moonrepo/dev/commit/5d0548c))
+- **[eslint-plugin-simple-import-sort]** Update to v10. ([410d832](https://github.com/moonrepo/dev/commit/410d832))
+- **[eslint]** Update to v8.30. ([0ce6487](https://github.com/moonrepo/dev/commit/0ce6487))
+- **[eslint]** Update to v8.33. ([061e07d](https://github.com/moonrepo/dev/commit/061e07d))
+- **[prettier]** Update to v2.8.3. ([650a443](https://github.com/moonrepo/dev/commit/650a443))
+- **[typescript-eslint]** Update to v5.47. ([26a5bcd](https://github.com/moonrepo/dev/commit/26a5bcd))
+- **[typescript-eslint]** Update to v5.49. ([fe51420](https://github.com/moonrepo/dev/commit/fe51420))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
+# Change Log
+
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
