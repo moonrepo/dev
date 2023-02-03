@@ -27,6 +27,7 @@ const config: eslint.Linter.Config = {
 		// Expands upon base config to handle type annotations
 		'default-param-last': 'off',
 		'dot-notation': 'off',
+		'key-spacing': 'off',
 		'lines-between-class-members': 'off',
 		'no-array-constructor': 'off',
 		'no-dupe-class-members': 'off',
@@ -48,6 +49,7 @@ const config: eslint.Linter.Config = {
 		'no-return-await': 'off',
 		'@typescript-eslint/default-param-last': 'error',
 		'@typescript-eslint/dot-notation': 'error',
+		'@typescript-eslint/key-spacing': 'error',
 		'@typescript-eslint/lines-between-class-members': ['error', { exceptAfterOverload: true }],
 		'@typescript-eslint/no-array-constructor': 'error',
 		'@typescript-eslint/no-dupe-class-members': 'error',
