@@ -3,6 +3,30 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 - 2023-02-03
+
+#### 💥 Breaking
+
+- Drop Node v14 support. Require v16. ([0465f3c](https://github.com/moonrepo/dev/commit/0465f3c))
+
+#### 🚀 Updates
+
+- Enable `unicorn/no-negated-condition`. ([1f0bff4](https://github.com/moonrepo/dev/commit/1f0bff4))
+- Enable `unicorn/no-typeof-undefined`. ([039caf1](https://github.com/moonrepo/dev/commit/039caf1))
+- Enable `unicorn/prefer-set-size`. ([34d327e](https://github.com/moonrepo/dev/commit/34d327e))
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-unicorn]** Update to v45. ([55c23c2](https://github.com/moonrepo/dev/commit/55c23c2))
+- **[packemon]** Update to v3. ([79004d2](https://github.com/moonrepo/dev/commit/79004d2))
+- **[typescript-eslint]** Update to v5.50. ([c15628f](https://github.com/moonrepo/dev/commit/c15628f))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 1.4.2 - 2023-01-31
 
 #### 📦 Dependencies

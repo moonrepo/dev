@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 2.0.0 - 2023-02-03
+
+#### 💥 Breaking
+
+- Drop Node v14 support. Require v16. ([0465f3c](https://github.com/moonrepo/dev/commit/0465f3c))
+
+#### 📦 Dependencies
+
+- **[packemon]** Update to v3. ([79004d2](https://github.com/moonrepo/dev/commit/79004d2))
+
+**Note:** Version bump only for package @moonrepo/dev
+
+
+
+
+
 ### 1.3.1 - 2023-01-31
 
 #### 📦 Dependencies
