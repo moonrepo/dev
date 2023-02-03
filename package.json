@@ -5,7 +5,7 @@
   "scripts": {
     "moon": "$(yarn bin moon) --color",
     "release": "yarn moon run :build && lerna-release",
-    "setup": "packemon build",
+    "setup": "packemon build-workspace",
     "version": "yarn install && git add yarn.lock"
   },
   "workspaces": [
