@@ -2,7 +2,7 @@ $schema: 'https://moonrepo.dev/schemas/toolchain.json'
 
 # https://moonrepo.dev/docs/config/workspace#node
 node:
-  version: '18.12.0'
+  version: '18.14.0'
   packageManager: 'yarn'
   yarn:
     version: '3.4.1'
