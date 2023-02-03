@@ -132,6 +132,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/prefer-object-from-entries': 'error',
 		'unicorn/prefer-query-selector': 'error',
 		'unicorn/prefer-reflect-apply': 'error',
+		'unicorn/prefer-set-size': 'error',
 		'unicorn/prefer-spread': 'error',
 		'unicorn/prefer-string-slice': 'error',
 		'unicorn/prefer-string-starts-ends-with': 'error',
