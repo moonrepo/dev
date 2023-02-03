@@ -7,14 +7,13 @@
     "constants"
   ],
   "main": "./lib/index.js",
-  "types": "./dts/index.d.ts",
+  "types": "./lib/index.d.ts",
   "bin": {
     "lerna-release": "./lib/bin/lernaRelease.js"
   },
   "files": [
-    "dts/**/*.d.ts",
-    "lib/**/*.{js,map}",
-    "src/**/*.{ts,tsx,json}"
+    "lib/**/*",
+    "src/**/*"
   ],
   "repository": {
     "type": "git",
@@ -27,7 +26,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=14.15.0",
+    "node": ">=16.12.0",
     "npm": ">=6.14.0"
   },
   "funding": {
@@ -41,13 +40,17 @@
   "exports": {
     "./package.json": "./package.json",
     "./*": {
-      "types": "./dts/*.d.ts",
-      "node": "./lib/*.js",
+      "node": {
+        "types": "./lib/*.d.ts",
+        "default": "./lib/*.js"
+      },
       "default": "./lib/*.js"
     },
     ".": {
-      "types": "./dts/index.d.ts",
-      "node": "./lib/index.js",
+      "node": {
+        "types": "./lib/index.d.ts",
+        "default": "./lib/index.js"
+      },
       "default": "./lib/index.js"
     }
   },
