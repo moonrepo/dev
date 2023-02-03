@@ -18,6 +18,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/no-console-spaces': 'error',
 		'unicorn/no-empty-file': 'error',
 		'unicorn/no-hex-escape': 'error',
+		'unicorn/no-negated-condition': 'error',
 		'unicorn/no-unreadable-iife': 'error',
 		'unicorn/no-unsafe-regex': 'error',
 		'unicorn/no-zero-fractions': 'error',
