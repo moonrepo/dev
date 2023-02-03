@@ -18,6 +18,16 @@ export function findMoonBin(workspaceRoot: string): string | null {
 		return binPath;
 	}
 
+	try {
+		const globalBin = execa.sync('which', ['moon']).stdout;
+
+		if (globalBin && fs.existsSync(globalBin)) {
+			return globalBin;
+		}
+	} catch {
+		// Ignore
+	}
+
 	return null;
 }
 
