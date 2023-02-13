@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { satisfies } from 'semver';
 import vscode, {
 	Event,
 	EventEmitter,
@@ -11,7 +12,7 @@ import vscode, {
 } from 'vscode';
 import type { Project, ProjectLanguage, ProjectType, Task as ProjectTask } from '@moonrepo/types';
 import { checkProject, runTarget } from './commands';
-import { execMoon } from './moon';
+import { execMoon, getMoonVersion } from './moon';
 
 const LANGUAGE_MANIFESTS: Record<ProjectLanguage, string> = {
 	bash: '',
@@ -195,8 +196,13 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		}
 
 		if (!this.projects) {
+			const version = await getMoonVersion(this.workspaceRoot);
+
 			const { projects } = JSON.parse(
-				await execMoon(['query', 'projects'], this.workspaceRoot),
+				await execMoon(
+					satisfies(version, '>=0.24.0') ? ['query', 'projects', '--json'] : ['query', 'projects'],
+					this.workspaceRoot,
+				),
 			) as {
 				projects: Project[];
 			};
