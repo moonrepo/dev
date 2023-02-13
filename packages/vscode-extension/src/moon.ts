@@ -75,7 +75,6 @@ export async function getMoonVersion(workspaceRoot: string): Promise<string> {
 		// Output is: moon 0.0.0
 		const parts = result.split(' ');
 
-		// We only need major and minor
 		return parts[parts.length - 1];
 	} catch {
 		return '0.0.0';
