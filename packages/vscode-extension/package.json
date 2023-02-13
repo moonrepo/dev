@@ -259,12 +259,12 @@
     "publish": "vsce publish --no-dependencies --no-git-tag-version --message 'Release [ci skip]'"
   },
   "dependencies": {
-    "@moonrepo/report": "^0.0.4",
+    "@moonrepo/report": "^0.0.5",
     "execa": "^5.1.1",
     "semver": "^7.3.8"
   },
   "devDependencies": {
-    "@moonrepo/types": "^0.0.13",
+    "@moonrepo/types": "^0.0.14",
     "@types/semver": "^7.3.13",
     "@types/vscode": "^1.66.0",
     "@vscode/test-electron": "^2.2.1",
