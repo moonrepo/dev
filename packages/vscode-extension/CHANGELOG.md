@@ -1,3 +1,7 @@
+## 0.6.0
+
+- Added 19 new language icons.
+
 ## 0.5.0
 
 - Added dependency and project graph in-editor visualization support.
