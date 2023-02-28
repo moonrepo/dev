@@ -31,9 +31,18 @@ const LANGUAGE_MANIFESTS: Record<ProjectLanguage, string> = {
 function createLangIcon(context: vscode.ExtensionContext, name: ProjectLanguage) {
 	const icon = context.asAbsolutePath(path.join(`assets/langs/${name}.svg`));
 
+	if (fs.existsSync(icon)) {
+		return {
+			dark: icon,
+			light: icon,
+		};
+	}
+
+	const unknown = context.asAbsolutePath(path.join(`assets/langs/unknown.svg`));
+
 	return {
-		dark: icon,
-		light: icon,
+		dark: unknown,
+		light: unknown,
 	};
 }
 

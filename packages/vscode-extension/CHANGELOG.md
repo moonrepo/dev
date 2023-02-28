@@ -1,6 +1,6 @@
 ## 0.6.0
 
-- Added 19 new language icons.
+- Added 19 new language icons (requires moon >= 0.25).
 
 ## 0.5.0
 
