@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 1.3.0 - 2023-03-26
+
+#### 🚀 Updates
+
+- Enable `verbatimModuleSyntax` option. ([746d3f5](https://github.com/moonrepo/dev/commit/746d3f5))
+
+**Note:** Version bump only for package tsconfig-moon
+
+
+
+
+
 ### 1.2.2 - 2023-03-13
 
 #### 📦 Dependencies
