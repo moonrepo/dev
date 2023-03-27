@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { satisfies } from 'semver';
 import vscode, {
-	Event,
+	type Event,
 	EventEmitter,
 	TaskGroup,
 	ThemeIcon,
