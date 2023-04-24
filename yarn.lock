@@ -2315,17 +2315,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mdn/browser-compat-data@npm:^3.3.14":
-  version: 3.3.14
-  resolution: "@mdn/browser-compat-data@npm:3.3.14"
-  checksum: 0363cc9cb3cef308b78b3ba82af0542ad928bacecc95ee1e849c134c3eb866f4771df9fb064fd4da42fdb28e2d6932e0abb6e47ed47fbc42a26a9b0a5aee1e9f
-  languageName: node
-  linkType: hard
-
-"@mdn/browser-compat-data@npm:^5.2.34":
-  version: 5.2.41
-  resolution: "@mdn/browser-compat-data@npm:5.2.41"
-  checksum: 5fb8134b4e2be7d6fc7595bbeb5a1a538d4020779077a364a7e6b2f9cde26e0a7ff1d0367102f2685827768597a19ab6b755b918092f981438c44c40a89edace
+"@mdn/browser-compat-data@npm:^5.2.34, @mdn/browser-compat-data@npm:^5.2.47":
+  version: 5.2.52
+  resolution: "@mdn/browser-compat-data@npm:5.2.52"
+  checksum: 1369232df5faa1b98d39beb691d72a7289052094930e54de479f6ead5cb98cfd05cf0e102ced9a27c558a914f236314dc85b5ace776253e8e6cfe5cf04aa991b
   languageName: node
   linkType: hard
 
@@ -3263,6 +3256,13 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@tsconfig/node14@npm:^1.0.3":
+  version: 1.0.3
+  resolution: "@tsconfig/node14@npm:1.0.3"
+  checksum: 19275fe80c4c8d0ad0abed6a96dbf00642e88b220b090418609c4376e1cef81bf16237bf170ad1b341452feddb8115d8dd2e5acdfdea1b27422071163dc9ba9d
+  languageName: node
+  linkType: hard
+
 "@tufjs/models@npm:1.0.1":
   version: 1.0.1
   resolution: "@tufjs/models@npm:1.0.1"
@@ -3608,7 +3608,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:5.59.1, @typescript-eslint/utils@npm:^5.10.0, @typescript-eslint/utils@npm:^5.30.7":
+"@typescript-eslint/utils@npm:5.59.1, @typescript-eslint/utils@npm:^5.10.0, @typescript-eslint/utils@npm:^5.55.0":
   version: 5.59.1
   resolution: "@typescript-eslint/utils@npm:5.59.1"
   dependencies:
@@ -4006,12 +4006,12 @@ __metadata:
   languageName: node
   linkType: hard
 
-"ast-metadata-inferer@npm:^0.7.0":
-  version: 0.7.0
-  resolution: "ast-metadata-inferer@npm:0.7.0"
+"ast-metadata-inferer@npm:^0.8.0":
+  version: 0.8.0
+  resolution: "ast-metadata-inferer@npm:0.8.0"
   dependencies:
-    "@mdn/browser-compat-data": ^3.3.14
-  checksum: 9bb633b680d537cd6d5066e48ed6ae68d7ddae663a380bdba78d4f40b53d4c03845dc3a7307d55ecf1248b447ee28d62bb20ade8b880abc2df629cda9414e32e
+    "@mdn/browser-compat-data": ^5.2.34
+  checksum: 8b9f38b5c7d33e2fad80174bb2613fad962c6ef728175281dd7957548608c95d958190b5269b74f6e24d037f6e650b45eb39440c1e206e3f9799aedde27fa54a
   languageName: node
   linkType: hard
 
@@ -4596,10 +4596,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001451":
-  version: 1.0.30001465
-  resolution: "caniuse-lite@npm:1.0.30001465"
-  checksum: c991ecdfff378a22b268f9b1eb732d003c8ad89db3241a4cdec3b3ec3354aa966a44171cb806c90abe2e3f0573d67dc29a7dce2478b1f070b23747c392244c5d
+"caniuse-lite@npm:^1.0.30001449, caniuse-lite@npm:^1.0.30001473":
+  version: 1.0.30001481
+  resolution: "caniuse-lite@npm:1.0.30001481"
+  checksum: 8200a043c191b4fd4fe0beda37a58fd61869c895ab93f87bdd0420e5927453f48434d716ce9da8552ff6c3ecc4dcd1366354cda3a134f3cc844af741574a7cab
   languageName: node
   linkType: hard
 
@@ -5911,7 +5911,7 @@ __metadata:
     eslint: ^8.39.0
     eslint-config-airbnb-base: ^15.0.0
     eslint-config-prettier: ^8.8.0
-    eslint-plugin-compat: ^4.1.2
+    eslint-plugin-compat: ^4.1.4
     eslint-plugin-import: ^2.27.5
     eslint-plugin-jest: ^27.2.1
     eslint-plugin-jsx-a11y: ^6.7.1
@@ -5921,7 +5921,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-perf: ^3.3.1
     eslint-plugin-simple-import-sort: ^10.0.0
-    eslint-plugin-solid: ^0.11.0
+    eslint-plugin-solid: ^0.12.1
     eslint-plugin-unicorn: ^46.0.0
   peerDependencies:
     eslint: ^8.0.0
@@ -5962,20 +5962,21 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-compat@npm:^4.1.2":
-  version: 4.1.2
-  resolution: "eslint-plugin-compat@npm:4.1.2"
+"eslint-plugin-compat@npm:^4.1.4":
+  version: 4.1.4
+  resolution: "eslint-plugin-compat@npm:4.1.4"
   dependencies:
-    "@mdn/browser-compat-data": ^5.2.34
-    ast-metadata-inferer: ^0.7.0
+    "@mdn/browser-compat-data": ^5.2.47
+    "@tsconfig/node14": ^1.0.3
+    ast-metadata-inferer: ^0.8.0
     browserslist: ^4.21.5
-    caniuse-lite: ^1.0.30001451
+    caniuse-lite: ^1.0.30001473
     find-up: ^5.0.0
     lodash.memoize: 4.1.2
     semver: 7.3.8
   peerDependencies:
     eslint: ^4.0.0 || ^5.0.0 || ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 385c29d7392ce161cf24bb118fa98f45a817106fbb131919be03c4b332c0e2baa4609e57ee182cb1c26a788d6030569a08a1598561014fe0a2fa648c11502de2
+  checksum: 25df48509996fd540839abf59aeb5257df3fd7826792c94aabd045ab11b94f7dfbba77ccebcce52be18ae2048b91a6d8f3cf8864b70fd0d3f798c76027f51925
   languageName: node
   linkType: hard
 
@@ -6136,19 +6137,19 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-solid@npm:^0.11.0":
-  version: 0.11.0
-  resolution: "eslint-plugin-solid@npm:0.11.0"
+"eslint-plugin-solid@npm:^0.12.1":
+  version: 0.12.1
+  resolution: "eslint-plugin-solid@npm:0.12.1"
   dependencies:
-    "@typescript-eslint/utils": ^5.30.7
+    "@typescript-eslint/utils": ^5.55.0
     is-html: ^2.0.0
-    jsx-ast-utils: ^3.3.2
-    kebab-case: ^1.0.1
+    jsx-ast-utils: ^3.3.3
+    kebab-case: ^1.0.2
     known-css-properties: ^0.24.0
     style-to-object: ^0.3.0
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: ca13191ebee31daa9fd84783d10d5840b00da1129f4639207ceb0bccb8332cdabdb177426ff4e4ff9d2068ed98339e153cc5288de8ca48db910a4b76746a22af
+  checksum: 8c003dc34ac527d1bfbf37dbe765f71af5f8e576c4c9c9efa9d8d028b5a3df0f74d0355798209c0a04f8c3c65263f5ac320576abbcc1778bcf54449c0e8d2e60
   languageName: node
   linkType: hard
 
@@ -8732,7 +8733,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.2, jsx-ast-utils@npm:^3.3.3":
+"jsx-ast-utils@npm:^2.4.1 || ^3.0.0, jsx-ast-utils@npm:^3.3.3":
   version: 3.3.3
   resolution: "jsx-ast-utils@npm:3.3.3"
   dependencies:
@@ -8756,10 +8757,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"kebab-case@npm:^1.0.1":
-  version: 1.0.1
-  resolution: "kebab-case@npm:1.0.1"
-  checksum: 8cf5f5d534c534cbe0bef0a633290ed4ca4821d32108e5016a1e4d07b6844d863150b9ff00ef56848e1ed4cf6b96ac7b019ebc2658b80547034c12a057f4e231
+"kebab-case@npm:^1.0.2":
+  version: 1.0.2
+  resolution: "kebab-case@npm:1.0.2"
+  checksum: bf01164e11c544ee9b3aa1a91c2e7d6aa6b3356b834a5e885d43f36db14aae5d347cd4a298a566133321b82fde6bac6b597f148ac19bfd3d3fc81e1034a79729
   languageName: node
   linkType: hard
 
