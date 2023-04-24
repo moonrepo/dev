@@ -21,7 +21,7 @@
     "lerna": "^6.6.1",
     "packemon": "^3.0.3",
     "prettier": "^2.8.8",
-    "typescript": "^5.0.2"
+    "typescript": "^5.0.4"
   },
   "packageManager": "yarn@3.4.1"
 }
