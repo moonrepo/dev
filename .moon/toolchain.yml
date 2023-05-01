@@ -26,7 +26,6 @@ node:
 
   # Do not infer functionality from `package.json`, as we want to encourage
   # consumers to embrace moon.
-  aliasPackageNames: null
   inferTasksFromScripts: false
 
 # https://moonrepo.dev/docs/config/workspace#typescript
