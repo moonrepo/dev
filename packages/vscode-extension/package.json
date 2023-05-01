@@ -268,7 +268,7 @@
     "@types/semver": "^7.3.13",
     "@types/vscode": "^1.66.0",
     "@vscode/test-electron": "^2.2.1",
-    "esbuild": "^0.17.5",
+    "esbuild": "^0.17.18",
     "vsce": "^2.15.0"
   }
 }
