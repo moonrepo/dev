@@ -54,6 +54,7 @@
     "./package.json": "./package.json",
     "./jest-preset": "./lib/index.js",
     "./*": {
+      "types": "./lib/*.d.ts",
       "node": {
         "types": "./lib/*.d.ts",
         "default": "./lib/*.js"
@@ -61,6 +62,7 @@
       "default": "./lib/*.js"
     },
     ".": {
+      "types": "./lib/index.d.ts",
       "node": {
         "types": "./lib/index.d.ts",
         "default": "./lib/index.js"
