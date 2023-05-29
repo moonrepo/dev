@@ -20,7 +20,7 @@ export default function babelPresetMoon(
 
 	const plugins: PluginItem[] = [
 		'@babel/plugin-proposal-export-default-from',
-		'@babel/plugin-proposal-export-namespace-from',
+		'@babel/plugin-transform-export-namespace-from',
 		'babel-plugin-conditional-invariant',
 		'babel-plugin-env-constants',
 	];
@@ -32,8 +32,8 @@ export default function babelPresetMoon(
 
 		plugins.unshift(
 			['@babel/plugin-proposal-decorators', { legacy: true }],
-			['@babel/plugin-proposal-class-properties', { loose: true }],
-			['@babel/plugin-proposal-private-methods', { loose: true }],
+			['@babel/plugin-transform-class-properties', { loose: true }],
+			['@babel/plugin-transform-private-methods', { loose: true }],
 		);
 	}
 
