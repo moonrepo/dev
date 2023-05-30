@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.4 - 2023-05-30
+
+#### 📦 Dependencies
+
+- **[babel]** Update to v7.22. ([7b82093](https://github.com/moonrepo/dev/commit/7b82093))
+- **[packemon]** Update to v3.1. ([85727f2](https://github.com/moonrepo/dev/commit/85727f2))
+
+**Note:** Version bump only for package babel-preset-moon
+
+
+
+
+
 ### 2.0.3 - 2023-05-01
 
 #### 📦 Dependencies
