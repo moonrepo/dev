@@ -10,11 +10,12 @@ import vscode, {
 	TreeItemCollapsibleState,
 	Uri,
 } from 'vscode';
-import type { Project, ProjectLanguage, ProjectType, Task as ProjectTask } from '@moonrepo/types';
+import type { LanguageType, Project, ProjectType, Task as ProjectTask } from '@moonrepo/types';
 import { checkProject, runTarget } from './commands';
 import { execMoon, getMoonVersion } from './moon';
 
-const LANGUAGE_MANIFESTS: Record<ProjectLanguage, string> = {
+const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
+	'': '',
 	bash: '',
 	batch: '',
 	go: 'go.mod',
@@ -28,7 +29,7 @@ const LANGUAGE_MANIFESTS: Record<ProjectLanguage, string> = {
 };
 
 // https://devicon.dev
-function createLangIcon(context: vscode.ExtensionContext, name: ProjectLanguage) {
+function createLangIcon(context: vscode.ExtensionContext, name: LanguageType) {
 	const icon = context.asAbsolutePath(path.join(`assets/langs/${name}.svg`));
 
 	if (fs.existsSync(icon)) {
