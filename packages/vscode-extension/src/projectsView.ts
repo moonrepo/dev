@@ -15,7 +15,6 @@ import { checkProject, runTarget } from './commands';
 import { execMoon, getMoonVersion } from './moon';
 
 const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
-	'': '',
 	bash: '',
 	batch: '',
 	go: 'go.mod',
