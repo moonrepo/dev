@@ -52,7 +52,7 @@
     "eslint-plugin-unicorn": "^47.0.0"
   },
   "devDependencies": {
-    "@types/eslint": "^8.40.1",
+    "@types/eslint": "^8.40.2",
     "eslint": "^8.43.0"
   },
   "funding": {
