@@ -6,8 +6,11 @@ export type GraphType = 'dep-graph' | 'project-graph';
 
 export class GraphVisualizerView {
 	context: vscode.ExtensionContext;
+
 	panel: vscode.WebviewPanel;
+
 	type: GraphType;
+
 	workspaceRoot: string;
 
 	constructor(context: vscode.ExtensionContext, workspaceRoot: string, type: GraphType) {
