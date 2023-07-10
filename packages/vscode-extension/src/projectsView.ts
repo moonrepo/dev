@@ -56,6 +56,7 @@ class NoTasks extends TreeItem {
 
 class TaskItem extends TreeItem {
 	task: ProjectTask;
+
 	parent: ProjectItem;
 
 	constructor(parent: ProjectItem, task: ProjectTask) {
@@ -83,8 +84,11 @@ class TaskItem extends TreeItem {
 
 class ProjectItem extends TreeItem {
 	context: vscode.ExtensionContext;
+
 	parent: ProjectCategoryItem;
+
 	project: Project;
+
 	tasks: TaskItem[];
 
 	constructor(context: vscode.ExtensionContext, parent: ProjectCategoryItem, project: Project) {
@@ -114,6 +118,7 @@ class ProjectItem extends TreeItem {
 
 class ProjectCategoryItem extends TreeItem {
 	context: vscode.ExtensionContext;
+
 	projects: ProjectItem[] = [];
 
 	constructor(context: vscode.ExtensionContext, type: ProjectType, projects: Project[]) {
@@ -147,10 +152,13 @@ class ProjectCategoryItem extends TreeItem {
 
 export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	context: vscode.ExtensionContext;
+
 	projects?: Project[];
+
 	workspaceRoot: string;
 
 	onDidChangeTreeDataEmitter: EventEmitter<TreeItem | null>;
+
 	onDidChangeTreeData: Event<TreeItem | null>;
 
 	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {

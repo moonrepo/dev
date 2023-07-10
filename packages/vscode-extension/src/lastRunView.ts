@@ -9,7 +9,9 @@ const SLOW_THRESHOLD_SECS = 120;
 
 export class LastRunProvider implements vscode.WebviewViewProvider {
 	context: vscode.ExtensionContext;
+
 	view?: vscode.WebviewView;
+
 	workspaceRoot: string;
 
 	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {
