@@ -50,7 +50,7 @@ const config: eslint.Linter.Config = {
 		'@typescript-eslint/default-param-last': 'error',
 		'@typescript-eslint/dot-notation': 'error',
 		'@typescript-eslint/key-spacing': 'error',
-		'@typescript-eslint/lines-between-class-members': ['error', { exceptAfterOverload: true }],
+		'@typescript-eslint/lines-between-class-members': 'error',
 		'@typescript-eslint/no-array-constructor': 'error',
 		'@typescript-eslint/no-dupe-class-members': 'error',
 		'@typescript-eslint/no-duplicate-imports': 'off', // Prefer import plugin
@@ -94,7 +94,7 @@ const config: eslint.Linter.Config = {
 		// Prefer compact and readable code
 		'@typescript-eslint/no-unnecessary-boolean-literal-compare': 'error',
 		'@typescript-eslint/no-redundant-type-constituents': 'error',
-		'@typescript-eslint/sort-type-union-intersection-members': 'error',
+		'@typescript-eslint/sort-type-constituents': 'error',
 		'@typescript-eslint/strict-boolean-expressions': 'off',
 
 		// Prefer interfaces as extending and composition syntax is much nicer
@@ -139,7 +139,6 @@ const config: eslint.Linter.Config = {
 		'@typescript-eslint/consistent-type-imports': 'off',
 		'@typescript-eslint/naming-convention': 'off',
 		'@typescript-eslint/no-dynamic-delete': 'off',
-		'@typescript-eslint/no-implicit-any-catch': 'error',
 		'@typescript-eslint/no-magic-numbers': 'off',
 		'@typescript-eslint/no-require-imports': 'off',
 		'@typescript-eslint/no-type-alias': 'off',
@@ -179,7 +178,7 @@ const config: eslint.Linter.Config = {
 
 		// Enforce explicit members for readability
 		'@typescript-eslint/member-ordering': 'error',
-		'@typescript-eslint/no-parameter-properties': 'error',
+		'@typescript-eslint/parameter-properties': 'error',
 
 		// Prefer basic type casting like String()
 		'@typescript-eslint/no-base-to-string': 'error',
@@ -225,7 +224,7 @@ const config: eslint.Linter.Config = {
 		'@typescript-eslint/prefer-for-of': 'error',
 		'@typescript-eslint/prefer-literal-enum-member': 'error',
 		'@typescript-eslint/prefer-reduce-type-parameter': 'error',
-		'@typescript-eslint/restrict-plus-operands': ['error', { checkCompoundAssignments: true }],
+		'@typescript-eslint/restrict-plus-operands': ['error', { skipCompoundAssignments: true }],
 		'@typescript-eslint/unified-signatures': ['error', { ignoreDifferentlyNamedParameters: true }],
 
 		// Sometimes we need to be explicit because the inference is wrong

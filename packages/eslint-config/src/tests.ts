@@ -94,7 +94,6 @@ const testsConfig: eslint.Linter.ConfigOverride = {
 		'promise/prefer-await-to-callbacks': 'off',
 		'@typescript-eslint/no-empty-function': 'off',
 		'@typescript-eslint/no-extraneous-class': 'off',
-		'@typescript-eslint/no-implicit-any-catch': 'off',
 		'@typescript-eslint/no-useless-constructor': 'off',
 		'@typescript-eslint/promise-function-async': 'off',
 
