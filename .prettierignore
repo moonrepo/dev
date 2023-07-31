@@ -6,3 +6,4 @@ mjs/
 node_modules/
 CHANGELOG.md
 .yarn
+yarn.lock
