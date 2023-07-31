@@ -9530,7 +9530,7 @@ __metadata:
     jest: ^29.6.2
     jest-circus: ^29.6.2
     lerna: ^7.1.4
-    packemon: ^3.2.0
+    packemon: ^3.2.1
     prettier: ^3.0.0
     typescript: ^5.1.6
   languageName: unknown
@@ -10369,9 +10369,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"packemon@npm:^3.2.0":
-  version: 3.2.0
-  resolution: "packemon@npm:3.2.0"
+"packemon@npm:^3.2.1":
+  version: 3.2.1
+  resolution: "packemon@npm:3.2.1"
   dependencies:
     "@babel/core": ^7.22.5
     "@babel/plugin-external-helpers": ^7.22.5
@@ -10426,7 +10426,7 @@ __metadata:
       optional: true
   bin:
     packemon: cjs/bin.cjs
-  checksum: 7c7b496ccc45d9db7942f377fc3e5899f6b27f7ddd53a9832b179352b15ee55c9dcff9c988b05143fc260b727b6a01272909fa137391f75289a334ae321e3517
+  checksum: b2ce8e78126de989a36d10c9f6ecfe74b61be5ad66aa05f1e35784c006a138377e8e00fbfc342643cb5c3ee92df8ff611c3205f101822d2e17f699dbf5be9739
   languageName: node
   linkType: hard
 
