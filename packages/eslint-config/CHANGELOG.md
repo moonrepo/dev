@@ -3,6 +3,20 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.7 - 2023-08-19
+
+#### 📦 Dependencies
+
+- **[eslint-config-prettier]** Update to v9. ([67e0235](https://github.com/moonrepo/dev/commit/67e0235))
+- **[eslint-plugin-solid]** Update to v0.13. ([eaa50ab](https://github.com/moonrepo/dev/commit/eaa50ab))
+- **[eslint]** Update to v8.47. ([4b67745](https://github.com/moonrepo/dev/commit/4b67745))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 2.0.6 - 2023-07-31
 
 #### 📦 Dependencies
