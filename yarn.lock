@@ -3545,7 +3545,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:6.4.0":
+"@typescript-eslint/utils@npm:6.4.0, @typescript-eslint/utils@npm:^6.4.0":
   version: 6.4.0
   resolution: "@typescript-eslint/utils@npm:6.4.0"
   dependencies:
@@ -3562,7 +3562,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@typescript-eslint/utils@npm:^5.10.0, @typescript-eslint/utils@npm:^5.55.0":
+"@typescript-eslint/utils@npm:^5.10.0":
   version: 5.59.9
   resolution: "@typescript-eslint/utils@npm:5.59.9"
   dependencies:
@@ -5880,7 +5880,7 @@ __metadata:
     eslint-plugin-react-hooks: ^4.6.0
     eslint-plugin-react-perf: ^3.3.1
     eslint-plugin-simple-import-sort: ^10.0.0
-    eslint-plugin-solid: ^0.12.1
+    eslint-plugin-solid: ^0.13.0
     eslint-plugin-unicorn: ^48.0.1
   peerDependencies:
     eslint: ^8.0.0
@@ -6100,11 +6100,11 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-solid@npm:^0.12.1":
-  version: 0.12.1
-  resolution: "eslint-plugin-solid@npm:0.12.1"
+"eslint-plugin-solid@npm:^0.13.0":
+  version: 0.13.0
+  resolution: "eslint-plugin-solid@npm:0.13.0"
   dependencies:
-    "@typescript-eslint/utils": ^5.55.0
+    "@typescript-eslint/utils": ^6.4.0
     is-html: ^2.0.0
     jsx-ast-utils: ^3.3.3
     kebab-case: ^1.0.2
@@ -6112,7 +6112,7 @@ __metadata:
     style-to-object: ^0.3.0
   peerDependencies:
     eslint: ^6.0.0 || ^7.0.0 || ^8.0.0
-  checksum: 8c003dc34ac527d1bfbf37dbe765f71af5f8e576c4c9c9efa9d8d028b5a3df0f74d0355798209c0a04f8c3c65263f5ac320576abbcc1778bcf54449c0e8d2e60
+  checksum: 831dd9cc3244d685007a8820cb4b27ef1833d090b9fad0d38ad73f8466307a3aefc9e46901be6d35567e3b1e30d673548cbd89d9aa63c7914969e075f2e02de3
   languageName: node
   linkType: hard
 
