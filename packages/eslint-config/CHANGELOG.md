@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.9 - 2023-09-04
+
+#### 🐞 Fixes
+
+- Undo `no-promise-executor-return` change. ([6100800](https://github.com/moonrepo/dev/commit/6100800))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 2.0.8 - 2023-09-04
 
 #### 📦 Dependencies
