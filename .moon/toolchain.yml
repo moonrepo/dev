@@ -5,7 +5,7 @@ node:
   version: '18.14.0'
   packageManager: 'yarn'
   yarn:
-    version: '3.4.1'
+    version: '3.6.3'
     plugins:
       - 'interactive-tools'
       - 'version'
