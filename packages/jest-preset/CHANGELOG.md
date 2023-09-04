@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.4 - 2023-09-04
+
+#### 📦 Dependencies
+
+- **[jest]** Update to v29.6.4. ([4a33052](https://github.com/moonrepo/dev/commit/4a33052))
+
+**Note:** Version bump only for package jest-preset-moon
+
+
+
+
+
 ### 2.0.3 - 2023-07-31
 
 #### 📦 Dependencies
