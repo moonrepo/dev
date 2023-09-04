@@ -49,7 +49,7 @@ const config: eslint.Linter.Config = {
 		'no-import-assign': 'error',
 		'no-native-reassign': 'error',
 		'no-new-native-nonconstructor': 'error',
-		'no-promise-executor-return': 'error',
+		'no-promise-executor-return': ['error', { allowVoid: true }],
 		'no-setter-return': 'error',
 		'no-unreachable-loop': 'error',
 		'no-unsafe-optional-chaining': ['error', { disallowArithmeticOperators: true }],
