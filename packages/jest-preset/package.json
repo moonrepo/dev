@@ -31,12 +31,12 @@
   },
   "dependencies": {
     "@moonrepo/dev": "^2.0.1",
-    "@types/jest": "^29.5.4",
-    "jest-circus": "^29.6.4",
-    "jest-environment-jsdom": "^29.6.4"
+    "@types/jest": "^29.5.5",
+    "jest-circus": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0"
   },
   "devDependencies": {
-    "jest": "^29.6.4"
+    "jest": "^29.7.0"
   },
   "funding": {
     "type": "ko-fi",
