@@ -1,6 +1,6 @@
 {
   "private": true,
-  "name": "moon-dev",
+  "name": "moon-dev123",
   "version": "1.0.0",
   "scripts": {
     "moon": "$(yarn bin moon) --color",
