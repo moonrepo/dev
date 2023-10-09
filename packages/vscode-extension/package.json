@@ -94,8 +94,8 @@
         "icon": "$(open-preview)"
       },
       {
-        "command": "moon.viewDepGraph",
-        "title": "moon: View dependency graph",
+        "command": "moon.viewActionGraph",
+        "title": "moon: View action graph",
         "icon": "$(gather)"
       },
       {
@@ -127,7 +127,7 @@
           "when": "false"
         },
         {
-          "command": "moon.viewDepGraph",
+          "command": "moon.viewActionGraph",
           "when": "moon.hasBinary"
         },
         {
@@ -147,12 +147,12 @@
           "group": "navigation"
         },
         {
-          "command": "moon.viewDepGraph",
+          "command": "moon.viewActionGraph",
           "when": "view == moonProjects && moon.hasBinary",
           "group": "navigation"
         },
         {
-          "command": "moon.viewDepGraph",
+          "command": "moon.viewActionGraph",
           "when": "view == moonProjectsExternal && moon.hasBinary",
           "group": "navigation"
         },

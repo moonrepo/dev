@@ -1,5 +1,5 @@
 import vscode from 'vscode';
-import { runTargetByInput, viewDepGraph, viewProjectGraph } from './commands';
+import { runTargetByInput, viewActionGraph, viewProjectGraph } from './commands';
 import { LastRunProvider } from './lastRunView';
 import { findMoonBin, findWorkspaceRoot, isRealBin } from './moon';
 import { ProjectsProvider } from './projectsView';
@@ -44,8 +44,8 @@ export async function activate(context: vscode.ExtensionContext) {
 		}),
 
 		// Create graph visualizers
-		vscode.commands.registerCommand('moon.viewDepGraph', () =>
-			viewDepGraph(context, workspaceRoot),
+		vscode.commands.registerCommand('moon.viewActionGraph', () =>
+			viewActionGraph(context, workspaceRoot),
 		),
 		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
 			viewProjectGraph(context, workspaceRoot),

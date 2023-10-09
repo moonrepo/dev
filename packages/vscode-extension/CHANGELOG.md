@@ -1,3 +1,7 @@
+## 0.7.0
+
+- Added action graph support (requires moon >= 1.15).
+
 ## 0.6.0
 
 - Added 19 new language icons (requires moon >= 0.25).

@@ -62,8 +62,7 @@ prefixed with "moon".
 - **Run target** - Prompts the user for a target(s) and runs it in the terminal.
 - **Refresh projects** - Refreshes the projects view. _This happens automatically when
   `.moon/workspace.yml` changes!_
-- **View dependency graph** - Opens a panel that renders an interactive dependency graph
-  visualization.
+- **View action graph** - Opens a panel that renders an interactive action graph visualization.
 - **View project graph** - Opens a panel that renders an interactive project graph visualization.
 
 ## Roadmap
