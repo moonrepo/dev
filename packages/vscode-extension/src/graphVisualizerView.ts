@@ -2,7 +2,7 @@ import { satisfies } from 'semver';
 import vscode, { ViewColumn } from 'vscode';
 import { execMoon, getMoonVersion } from './moon';
 
-export type GraphType = 'dep-graph' | 'project-graph';
+export type GraphType = 'action-graph' | 'project-graph';
 
 export class GraphVisualizerView {
 	context: vscode.ExtensionContext;
@@ -18,8 +18,8 @@ export class GraphVisualizerView {
 		this.workspaceRoot = workspaceRoot;
 		this.type = type;
 		this.panel = vscode.window.createWebviewPanel(
-			type === 'dep-graph' ? 'moonDepGraph' : 'moonProjectGraph',
-			type === 'dep-graph' ? 'Dependency graph' : 'Project graph',
+			type === 'action-graph' ? 'moonActionGraph' : 'moonProjectGraph',
+			type === 'action-graph' ? 'Action graph' : 'Project graph',
 			ViewColumn.Active,
 			{
 				enableScripts: true,
@@ -63,16 +63,24 @@ export class GraphVisualizerView {
 	async renderPanel() {
 		const version = await getMoonVersion(this.workspaceRoot);
 
-		if (satisfies(version, '>=0.21.3')) {
-			const data = await execMoon([this.type, '--json'], this.workspaceRoot);
-
-			this.panel.webview.html = this.renderHtml(
-				`<script>window.GRAPH_DATA = '${data}';</script><div id="app"></div>`,
-			);
-		} else {
+		if (satisfies(version, '<0.21.3')) {
 			this.panel.webview.html = this.renderHtml(
 				`Graph visualization not available for this version of moon. Requires >= 0.21.3, found ${version}.`,
 			);
+
+			return;
 		}
+
+		let command: string = this.type;
+
+		if (command === 'action-graph' && satisfies(version, '<1.15.0')) {
+			command = 'dep-graph';
+		}
+
+		const data = await execMoon([command, '--json'], this.workspaceRoot);
+
+		this.panel.webview.html = this.renderHtml(
+			`<script>window.GRAPH_DATA = '${data}';</script><div id="app"></div>`,
+		);
 	}
 }
