@@ -3339,13 +3339,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/jest@npm:^29.5.5":
-  version: 29.5.5
-  resolution: "@types/jest@npm:29.5.5"
+"@types/jest@npm:^29.5.6":
+  version: 29.5.6
+  resolution: "@types/jest@npm:29.5.6"
   dependencies:
     expect: "npm:^29.0.0"
     pretty-format: "npm:^29.0.0"
-  checksum: 85bf86fd31ed9b76c26abc6bf771d09a9a8ff9362c81be353b8cf8ba102e09741b7f6951dca09aaa56d5fb410291e1eb5650b508da2fb3d36a0f035a91552a0d
+  checksum: 7d4ca3664a20b62d2b0d509987b2039a924236bfc35477eae9c1903b2d9d12d737261e7894ecf662251e946a34ba920ac0d5b232492d37b06f297e220c09f057
   languageName: node
   linkType: hard
 
@@ -5961,7 +5961,7 @@ __metadata:
     eslint-config-prettier: "npm:^9.0.0"
     eslint-plugin-compat: "npm:^4.2.0"
     eslint-plugin-import: "npm:^2.29.0"
-    eslint-plugin-jest: "npm:^27.4.0"
+    eslint-plugin-jest: "npm:^27.6.0"
     eslint-plugin-jsx-a11y: "npm:^6.7.1"
     eslint-plugin-node: "npm:^11.1.0"
     eslint-plugin-promise: "npm:^6.1.1"
@@ -6066,9 +6066,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"eslint-plugin-jest@npm:^27.4.0":
-  version: 27.4.0
-  resolution: "eslint-plugin-jest@npm:27.4.0"
+"eslint-plugin-jest@npm:^27.6.0":
+  version: 27.6.0
+  resolution: "eslint-plugin-jest@npm:27.6.0"
   dependencies:
     "@typescript-eslint/utils": "npm:^5.10.0"
   peerDependencies:
@@ -6080,7 +6080,7 @@ __metadata:
       optional: true
     jest:
       optional: true
-  checksum: e4eb94b521deb3a49e339d581221f77a8620e3cad429570020087e53b7227321086a614dd855d4a249ca7a161c6afbbcad270bfaad187583e9440159a7a51796
+  checksum: e01ff002d55fa09624c53a4b984e80175e75da671bc9b48cc2909b134fe6df25c8143798359bb5991e77e4ffb5b7d69c1c2340e8f661d080b7938a9e5e077122
   languageName: node
   linkType: hard
 
@@ -8423,7 +8423,7 @@ __metadata:
   resolution: "jest-preset-moon@workspace:packages/jest-preset"
   dependencies:
     "@moonrepo/dev": "npm:^2.0.1"
-    "@types/jest": "npm:^29.5.5"
+    "@types/jest": "npm:^29.5.6"
     jest: "npm:^29.7.0"
     jest-circus: "npm:^29.7.0"
     jest-environment-jsdom: "npm:^29.7.0"
