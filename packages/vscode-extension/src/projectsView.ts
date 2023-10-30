@@ -46,8 +46,8 @@ function createLangIcon(context: vscode.ExtensionContext, name: LanguageType) {
 	};
 }
 
-function canShowTask(id: string, hideTasks: Set<string>): boolean {
-	if (hideTasks.size === 0 || !hideTasks.has(id)) {
+function canShowTask(target: string, hideTasks: Set<string>): boolean {
+	if (hideTasks.size === 0) {
 		return true;
 	}
 
@@ -55,13 +55,17 @@ function canShowTask(id: string, hideTasks: Set<string>): boolean {
 		return false;
 	}
 
-	for (const target of hideTasks) {
-		const [scope = '', task = ''] = target.split(':', 2);
+	for (const hideTarget of hideTasks) {
+		if (target === hideTarget) {
+			return false;
+		}
+
+		const [scope = '', task = ''] = hideTarget.split(':', 2);
 		const scopePattern = scope === '' || scope === '*' ? '^[^:]+' : `^${scope}`;
 		const taskPattern = task === '' || task === '*' ? '[^:]+$' : `${task}$`;
 		const pattern = new RegExp(`${scopePattern}:${taskPattern}`, 'i');
 
-		if (pattern.test(id)) {
+		if (pattern.test(target)) {
 			return false;
 		}
 	}
@@ -130,9 +134,9 @@ class ProjectItem extends TreeItem {
 			this.tooltip = `${metadata.name} - ${metadata.description}`;
 		}
 
-		this.tasks = Object.entries(project.tasks)
-			.filter(([id, _]) => canShowTask(id, this.parent.hideTasks))
-			.map(([_, task]) => new TaskItem(this, task));
+		this.tasks = Object.values(project.tasks)
+			.filter((task) => canShowTask(task.target, this.parent.hideTasks))
+			.map((task) => new TaskItem(this, task));
 
 		this.resourceUri = Uri.file(
 			path.join(project.root, LANGUAGE_MANIFESTS[language] || 'moon.yml'),
