@@ -137,6 +137,9 @@ class ProjectCategoryItem extends TreeItem {
 			case 'application':
 				this.label = 'Applications';
 				break;
+			case 'automation':
+				this.label = 'Automations';
+				break;
 			case 'library':
 				this.label = 'Libraries';
 				break;
