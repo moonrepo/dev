@@ -1,5 +1,5 @@
 import vscode from 'vscode';
-import { runTargetByInput, viewActionGraph, viewProjectGraph } from './commands';
+import { runTaskByInput, viewActionGraph, viewProjectGraph } from './commands';
 import { LastRunProvider } from './lastRunView';
 import { findMoonBin, findWorkspaceRoot, isRealBin } from './moon';
 import { ProjectsProvider } from './projectsView';
@@ -31,7 +31,7 @@ export async function activate(context: vscode.ExtensionContext) {
 
 	context.subscriptions.push(
 		// Create a "moon run <target>" task
-		vscode.commands.registerCommand('moon.runTargetByInput', () => runTargetByInput(workspaceRoot)),
+		vscode.commands.registerCommand('moon.runTaskByInput', () => runTaskByInput(workspaceRoot)),
 
 		// Create a tree view for all moon projects
 		vscode.window.createTreeView('moonProjects', {

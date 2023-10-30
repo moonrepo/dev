@@ -30,7 +30,7 @@ export async function checkProject(
 	await vscode.tasks.executeTask(task);
 }
 
-export async function runTarget(
+export async function runTask(
 	target: string,
 	workspaceRoot: string,
 	modifier?: (task: Task) => void,
@@ -57,14 +57,14 @@ export async function runTarget(
 	await vscode.tasks.executeTask(task);
 }
 
-export async function runTargetByInput(workspaceRoot: string) {
+export async function runTaskByInput(workspaceRoot: string) {
 	const target = await vscode.window.showInputBox({
 		prompt: 'In the format of "scope:task" or ":task".',
 		title: 'Target(s)',
 	});
 
 	if (target) {
-		await runTarget(target, workspaceRoot);
+		await runTask(target, workspaceRoot);
 	}
 }
 
