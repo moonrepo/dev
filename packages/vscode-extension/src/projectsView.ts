@@ -11,7 +11,7 @@ import vscode, {
 	Uri,
 } from 'vscode';
 import type { LanguageType, Project, ProjectType, Task as ProjectTask } from '@moonrepo/types';
-import { checkProject, runTarget } from './commands';
+import { checkProject, runTask } from './commands';
 import { execMoon, getMoonVersion } from './moon';
 
 const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
@@ -46,6 +46,33 @@ function createLangIcon(context: vscode.ExtensionContext, name: LanguageType) {
 	};
 }
 
+function canShowTask(target: string, hideTasks: Set<string>): boolean {
+	if (hideTasks.size === 0) {
+		return true;
+	}
+
+	if (hideTasks.has(':') || hideTasks.has('*:*')) {
+		return false;
+	}
+
+	for (const hideTarget of hideTasks) {
+		if (target === hideTarget) {
+			return false;
+		}
+
+		const [scope = '', task = ''] = hideTarget.split(':', 2);
+		const scopePattern = scope === '' || scope === '*' ? '^[^:]+' : `^${scope}`;
+		const taskPattern = task === '' || task === '*' ? '[^:]+$' : `${task}$`;
+		const pattern = new RegExp(`${scopePattern}:${taskPattern}`, 'i');
+
+		if (pattern.test(target)) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 class NoTasks extends TreeItem {
 	constructor() {
 		super('No tasks in project', TreeItemCollapsibleState.None);
@@ -60,7 +87,7 @@ class TaskItem extends TreeItem {
 	parent: ProjectItem;
 
 	constructor(parent: ProjectItem, task: ProjectTask) {
-		super(task.target.split(':')[1], TreeItemCollapsibleState.None);
+		super(task.target.split(':', 2)[1], TreeItemCollapsibleState.None);
 
 		this.parent = parent;
 		this.task = task;
@@ -107,10 +134,14 @@ class ProjectItem extends TreeItem {
 			this.tooltip = `${metadata.name} - ${metadata.description}`;
 		}
 
-		this.tasks = Object.values(project.tasks).map((task) => new TaskItem(this, task));
+		this.tasks = Object.values(project.tasks)
+			.filter((task) => canShowTask(task.target, this.parent.hideTasks))
+			.map((task) => new TaskItem(this, task));
+
 		this.resourceUri = Uri.file(
 			path.join(project.root, LANGUAGE_MANIFESTS[language] || 'moon.yml'),
 		);
+
 		this.iconPath =
 			language === 'unknown' ? new ThemeIcon('question') : createLangIcon(this.context, language);
 	}
@@ -121,12 +152,16 @@ class ProjectCategoryItem extends TreeItem {
 
 	projects: ProjectItem[] = [];
 
+	hideTasks: Set<string>;
+
 	constructor(context: vscode.ExtensionContext, type: ProjectType, projects: Project[]) {
 		super(type, TreeItemCollapsibleState.Expanded);
 
 		this.context = context;
 		this.id = type;
 		this.contextValue = 'projectCategory';
+
+		this.hideTasks = new Set(vscode.workspace.getConfiguration('moon').get('hideTasks', []));
 		this.projects = projects
 			.filter(
 				(project) => project.config.type === type || (type === 'unknown' && !project.config.type),
@@ -174,7 +209,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 		// When `.moon/*.yml` is changed, refresh projects
 		const watcher1 = vscode.workspace.createFileSystemWatcher(
-			new vscode.RelativePattern(wsDir, '.moon/*.yml'),
+			new vscode.RelativePattern(wsDir, '.moon/**/*.yml'),
 		);
 		watcher1.onDidChange(this.refresh, this);
 
@@ -186,7 +221,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 		context.subscriptions.push(
 			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
-			vscode.commands.registerCommand('moon.runTarget', this.runTarget, this),
+			vscode.commands.registerCommand('moon.runTask', this.runTask, this),
 			vscode.commands.registerCommand('moon.checkProject', this.checkProject, this),
 			vscode.commands.registerCommand('moon.viewProject', this.viewProject, this),
 			watcher1,
@@ -232,6 +267,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 		const categories = [
 			new ProjectCategoryItem(this.context, 'application', this.projects),
+			new ProjectCategoryItem(this.context, 'automation', this.projects),
 			new ProjectCategoryItem(this.context, 'library', this.projects),
 			new ProjectCategoryItem(this.context, 'tool', this.projects),
 			new ProjectCategoryItem(this.context, 'unknown', this.projects),
@@ -254,8 +290,8 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		this.onDidChangeTreeDataEmitter.fire(null);
 	}
 
-	async runTarget(item: TaskItem) {
-		await runTarget(item.task.target, this.workspaceRoot, (task) => {
+	async runTask(item: TaskItem) {
+		await runTask(item.task.target, this.workspaceRoot, (task) => {
 			switch (item.task.type) {
 				case 'build':
 					task.group = TaskGroup.Build;

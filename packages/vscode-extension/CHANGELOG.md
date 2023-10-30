@@ -1,7 +1,9 @@
 ## 0.7.0
 
+- Requires VS Code ^1.75.0.
 - Added action graph support (requires moon >= 1.15).
 - Added support for the `automation` project type.
+- Added a `moon.hideTasks` setting, to hide tasks in the projects view.
 
 ## 0.6.0
 

@@ -21,7 +21,7 @@
     "tasks"
   ],
   "engines": {
-    "vscode": "^1.66.0"
+    "vscode": "^1.75.0"
   },
   "categories": [
     "Testing",
@@ -38,11 +38,6 @@
     "directory": "packages/vscode-extension"
   },
   "activationEvents": [
-    "onCommand:moon.openSettings",
-    "onCommand:moon.runTargetByInput",
-    "onView:moonProjects",
-    "onView:moonProjectsExternal",
-    "onView:moonLastRun",
     "workspaceContains:moon.yml"
   ],
   "main": "./lib/extension.js",
@@ -56,6 +51,11 @@
           "type": "string",
           "default": "node_modules/@moonrepo/cli/moon",
           "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
+        },
+        "moon.hideTasks": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "List of tasks to hide in the projects panel. Accepts fully-qualified or partial targets."
         },
         "moon.workspaceRoot": {
           "type": "string",
@@ -76,17 +76,17 @@
       },
       {
         "command": "moon.checkProject",
-        "title": "moon: Run all buildable and testable targets",
+        "title": "moon: Run all buildable and testable tasks",
         "icon": "$(run-all)"
       },
       {
-        "command": "moon.runTarget",
-        "title": "moon: Run the target",
+        "command": "moon.runTask",
+        "title": "moon: Run the task",
         "icon": "$(run)"
       },
       {
-        "command": "moon.runTargetByInput",
-        "title": "moon: Run one or many targets"
+        "command": "moon.runTaskByInput",
+        "title": "moon: Run one or many tasks"
       },
       {
         "command": "moon.viewProject",
@@ -115,11 +115,11 @@
           "when": "false"
         },
         {
-          "command": "moon.runTarget",
+          "command": "moon.runTask",
           "when": "false"
         },
         {
-          "command": "moon.runTargetByInput",
+          "command": "moon.runTaskByInput",
           "when": "moon.hasBinary"
         },
         {
@@ -169,7 +169,7 @@
       ],
       "view/item/context": [
         {
-          "command": "moon.runTarget",
+          "command": "moon.runTask",
           "when": "view == moonProjects && viewItem == projectTask",
           "group": "inline"
         },
@@ -184,7 +184,7 @@
           "group": "inline@1"
         },
         {
-          "command": "moon.runTarget",
+          "command": "moon.runTask",
           "when": "view == moonProjectsExternal && viewItem == projectTask",
           "group": "inline"
         },

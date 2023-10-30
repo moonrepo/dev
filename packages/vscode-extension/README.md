@@ -52,6 +52,9 @@ The following settings are available for this extension.
   "`.`". This is useful if moon is initialized in a sub-folder.
 - `moon.binPath` - Relative path from moon's workspace root to the moon binary. Defaults to
   `node_modules/@moonrepo/cli/moon`. _Windows will auto-suffix with `.exe`!_
+- `moon.hideTasks` - List of tasks to hide in the projects view, using target syntax. Supports
+  fully-qualified targets (`app:build`) and partial targets (`:build` or `*:build`). Defaults to
+  `[]`.
 
 ## Commands
 
