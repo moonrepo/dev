@@ -12,6 +12,8 @@ jobs:
       matrix:
         node-version: [16, 18, 20]
       fail-fast: true
+    env:
+      YARN_IGNORE_NODE: 1
     steps:
       - uses: actions/checkout@v4
         with:
