@@ -1,6 +1,7 @@
 ## 0.7.0
 
 - Added action graph support (requires moon >= 1.15).
+- Added support for the `automation` project type.
 
 ## 0.6.0
 
