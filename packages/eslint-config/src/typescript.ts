@@ -221,6 +221,7 @@ const config: eslint.Linter.Config = {
 		'@typescript-eslint/no-unnecessary-qualifier': 'error',
 		'@typescript-eslint/no-unnecessary-type-assertion': 'error',
 		'@typescript-eslint/no-unnecessary-type-constraint': 'error',
+		'@typescript-eslint/no-unsafe-unary-minus': 'error',
 		'@typescript-eslint/prefer-for-of': 'error',
 		'@typescript-eslint/prefer-literal-enum-member': 'error',
 		'@typescript-eslint/prefer-reduce-type-parameter': 'error',
