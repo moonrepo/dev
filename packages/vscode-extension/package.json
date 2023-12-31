@@ -270,9 +270,9 @@
   },
   "devDependencies": {
     "@moonrepo/types": "^1.10.0",
-    "@types/semver": "^7.5.5",
+    "@types/semver": "^7.5.6",
     "@types/vscode": "^1.75.0",
-    "@vscode/test-electron": "^2.3.6",
+    "@vscode/test-electron": "^2.3.8",
     "esbuild": "^0.19.5",
     "vsce": "^2.15.0"
   }
