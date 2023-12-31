@@ -12,7 +12,6 @@ import vscode, {
 } from 'vscode';
 import type { LanguageType, Project, ProjectType, Task as ProjectTask } from '@moonrepo/types';
 import { checkProject, runTask } from './commands';
-import { execMoon, getMoonVersion } from './moon';
 import type { Workspace } from './workspace';
 
 const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
@@ -39,7 +38,7 @@ function createLangIcon(context: vscode.ExtensionContext, name: LanguageType) {
 		};
 	}
 
-	const unknown = context.asAbsolutePath(path.join(`assets/langs/unknown.svg`));
+	const unknown = context.asAbsolutePath(path.join('assets/langs/unknown.svg'));
 
 	return {
 		dark: unknown,
@@ -206,18 +205,12 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		this.onDidChangeTreeDataEmitter = new EventEmitter<TreeItem | null>();
 		this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
 
-		const wsDir = vscode.workspace.workspaceFolders?.[0] ?? workspaceRoot;
-
 		// When `.moon/*.yml` is changed, refresh projects
-		const watcher1 = vscode.workspace.createFileSystemWatcher(
-			new vscode.RelativePattern(wsDir, '.moon/**/*.yml'),
-		);
+		const watcher1 = vscode.workspace.createFileSystemWatcher('.moon/**/*.yml');
 		watcher1.onDidChange(this.refresh, this);
 
 		// When `moon.yml` is changed, refresh projects
-		const watcher2 = vscode.workspace.createFileSystemWatcher(
-			new vscode.RelativePattern(wsDir, '**/moon.yml'),
-		);
+		const watcher2 = vscode.workspace.createFileSystemWatcher('**/moon.yml');
 		watcher2.onDidChange(this.refresh, this);
 
 		context.subscriptions.push(
@@ -252,12 +245,11 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		}
 
 		if (!this.projects) {
-			const version = await getMoonVersion(this.workspaceRoot);
+			const version = await this.workspace.getMoonVersion();
 
 			const { projects } = JSON.parse(
-				await execMoon(
+				await this.workspace.execMoon(
 					satisfies(version, '>=0.24.0') ? ['query', 'projects', '--json'] : ['query', 'projects'],
-					this.workspaceRoot,
 				),
 			) as {
 				projects: Project[];
@@ -292,7 +284,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	}
 
 	async runTask(item: TaskItem) {
-		await runTask(item.task.target, this.workspaceRoot, (task) => {
+		await runTask(item.task.target, this.workspace, (task) => {
 			switch (item.task.type) {
 				case 'build':
 					task.group = TaskGroup.Build;
@@ -305,7 +297,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	}
 
 	async checkProject(item: ProjectItem) {
-		await checkProject(item.project.id, this.workspaceRoot);
+		await checkProject(item.project.id, this.workspace);
 	}
 
 	async viewProject(item: ProjectItem) {

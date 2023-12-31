@@ -3,6 +3,7 @@ import vscode from 'vscode';
 import { findMoonBin, isRealBin } from './moon';
 
 export class Workspace {
+	// Current moon binary path
 	binPath: string | null = null;
 
 	// Current vscode workspace folder
@@ -14,11 +15,18 @@ export class Workspace {
 	constructor() {
 		// When a file is opened, attempt to find the moon workspace
 		vscode.workspace.onDidOpenTextDocument((text) => {
-			void this.findWorkspaceRoot(text.uri);
+			void this.findRoot(text.uri);
+		});
+		vscode.workspace.onDidCloseTextDocument((text) => {
+			void this.findRoot(text.uri);
 		});
 	}
 
-	async findWorkspaceRoot(openUri: vscode.Uri) {
+	async findRoot(openUri: vscode.Uri) {
+		if (this.root && openUri.fsPath.startsWith(this.root)) {
+			return;
+		}
+
 		const workspaceFolder = vscode.workspace.getWorkspaceFolder(openUri);
 
 		if (workspaceFolder) {
