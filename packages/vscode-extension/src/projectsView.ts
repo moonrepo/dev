@@ -205,25 +205,30 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		this.onDidChangeTreeDataEmitter = new EventEmitter<TreeItem | null>();
 		this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
 
-		// When `.moon/*.yml` is changed, refresh projects
-		const watcher1 = vscode.workspace.createFileSystemWatcher('.moon/**/*.yml');
-		watcher1.onDidChange(this.refresh, this);
-
-		// When `moon.yml` is changed, refresh projects
-		const watcher2 = vscode.workspace.createFileSystemWatcher('**/moon.yml');
-		watcher2.onDidChange(this.refresh, this);
-
 		context.subscriptions.push(
 			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
 			vscode.commands.registerCommand('moon.runTask', this.runTask, this),
 			vscode.commands.registerCommand('moon.checkProject', this.checkProject, this),
 			vscode.commands.registerCommand('moon.viewProject', this.viewProject, this),
-			watcher1,
-			watcher2,
 		);
 
-		workspace.onDidChangeWorkspace(() => {
+		workspace.onDidChangeWorkspace((folder) => {
+			// When `.moon/**/*.yml` is changed, refresh projects
+			const watcher1 = vscode.workspace.createFileSystemWatcher(
+				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('**/*.yml')),
+			);
+
+			// When `moon.yml` is changed, refresh projects
+			const watcher2 = vscode.workspace.createFileSystemWatcher(
+				new vscode.RelativePattern(folder.uri, '**/moon.yml'),
+			);
+
+			watcher1.onDidChange(this.refresh, this);
+			watcher2.onDidChange(this.refresh, this);
+
 			this.refresh();
+
+			return [watcher1, watcher2];
 		});
 	}
 

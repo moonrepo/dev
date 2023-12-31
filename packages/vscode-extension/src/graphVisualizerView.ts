@@ -29,6 +29,8 @@ export class GraphVisualizerView {
 
 		workspace.onDidChangeWorkspace(() => {
 			void this.renderPanel();
+
+			return [];
 		});
 	}
 

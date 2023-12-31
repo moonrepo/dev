@@ -5,7 +5,6 @@ import { formatDuration, prepareReportActions } from '@moonrepo/report';
 import type { RunReport } from '@moonrepo/types';
 import type { Workspace } from './workspace';
 
-const REPORT_PATH = '.moon/cache/runReport.json';
 const SLOW_THRESHOLD_SECS = 120;
 
 export class LastRunProvider implements vscode.WebviewViewProvider {
@@ -19,16 +18,19 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 		this.context = context;
 		this.workspace = workspace;
 
-		// When the report is changed, refresh view
-		const watcher = vscode.workspace.createFileSystemWatcher(REPORT_PATH);
-		watcher.onDidChange(this.renderView, this);
-		watcher.onDidCreate(this.renderView, this);
-		watcher.onDidDelete(this.renderView, this);
+		workspace.onDidChangeWorkspace((folder) => {
+			// When the report is changed, refresh view
+			const watcher = vscode.workspace.createFileSystemWatcher(
+				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('cache/runReport.json')),
+			);
 
-		context.subscriptions.push(watcher);
+			watcher.onDidChange(this.renderView, this);
+			watcher.onDidCreate(this.renderView, this);
+			watcher.onDidDelete(this.renderView, this);
 
-		workspace.onDidChangeWorkspace(() => {
 			this.renderView();
+
+			return [watcher];
 		});
 	}
 
@@ -75,11 +77,11 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 	}
 
 	renderView() {
-		if (!this.view || !this.workspace.root) {
+		if (!this.view?.webview || !this.workspace.root) {
 			return;
 		}
 
-		const runReportPath = path.join(this.workspace.root, REPORT_PATH);
+		const runReportPath = path.join(this.workspace.root, '.moon/cache/runReport.json');
 
 		if (fs.existsSync(runReportPath)) {
 			const report = JSON.parse(fs.readFileSync(runReportPath, 'utf8')) as RunReport;
@@ -113,7 +115,7 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 			`);
 		} else {
 			this.view.webview.html = this.renderHtml(`
-				No run report found. Run a target through the projects view or on the command line.
+				No run report found. Run a task through the projects view or on the command line.
 			`);
 		}
 	}

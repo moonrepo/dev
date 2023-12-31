@@ -3,6 +3,8 @@ import execa from 'execa';
 import vscode from 'vscode';
 import { findMoonBin, isRealBin } from './moon';
 
+export type ChangeWorkspaceListener = (folder: vscode.WorkspaceFolder) => vscode.Disposable[];
+
 export class Workspace {
 	// Current moon binary path
 	binPath: string | null = null;
@@ -16,7 +18,9 @@ export class Workspace {
 	// Current moon workspace root
 	root: string | null = null;
 
-	private listeners: (() => void)[] = [];
+	private disposables: vscode.Disposable[] = [];
+
+	private listeners: ChangeWorkspaceListener[] = [];
 
 	constructor() {
 		this.logger = vscode.window.createOutputChannel('moon', { log: true });
@@ -35,11 +39,31 @@ export class Workspace {
 		});
 	}
 
-	onDidChangeWorkspace(listener: () => void) {
+	onDidChangeWorkspace(listener: ChangeWorkspaceListener) {
 		this.listeners.push(listener);
 	}
 
+	emitDidChangeWorkspace() {
+		if (!this.folder) {
+			return;
+		}
+
+		// Remove previous watchers
+		this.disposables.forEach((disposable) => {
+			disposable.dispose();
+		});
+
+		// Add new watchers
+		this.listeners.forEach((listener) => {
+			this.disposables.push(...listener(this.folder!));
+		});
+	}
+
 	async findRoot(openUri: vscode.Uri) {
+		if (openUri.fsPath === 'moonrepo.moon-console.moon') {
+			return;
+		}
+
 		if (this.root && openUri.fsPath.startsWith(this.root)) {
 			this.logger.appendLine('Already in a workspace, skipping');
 			return;
@@ -59,9 +83,8 @@ export class Workspace {
 			this.logger.appendLine(`Found workspace folder ${workspaceFolder.uri.fsPath}`);
 			this.logger.appendLine('Attempting to find a moon installation');
 
-			const rootPrefix = vscode.workspace.getConfiguration('moon').get('workspaceRoot', '.');
 			const files = await vscode.workspace.findFiles(
-				new vscode.RelativePattern(workspaceFolder.uri, path.join(rootPrefix, '.moon/*.yml')),
+				new vscode.RelativePattern(workspaceFolder.uri, this.getMoonDirPath('*.yml')),
 			);
 
 			if (files.length > 0) {
@@ -74,8 +97,7 @@ export class Workspace {
 					this.logger.appendLine(`Found moon binary at ${this.binPath}`);
 				}
 
-				// Trigger re-renders
-				this.listeners.forEach((listener) => void listener());
+				this.emitDidChangeWorkspace();
 			} else {
 				this.logger.appendLine('Did not find a moon installation, disabling');
 			}
@@ -104,6 +126,12 @@ export class Workspace {
 
 			throw error;
 		}
+	}
+
+	getMoonDirPath(file: string): string {
+		const rootPrefix = vscode.workspace.getConfiguration('moon').get('workspaceRoot', '.');
+
+		return path.join(rootPrefix, '.moon', file);
 	}
 
 	async getMoonVersion(): Promise<string> {
