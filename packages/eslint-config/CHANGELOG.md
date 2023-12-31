@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.14 - 2023-12-31
+
+#### 📦 Dependencies
+
+- **[eslint]** Update to v8.56. ([235a2c0](https://github.com/moonrepo/dev/commit/235a2c0))
+- **[typescript-eslint]** Update to v6.16. ([e954652](https://github.com/moonrepo/dev/commit/e954652))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 2.0.13 - 2023-12-12
 
 #### 📦 Dependencies
