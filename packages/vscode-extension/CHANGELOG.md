@@ -1,3 +1,7 @@
+## 0.8.0
+
+- Removed support for moon < 1.0.
+
 ## 0.7.0
 
 - Requires VS Code ^1.75.0.

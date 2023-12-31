@@ -18,12 +18,13 @@ export class Workspace {
 	// Current moon workspace root
 	root: string | null = null;
 
-	private disposables: vscode.Disposable[] = [];
+	onDidChangeWorkspaceEmitter: vscode.EventEmitter<vscode.WorkspaceFolder>;
 
-	private listeners: ChangeWorkspaceListener[] = [];
+	disposables: vscode.Disposable[] = [];
 
 	constructor() {
 		this.logger = vscode.window.createOutputChannel('moon', { log: true });
+		this.onDidChangeWorkspaceEmitter = new vscode.EventEmitter<vscode.WorkspaceFolder>();
 
 		// Find moon workspace from default editor
 		if (vscode.window.activeTextEditor) {
@@ -39,11 +40,17 @@ export class Workspace {
 		});
 	}
 
-	onDidChangeWorkspace(listener: ChangeWorkspaceListener) {
-		this.listeners.push(listener);
+	onDidChangeWorkspace(listener: (folder: vscode.WorkspaceFolder) => vscode.Disposable | void) {
+		this.onDidChangeWorkspaceEmitter.event((folder) => {
+			const disposable = listener(folder);
+
+			if (disposable) {
+				this.disposables.push(disposable);
+			}
+		});
 	}
 
-	emitDidChangeWorkspace() {
+	fireDidChangeWorkspace() {
 		if (!this.folder) {
 			return;
 		}
@@ -53,10 +60,8 @@ export class Workspace {
 			disposable.dispose();
 		});
 
-		// Add new watchers
-		this.listeners.forEach((listener) => {
-			this.disposables.push(...listener(this.folder!));
-		});
+		// Emit and add new watchers
+		this.onDidChangeWorkspaceEmitter.fire(this.folder);
 	}
 
 	async findRoot(openUri: vscode.Uri) {
@@ -97,7 +102,7 @@ export class Workspace {
 					this.logger.appendLine(`Found moon binary at ${this.binPath}`);
 				}
 
-				this.emitDidChangeWorkspace();
+				this.fireDidChangeWorkspace();
 			} else {
 				this.logger.appendLine('Did not find a moon installation, disabling');
 			}

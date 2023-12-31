@@ -30,7 +30,7 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 
 			this.renderView();
 
-			return [watcher];
+			return watcher;
 		});
 	}
 

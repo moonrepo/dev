@@ -1,4 +1,3 @@
-import { satisfies } from 'semver';
 import vscode, { ShellExecution, Task, TaskScope } from 'vscode';
 import { GraphVisualizerView } from './graphVisualizerView';
 import type { Workspace } from './workspace';
@@ -12,19 +11,12 @@ export async function checkProject(
 		return;
 	}
 
-	const args = ['check', project];
-	const version = await workspace.getMoonVersion();
-
-	if (satisfies(version, '>=0.17.0 && <0.22.0')) {
-		args.push('--report');
-	}
-
 	const task = new Task(
 		{ project, type: 'moon' },
 		TaskScope.Workspace,
 		`moon check ${project}`,
 		'moon',
-		new ShellExecution(workspace.binPath, args, {
+		new ShellExecution(workspace.binPath, ['check', project], {
 			cwd: workspace.root,
 		}),
 	);
@@ -43,19 +35,12 @@ export async function runTask(
 		return;
 	}
 
-	const args = ['run', ...target.split(' ')];
-	const version = await workspace.getMoonVersion();
-
-	if (satisfies(version, '<0.22.0')) {
-		args.push('--report');
-	}
-
 	const task = new Task(
 		{ target, type: 'moon' },
 		TaskScope.Workspace,
 		`moon run ${target}`,
 		'moon',
-		new ShellExecution(workspace.binPath, args, {
+		new ShellExecution(workspace.binPath, ['run', ...target.split(' ')], {
 			cwd: workspace.root,
 		}),
 	);

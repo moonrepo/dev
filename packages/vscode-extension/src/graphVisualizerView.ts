@@ -29,8 +29,6 @@ export class GraphVisualizerView {
 
 		workspace.onDidChangeWorkspace(() => {
 			void this.renderPanel();
-
-			return [];
 		});
 	}
 
@@ -68,15 +66,6 @@ export class GraphVisualizerView {
 
 	async renderPanel() {
 		const version = await this.workspace.getMoonVersion();
-
-		if (satisfies(version, '<0.21.3')) {
-			this.panel.webview.html = this.renderHtml(
-				`Graph visualization not available for this version of moon. Requires >= 0.21.3, found ${version}.`,
-			);
-
-			return;
-		}
-
 		let command: string = this.type;
 
 		if (command === 'action-graph' && satisfies(version, '<1.15.0')) {

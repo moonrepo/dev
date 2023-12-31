@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
-import { satisfies } from 'semver';
 import vscode, {
+	Disposable,
 	type Event,
 	EventEmitter,
 	TaskGroup,
@@ -228,7 +228,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 			this.refresh();
 
-			return [watcher1, watcher2];
+			return Disposable.from(watcher1, watcher2);
 		});
 	}
 
@@ -254,12 +254,8 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		}
 
 		if (!this.projects) {
-			const version = await this.workspace.getMoonVersion();
-
 			const { projects } = JSON.parse(
-				await this.workspace.execMoon(
-					satisfies(version, '>=0.24.0') ? ['query', 'projects', '--json'] : ['query', 'projects'],
-				),
+				await this.workspace.execMoon(['query', 'projects', '--json']),
 			) as {
 				projects: Project[];
 			};
