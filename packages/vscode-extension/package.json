@@ -50,17 +50,19 @@
         "moon.binPath": {
           "type": "string",
           "default": "node_modules/@moonrepo/cli/moon",
-          "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
+          "markdownDescription": "Path to the moon binary, relative from the `moon.rootPrefixes` setting."
         },
         "moon.hideTasks": {
           "type": "array",
           "default": [],
           "markdownDescription": "List of tasks to hide in the projects panel. Accepts fully-qualified or partial targets."
         },
-        "moon.workspaceRoot": {
-          "type": "string",
-          "default": ".",
-          "markdownDescription": "Relative path from the editor root to moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
+        "moon.rootPrefixes": {
+          "type": "array",
+          "default": [
+            "."
+          ],
+          "markdownDescription": "Relative paths from the editor root to find moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
         }
       }
     },
@@ -232,7 +234,7 @@
     "viewsWelcome": [
       {
         "view": "moonProjects",
-        "contents": "Unable to find the workspace root. Has moon been installed? Try opening a file.\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "contents": "Unable to find the workspace root. Has moon been installed? Try opening a file.\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.rootPrefixes](command:moon.openSettings) setting.",
         "when": "!moon.inWorkspaceRoot"
       },
       {
@@ -242,7 +244,7 @@
       },
       {
         "view": "moonProjectsExternal",
-        "contents": "Unable to find the workspace root. Has moon been installed? Try opening a file.\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "contents": "Unable to find the workspace root. Has moon been installed? Try opening a file.\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.rootPrefixes](command:moon.openSettings) setting.",
         "when": "!moon.inWorkspaceRoot"
       },
       {

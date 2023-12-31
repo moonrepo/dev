@@ -24,6 +24,8 @@ export class Workspace {
 	// Current moon workspace root
 	root: string | null = null;
 
+	rootPrefix: string = '';
+
 	onDidChangeWorkspaceEmitter: vscode.EventEmitter<vscode.WorkspaceFolder>;
 
 	disposables: vscode.Disposable[] = [];
@@ -34,15 +36,15 @@ export class Workspace {
 
 		// Find moon workspace from default editor
 		if (vscode.window.activeTextEditor) {
-			void this.findRoot(vscode.window.activeTextEditor.document.uri);
+			this.findRoot(vscode.window.activeTextEditor.document.uri);
 		} else {
-			void this.findDefaultRoot();
+			this.findDefaultRoot();
 		}
 
 		// When an editor is changed, attempt to find the moon workspace
 		vscode.window.onDidChangeActiveTextEditor((editor) => {
 			if (editor && editor.document.uri.scheme === 'file') {
-				void this.findRoot(editor.document.uri);
+				this.findRoot(editor.document.uri);
 			}
 		});
 	}
@@ -68,13 +70,18 @@ export class Workspace {
 		});
 
 		// Emit and add new watchers
-		this.onDidChangeWorkspaceEmitter.fire(this.folder);
+		const { folder } = this;
+
+		// Run in a timeout to ensure listeners have been registered,
+		// otherwise this does nothing and the editor feels broken
+		setTimeout(() => {
+			this.onDidChangeWorkspaceEmitter.fire(folder);
+		}, 0);
 	}
 
-	async findDefaultRoot() {
+	findDefaultRoot() {
 		for (const folder of vscode.workspace.workspaceFolders ?? []) {
-			// eslint-disable-next-line no-await-in-loop
-			await this.findRoot(folder.uri);
+			this.findRoot(folder.uri);
 
 			if (this.root) {
 				break;
@@ -82,7 +89,7 @@ export class Workspace {
 		}
 	}
 
-	async findRoot(openUri: vscode.Uri) {
+	findRoot(openUri: vscode.Uri) {
 		if (openUri.fsPath === 'moonrepo.moon-console.moon') {
 			return;
 		}
@@ -93,6 +100,7 @@ export class Workspace {
 
 		this.folder = null;
 		this.root = null;
+		this.rootPrefix = '';
 		this.binPath = null;
 
 		this.logger.appendLine(`Attempting to find a VSC workspace folder for ${openUri.fsPath}`);
@@ -105,21 +113,29 @@ export class Workspace {
 			this.logger.appendLine(`Found workspace folder ${workspaceFolder.uri.fsPath}`);
 			this.logger.appendLine('Attempting to find a moon installation');
 
-			const files = await vscode.workspace.findFiles(
-				new vscode.RelativePattern(workspaceFolder.uri, this.getMoonDirPath('*.yml')),
-			);
+			const rootPrefixes = vscode.workspace.getConfiguration('moon').get('rootPrefixes', ['.']);
+			let foundRoot = false;
 
-			if (files.length > 0 && files[0].scheme === 'file') {
-				// Return folder containing the `.moon` folder
-				this.root = path.dirname(path.dirname(files[0].fsPath));
-				this.binPath = this.findMoonBin();
+			for (const prefix of rootPrefixes) {
+				const moonDir = path.join(workspaceFolder.uri.fsPath, prefix, '.moon');
 
-				this.logger.appendLine(`Found moon workspace root at ${this.root}`);
+				if (fs.existsSync(moonDir)) {
+					this.root = path.dirname(moonDir);
+					this.rootPrefix = prefix;
+					this.binPath = this.findMoonBin();
 
-				if (this.binPath) {
-					this.logger.appendLine(`Found moon binary at ${this.binPath}`);
+					this.logger.appendLine(`Found moon workspace root at ${this.root}`);
+
+					if (this.binPath) {
+						this.logger.appendLine(`Found moon binary at ${this.binPath}`);
+					}
+
+					foundRoot = true;
+					break;
 				}
+			}
 
+			if (foundRoot) {
 				this.fireDidChangeWorkspace();
 			} else {
 				this.logger.appendLine('Did not find a moon installation, disabling');
@@ -185,9 +201,7 @@ export class Workspace {
 	}
 
 	getMoonDirPath(file: string): string {
-		const rootPrefix = vscode.workspace.getConfiguration('moon').get('workspaceRoot', '.');
-
-		return path.join(rootPrefix, '.moon', file);
+		return path.join(this.rootPrefix, '.moon', file);
 	}
 
 	async getMoonVersion(): Promise<string> {

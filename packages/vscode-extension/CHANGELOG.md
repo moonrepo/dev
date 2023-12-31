@@ -1,6 +1,7 @@
 ## 0.8.0
 
 - Removed support for moon < 1.0.
+- Replaced `moon.workspaceRoot` setting with `moon.rootPrefixes`.
 - Refactored extension to support multiple VS Code workspace folders.
 	- When you open a file in another workspace, the moon panels will refresh.
 
