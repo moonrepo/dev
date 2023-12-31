@@ -26,7 +26,7 @@ export class Workspace {
 
 	rootPrefix: string = '';
 
-	onDidChangeWorkspaceEmitter: vscode.EventEmitter<vscode.WorkspaceFolder>;
+	onDidChangeWorkspaceEmitter: vscode.EventEmitter<vscode.WorkspaceFolder | null>;
 
 	disposables: vscode.Disposable[] = [];
 
@@ -49,7 +49,9 @@ export class Workspace {
 		});
 	}
 
-	onDidChangeWorkspace(listener: (folder: vscode.WorkspaceFolder) => vscode.Disposable | void) {
+	onDidChangeWorkspace(
+		listener: (folder: vscode.WorkspaceFolder | null) => vscode.Disposable | void,
+	) {
 		this.onDidChangeWorkspaceEmitter.event((folder) => {
 			const disposable = listener(folder);
 
@@ -60,10 +62,6 @@ export class Workspace {
 	}
 
 	fireDidChangeWorkspace() {
-		if (!this.folder) {
-			return;
-		}
-
 		// Remove previous watchers
 		this.disposables.forEach((disposable) => {
 			disposable.dispose();
@@ -139,9 +137,9 @@ export class Workspace {
 				}
 			}
 
-			if (foundRoot) {
-				this.fireDidChangeWorkspace();
-			} else {
+			this.fireDidChangeWorkspace();
+
+			if (!foundRoot) {
 				this.logger.appendLine('Did not find a moon installation, disabling');
 			}
 		} else {

@@ -213,6 +213,12 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		);
 
 		workspace.onDidChangeWorkspace((folder) => {
+			this.refresh();
+
+			if (!folder) {
+				return undefined;
+			}
+
 			// When `.moon/**/*.yml` is changed, refresh projects
 			const watcher1 = vscode.workspace.createFileSystemWatcher(
 				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('**/*.yml')),
@@ -225,8 +231,6 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 			watcher1.onDidChange(this.refresh, this);
 			watcher2.onDidChange(this.refresh, this);
-
-			this.refresh();
 
 			return Disposable.from(watcher1, watcher2);
 		});
@@ -241,7 +245,11 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	}
 
 	async getChildren(element?: TreeItem | undefined): Promise<TreeItem[]> {
-		if (element instanceof TaskItem || !this.workspace.root) {
+		if (!this.workspace.root) {
+			return [];
+		}
+
+		if (element instanceof TaskItem) {
 			return [];
 		}
 

@@ -19,6 +19,12 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 		this.workspace = workspace;
 
 		workspace.onDidChangeWorkspace((folder) => {
+			this.renderView();
+
+			if (!folder) {
+				return undefined;
+			}
+
 			// When the report is changed, refresh view
 			const watcher = vscode.workspace.createFileSystemWatcher(
 				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('cache/runReport.json')),
@@ -27,8 +33,6 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 			watcher.onDidChange(this.renderView, this);
 			watcher.onDidCreate(this.renderView, this);
 			watcher.onDidDelete(this.renderView, this);
-
-			this.renderView();
 
 			return watcher;
 		});
