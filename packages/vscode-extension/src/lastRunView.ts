@@ -3,6 +3,7 @@ import path from 'path';
 import vscode from 'vscode';
 import { formatDuration, prepareReportActions } from '@moonrepo/report';
 import type { RunReport } from '@moonrepo/types';
+import type { Workspace } from './workspace';
 
 const REPORT_PATH = '.moon/cache/runReport.json';
 const SLOW_THRESHOLD_SECS = 120;
@@ -12,16 +13,16 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 
 	view?: vscode.WebviewView;
 
-	workspaceRoot: string;
+	workspace: Workspace;
 
-	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {
+	constructor(context: vscode.ExtensionContext, workspace: Workspace) {
 		this.context = context;
-		this.workspaceRoot = workspaceRoot;
+		this.workspace = workspace;
 
 		// When `.moon/cache/runReport.json` is changed, refresh view
 		const watcher = vscode.workspace.createFileSystemWatcher(
 			new vscode.RelativePattern(
-				vscode.workspace.workspaceFolders?.[0] ?? workspaceRoot,
+				vscode.workspace.workspaceFolders?.[0] ?? workspace.root,
 				REPORT_PATH,
 			),
 		);
@@ -75,11 +76,11 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 	}
 
 	renderView() {
-		if (!this.view) {
+		if (!this.view || !this.workspace.root) {
 			return;
 		}
 
-		const runReportPath = path.join(this.workspaceRoot, REPORT_PATH);
+		const runReportPath = path.join(this.workspace.root, REPORT_PATH);
 
 		if (fs.existsSync(runReportPath)) {
 			const report = JSON.parse(fs.readFileSync(runReportPath, 'utf8')) as RunReport;

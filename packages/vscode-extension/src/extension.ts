@@ -1,37 +1,20 @@
 import vscode from 'vscode';
 import { runTaskByInput, viewActionGraph, viewProjectGraph } from './commands';
 import { LastRunProvider } from './lastRunView';
-import { findMoonBin, findWorkspaceRoot, isRealBin } from './moon';
 import { ProjectsProvider } from './projectsView';
+import { Workspace } from './workspace';
 
-export async function activate(context: vscode.ExtensionContext) {
-	const workingDir = vscode.workspace.workspaceFolders?.[0];
-	const workspaceRoot = workingDir ? await findWorkspaceRoot(workingDir) : null;
-	const binPath = workspaceRoot ? findMoonBin(workspaceRoot) : null;
-
-	// Define contexts used for empty views
-	void vscode.commands.executeCommand('setContext', 'moon.inWorkspaceRoot', workspaceRoot !== null);
-	void vscode.commands.executeCommand(
-		'setContext',
-		'moon.hasBinary',
-		binPath !== null && isRealBin(binPath),
-	);
+export function activate(context: vscode.ExtensionContext) {
+	const workspace = new Workspace();
+	const projectsProvider = new ProjectsProvider(context, workspace);
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand('moon.openSettings', () =>
 			vscode.commands.executeCommand('workbench.action.openSettings', '@ext:moonrepo.moon-console'),
 		),
-	);
 
-	if (!workspaceRoot || !binPath) {
-		return;
-	}
-
-	const projectsProvider = new ProjectsProvider(context, workspaceRoot);
-
-	context.subscriptions.push(
 		// Create a "moon run <target>" task
-		vscode.commands.registerCommand('moon.runTaskByInput', () => runTaskByInput(workspaceRoot)),
+		vscode.commands.registerCommand('moon.runTaskByInput', () => runTaskByInput(workspace)),
 
 		// Create a tree view for all moon projects
 		vscode.window.createTreeView('moonProjects', {
@@ -45,16 +28,16 @@ export async function activate(context: vscode.ExtensionContext) {
 
 		// Create graph visualizers
 		vscode.commands.registerCommand('moon.viewActionGraph', () =>
-			viewActionGraph(context, workspaceRoot),
+			viewActionGraph(context, workspace),
 		),
 		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
-			viewProjectGraph(context, workspaceRoot),
+			viewProjectGraph(context, workspace),
 		),
 
 		// Create a webview for last run report
 		vscode.window.registerWebviewViewProvider(
 			'moonLastRun',
-			new LastRunProvider(context, workspaceRoot),
+			new LastRunProvider(context, workspace),
 		),
 	);
 }

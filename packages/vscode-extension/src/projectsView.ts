@@ -13,6 +13,7 @@ import vscode, {
 import type { LanguageType, Project, ProjectType, Task as ProjectTask } from '@moonrepo/types';
 import { checkProject, runTask } from './commands';
 import { execMoon, getMoonVersion } from './moon';
+import type { Workspace } from './workspace';
 
 const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
 	bash: '',
@@ -193,15 +194,15 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 	projects?: Project[];
 
-	workspaceRoot: string;
+	workspace: Workspace;
 
 	onDidChangeTreeDataEmitter: EventEmitter<TreeItem | null>;
 
 	onDidChangeTreeData: Event<TreeItem | null>;
 
-	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {
+	constructor(context: vscode.ExtensionContext, workspace: Workspace) {
 		this.context = context;
-		this.workspaceRoot = workspaceRoot;
+		this.workspace = workspace;
 		this.onDidChangeTreeDataEmitter = new EventEmitter<TreeItem | null>();
 		this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
 

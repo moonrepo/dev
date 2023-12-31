@@ -1,6 +1,6 @@
 import { satisfies } from 'semver';
 import vscode, { ViewColumn } from 'vscode';
-import { execMoon, getMoonVersion } from './moon';
+import type { Workspace } from './workspace';
 
 export type GraphType = 'action-graph' | 'project-graph';
 
@@ -11,11 +11,11 @@ export class GraphVisualizerView {
 
 	type: GraphType;
 
-	workspaceRoot: string;
+	workspace: Workspace;
 
-	constructor(context: vscode.ExtensionContext, workspaceRoot: string, type: GraphType) {
+	constructor(context: vscode.ExtensionContext, workspace: Workspace, type: GraphType) {
 		this.context = context;
-		this.workspaceRoot = workspaceRoot;
+		this.workspace = workspace;
 		this.type = type;
 		this.panel = vscode.window.createWebviewPanel(
 			type === 'action-graph' ? 'moonActionGraph' : 'moonProjectGraph',
@@ -61,7 +61,7 @@ export class GraphVisualizerView {
 	}
 
 	async renderPanel() {
-		const version = await getMoonVersion(this.workspaceRoot);
+		const version = await this.workspace.getMoonVersion();
 
 		if (satisfies(version, '<0.21.3')) {
 			this.panel.webview.html = this.renderHtml(
@@ -77,7 +77,7 @@ export class GraphVisualizerView {
 			command = 'dep-graph';
 		}
 
-		const data = await execMoon([command, '--json'], this.workspaceRoot);
+		const data = await this.workspace.execMoon([command, '--json']);
 
 		this.panel.webview.html = this.renderHtml(
 			`<script>window.GRAPH_DATA = '${data}';</script><div id="app"></div>`,

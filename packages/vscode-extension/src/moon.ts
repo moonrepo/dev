@@ -55,28 +55,3 @@ export function isRealBin(binPath: string): boolean {
 	// so we need to account for that!
 	return stats.size > 100;
 }
-
-export async function execMoon(args: string[], workspaceRoot: string): Promise<string> {
-	try {
-		const result = await execa(findMoonBin(workspaceRoot)!, args, { cwd: workspaceRoot });
-
-		return result.stdout;
-	} catch (error: unknown) {
-		console.error(error);
-
-		throw error;
-	}
-}
-
-export async function getMoonVersion(workspaceRoot: string): Promise<string> {
-	try {
-		const result = await execMoon(['--version'], workspaceRoot);
-
-		// Output is: moon 0.0.0
-		const parts = result.split(' ');
-
-		return parts[parts.length - 1];
-	} catch {
-		return '0.0.0';
-	}
-}

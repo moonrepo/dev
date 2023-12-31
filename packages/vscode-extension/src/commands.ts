@@ -1,15 +1,19 @@
 import { satisfies } from 'semver';
 import vscode, { ShellExecution, Task, TaskScope } from 'vscode';
 import { GraphVisualizerView } from './graphVisualizerView';
-import { findMoonBin, getMoonVersion } from './moon';
+import type { Workspace } from './workspace';
 
 export async function checkProject(
 	project: string,
-	workspaceRoot: string,
+	workspace: Workspace,
 	modifier?: (task: Task) => void,
 ) {
+	if (!workspace.root || !workspace.binPath) {
+		return;
+	}
+
 	const args = ['check', project];
-	const version = await getMoonVersion(workspaceRoot);
+	const version = await workspace.getMoonVersion();
 
 	if (satisfies(version, '>=0.17.0 && <0.22.0')) {
 		args.push('--report');
@@ -20,8 +24,8 @@ export async function checkProject(
 		TaskScope.Workspace,
 		`moon check ${project}`,
 		'moon',
-		new ShellExecution(findMoonBin(workspaceRoot)!, args, {
-			cwd: workspaceRoot,
+		new ShellExecution(workspace.binPath, args, {
+			cwd: workspace.root,
 		}),
 	);
 
@@ -32,11 +36,15 @@ export async function checkProject(
 
 export async function runTask(
 	target: string,
-	workspaceRoot: string,
+	workspace: Workspace,
 	modifier?: (task: Task) => void,
 ) {
+	if (!workspace.root || !workspace.binPath) {
+		return;
+	}
+
 	const args = ['run', ...target.split(' ')];
-	const version = await getMoonVersion(workspaceRoot);
+	const version = await workspace.getMoonVersion();
 
 	if (satisfies(version, '<0.22.0')) {
 		args.push('--report');
@@ -47,8 +55,8 @@ export async function runTask(
 		TaskScope.Workspace,
 		`moon run ${target}`,
 		'moon',
-		new ShellExecution(findMoonBin(workspaceRoot)!, args, {
-			cwd: workspaceRoot,
+		new ShellExecution(workspace.binPath, args, {
+			cwd: workspace.root,
 		}),
 	);
 
@@ -57,21 +65,25 @@ export async function runTask(
 	await vscode.tasks.executeTask(task);
 }
 
-export async function runTaskByInput(workspaceRoot: string) {
+export async function runTaskByInput(workspace: Workspace) {
+	if (!workspace.root || !workspace.binPath) {
+		return;
+	}
+
 	const target = await vscode.window.showInputBox({
 		prompt: 'In the format of "scope:task" or ":task".',
 		title: 'Target(s)',
 	});
 
 	if (target) {
-		await runTask(target, workspaceRoot);
+		await runTask(target, workspace);
 	}
 }
 
-export async function viewActionGraph(context: vscode.ExtensionContext, workspaceRoot: string) {
-	await new GraphVisualizerView(context, workspaceRoot, 'action-graph').renderPanel();
+export async function viewActionGraph(context: vscode.ExtensionContext, workspace: Workspace) {
+	await new GraphVisualizerView(context, workspace, 'action-graph').renderPanel();
 }
 
-export async function viewProjectGraph(context: vscode.ExtensionContext, workspaceRoot: string) {
-	await new GraphVisualizerView(context, workspaceRoot, 'project-graph').renderPanel();
+export async function viewProjectGraph(context: vscode.ExtensionContext, workspace: Workspace) {
+	await new GraphVisualizerView(context, workspace, 'project-graph').renderPanel();
 }
