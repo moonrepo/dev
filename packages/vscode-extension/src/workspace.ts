@@ -1,9 +1,15 @@
+import fs from 'fs';
 import path from 'path';
 import execa from 'execa';
 import vscode from 'vscode';
-import { findMoonBin, isRealBin } from './moon';
 
-export type ChangeWorkspaceListener = (folder: vscode.WorkspaceFolder) => vscode.Disposable[];
+export function isRealBin(binPath: string): boolean {
+	const stats = fs.statSync(binPath);
+
+	// When in the moonrepo/moon repository, the binary is actually fake,
+	// so we need to account for that!
+	return stats.size > 100;
+}
 
 export class Workspace {
 	// Current moon binary path
@@ -94,7 +100,7 @@ export class Workspace {
 
 			if (files.length > 0) {
 				this.root = workspaceFolder.uri.fsPath;
-				this.binPath = findMoonBin(this.root);
+				this.binPath = this.findMoonBin();
 
 				this.logger.appendLine(`Found moon workspace root at ${this.root}`);
 
@@ -112,11 +118,44 @@ export class Workspace {
 
 		// Update context
 		void vscode.commands.executeCommand('setContext', 'moon.inWorkspaceRoot', this.root !== null);
+
 		void vscode.commands.executeCommand(
 			'setContext',
 			'moon.hasBinary',
 			this.binPath !== null && isRealBin(this.binPath),
 		);
+	}
+
+	findMoonBin(): string | null {
+		if (!this.root) {
+			return null;
+		}
+
+		let binPath = vscode.workspace.getConfiguration('moon').get('binPath', 'moon');
+
+		if (process.platform === 'win32' && !binPath.endsWith('.exe')) {
+			binPath += '.exe';
+		}
+
+		if (!path.isAbsolute(binPath)) {
+			binPath = path.join(this.root, binPath);
+		}
+
+		if (fs.existsSync(binPath)) {
+			return binPath;
+		}
+
+		try {
+			const globalBin = execa.sync('which', ['moon']).stdout;
+
+			if (globalBin && fs.existsSync(globalBin)) {
+				return globalBin;
+			}
+		} catch {
+			// Ignore
+		}
+
+		return null;
 	}
 
 	async execMoon(args: string[]): Promise<string> {
