@@ -9,15 +9,23 @@ export class Workspace {
 	// Current vscode workspace folder
 	folder: vscode.WorkspaceFolder | null = null;
 
+	// Channel for logging
+	logger: vscode.LogOutputChannel;
+
 	// Current moon workspace root
 	root: string | null = null;
 
 	constructor() {
+		this.logger = vscode.window.createOutputChannel('moon', { log: true });
+
 		// When a file is opened, attempt to find the moon workspace
 		vscode.workspace.onDidOpenTextDocument((text) => {
+			this.logger.appendLine('Opened a file, checking for workspace changes');
 			void this.findRoot(text.uri);
 		});
+
 		vscode.workspace.onDidCloseTextDocument((text) => {
+			this.logger.appendLine('Closed a file, checking for workspace changes');
 			void this.findRoot(text.uri);
 		});
 	}
@@ -27,20 +35,39 @@ export class Workspace {
 			return;
 		}
 
+		this.folder = null;
+		this.root = null;
+		this.binPath = null;
+
+		this.logger.appendLine(`Attempting to find a VSC workspace folder for ${openUri.fsPath}`);
+
 		const workspaceFolder = vscode.workspace.getWorkspaceFolder(openUri);
 
 		if (workspaceFolder) {
+			this.logger.appendLine(
+				`Found workspace folder ${workspaceFolder.uri.fsPath} (${workspaceFolder.name})`,
+			);
+
+			this.logger.appendLine('Attempting to find a moon installation');
+
 			const files = await vscode.workspace.findFiles(
 				new vscode.RelativePattern(workspaceFolder.uri, '.moon/*.yml'),
 			);
 
 			this.folder = workspaceFolder;
-			this.root = files.length > 0 ? workspaceFolder.uri.fsPath : null;
-			this.binPath = this.root ? findMoonBin(this.root) : null;
+
+			if (files.length > 0) {
+				this.root = workspaceFolder.uri.fsPath;
+				this.binPath = findMoonBin(this.root);
+
+				this.logger.appendLine(`Found workspace root at ${this.root}`);
+
+				if (this.binPath) {
+					this.logger.appendLine(`Found moon binary at ${this.binPath}`);
+				}
+			}
 		} else {
-			this.folder = null;
-			this.root = null;
-			this.binPath = null;
+			this.logger.appendLine('Did not find a workspace folder, disabling moon');
 		}
 
 		// Update context
