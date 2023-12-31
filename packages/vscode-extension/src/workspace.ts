@@ -113,7 +113,11 @@ export class Workspace {
 			this.logger.appendLine(`Found workspace folder ${workspaceFolder.uri.fsPath}`);
 			this.logger.appendLine('Attempting to find a moon installation');
 
-			const rootPrefixes = vscode.workspace.getConfiguration('moon').get('rootPrefixes', ['.']);
+			const rootPrefixes = vscode.workspace
+				.getConfiguration('moon')
+				.get('rootPrefixes', [] as string[]);
+			rootPrefixes.push('.');
+
 			let foundRoot = false;
 
 			for (const prefix of rootPrefixes) {
@@ -187,6 +191,10 @@ export class Workspace {
 	}
 
 	async execMoon(args: string[]): Promise<string> {
+		if (!args.includes('--json')) {
+			args.push('--log', vscode.workspace.getConfiguration('moon').get('logLevel', 'info'));
+		}
+
 		try {
 			const result = await execa(this.binPath ?? 'moon', args, {
 				cwd: this.root ?? process.cwd(),
@@ -200,8 +208,8 @@ export class Workspace {
 		}
 	}
 
-	getMoonDirPath(file: string): string {
-		return path.join(this.rootPrefix, '.moon', file);
+	getMoonDirPath(file: string, withPrefix: boolean = true): string {
+		return path.join(withPrefix ? this.rootPrefix : '.', '.moon', file);
 	}
 
 	async getMoonVersion(): Promise<string> {

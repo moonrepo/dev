@@ -16,9 +16,18 @@ export async function checkProject(
 		TaskScope.Workspace,
 		`moon check ${project}`,
 		'moon',
-		new ShellExecution(workspace.binPath, ['check', project], {
-			cwd: workspace.root,
-		}),
+		new ShellExecution(
+			workspace.binPath,
+			[
+				'check',
+				project,
+				'--log',
+				vscode.workspace.getConfiguration('moon').get('logLevel', 'info'),
+			],
+			{
+				cwd: workspace.root,
+			},
+		),
 	);
 
 	modifier?.(task);
@@ -40,9 +49,18 @@ export async function runTask(
 		TaskScope.Workspace,
 		`moon run ${target}`,
 		'moon',
-		new ShellExecution(workspace.binPath, ['run', ...target.split(' ')], {
-			cwd: workspace.root,
-		}),
+		new ShellExecution(
+			workspace.binPath,
+			[
+				'run',
+				...target.split(' '),
+				'--log',
+				vscode.workspace.getConfiguration('moon').get('logLevel', 'info'),
+			],
+			{
+				cwd: workspace.root,
+			},
+		),
 	);
 
 	modifier?.(task);

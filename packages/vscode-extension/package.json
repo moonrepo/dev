@@ -57,11 +57,14 @@
           "default": [],
           "markdownDescription": "List of tasks to hide in the projects panel. Accepts fully-qualified or partial targets."
         },
+        "moon.logLevel": {
+          "type": "string",
+          "default": "info",
+          "markdownDescription": "The log level to apply to all moon executed commands."
+        },
         "moon.rootPrefixes": {
           "type": "array",
-          "default": [
-            "."
-          ],
+          "default": [],
           "markdownDescription": "Relative paths from the editor root to find moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
         }
       }

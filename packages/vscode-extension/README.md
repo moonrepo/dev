@@ -52,6 +52,7 @@ The following settings are available for this extension.
 - `moon.hideTasks` - List of tasks to hide in the projects view, using target syntax. Supports
   fully-qualified targets (`app:build`) and partial targets (`:build` or `*:build`). Defaults to
   `[]`.
+- `moon.logLevel` - The log level to apply to all moon executed commands. Defaults to `info`.
 - `moon.rootPrefixes` - List of relative paths from the editor root in which to find moon's
   workspace root. Defaults to `['.']`. This is useful if moon is initialized in a sub-folder.
 
@@ -83,4 +84,4 @@ prefixed with "moon".
 - [ ] Auto-completion
 - [ ] In-editor code generation
 - [x] Graph visualizer
-- [*] Multi-workspace support
+- [x] Multi-workspace support
