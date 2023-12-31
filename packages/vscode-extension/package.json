@@ -50,17 +50,22 @@
         "moon.binPath": {
           "type": "string",
           "default": "node_modules/@moonrepo/cli/moon",
-          "markdownDescription": "Path to the moon binary, relative from the `moon.workspaceRoot` setting."
+          "markdownDescription": "Path to the moon binary, relative from the `moon.rootPrefixes` setting."
         },
         "moon.hideTasks": {
           "type": "array",
           "default": [],
           "markdownDescription": "List of tasks to hide in the projects panel. Accepts fully-qualified or partial targets."
         },
-        "moon.workspaceRoot": {
+        "moon.logLevel": {
           "type": "string",
-          "default": ".",
-          "markdownDescription": "Relative path from the editor root to moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
+          "default": "info",
+          "markdownDescription": "The log level to apply to all moon executed commands."
+        },
+        "moon.rootPrefixes": {
+          "type": "array",
+          "default": [],
+          "markdownDescription": "Relative paths from the editor root to find moon's [workspace root](https://moonrepo.dev/docs/concepts/workspace)."
         }
       }
     },
@@ -76,7 +81,7 @@
       },
       {
         "command": "moon.checkProject",
-        "title": "moon: Run all buildable and testable tasks",
+        "title": "moon: Run all buildable and testable tasks for a project",
         "icon": "$(run-all)"
       },
       {
@@ -232,22 +237,22 @@
     "viewsWelcome": [
       {
         "view": "moonProjects",
-        "contents": "Unable to find the workspace root. Has moon been installed?\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "contents": "Unable to find the workspace root. Has moon been installed? Try opening a file.\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.rootPrefixes](command:moon.openSettings) setting.",
         "when": "!moon.inWorkspaceRoot"
       },
       {
         "view": "moonProjects",
-        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
+        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package or `moon` global been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
         "when": "moon.inWorkspaceRoot && !moon.hasBinary"
       },
       {
         "view": "moonProjectsExternal",
-        "contents": "Unable to find the workspace root. Has moon been installed?\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.workspaceRoot](command:moon.openSettings) setting.",
+        "contents": "Unable to find the workspace root. Has moon been installed? Try opening a file.\n[Install moon](https://moonrepo.dev/docs/install)\nIf moon was installed in a sub-folder, update the [moon.rootPrefixes](command:moon.openSettings) setting.",
         "when": "!moon.inWorkspaceRoot"
       },
       {
         "view": "moonProjectsExternal",
-        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
+        "contents": "Unable to find moon's binary. Has the [@moonrepo/cli](https://www.npmjs.com/package/@moonrepo/cli) package or `moon` global been installed?\n[Learn more](https://moonrepo.dev/docs/install)\nThe path to moon's binary can be customized with the [moon.binPath](command:moon.openSettings) setting.",
         "when": "moon.inWorkspaceRoot && !moon.hasBinary"
       }
     ]
@@ -266,7 +271,7 @@
   "devDependencies": {
     "@moonrepo/types": "^1.10.0",
     "@types/semver": "^7.5.5",
-    "@types/vscode": "^1.66.0",
+    "@types/vscode": "^1.75.0",
     "@vscode/test-electron": "^2.3.6",
     "esbuild": "^0.19.5",
     "vsce": "^2.15.0"

@@ -23,8 +23,7 @@ alt="Screenshot of projects view" width="300px" />
 
 ### Last run view
 
-Information about the last ran target will be displayed in a beautiful table with detailed stats.
-Only tasks ran from the extension, or with `--report` on the command line will be displayed here.
+Information about the last ran task will be displayed in a beautiful table with detailed stats.
 
 <img
 src="https://raw.githubusercontent.com/moonrepo/dev/master/packages/vscode-extension/images/last-run-view.png"
@@ -48,13 +47,14 @@ about [installing and configuring moon](https://moonrepo.dev/docs/install)!
 
 The following settings are available for this extension.
 
-- `moon.workspaceRoot` - Relative path from the opened folder to moon's workspace root. Defaults to
-  "`.`". This is useful if moon is initialized in a sub-folder.
 - `moon.binPath` - Relative path from moon's workspace root to the moon binary. Defaults to
   `node_modules/@moonrepo/cli/moon`. _Windows will auto-suffix with `.exe`!_
 - `moon.hideTasks` - List of tasks to hide in the projects view, using target syntax. Supports
   fully-qualified targets (`app:build`) and partial targets (`:build` or `*:build`). Defaults to
   `[]`.
+- `moon.logLevel` - The log level to apply to all moon executed commands. Defaults to `info`.
+- `moon.rootPrefixes` - List of relative paths from the editor root in which to find moon's
+  workspace root. Defaults to `['.']`. This is useful if moon is initialized in a sub-folder.
 
 ## Commands
 
@@ -62,7 +62,7 @@ The following commands are available in the command palette (typically `cmd + sh
 prefixed with "moon".
 
 - **Open settings** - Opens the settings page and filters to all moon applicable settings.
-- **Run target** - Prompts the user for a target(s) and runs it in the terminal.
+- **Run task** - Prompts the user for a task(s) and runs it in the terminal.
 - **Refresh projects** - Refreshes the projects view. _This happens automatically when
   `.moon/workspace.yml` changes!_
 - **View action graph** - Opens a panel that renders an interactive action graph visualization.
@@ -84,3 +84,4 @@ prefixed with "moon".
 - [ ] Auto-completion
 - [ ] In-editor code generation
 - [x] Graph visualizer
+- [x] Multi-workspace support

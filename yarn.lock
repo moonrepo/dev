@@ -3449,10 +3449,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vscode@npm:^1.66.0":
-  version: 1.72.0
-  resolution: "@types/vscode@npm:1.72.0"
-  checksum: 6c07295f6aa58afaaf2f2df556f5a1cfec22f160603ca212e616016d828a1e27402e821375ed19b4caa015c2635af8a240e616e5e048d23644e36cf5bf7a817a
+"@types/vscode@npm:^1.75.0":
+  version: 1.85.0
+  resolution: "@types/vscode@npm:1.85.0"
+  checksum: 100b4dc63629028212ad85d305db57f963ac2eb295c2a96044039f21bb4e68bb0374a9f35780d47c79de7e414b44c06a0d4dc8f3b3218814c4380cef5735818d
   languageName: node
   linkType: hard
 
@@ -9583,7 +9583,7 @@ __metadata:
     "@moonrepo/report": "npm:^1.1.1"
     "@moonrepo/types": "npm:^1.10.0"
     "@types/semver": "npm:^7.5.5"
-    "@types/vscode": "npm:^1.66.0"
+    "@types/vscode": "npm:^1.75.0"
     "@vscode/test-electron": "npm:^2.3.6"
     esbuild: "npm:^0.19.5"
     execa: "npm:^5.1.1"

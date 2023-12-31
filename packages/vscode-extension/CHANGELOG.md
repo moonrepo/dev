@@ -1,3 +1,11 @@
+## 0.8.0
+
+- Added a `moon.logLevel` setting, to control the log level of all moon executed commands.
+- Added support for multiple VS Code workspace folders.
+	- When you open a file in another workspace, the moon panels will refresh.
+- Removed support for moon < 1.0.
+- Replaced `moon.workspaceRoot` setting with `moon.rootPrefixes`.
+
 ## 0.7.0
 
 - Requires VS Code ^1.75.0.

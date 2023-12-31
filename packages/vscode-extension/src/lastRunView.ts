@@ -3,8 +3,8 @@ import path from 'path';
 import vscode from 'vscode';
 import { formatDuration, prepareReportActions } from '@moonrepo/report';
 import type { RunReport } from '@moonrepo/types';
+import type { Workspace } from './workspace';
 
-const REPORT_PATH = '.moon/cache/runReport.json';
 const SLOW_THRESHOLD_SECS = 120;
 
 export class LastRunProvider implements vscode.WebviewViewProvider {
@@ -12,24 +12,30 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 
 	view?: vscode.WebviewView;
 
-	workspaceRoot: string;
+	workspace: Workspace;
 
-	constructor(context: vscode.ExtensionContext, workspaceRoot: string) {
+	constructor(context: vscode.ExtensionContext, workspace: Workspace) {
 		this.context = context;
-		this.workspaceRoot = workspaceRoot;
+		this.workspace = workspace;
 
-		// When `.moon/cache/runReport.json` is changed, refresh view
-		const watcher = vscode.workspace.createFileSystemWatcher(
-			new vscode.RelativePattern(
-				vscode.workspace.workspaceFolders?.[0] ?? workspaceRoot,
-				REPORT_PATH,
-			),
-		);
-		watcher.onDidChange(this.renderView, this);
-		watcher.onDidCreate(this.renderView, this);
-		watcher.onDidDelete(this.renderView, this);
+		workspace.onDidChangeWorkspace((folder) => {
+			this.renderView();
 
-		context.subscriptions.push(watcher);
+			if (!folder) {
+				return undefined;
+			}
+
+			// When the report is changed, refresh view
+			const watcher = vscode.workspace.createFileSystemWatcher(
+				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('cache/runReport.json')),
+			);
+
+			watcher.onDidChange(this.renderView, this);
+			watcher.onDidCreate(this.renderView, this);
+			watcher.onDidDelete(this.renderView, this);
+
+			return watcher;
+		});
 	}
 
 	resolveWebviewView(webviewView: vscode.WebviewView): Thenable<void> | void {
@@ -75,11 +81,14 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 	}
 
 	renderView() {
-		if (!this.view) {
+		if (!this.view?.webview || !this.workspace.root) {
 			return;
 		}
 
-		const runReportPath = path.join(this.workspaceRoot, REPORT_PATH);
+		const runReportPath = path.join(
+			this.workspace.root,
+			this.workspace.getMoonDirPath('cache/runReport.json', false),
+		);
 
 		if (fs.existsSync(runReportPath)) {
 			const report = JSON.parse(fs.readFileSync(runReportPath, 'utf8')) as RunReport;
@@ -113,7 +122,7 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 			`);
 		} else {
 			this.view.webview.html = this.renderHtml(`
-				No run report found. Run a target through the projects view or on the command line.
+				No run report found. Run a task through the projects view or on the command line.
 			`);
 		}
 	}
