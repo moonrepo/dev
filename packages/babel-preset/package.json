@@ -34,11 +34,11 @@
   },
   "dependencies": {
     "@babel/plugin-proposal-class-properties": "^7.18.6",
-    "@babel/plugin-proposal-decorators": "^7.23.5",
+    "@babel/plugin-proposal-decorators": "^7.23.7",
     "@babel/plugin-proposal-export-default-from": "^7.23.3",
     "@babel/plugin-proposal-export-namespace-from": "^7.18.9",
     "@babel/plugin-proposal-private-methods": "^7.18.6",
-    "@babel/preset-env": "^7.23.5",
+    "@babel/preset-env": "^7.23.7",
     "@babel/preset-react": "^7.23.3",
     "@babel/preset-typescript": "^7.23.3",
     "babel-plugin-conditional-invariant": "^3.0.1",
@@ -46,7 +46,7 @@
     "babel-preset-solid": "^1.8.6"
   },
   "devDependencies": {
-    "@babel/core": "^7.23.5"
+    "@babel/core": "^7.23.7"
   },
   "funding": {
     "type": "ko-fi",
