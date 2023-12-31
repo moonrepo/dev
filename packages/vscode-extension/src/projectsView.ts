@@ -221,6 +221,10 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			watcher1,
 			watcher2,
 		);
+
+		workspace.onDidChangeWorkspace(() => {
+			this.refresh();
+		});
 	}
 
 	getParent(element: TreeItem): vscode.ProviderResult<TreeItem> {
@@ -232,7 +236,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	}
 
 	async getChildren(element?: TreeItem | undefined): Promise<TreeItem[]> {
-		if (element instanceof TaskItem) {
+		if (element instanceof TaskItem || !this.workspace.root) {
 			return [];
 		}
 

@@ -26,6 +26,10 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 		watcher.onDidDelete(this.renderView, this);
 
 		context.subscriptions.push(watcher);
+
+		workspace.onDidChangeWorkspace(() => {
+			this.renderView();
+		});
 	}
 
 	resolveWebviewView(webviewView: vscode.WebviewView): Thenable<void> | void {

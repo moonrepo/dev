@@ -26,6 +26,10 @@ export class GraphVisualizerView {
 				localResourceRoots: [context.extensionUri],
 			},
 		);
+
+		workspace.onDidChangeWorkspace(() => {
+			void this.renderPanel();
+		});
 	}
 
 	renderHtml(content: string) {

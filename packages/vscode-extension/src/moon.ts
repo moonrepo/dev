@@ -31,23 +31,6 @@ export function findMoonBin(workspaceRoot: string): string | null {
 	return null;
 }
 
-export async function findWorkspaceRoot(
-	workingDir: vscode.WorkspaceFolder,
-): Promise<string | null> {
-	const baseRoot = vscode.workspace.getConfiguration('moon').get('workspaceRoot', '.');
-
-	const files = await vscode.workspace.findFiles(
-		new vscode.RelativePattern(workingDir, path.join(baseRoot, '.moon/*.yml')),
-	);
-
-	// Return folder containing the `.moon` folder
-	if (files.length > 0 && files[0].scheme === 'file') {
-		return path.dirname(path.dirname(files[0].fsPath));
-	}
-
-	return null;
-}
-
 export function isRealBin(binPath: string): boolean {
 	const stats = fs.statSync(binPath);
 
