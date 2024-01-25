@@ -14,6 +14,7 @@ import type { LanguageType, Project, ProjectType, Task as ProjectTask } from '@m
 import { checkProject, runTask } from './commands';
 import type { Workspace } from './workspace';
 
+const UNTAGGED = '__untagged__';
 const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
 	bash: '',
 	batch: '',
@@ -142,6 +143,8 @@ class ProjectItem extends TreeItem {
 			.filter((task) => canShowTask(task.target, this.parent.hideTasks))
 			.map((task) => new TaskItem(this, task));
 
+		this.tasks.sort((a, d) => a.id!.localeCompare(d.id!));
+
 		this.resourceUri = Uri.file(
 			path.join(project.root, LANGUAGE_MANIFESTS[language] || 'moon.yml'),
 		);
@@ -207,11 +210,9 @@ class ProjectTagItem extends TreeItem {
 		this.contextValue = 'projectTag';
 
 		this.hideTasks = new Set(vscode.workspace.getConfiguration('moon').get('hideTasks', []));
-		this.projects = projects
-			.filter((project) => project.config.tags?.includes(tag))
-			.map((project) => new ProjectItem(context, this, project));
+		this.projects = projects.map((project) => new ProjectItem(context, this, project));
 
-		this.label = tag === '__untagged__' ? 'Untagged' : `#${tag}`;
+		this.label = tag === UNTAGGED ? 'Untagged' : `#${tag}`;
 	}
 }
 
@@ -237,11 +238,17 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		this.onDidChangeTreeDataEmitter = new EventEmitter<TreeItem | null>();
 		this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
 
+		const commandPrefix = type === 'category' ? 'projectCategory' : 'projectTag';
+
 		context.subscriptions.push(
-			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
-			vscode.commands.registerCommand('moon.runTask', this.runTask, this),
-			vscode.commands.registerCommand('moon.checkProject', this.checkProject, this),
-			vscode.commands.registerCommand('moon.viewProject', this.viewProject, this),
+			vscode.commands.registerCommand(`moon.${commandPrefix}.refreshProjects`, this.refresh, this),
+			vscode.commands.registerCommand(`moon.${commandPrefix}.runTask`, this.runTask, this),
+			vscode.commands.registerCommand(
+				`moon.${commandPrefix}.checkProject`,
+				this.checkProject,
+				this,
+			),
+			vscode.commands.registerCommand(`moon.${commandPrefix}.viewProject`, this.viewProject, this),
 		);
 
 		workspace.onDidChangeWorkspace((folder) => {
@@ -312,7 +319,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		).filter((section) => section.projects.length > 0);
 
 		// If only 1 section, flatten the projects list
-		if (sections.length === 1) {
+		if (this.type === 'category' && sections.length === 1) {
 			return sections[0].projects;
 		}
 
@@ -333,12 +340,11 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 	getTagChildren(): ProjectTagItem[] {
 		const tags: Record<string, Project[]> = {};
-		const untagged = '__untagged__';
+		const untagged: Project[] = [];
 
 		this.projects!.forEach((project) => {
 			if (project.config.tags.length === 0) {
-				tags[untagged] ||= [];
-				tags[untagged].push(project);
+				untagged.push(project);
 			} else {
 				project.config.tags.forEach((tag) => {
 					tags[tag] ||= [];
@@ -347,9 +353,13 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			}
 		});
 
-		return Object.entries(tags).map(
+		const sections = Object.entries(tags).map(
 			([tag, projects]) => new ProjectTagItem(this.context, tag, projects),
 		);
+
+		sections.push(new ProjectTagItem(this.context, UNTAGGED, untagged));
+
+		return sections;
 	}
 
 	getTreeItem(element: TreeItem): Thenable<TreeItem> | TreeItem {

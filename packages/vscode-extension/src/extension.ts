@@ -7,14 +7,21 @@ import { Workspace } from './workspace';
 export function activate(context: vscode.ExtensionContext) {
 	const workspace = new Workspace();
 	const projectsProvider = new ProjectsProvider(context, workspace, 'category');
+	const tagsProvider = new ProjectsProvider(context, workspace, 'tag');
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand('moon.openSettings', () =>
 			vscode.commands.executeCommand('workbench.action.openSettings', '@ext:moonrepo.moon-console'),
 		),
 
-		// Create a "moon run <target>" task
+		// Create commands
 		vscode.commands.registerCommand('moon.runTaskByInput', () => runTaskByInput(workspace)),
+		vscode.commands.registerCommand('moon.viewActionGraph', () =>
+			viewActionGraph(context, workspace),
+		),
+		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
+			viewProjectGraph(context, workspace),
+		),
 
 		// Create a tree view for all moon projects
 		vscode.window.createTreeView('moonProjects', {
@@ -25,14 +32,10 @@ export function activate(context: vscode.ExtensionContext) {
 			showCollapseAll: true,
 			treeDataProvider: projectsProvider,
 		}),
-
-		// Create graph visualizers
-		vscode.commands.registerCommand('moon.viewActionGraph', () =>
-			viewActionGraph(context, workspace),
-		),
-		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
-			viewProjectGraph(context, workspace),
-		),
+		vscode.window.createTreeView('moonTags', {
+			showCollapseAll: true,
+			treeDataProvider: tagsProvider,
+		}),
 
 		// Create a webview for last run report
 		vscode.window.registerWebviewViewProvider(
