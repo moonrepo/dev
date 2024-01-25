@@ -6,7 +6,7 @@ import { Workspace } from './workspace';
 
 export function activate(context: vscode.ExtensionContext) {
 	const workspace = new Workspace();
-	const projectsProvider = new ProjectsProvider(context, workspace);
+	const projectsProvider = new ProjectsProvider(context, workspace, 'category');
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand('moon.openSettings', () =>
