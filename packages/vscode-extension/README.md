@@ -21,6 +21,16 @@ alt="Screenshot of projects view" width="300px" />
 
 > This view is available in both the "Explorer" and "moon" sections.
 
+### Tags view
+
+Similar to the projects view, the tags view displays projects grouped by their `tags`.
+
+<img
+src="https://raw.githubusercontent.com/moonrepo/dev/master/packages/vscode-extension/images/tags-view.png"
+alt="Screenshot of tags view" width="300px" />
+
+> This view is only available in the "moon" section.
+
 ### Last run view
 
 Information about the last ran task will be displayed in a beautiful table with detailed stats.
@@ -28,6 +38,8 @@ Information about the last ran task will be displayed in a beautiful table with 
 <img
 src="https://raw.githubusercontent.com/moonrepo/dev/master/packages/vscode-extension/images/last-run-view.png"
 alt="Screenshot of last run view" width="300px" />
+
+> This view is only available in the "moon" section.
 
 ### Control panel
 
