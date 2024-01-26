@@ -44,6 +44,7 @@ const config: eslint.Linter.Config = {
 		'no-unused-vars': 'off',
 		'no-use-before-define': 'off',
 		'no-useless-constructor': 'off',
+		'prefer-promise-reject-errors': 'off',
 		quotes: 'off',
 		'require-await': 'off',
 		'no-return-await': 'off',
@@ -202,6 +203,7 @@ const config: eslint.Linter.Config = {
 				checkArrowFunctions: false,
 			},
 		],
+		'@typescript-eslint/prefer-promise-reject-errors': 'error',
 
 		// Encourage encapsulation and modular exports
 		'@typescript-eslint/no-extraneous-class': 'error',
@@ -214,6 +216,7 @@ const config: eslint.Linter.Config = {
 		],
 
 		// Avoid problematic or unnecessary patterns
+		'@typescript-eslint/no-array-delete': 'error',
 		'@typescript-eslint/no-duplicate-enum-values': 'error',
 		'@typescript-eslint/no-for-in-array': 'error',
 		'@typescript-eslint/no-misused-new': 'error',
