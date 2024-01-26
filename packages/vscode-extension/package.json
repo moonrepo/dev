@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.8.0",
+  "version": "0.9.0",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -38,7 +38,8 @@
     "directory": "packages/vscode-extension"
   },
   "activationEvents": [
-    "workspaceContains:moon.yml"
+    "workspaceContains:.moon",
+    "workspaceContains:**/moon.yml"
   ],
   "main": "./lib/extension.js",
   "contributes": {
@@ -75,28 +76,8 @@
         "title": "moon: Open settings"
       },
       {
-        "command": "moon.refreshProjects",
-        "title": "moon: Refresh projects",
-        "icon": "$(refresh)"
-      },
-      {
-        "command": "moon.checkProject",
-        "title": "moon: Run all buildable and testable tasks for a project",
-        "icon": "$(run-all)"
-      },
-      {
-        "command": "moon.runTask",
-        "title": "moon: Run the task",
-        "icon": "$(run)"
-      },
-      {
         "command": "moon.runTaskByInput",
         "title": "moon: Run one or many tasks"
-      },
-      {
-        "command": "moon.viewProject",
-        "title": "moon: View selected project",
-        "icon": "$(open-preview)"
       },
       {
         "command": "moon.viewActionGraph",
@@ -107,29 +88,53 @@
         "command": "moon.viewProjectGraph",
         "title": "moon: View project graph",
         "icon": "$(type-hierarchy-sub)"
+      },
+      {
+        "command": "moon.projectCategory.refreshProjects",
+        "title": "moon: Refresh projects",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "moon.projectCategory.checkProject",
+        "title": "moon: Run all buildable and testable tasks for a project",
+        "icon": "$(run-all)"
+      },
+      {
+        "command": "moon.projectCategory.runTask",
+        "title": "moon: Run the task",
+        "icon": "$(run)"
+      },
+      {
+        "command": "moon.projectCategory.viewProject",
+        "title": "moon: View selected project",
+        "icon": "$(open-preview)"
+      },
+      {
+        "command": "moon.projectTag.refreshProjects",
+        "title": "moon: Refresh projects",
+        "icon": "$(refresh)"
+      },
+      {
+        "command": "moon.projectTag.checkProject",
+        "title": "moon: Run all buildable and testable tasks for a project",
+        "icon": "$(run-all)"
+      },
+      {
+        "command": "moon.projectTag.runTask",
+        "title": "moon: Run the task",
+        "icon": "$(run)"
+      },
+      {
+        "command": "moon.projectTag.viewProject",
+        "title": "moon: View selected project",
+        "icon": "$(open-preview)"
       }
     ],
     "menus": {
       "commandPalette": [
         {
-          "command": "moon.refreshProjects",
-          "when": "moon.hasBinary"
-        },
-        {
-          "command": "moon.checkProject",
-          "when": "false"
-        },
-        {
-          "command": "moon.runTask",
-          "when": "false"
-        },
-        {
           "command": "moon.runTaskByInput",
           "when": "moon.hasBinary"
-        },
-        {
-          "command": "moon.viewProject",
-          "when": "false"
         },
         {
           "command": "moon.viewActionGraph",
@@ -142,12 +147,17 @@
       ],
       "view/title": [
         {
-          "command": "moon.refreshProjects",
+          "command": "moon.projectTag.refreshProjects",
+          "when": "view == moonTags && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.projectCategory.refreshProjects",
           "when": "view == moonProjects && moon.hasBinary",
           "group": "navigation"
         },
         {
-          "command": "moon.refreshProjects",
+          "command": "moon.projectCategory.refreshProjects",
           "when": "view == moonProjectsExternal && moon.hasBinary",
           "group": "navigation"
         },
@@ -174,32 +184,47 @@
       ],
       "view/item/context": [
         {
-          "command": "moon.runTask",
+          "command": "moon.projectTag.runTask",
+          "when": "view == moonTags && viewItem == projectTask",
+          "group": "inline"
+        },
+        {
+          "command": "moon.projectTag.viewProject",
+          "when": "view == moonTags && viewItem == project",
+          "group": "inline@0"
+        },
+        {
+          "command": "moon.projectTag.checkProject",
+          "when": "view == moonTags && viewItem == project",
+          "group": "inline@1"
+        },
+        {
+          "command": "moon.projectCategory.runTask",
           "when": "view == moonProjects && viewItem == projectTask",
           "group": "inline"
         },
         {
-          "command": "moon.viewProject",
+          "command": "moon.projectCategory.viewProject",
           "when": "view == moonProjects && viewItem == project",
           "group": "inline@0"
         },
         {
-          "command": "moon.checkProject",
+          "command": "moon.projectCategory.checkProject",
           "when": "view == moonProjects && viewItem == project",
           "group": "inline@1"
         },
         {
-          "command": "moon.runTask",
+          "command": "moon.projectCategory.runTask",
           "when": "view == moonProjectsExternal && viewItem == projectTask",
           "group": "inline"
         },
         {
-          "command": "moon.viewProject",
+          "command": "moon.projectCategory.viewProject",
           "when": "view == moonProjectsExternal && viewItem == project",
           "group": "inline@0"
         },
         {
-          "command": "moon.checkProject",
+          "command": "moon.projectCategory.checkProject",
           "when": "view == moonProjectsExternal && viewItem == project",
           "group": "inline@1"
         }
@@ -225,6 +250,10 @@
         {
           "id": "moonProjects",
           "name": "Projects"
+        },
+        {
+          "id": "moonTags",
+          "name": "Tags"
         },
         {
           "id": "moonLastRun",

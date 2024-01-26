@@ -14,6 +14,7 @@ import type { LanguageType, Project, ProjectType, Task as ProjectTask } from '@m
 import { checkProject, runTask } from './commands';
 import type { Workspace } from './workspace';
 
+const UNTAGGED = '__untagged__';
 const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
 	bash: '',
 	batch: '',
@@ -112,13 +113,17 @@ class TaskItem extends TreeItem {
 class ProjectItem extends TreeItem {
 	context: vscode.ExtensionContext;
 
-	parent: ProjectCategoryItem;
+	parent: ProjectCategoryItem | ProjectTagItem;
 
 	project: Project;
 
 	tasks: TaskItem[];
 
-	constructor(context: vscode.ExtensionContext, parent: ProjectCategoryItem, project: Project) {
+	constructor(
+		context: vscode.ExtensionContext,
+		parent: ProjectCategoryItem | ProjectTagItem,
+		project: Project,
+	) {
 		super(project.id, TreeItemCollapsibleState.Collapsed);
 
 		this.context = context;
@@ -137,6 +142,8 @@ class ProjectItem extends TreeItem {
 		this.tasks = Object.values(project.tasks)
 			.filter((task) => canShowTask(task.target, this.parent.hideTasks))
 			.map((task) => new TaskItem(this, task));
+
+		this.tasks.sort((a, d) => a.id!.localeCompare(d.id!));
 
 		this.resourceUri = Uri.file(
 			path.join(project.root, LANGUAGE_MANIFESTS[language] || 'moon.yml'),
@@ -188,10 +195,35 @@ class ProjectCategoryItem extends TreeItem {
 	}
 }
 
+class ProjectTagItem extends TreeItem {
+	context: vscode.ExtensionContext;
+
+	projects: ProjectItem[] = [];
+
+	hideTasks: Set<string>;
+
+	constructor(context: vscode.ExtensionContext, tag: string, projects: Project[]) {
+		super(tag, TreeItemCollapsibleState.Collapsed);
+
+		this.context = context;
+		this.id = tag;
+		this.contextValue = 'projectTag';
+
+		this.hideTasks = new Set(vscode.workspace.getConfiguration('moon').get('hideTasks', []));
+		this.projects = projects.map((project) => new ProjectItem(context, this, project));
+
+		this.label = tag === UNTAGGED ? 'Untagged' : `#${tag}`;
+	}
+}
+
+export type ProjectsType = 'category' | 'tag';
+
 export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	context: vscode.ExtensionContext;
 
 	projects?: Project[];
+
+	type: ProjectsType;
 
 	workspace: Workspace;
 
@@ -199,17 +231,24 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 	onDidChangeTreeData: Event<TreeItem | null>;
 
-	constructor(context: vscode.ExtensionContext, workspace: Workspace) {
+	constructor(context: vscode.ExtensionContext, workspace: Workspace, type: ProjectsType) {
 		this.context = context;
 		this.workspace = workspace;
+		this.type = type;
 		this.onDidChangeTreeDataEmitter = new EventEmitter<TreeItem | null>();
 		this.onDidChangeTreeData = this.onDidChangeTreeDataEmitter.event;
 
+		const commandPrefix = type === 'category' ? 'projectCategory' : 'projectTag';
+
 		context.subscriptions.push(
-			vscode.commands.registerCommand('moon.refreshProjects', this.refresh, this),
-			vscode.commands.registerCommand('moon.runTask', this.runTask, this),
-			vscode.commands.registerCommand('moon.checkProject', this.checkProject, this),
-			vscode.commands.registerCommand('moon.viewProject', this.viewProject, this),
+			vscode.commands.registerCommand(`moon.${commandPrefix}.refreshProjects`, this.refresh, this),
+			vscode.commands.registerCommand(`moon.${commandPrefix}.runTask`, this.runTask, this),
+			vscode.commands.registerCommand(
+				`moon.${commandPrefix}.checkProject`,
+				this.checkProject,
+				this,
+			),
+			vscode.commands.registerCommand(`moon.${commandPrefix}.viewProject`, this.viewProject, this),
 		);
 
 		workspace.onDidChangeWorkspace((folder) => {
@@ -261,6 +300,10 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			return element.projects;
 		}
 
+		if (element instanceof ProjectTagItem) {
+			return element.projects;
+		}
+
 		if (!this.projects) {
 			const { projects } = JSON.parse(
 				await this.workspace.execMoon(['query', 'projects', '--json']),
@@ -271,20 +314,52 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 			this.projects = projects.sort((a, d) => a.id.localeCompare(d.id));
 		}
 
-		const categories = [
-			new ProjectCategoryItem(this.context, 'application', this.projects),
-			new ProjectCategoryItem(this.context, 'automation', this.projects),
-			new ProjectCategoryItem(this.context, 'library', this.projects),
-			new ProjectCategoryItem(this.context, 'tool', this.projects),
-			new ProjectCategoryItem(this.context, 'unknown', this.projects),
-		].filter((cat) => cat.projects.length > 0);
+		const sections = (
+			this.type === 'category' ? this.getCategoryChildren() : this.getTagChildren()
+		).filter((section) => section.projects.length > 0);
 
-		// If only 1 category, flatten the projects list
-		if (categories.length === 1) {
-			return categories[0].projects;
+		// If only 1 section, flatten the projects list
+		if (this.type === 'category' && sections.length === 1) {
+			return sections[0].projects;
 		}
 
-		return categories;
+		return sections;
+	}
+
+	getCategoryChildren(): ProjectCategoryItem[] {
+		const projects = this.projects!;
+
+		return [
+			new ProjectCategoryItem(this.context, 'application', projects),
+			new ProjectCategoryItem(this.context, 'automation', projects),
+			new ProjectCategoryItem(this.context, 'library', projects),
+			new ProjectCategoryItem(this.context, 'tool', projects),
+			new ProjectCategoryItem(this.context, 'unknown', projects),
+		];
+	}
+
+	getTagChildren(): ProjectTagItem[] {
+		const tags: Record<string, Project[]> = {};
+		const untagged: Project[] = [];
+
+		this.projects!.forEach((project) => {
+			if (project.config.tags.length === 0) {
+				untagged.push(project);
+			} else {
+				project.config.tags.forEach((tag) => {
+					tags[tag] ||= [];
+					tags[tag].push(project);
+				});
+			}
+		});
+
+		const sections = Object.entries(tags).map(
+			([tag, projects]) => new ProjectTagItem(this.context, tag, projects),
+		);
+
+		sections.push(new ProjectTagItem(this.context, UNTAGGED, untagged));
+
+		return sections;
 	}
 
 	getTreeItem(element: TreeItem): Thenable<TreeItem> | TreeItem {

@@ -1,4 +1,5 @@
-type: 'library'
+type: 'tool'
+tags: ['extension']
 
 project:
   name: 'VS Code extension'

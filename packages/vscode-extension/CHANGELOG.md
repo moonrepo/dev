@@ -1,3 +1,7 @@
+## 0.9.0
+
+- Added a "Tags" view for projects in the moon console sidebar.
+
 ## 0.8.0
 
 - Added a `moon.logLevel` setting, to control the log level of all moon executed commands.
