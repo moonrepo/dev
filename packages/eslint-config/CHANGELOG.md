@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.15 - 2024-01-26
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-unicorn]** Update to v50. ([596c29b](https://github.com/moonrepo/dev/commit/596c29b))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 2.0.14 - 2023-12-31
 
 #### 📦 Dependencies
