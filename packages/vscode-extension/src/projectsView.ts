@@ -203,7 +203,7 @@ class ProjectTagItem extends TreeItem {
 	hideTasks: Set<string>;
 
 	constructor(context: vscode.ExtensionContext, tag: string, projects: Project[]) {
-		super(tag, TreeItemCollapsibleState.Expanded);
+		super(tag, TreeItemCollapsibleState.Collapsed);
 
 		this.context = context;
 		this.id = tag;
