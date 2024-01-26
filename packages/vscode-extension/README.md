@@ -63,8 +63,6 @@ prefixed with "moon".
 
 - **Open settings** - Opens the settings page and filters to all moon applicable settings.
 - **Run task** - Prompts the user for a task(s) and runs it in the terminal.
-- **Refresh projects** - Refreshes the projects view. _This happens automatically when
-  `.moon/workspace.yml` changes!_
 - **View action graph** - Opens a panel that renders an interactive action graph visualization.
 - **View project graph** - Opens a panel that renders an interactive project graph visualization.
 
@@ -76,6 +74,7 @@ prefixed with "moon".
   - [x] Categorize tasks based on type
   - [x] Run a task
   - [x] Check a project
+- [x] Tags view
 - [x] Last run view
 - [x] Commands and command palette
 - [x] Watches and reacts to file system changes.
