@@ -2450,17 +2450,17 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/cli@npm:^1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/cli@npm:1.20.0"
+"@moonrepo/cli@npm:^1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/cli@npm:1.20.1"
   dependencies:
-    "@moonrepo/core-linux-arm64-gnu": "npm:1.20.0"
-    "@moonrepo/core-linux-arm64-musl": "npm:1.20.0"
-    "@moonrepo/core-linux-x64-gnu": "npm:1.20.0"
-    "@moonrepo/core-linux-x64-musl": "npm:1.20.0"
-    "@moonrepo/core-macos-arm64": "npm:1.20.0"
-    "@moonrepo/core-macos-x64": "npm:1.20.0"
-    "@moonrepo/core-windows-x64-msvc": "npm:1.20.0"
+    "@moonrepo/core-linux-arm64-gnu": "npm:1.20.1"
+    "@moonrepo/core-linux-arm64-musl": "npm:1.20.1"
+    "@moonrepo/core-linux-x64-gnu": "npm:1.20.1"
+    "@moonrepo/core-linux-x64-musl": "npm:1.20.1"
+    "@moonrepo/core-macos-arm64": "npm:1.20.1"
+    "@moonrepo/core-macos-x64": "npm:1.20.1"
+    "@moonrepo/core-windows-x64-msvc": "npm:1.20.1"
     detect-libc: "npm:^2.0.2"
   dependenciesMeta:
     "@moonrepo/core-linux-arm64-gnu":
@@ -2479,55 +2479,55 @@ __metadata:
       optional: true
   bin:
     moon: moon
-  checksum: f3b92ec21c719c01843722358d7038e2e33dd22ce3d5089aafa9d2ed85dc9dacb7f73a3fe49212b339cfbd6ed4688cb6ec4b81d8d76375c32bca923ee64a3e7a
+  checksum: 7bc6fd7f338e30d49f1a3d7fb9719f0068243e261f0b555764534db9e6b28ddde50751e89de6b401d005c22e21375e6f16d24e8baa580ff20d9a2b5c84ff521b
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-gnu@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/core-linux-arm64-gnu@npm:1.20.0"
+"@moonrepo/core-linux-arm64-gnu@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/core-linux-arm64-gnu@npm:1.20.1"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-musl@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/core-linux-arm64-musl@npm:1.20.0"
+"@moonrepo/core-linux-arm64-musl@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/core-linux-arm64-musl@npm:1.20.1"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-gnu@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/core-linux-x64-gnu@npm:1.20.0"
+"@moonrepo/core-linux-x64-gnu@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/core-linux-x64-gnu@npm:1.20.1"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-musl@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/core-linux-x64-musl@npm:1.20.0"
+"@moonrepo/core-linux-x64-musl@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/core-linux-x64-musl@npm:1.20.1"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-arm64@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/core-macos-arm64@npm:1.20.0"
+"@moonrepo/core-macos-arm64@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/core-macos-arm64@npm:1.20.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-x64@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/core-macos-x64@npm:1.20.0"
+"@moonrepo/core-macos-x64@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/core-macos-x64@npm:1.20.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-windows-x64-msvc@npm:1.20.0":
-  version: 1.20.0
-  resolution: "@moonrepo/core-windows-x64-msvc@npm:1.20.0"
+"@moonrepo/core-windows-x64-msvc@npm:1.20.1":
+  version: 1.20.1
+  resolution: "@moonrepo/core-windows-x64-msvc@npm:1.20.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -9868,14 +9868,14 @@ __metadata:
   resolution: "moon-dev@workspace:."
   dependencies:
     "@babel/core": "npm:^7.23.9"
-    "@moonrepo/cli": "npm:^1.20.0"
+    "@moonrepo/cli": "npm:^1.20.1"
     "@moonrepo/dev": "workspace:*"
     eslint: "npm:^8.56.0"
     jest: "npm:^29.7.0"
     jest-circus: "npm:^29.7.0"
     lerna: "npm:^8.0.2"
     packemon: "npm:^3.2.3"
-    prettier: "npm:^3.2.4"
+    prettier: "npm:^3.2.5"
     typescript: "npm:^5.3.3"
   languageName: unknown
   linkType: soft
@@ -11077,12 +11077,12 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"prettier@npm:^3.2.4":
-  version: 3.2.4
-  resolution: "prettier@npm:3.2.4"
+"prettier@npm:^3.2.5":
+  version: 3.2.5
+  resolution: "prettier@npm:3.2.5"
   bin:
     prettier: bin/prettier.cjs
-  checksum: e2b735d0552501b3a7ac8bd3ba3b6de2920bb35bd4cd02d08cb9057ebe3e96d83b9a7e4b903d987b7530a50223b12c74d107c154337236ae2c68156ba1e65cd2
+  checksum: d509f9da0b70e8cacc561a1911c0d99ec75117faed27b95cc8534cb2349667dee6351b0ca83fa9d5703f14127faa52b798de40f5705f02d843da133fc3aa416a
   languageName: node
   linkType: hard
 
