@@ -49,7 +49,7 @@
     "yamlValidation": [
       {
         "fileMatch": "moon.yml",
-        "url": "./schema/project.json"
+        "url": "https://moonrepo.dev/schemas/project.json"
       },
       {
         "fileMatch": "template.yml",
