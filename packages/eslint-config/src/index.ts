@@ -11,7 +11,6 @@ const config: eslint.Linter.Config = {
 		require.resolve('./async.js'),
 		require.resolve('./module.js'),
 		require.resolve('./unicorn.js'),
-		require.resolve('./tests.js'),
 		// Add prettier last so it properly turns off rules
 		'prettier',
 	],
