@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 2.1.0 - 2024-02-09
+
+#### 🚀 Updates
+
+- Removed jest tests from default config. ([3023b88](https://github.com/moonrepo/dev/commit/3023b88))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 2.0.16 - 2024-02-07
 
 #### 📦 Dependencies
