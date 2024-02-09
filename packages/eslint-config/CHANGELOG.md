@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.1 - 2024-02-09
+
+#### 🐞 Fixes
+
+- Split out jest into its own file. ([3ce4085](https://github.com/moonrepo/dev/commit/3ce4085))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ## 2.1.0 - 2024-02-09
 
 #### 🚀 Updates
