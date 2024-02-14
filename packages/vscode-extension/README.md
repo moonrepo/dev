@@ -90,7 +90,7 @@ prefixed with "moon".
 - [x] Last run view
 - [x] Commands and command palette
 - [x] Watches and reacts to file system changes.
-- [ ] Schema validation for YAML configs
+- [x] Schema validation for YAML configs
 - [ ] moon language server
 - [ ] Auto-completion
 - [ ] In-editor code generation
