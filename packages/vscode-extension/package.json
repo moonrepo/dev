@@ -41,8 +41,37 @@
     "workspaceContains:.moon",
     "workspaceContains:**/moon.yml"
   ],
+  "extensionDependencies": [
+    "redhat.vscode-yaml"
+  ],
   "main": "./lib/extension.js",
   "contributes": {
+    "yamlValidation": [
+      {
+        "fileMatch": "moon.yml",
+        "url": "https://moonrepo.dev/schemas/project.json"
+      },
+      {
+        "fileMatch": "template.yml",
+        "url": "https://moonrepo.dev/schemas/template.json"
+      },
+      {
+        "fileMatch": ".moon/tasks.yml",
+        "url": "https://moonrepo.dev/schemas/tasks.json"
+      },
+      {
+        "fileMatch": ".moon/tasks/**/*.yml",
+        "url": "https://moonrepo.dev/schemas/tasks.json"
+      },
+      {
+        "fileMatch": ".moon/toolchain.yml",
+        "url": "https://moonrepo.dev/schemas/toolchain.json"
+      },
+      {
+        "fileMatch": ".moon/workspace.yml",
+        "url": "https://moonrepo.dev/schemas/workspace.json"
+      }
+    ],
     "configuration": {
       "id": "moon",
       "type": "object",
