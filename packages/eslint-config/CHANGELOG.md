@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.1.2 - 2024-02-27
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-simple-import-sort]** Update to v12. ([cca8901](https://github.com/moonrepo/dev/commit/cca8901))
+- **[eslint]** Update to v8.57. ([0d91c3d](https://github.com/moonrepo/dev/commit/0d91c3d))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 2.1.1 - 2024-02-09
 
 #### 🐞 Fixes

@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 2.0.8 - 2024-02-27
+
+#### 📦 Dependencies
+
+- **[eslint]** Update to v8.57. ([0d91c3d](https://github.com/moonrepo/dev/commit/0d91c3d))
+- **[moon]** Update to v1.22. ([7b3a5c0](https://github.com/moonrepo/dev/commit/7b3a5c0))
+
+**Note:** Version bump only for package jest-preset-moon
+
+
+
+
+
 ### 2.0.7 - 2023-12-31
 
 #### 📦 Dependencies
