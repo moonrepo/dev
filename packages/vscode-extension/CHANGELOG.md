@@ -1,3 +1,7 @@
+## 0.11.0
+
+- Added `stack` support to the projects view. Will now categorize based on stack + type.
+
 ## 0.10.0
 
 - Added YAML file validation for all moon configuration files.
