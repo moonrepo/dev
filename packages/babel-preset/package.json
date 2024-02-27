@@ -43,7 +43,7 @@
     "@babel/preset-typescript": "^7.23.3",
     "babel-plugin-conditional-invariant": "^3.0.1",
     "babel-plugin-env-constants": "^3.0.1",
-    "babel-preset-solid": "^1.8.12"
+    "babel-preset-solid": "^1.8.15"
   },
   "devDependencies": {
     "@babel/core": "^7.23.9"

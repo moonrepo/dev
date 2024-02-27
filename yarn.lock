@@ -4410,9 +4410,9 @@ __metadata:
   languageName: node
   linkType: hard
 
-"babel-plugin-jsx-dom-expressions@npm:^0.37.16":
-  version: 0.37.16
-  resolution: "babel-plugin-jsx-dom-expressions@npm:0.37.16"
+"babel-plugin-jsx-dom-expressions@npm:^0.37.17":
+  version: 0.37.17
+  resolution: "babel-plugin-jsx-dom-expressions@npm:0.37.17"
   dependencies:
     "@babel/helper-module-imports": "npm:7.18.6"
     "@babel/plugin-syntax-jsx": "npm:^7.18.6"
@@ -4421,7 +4421,7 @@ __metadata:
     validate-html-nesting: "npm:^1.2.1"
   peerDependencies:
     "@babel/core": ^7.20.12
-  checksum: bc8bde0a2d006b58f80626ce24ee977c63bd08f49f265e05daf4dab8b660a3efe0f3338ed0b30e5a2f85dcf9c0ae16cb1c89241c55932d8f3dfc7d5e99cb7625
+  checksum: 0dc77f516218e29dff25ce2166f57d7b0a6c8df1e606da73a460c68d9ecc265eda593582912b0d8eec264bb519fa6dba3f99f9fa780106733571759f1d853cde
   languageName: node
   linkType: hard
 
@@ -4510,20 +4510,20 @@ __metadata:
     "@babel/preset-typescript": "npm:^7.23.3"
     babel-plugin-conditional-invariant: "npm:^3.0.1"
     babel-plugin-env-constants: "npm:^3.0.1"
-    babel-preset-solid: "npm:^1.8.12"
+    babel-preset-solid: "npm:^1.8.15"
   peerDependencies:
     "@babel/core": ">=7.0.0"
   languageName: unknown
   linkType: soft
 
-"babel-preset-solid@npm:^1.8.12":
-  version: 1.8.12
-  resolution: "babel-preset-solid@npm:1.8.12"
+"babel-preset-solid@npm:^1.8.12, babel-preset-solid@npm:^1.8.15":
+  version: 1.8.15
+  resolution: "babel-preset-solid@npm:1.8.15"
   dependencies:
-    babel-plugin-jsx-dom-expressions: "npm:^0.37.16"
+    babel-plugin-jsx-dom-expressions: "npm:^0.37.17"
   peerDependencies:
     "@babel/core": ^7.0.0
-  checksum: eefd778c4241e54e283624ad034f1b90a9a5cadf0c4b1b69752132fb62554e655d446df22f2d5876db8553ef9df47893680c5104613422361703f52c8b19d33c
+  checksum: 2d56084f810b74a128fab252c4126cf71a66928187df0acc409031eb642ec99c20ddd82207f7e0565cb9d88abdd1c6c9b2cca3623aa420309e1ef4c227bb774a
   languageName: node
   linkType: hard
 
