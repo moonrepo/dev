@@ -10,7 +10,13 @@ import vscode, {
 	TreeItemCollapsibleState,
 	Uri,
 } from 'vscode';
-import type { LanguageType, Project, ProjectType, Task as ProjectTask } from '@moonrepo/types';
+import type {
+	LanguageType,
+	Project,
+	ProjectStack,
+	ProjectType,
+	Task as ProjectTask,
+} from '@moonrepo/types';
 import { checkProject, runTask } from './commands';
 import type { Workspace } from './workspace';
 
@@ -161,43 +167,79 @@ class ProjectCategoryItem extends TreeItem {
 
 	hideTasks: Set<string>;
 
-	constructor(context: vscode.ExtensionContext, type: ProjectType, projects: Project[]) {
-		super(type, TreeItemCollapsibleState.Expanded);
+	// eslint-disable-next-line complexity
+	constructor(context: vscode.ExtensionContext, category: string, projects: Project[]) {
+		super(category, TreeItemCollapsibleState.Expanded);
 
 		this.context = context;
-		this.id = type;
+		this.id = category;
 		this.contextValue = 'projectCategory';
 
 		this.hideTasks = new Set(vscode.workspace.getConfiguration('moon').get('hideTasks', []));
-		this.projects = projects
-			.filter(
-				(project) => project.config.type === type || (type === 'unknown' && !project.config.type),
-			)
-			.map((project) => new ProjectItem(context, this, project));
+		this.projects = projects.map((project) => new ProjectItem(context, this, project));
 
-		switch (type) {
-			case 'application':
-				this.label = 'Applications';
-				break;
-			case 'automation':
-				this.label = 'Automations';
-				break;
-			case 'configuration':
-				this.label = 'Configuration';
-				break;
-			case 'library':
-				this.label = 'Libraries';
-				break;
-			case 'scaffolding':
-				this.label = 'Scaffolding';
-				break;
-			case 'tool':
-				this.label = 'Tools';
-				break;
-			case 'unknown':
-				this.label = 'Other';
-				break;
+		let stack: ProjectStack = 'unknown';
+		let type: ProjectType = 'unknown';
+		let label = '';
+
+		// moon >= v1.22
+		if (category.includes('+')) {
+			[stack, type] = category.split('+') as [ProjectStack, ProjectType];
 		}
+		// moon < v1.22
+		else {
+			type = category as ProjectType;
+		}
+
+		if (stack === 'unknown' && type === 'unknown') {
+			label = 'other';
+		} else {
+			if (stack !== 'unknown') {
+				switch (stack) {
+					case 'backend':
+						label += 'backend';
+						break;
+					case 'frontend':
+						label += 'frontend';
+						break;
+					case 'infrastructure':
+						label += 'infrastructure';
+						break;
+					case 'systems':
+						label += 'systems';
+						break;
+				}
+
+				label += ' ';
+			}
+
+			switch (type) {
+				case 'application':
+					label += 'applications';
+					break;
+				case 'automation':
+					label += 'automations';
+					break;
+				case 'configuration':
+					label += 'configuration';
+					break;
+				case 'library':
+					label += 'libraries';
+					break;
+				case 'scaffolding':
+					label += 'scaffolding';
+					break;
+				case 'tool':
+					label += 'tools';
+					break;
+				case 'unknown':
+					label += 'other';
+					break;
+			}
+		}
+
+		// Capitalize first letter
+		this.label = label.at(0)!.toUpperCase() + label.slice(1);
 	}
 }
 
@@ -333,15 +375,29 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	}
 
 	getCategoryChildren(): ProjectCategoryItem[] {
-		const projects = this.projects!;
+		const categories: Record<string, Project[]> = {};
+		const uncategorized: Project[] = [];
 
-		return [
-			new ProjectCategoryItem(this.context, 'application', projects),
-			new ProjectCategoryItem(this.context, 'automation', projects),
-			new ProjectCategoryItem(this.context, 'library', projects),
-			new ProjectCategoryItem(this.context, 'tool', projects),
-			new ProjectCategoryItem(this.context, 'unknown', projects),
-		];
+		this.projects!.forEach((project) => {
+			const stack: string = project.config.stack || 'unknown';
+			const type: string = project.config.type || 'unknown';
+			const key = `${stack}+${type}`;
+
+			if (key === 'unknown+unknown') {
+				uncategorized.push(project);
+			} else {
+				categories[key] ||= [];
+				categories[key].push(project);
+			}
+		});
+
+		const sections = Object.entries(categories).map(
+			([key, projects]) => new ProjectCategoryItem(this.context, key, projects),
+		);
+
+		sections.push(new ProjectCategoryItem(this.context, 'unknown', uncategorized));
+
+		return sections;
 	}
 
 	getTagChildren(): ProjectTagItem[] {
