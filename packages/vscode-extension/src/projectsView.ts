@@ -182,8 +182,14 @@ class ProjectCategoryItem extends TreeItem {
 			case 'automation':
 				this.label = 'Automations';
 				break;
+			case 'configuration':
+				this.label = 'Configuration';
+				break;
 			case 'library':
 				this.label = 'Libraries';
+				break;
+			case 'scaffolding':
+				this.label = 'Scaffolding';
 				break;
 			case 'tool':
 				this.label = 'Tools';
