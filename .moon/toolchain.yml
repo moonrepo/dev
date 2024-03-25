@@ -2,7 +2,7 @@ $schema: 'https://moonrepo.dev/schemas/toolchain.json'
 
 # https://moonrepo.dev/docs/config/workspace#node
 node:
-  version: '18.14.0'
+  version: '18.19.1'
   packageManager: 'yarn'
   yarn:
     version: '4.0.2'
@@ -16,9 +16,6 @@ node:
   # Use workspace ranges when syncing projects.
   dependencyVersionFormat: 'workspace-caret'
   syncProjectWorkspaceDependencies: true
-
-  # Allow contributors to easily use the correct version.
-  syncVersionManagerConfig: 'nvm'
 
   # Do not infer functionality from `package.json`, as we want to encourage
   # consumers to embrace moon.
