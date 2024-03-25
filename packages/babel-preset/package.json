@@ -27,7 +27,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=16.12.0"
+    "node": ">=18.12.0"
   },
   "peerDependencies": {
     "@babel/core": ">=7.0.0"
@@ -41,8 +41,8 @@
     "@babel/preset-env": "^7.24.3",
     "@babel/preset-react": "^7.24.1",
     "@babel/preset-typescript": "^7.24.1",
-    "babel-plugin-conditional-invariant": "^3.0.1",
-    "babel-plugin-env-constants": "^3.0.1",
+    "babel-plugin-conditional-invariant": "^4.0.0",
+    "babel-plugin-env-constants": "^4.0.0",
     "babel-preset-solid": "^1.8.16"
   },
   "devDependencies": {
@@ -60,20 +60,11 @@
     "./package.json": "./package.json",
     "./*": {
       "types": "./lib/*.d.ts",
-      "node": {
-        "types": "./lib/*.d.ts",
-        "default": "./lib/*.js"
-      },
       "default": "./lib/*.js"
     },
     ".": {
       "types": "./lib/index.d.ts",
-      "node": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      },
       "default": "./lib/index.js"
     }
-  },
-  "release": "1660800474148"
+  }
 }

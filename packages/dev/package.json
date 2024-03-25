@@ -26,7 +26,7 @@
     "access": "public"
   },
   "engines": {
-    "node": ">=16.12.0"
+    "node": ">=18.12.0"
   },
   "funding": {
     "type": "ko-fi",
@@ -40,24 +40,15 @@
     "./package.json": "./package.json",
     "./*": {
       "types": "./lib/*.d.ts",
-      "node": {
-        "types": "./lib/*.d.ts",
-        "default": "./lib/*.js"
-      },
       "default": "./lib/*.js"
     },
     ".": {
       "types": "./lib/index.d.ts",
-      "node": {
-        "types": "./lib/index.d.ts",
-        "default": "./lib/index.js"
-      },
       "default": "./lib/index.js"
     }
   },
   "dependencies": {
     "conventional-changelog-beemo": "^3.0.1",
     "execa": "^5.1.1"
-  },
-  "release": "1660800474437"
+  }
 }
