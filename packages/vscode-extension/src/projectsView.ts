@@ -98,7 +98,7 @@ class TaskItem extends TreeItem {
 
 		this.parent = parent;
 		this.task = task;
-		this.id = task.target;
+		this.id = `${parent.id}-task-${task.id}`;
 		this.contextValue = 'projectTask';
 		this.description = [task.command, ...task.args].join(' ');
 
@@ -135,7 +135,7 @@ class ProjectItem extends TreeItem {
 		this.context = context;
 		this.parent = parent;
 		this.project = project;
-		this.id = project.id;
+		this.id = `${parent.id}-project-${project.id}`;
 		this.contextValue = 'project';
 
 		const { language } = project;
@@ -172,7 +172,7 @@ class ProjectCategoryItem extends TreeItem {
 		super(category, TreeItemCollapsibleState.Expanded);
 
 		this.context = context;
-		this.id = category;
+		this.id = `category-${category}`;
 		this.contextValue = 'projectCategory';
 
 		this.hideTasks = new Set(vscode.workspace.getConfiguration('moon').get('hideTasks', []));
@@ -254,7 +254,7 @@ class ProjectTagItem extends TreeItem {
 		super(tag, TreeItemCollapsibleState.Collapsed);
 
 		this.context = context;
-		this.id = tag;
+		this.id = `tag-${tag}`;
 		this.contextValue = 'projectTag';
 
 		this.hideTasks = new Set(vscode.workspace.getConfiguration('moon').get('hideTasks', []));
