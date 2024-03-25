@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# 3.0.0 - 2024-03-25
+
+#### 💥 Breaking
+
+- Drop Node v16 support. Require v18.12+. ([b6ca343](https://github.com/moonrepo/dev/commit/b6ca343))
+
+#### 📦 Dependencies
+
+- **[eslint-plugin-react]** Update to v7.34.1. ([201f555](https://github.com/moonrepo/dev/commit/201f555))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 2.1.2 - 2024-02-27
 
 #### 📦 Dependencies
