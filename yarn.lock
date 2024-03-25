@@ -2540,10 +2540,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/types@npm:^1.15.0":
-  version: 1.15.0
-  resolution: "@moonrepo/types@npm:1.15.0"
-  checksum: 10/6a7c83858c43666a0365c8cdedfad9de1b57b3cdadcb054b372585ac1240d9bfb5f742b41ee055f6e50b9d50255e0578a2f8d0e8c16c3016b34a4b1e3afd5d7b
+"@moonrepo/types@npm:^1.15.0, @moonrepo/types@npm:^1.16.1":
+  version: 1.16.1
+  resolution: "@moonrepo/types@npm:1.16.1"
+  checksum: 10/cba3af9723e0ceedab9c2aac5331dec6def4af037796303ee471347a746966d9b13103cb133d55bfcd935f2e5e85ed48a22367bc9e3e493855bb805e1dd209e1
   languageName: node
   linkType: hard
 
@@ -3610,10 +3610,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@types/vscode@npm:^1.75.0":
-  version: 1.85.0
-  resolution: "@types/vscode@npm:1.85.0"
-  checksum: 10/100b4dc63629028212ad85d305db57f963ac2eb295c2a96044039f21bb4e68bb0374a9f35780d47c79de7e414b44c06a0d4dc8f3b3218814c4380cef5735818d
+"@types/vscode@npm:1.77.0":
+  version: 1.77.0
+  resolution: "@types/vscode@npm:1.77.0"
+  checksum: 10/c2b99fa17f58081ff67965a2ae75c53a48bf9063c40039050097668f0bb7672de37e083acaea3853ea3d9737cee6e1179abebdf3f840c142d704eee5acc7ebbf
   languageName: node
   linkType: hard
 
@@ -10069,9 +10069,9 @@ __metadata:
   resolution: "moon-console@workspace:packages/vscode-extension"
   dependencies:
     "@moonrepo/report": "npm:^1.2.0"
-    "@moonrepo/types": "npm:^1.15.0"
+    "@moonrepo/types": "npm:^1.16.1"
     "@types/semver": "npm:^7.5.8"
-    "@types/vscode": "npm:^1.75.0"
+    "@types/vscode": "npm:1.77.0"
     "@vscode/test-electron": "npm:^2.3.9"
     esbuild: "npm:^0.20.0"
     execa: "npm:^5.1.1"

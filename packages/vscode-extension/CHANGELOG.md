@@ -1,3 +1,8 @@
+## 0.12.0
+
+- Requires VS Code ^1.77.0.
+- Added support for internal tasks. They will not be displayed in the projects/tags view.
+
 ## 0.11.0
 
 - Added `stack` support to the projects view. Will now categorize based on stack + type.

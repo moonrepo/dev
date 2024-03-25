@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.11.0",
+  "version": "0.12.0",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -21,7 +21,7 @@
     "tasks"
   ],
   "engines": {
-    "vscode": "^1.75.0"
+    "vscode": "^1.77.0"
   },
   "categories": [
     "Testing",
@@ -327,9 +327,9 @@
     "semver": "^7.6.0"
   },
   "devDependencies": {
-    "@moonrepo/types": "^1.15.0",
+    "@moonrepo/types": "^1.16.1",
     "@types/semver": "^7.5.8",
-    "@types/vscode": "^1.75.0",
+    "@types/vscode": "1.77.0",
     "@vscode/test-electron": "^2.3.9",
     "esbuild": "^0.20.0",
     "vsce": "^2.15.0"

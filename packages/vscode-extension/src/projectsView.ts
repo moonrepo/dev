@@ -13,9 +13,10 @@ import vscode, {
 import type {
 	LanguageType,
 	Project,
-	ProjectStack,
 	ProjectType,
+	StackType,
 	Task as ProjectTask,
+	Task,
 } from '@moonrepo/types';
 import { checkProject, runTask } from './commands';
 import type { Workspace } from './workspace';
@@ -53,23 +54,26 @@ function createLangIcon(context: vscode.ExtensionContext, name: LanguageType) {
 	};
 }
 
-function canShowTask(target: string, hideTasks: Set<string>): boolean {
-	if (hideTasks.size === 0) {
-		return true;
-	}
+// eslint-disable-next-line complexity
+function canShowTask(task: Task, hideTargets: Set<string>): boolean {
+	const { target } = task;
 
-	if (hideTasks.has(':') || hideTasks.has('*:*')) {
+	if (task.options.internal || hideTargets.has(':') || hideTargets.has('*:*')) {
 		return false;
 	}
 
-	for (const hideTarget of hideTasks) {
+	if (hideTargets.size === 0) {
+		return true;
+	}
+
+	for (const hideTarget of hideTargets) {
 		if (target === hideTarget) {
 			return false;
 		}
 
-		const [scope = '', task = ''] = hideTarget.split(':', 2);
+		const [scope = '', taskId = ''] = hideTarget.split(':', 2);
 		const scopePattern = scope === '' || scope === '*' ? '^[^:]+' : `^${scope}`;
-		const taskPattern = task === '' || task === '*' ? '[^:]+$' : `${task}$`;
+		const taskPattern = taskId === '' || taskId === '*' ? '[^:]+$' : `${taskId}$`;
 		const pattern = new RegExp(`${scopePattern}:${taskPattern}`, 'i');
 
 		if (pattern.test(target)) {
@@ -146,7 +150,7 @@ class ProjectItem extends TreeItem {
 		}
 
 		this.tasks = Object.values(project.tasks)
-			.filter((task) => canShowTask(task.target, this.parent.hideTasks))
+			.filter((task) => canShowTask(task, this.parent.hideTasks))
 			.map((task) => new TaskItem(this, task));
 
 		this.tasks.sort((a, d) => a.id!.localeCompare(d.id!));
@@ -178,13 +182,13 @@ class ProjectCategoryItem extends TreeItem {
 		this.hideTasks = new Set(vscode.workspace.getConfiguration('moon').get('hideTasks', []));
 		this.projects = projects.map((project) => new ProjectItem(context, this, project));
 
-		let stack: ProjectStack = 'unknown';
+		let stack: StackType = 'unknown';
 		let type: ProjectType = 'unknown';
 		let label = '';
 
 		// moon >= v1.22
 		if (category.includes('+')) {
-			[stack, type] = category.split('+') as [ProjectStack, ProjectType];
+			[stack, type] = category.split('+') as [StackType, ProjectType];
 		}
 		// moon < v1.22
 		else {
