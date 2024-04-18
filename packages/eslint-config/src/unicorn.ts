@@ -48,10 +48,13 @@ const config: eslint.Linter.Config = {
 
 		// Ensure consistent and correct syntax
 		'unicorn/new-for-builtins': 'error',
+		'unicorn/no-anonymous-default-export': 'error',
+		'unicorn/no-await-in-promise-methods': 'error',
 		'unicorn/no-instanceof-array': 'error',
 		'unicorn/no-invalid-remove-event-listener': 'error',
 		'unicorn/no-new-array': 'error',
 		'unicorn/no-new-buffer': 'error',
+		'unicorn/no-single-promise-in-promise-methods': 'error',
 		'unicorn/no-this-assignment': 'error',
 		'unicorn/no-useless-spread': 'error',
 		'unicorn/no-useless-switch-case': 'error',
