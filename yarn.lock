@@ -6235,7 +6235,7 @@ __metadata:
     eslint-plugin-solid: "npm:^0.13.2"
     eslint-plugin-unicorn: "npm:^52.0.0"
   peerDependencies:
-    eslint: ^8.0.0
+    eslint: ^8.0.0 || ^9.0.0
   languageName: unknown
   linkType: soft
 
