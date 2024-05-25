@@ -100,7 +100,7 @@ const config: eslint.Linter.Config = {
 				groups: [
 					[
 						// Side-effects
-						'^\\u0000',
+						String.raw`^\u0000`,
 						// Node built-ins
 						`^node:`,
 						`^(${builtinModules.join('|')})$`,
@@ -115,13 +115,13 @@ const config: eslint.Linter.Config = {
 						// Aliased modules
 						'^:[a-z]',
 						// Parent files
-						'^\\.\\./',
+						String.raw`^\.\./`,
 						// Sibling files
-						'^\\./',
+						String.raw`^\./`,
 						// Index file
-						'^\\.$',
+						String.raw`^\.$`,
 						// Everything else
-						'\\*',
+						String.raw`\*`,
 					],
 				],
 			},
