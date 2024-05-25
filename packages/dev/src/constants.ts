@@ -40,7 +40,7 @@ export const TESTS_LIST = [TEST_FILES_GLOB, TEST_UTILS_GLOB, `**/test.{${EXTENSI
 export const CONFIGS_LIST = ['**/.*.{js,cjs}', '**/*.config.{js,cjs}'];
 
 // Pattern of file extensions
-export const NON_JS_REGEX = '\\.(css|sass|scss|less|gif|png|jpg|jpeg|svg|gql|graphql|yml|yaml)$';
+export const NON_JS_REGEX = String.raw`\.(css|sass|scss|less|gif|png|jpg|jpeg|svg|gql|graphql|yml|yaml)$`;
 export const ALL_JS_REGEX = `\\.(${EXTENSIONS_WITHOUT_DOT.join('|')})$`;
 
 // Pattern to find all custom TypeScript paths
