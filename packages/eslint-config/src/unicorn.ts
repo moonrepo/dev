@@ -24,6 +24,8 @@ const config: eslint.Linter.Config = {
 		'unicorn/no-unsafe-regex': 'error',
 		'unicorn/no-zero-fractions': 'error',
 		'unicorn/prefer-native-coercion-functions': 'error',
+		'unicorn/prefer-string-raw': 'error',
+		'unicorn/prefer-structured-clone': 'error',
 		'unicorn/prefer-switch': 'error',
 		'unicorn/string-content': 'error',
 		'unicorn/relative-url-style': ['error', 'always'],
@@ -47,6 +49,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/template-indent': 'off',
 
 		// Ensure consistent and correct syntax
+		'unicorn/consistent-empty-array-spread': 'error',
 		'unicorn/new-for-builtins': 'error',
 		'unicorn/no-anonymous-default-export': 'error',
 		'unicorn/no-await-in-promise-methods': 'error',
