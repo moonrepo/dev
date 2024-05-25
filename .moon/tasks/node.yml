@@ -76,7 +76,6 @@ tasks:
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'
-      - '.babelrc'
       - '.babelrc.*'
       - 'babel.config.*'
       - 'jest.config.*'

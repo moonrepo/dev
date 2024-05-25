@@ -2492,6 +2492,88 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@moonrepo/cli@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/cli@npm:1.25.0-canary.202405252347"
+  dependencies:
+    "@moonrepo/core-linux-arm64-gnu": "npm:1.25.0-canary.202405252347"
+    "@moonrepo/core-linux-arm64-musl": "npm:1.25.0-canary.202405252347"
+    "@moonrepo/core-linux-x64-gnu": "npm:1.25.0-canary.202405252347"
+    "@moonrepo/core-linux-x64-musl": "npm:1.25.0-canary.202405252347"
+    "@moonrepo/core-macos-arm64": "npm:1.25.0-canary.202405252347"
+    "@moonrepo/core-macos-x64": "npm:1.25.0-canary.202405252347"
+    "@moonrepo/core-windows-x64-msvc": "npm:1.25.0-canary.202405252347"
+    detect-libc: "npm:^2.0.3"
+  dependenciesMeta:
+    "@moonrepo/core-linux-arm64-gnu":
+      optional: true
+    "@moonrepo/core-linux-arm64-musl":
+      optional: true
+    "@moonrepo/core-linux-x64-gnu":
+      optional: true
+    "@moonrepo/core-linux-x64-musl":
+      optional: true
+    "@moonrepo/core-macos-arm64":
+      optional: true
+    "@moonrepo/core-macos-x64":
+      optional: true
+    "@moonrepo/core-windows-x64-msvc":
+      optional: true
+  bin:
+    moon: moon.js
+  checksum: 10/e5e1968be94b80dfa27412b1a87b13ed29afe24a7d193683b196988fc7238f163bf624cc38e6ff25cf3c55a4e680e3ff918460d429252e9db62cad2a08401a0c
+  languageName: node
+  linkType: hard
+
+"@moonrepo/core-linux-arm64-gnu@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/core-linux-arm64-gnu@npm:1.25.0-canary.202405252347"
+  conditions: os=linux & cpu=arm64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@moonrepo/core-linux-arm64-musl@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/core-linux-arm64-musl@npm:1.25.0-canary.202405252347"
+  conditions: os=linux & cpu=arm64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@moonrepo/core-linux-x64-gnu@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/core-linux-x64-gnu@npm:1.25.0-canary.202405252347"
+  conditions: os=linux & cpu=x64 & libc=glibc
+  languageName: node
+  linkType: hard
+
+"@moonrepo/core-linux-x64-musl@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/core-linux-x64-musl@npm:1.25.0-canary.202405252347"
+  conditions: os=linux & cpu=x64 & libc=musl
+  languageName: node
+  linkType: hard
+
+"@moonrepo/core-macos-arm64@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/core-macos-arm64@npm:1.25.0-canary.202405252347"
+  conditions: os=darwin & cpu=arm64
+  languageName: node
+  linkType: hard
+
+"@moonrepo/core-macos-x64@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/core-macos-x64@npm:1.25.0-canary.202405252347"
+  conditions: os=darwin & cpu=x64
+  languageName: node
+  linkType: hard
+
+"@moonrepo/core-windows-x64-msvc@npm:1.25.0-canary.202405252347":
+  version: 1.25.0-canary.202405252347
+  resolution: "@moonrepo/core-windows-x64-msvc@npm:1.25.0-canary.202405252347"
+  conditions: os=win32 & cpu=x64
+  languageName: node
+  linkType: hard
+
 "@moonrepo/dev@npm:^3.0.0, @moonrepo/dev@workspace:*, @moonrepo/dev@workspace:packages/dev":
   version: 0.0.0-use.local
   resolution: "@moonrepo/dev@workspace:packages/dev"
@@ -5620,10 +5702,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^2.0.0":
-  version: 2.0.2
-  resolution: "detect-libc@npm:2.0.2"
-  checksum: 10/6118f30c0c425b1e56b9d2609f29bec50d35a6af0b762b6ad127271478f3bbfda7319ce869230cf1a351f2b219f39332cde290858553336d652c77b970f15de8
+"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.3":
+  version: 2.0.3
+  resolution: "detect-libc@npm:2.0.3"
+  checksum: 10/b4ea018d623e077bd395f168a9e81db77370dde36a5b01d067f2ad7989924a81d31cb547ff764acb2aa25d50bb7fdde0b0a93bec02212b0cb430621623246d39
   languageName: node
   linkType: hard
 
@@ -10010,6 +10092,7 @@ __metadata:
   resolution: "moon-dev@workspace:."
   dependencies:
     "@babel/core": "npm:^7.24.6"
+    "@moonrepo/cli": "npm:1.25.0-canary.202405252347"
     "@moonrepo/dev": "workspace:*"
     eslint: "npm:^8.57.0"
     jest: "npm:^29.7.0"
