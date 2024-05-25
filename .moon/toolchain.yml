@@ -2,10 +2,10 @@ $schema: 'https://moonrepo.dev/schemas/toolchain.json'
 
 # https://moonrepo.dev/docs/config/workspace#node
 node:
-  version: '18.19.1'
+  version: '20.13.1'
   packageManager: 'yarn'
   yarn:
-    version: '4.1.1'
+    version: '4.2.2'
 
   # Do not add an engines constraint as its abrasive for open source.
   addEnginesConstraint: false
