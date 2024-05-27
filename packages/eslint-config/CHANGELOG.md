@@ -3,6 +3,16 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>3.1.1 (2024-05-27)</small>
+
+* deps(@typescript-eslint/*): Update to v7.10. ([82e0a08](https://github.com/moonrepo/dev/commit/82e0a08))
+* deps(eslint-plugin-unicorn): Update to v53. ([78921b1](https://github.com/moonrepo/dev/commit/78921b1))
+* deps(eslint): Update plugins. ([c914369](https://github.com/moonrepo/dev/commit/c914369))
+
+
+
+
+
 ## 3.1.0 - 2024-04-18
 
 #### 🚀 Updates

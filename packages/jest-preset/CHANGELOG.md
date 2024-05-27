@@ -3,6 +3,14 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## <small>3.0.1 (2024-05-27)</small>
+
+**Note:** Version bump only for package jest-preset-moon
+
+
+
+
+
 # 3.0.0 - 2024-03-25
 
 #### 💥 Breaking
