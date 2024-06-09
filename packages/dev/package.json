@@ -48,7 +48,7 @@
     }
   },
   "dependencies": {
-    "conventional-changelog-beemo": "^4.1.0",
+    "conventional-changelog-beemo": "^4.1.1",
     "execa": "^5.1.1"
   }
 }
