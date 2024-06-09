@@ -2578,7 +2578,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "@moonrepo/dev@workspace:packages/dev"
   dependencies:
-    conventional-changelog-beemo: "npm:^4.1.0"
+    conventional-changelog-beemo: "npm:^4.1.1"
     execa: "npm:^5.1.1"
   bin:
     lerna-release: ./lib/bin/lernaRelease.js
@@ -5214,13 +5214,13 @@ __metadata:
   languageName: node
   linkType: hard
 
-"conventional-changelog-beemo@npm:^4.1.0":
-  version: 4.1.0
-  resolution: "conventional-changelog-beemo@npm:4.1.0"
+"conventional-changelog-beemo@npm:^4.1.1":
+  version: 4.1.1
+  resolution: "conventional-changelog-beemo@npm:4.1.1"
   dependencies:
     conventional-changelog-writer: "npm:^8.0.0"
     conventional-commits-parser: "npm:^6.0.0"
-  checksum: 10/616967f10dec6fac15a300afb2bc92189edfaf778e894ec47fd118271267d3f2c5f8a9331163a8159a72b3bfa4ccb2ebbbe62de1432adc2d2a86e63dca012b48
+  checksum: 10/6a8fae5cac94042e0e6c4980ce818e5da425d2de788daa420d42779c5328cc52ef6ca60f1c90a48ede7aa92bd368397db44226c182915ee71e2a2d7998c0c9f4
   languageName: node
   linkType: hard
 
