@@ -1,3 +1,7 @@
+## 0.13.0
+
+- Added a new command that will generate local `yaml.schemas` settings.
+
 ## 0.12.0
 
 - Requires VS Code ^1.77.0.
