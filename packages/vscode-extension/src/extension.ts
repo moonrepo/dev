@@ -1,5 +1,5 @@
 import vscode from 'vscode';
-import { runTaskByInput, viewActionGraph, viewProjectGraph } from './commands';
+import { appendSchemasConfig, runTaskByInput, viewActionGraph, viewProjectGraph } from './commands';
 import { LastRunProvider } from './lastRunView';
 import { ProjectsProvider } from './projectsView';
 import { Workspace } from './workspace';
@@ -21,6 +21,9 @@ export function activate(context: vscode.ExtensionContext) {
 		),
 		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
 			viewProjectGraph(context, workspace),
+		),
+		vscode.commands.registerCommand('moon.appendSchemasConfig', () =>
+			appendSchemasConfig(context, workspace),
 		),
 
 		// Create a tree view for all moon projects
