@@ -177,7 +177,7 @@ export class Workspace {
 
 		try {
 			let globalBin = "";
-			if (process.platform == 'win32') {
+			if (process.platform === 'win32') {
 				globalBin = execa.sync('cmd', ['/c','where','moon']).stdout;
 			}
 			else{
