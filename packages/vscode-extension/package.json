@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.13.0",
+  "version": "0.13.1",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
