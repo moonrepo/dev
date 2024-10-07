@@ -176,11 +176,10 @@ export class Workspace {
 		}
 
 		try {
-			let globalBin = "";
+			let globalBin = '';
 			if (process.platform === 'win32') {
-				globalBin = execa.sync('cmd', ['/c','where','moon']).stdout;
-			}
-			else{
+				globalBin = execa.sync('cmd', ['/c', 'where', 'moon']).stdout;
+			} else {
 				globalBin = execa.sync('which', ['moon']).stdout;
 			}
 
