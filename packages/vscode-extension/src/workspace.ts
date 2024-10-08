@@ -161,9 +161,10 @@ export class Workspace {
 			return null;
 		}
 
+		const isWindows = process.platform === 'win32';
 		let binPath = vscode.workspace.getConfiguration('moon').get('binPath', 'moon');
 
-		if (process.platform === 'win32' && !binPath.endsWith('.exe')) {
+		if (isWindows && !binPath.endsWith('.exe')) {
 			binPath += '.exe';
 		}
 
@@ -175,19 +176,15 @@ export class Workspace {
 			return binPath;
 		}
 
-		try {
-			let globalBin = '';
-			if (process.platform === 'win32') {
-				globalBin = execa.sync('cmd', ['/c', 'where', 'moon']).stdout;
-			} else {
-				globalBin = execa.sync('which', ['moon']).stdout;
-			}
+		const paths = process.env.PATH?.split(isWindows ? ';' : ':') ?? [];
+		const binName = isWindows ? 'moon.exe' : 'moon';
 
-			if (globalBin && fs.existsSync(globalBin)) {
+		for (const dir of paths) {
+			const globalBin = path.join(dir, binName);
+
+			if (fs.existsSync(globalBin)) {
 				return globalBin;
 			}
-		} catch {
-			// Ignore
 		}
 
 		return null;
