@@ -2,7 +2,7 @@ import { satisfies } from 'semver';
 import vscode, { ViewColumn } from 'vscode';
 import type { Workspace } from './workspace';
 
-export type GraphType = 'action-graph' | 'project-graph';
+export type GraphType = 'action-graph' | 'project-graph' | 'task-graph';
 
 export class GraphVisualizerView {
 	context: vscode.ExtensionContext;
@@ -18,8 +18,16 @@ export class GraphVisualizerView {
 		this.workspace = workspace;
 		this.type = type;
 		this.panel = vscode.window.createWebviewPanel(
-			type === 'action-graph' ? 'moonActionGraph' : 'moonProjectGraph',
-			type === 'action-graph' ? 'Action graph' : 'Project graph',
+			type === 'action-graph'
+				? 'moonActionGraph'
+				: type === 'project-graph'
+					? 'moonProjectGraph'
+					: 'moonTaskGraph',
+			type === 'action-graph'
+				? 'Action graph'
+				: type === 'project-graph'
+					? 'Project graph'
+					: 'Task graph',
 			ViewColumn.Active,
 			{
 				enableScripts: true,

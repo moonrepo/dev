@@ -310,14 +310,14 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 				return undefined;
 			}
 
-			// When `.moon/**/*.yml` is changed, refresh projects
+			// When `.moon/**/*.*` is changed, refresh projects
 			const watcher1 = vscode.workspace.createFileSystemWatcher(
-				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('**/*.yml')),
+				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('**/*.{pkl,yml}')),
 			);
 
-			// When `moon.yml` is changed, refresh projects
+			// When `moon.*` is changed, refresh projects
 			const watcher2 = vscode.workspace.createFileSystemWatcher(
-				new vscode.RelativePattern(folder.uri, '**/moon.yml'),
+				new vscode.RelativePattern(folder.uri, '**/moon.{pkl,yml}'),
 			);
 
 			watcher1.onDidChange(this.refresh, this);
@@ -450,11 +450,16 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	async viewProject(item: ProjectItem) {
 		await vscode.commands.executeCommand('workbench.view.explorer');
 
-		const configUri = Uri.file(path.join(item.project.root, 'moon.yml'));
+		const yamlUri = Uri.file(path.join(item.project.root, 'moon.yml'));
+		const pklUri = Uri.file(path.join(item.project.root, 'moon.pkl'));
 
 		await vscode.commands.executeCommand(
 			'vscode.open',
-			fs.existsSync(configUri.fsPath) ? configUri : item.resourceUri,
+			fs.existsSync(yamlUri.fsPath)
+				? yamlUri
+				: fs.existsSync(pklUri.fsPath)
+					? pklUri
+					: item.resourceUri,
 		);
 
 		// await vscode.commands.executeCommand('vscode.openFolder', Uri.file(item.project.root));
