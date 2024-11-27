@@ -5,7 +5,9 @@
   },
   "include": [
     "src/**/*",
-    ".eslintrc.js",
+    ".eslintrc.js"
+  ],
+  "exclude": [
     "*.js"
   ],
   "references": [

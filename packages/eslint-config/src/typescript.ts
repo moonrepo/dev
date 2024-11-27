@@ -1,10 +1,14 @@
 import type eslint from 'eslint';
-import { getTsProjectForEslint } from '@moonrepo/dev';
+// import { getTsProjectForEslint } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	plugins: ['@typescript-eslint'],
 	parserOptions: {
-		project: getTsProjectForEslint(),
+		// project: getTsProjectForEslint(),
+		projectService: {
+			allowDefaultProject: ['*.js', '.*.js'],
+			defaultProject: 'tsconfig.json',
+		},
 	},
 	rules: {
 		// Disabled by Prettier: https://github.com/prettier/eslint-config-prettier/blob/main/index.js#L95
@@ -28,7 +32,6 @@ const config: eslint.Linter.Config = {
 		'default-param-last': 'off',
 		'dot-notation': 'off',
 		'key-spacing': 'off',
-		'lines-between-class-members': 'off',
 		'no-array-constructor': 'off',
 		'no-dupe-class-members': 'off',
 		'no-duplicate-imports': 'off',
@@ -51,7 +54,6 @@ const config: eslint.Linter.Config = {
 		'@typescript-eslint/default-param-last': 'error',
 		'@typescript-eslint/dot-notation': 'error',
 		'@typescript-eslint/key-spacing': 'error',
-		'@typescript-eslint/lines-between-class-members': 'error',
 		'@typescript-eslint/no-array-constructor': 'error',
 		'@typescript-eslint/no-dupe-class-members': 'error',
 		'@typescript-eslint/no-duplicate-imports': 'off', // Prefer import plugin
@@ -64,7 +66,6 @@ const config: eslint.Linter.Config = {
 			'error',
 			{ ignoreOnInitialization: true, ignoreTypeValueShadow: true },
 		],
-		'@typescript-eslint/no-throw-literal': 'error',
 		'@typescript-eslint/no-unused-expressions': 'error',
 		'@typescript-eslint/no-unused-vars': [
 			'error',
@@ -75,6 +76,7 @@ const config: eslint.Linter.Config = {
 			{ classes: true, enums: true, functions: true, typedefs: true, variables: true },
 		],
 		'@typescript-eslint/no-useless-constructor': 'error',
+		'@typescript-eslint/only-throw-error': 'error',
 		'@typescript-eslint/quotes': ['error', 'single', { avoidEscape: true }],
 		'@typescript-eslint/require-await': 'error',
 		'@typescript-eslint/return-await': ['error', 'in-try-catch'],
