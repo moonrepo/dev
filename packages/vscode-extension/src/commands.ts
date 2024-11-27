@@ -94,11 +94,23 @@ export async function viewProjectGraph(context: vscode.ExtensionContext, workspa
 	await new GraphVisualizerView(context, workspace, 'project-graph').renderPanel();
 }
 
+export async function viewTaskGraph(context: vscode.ExtensionContext, workspace: Workspace) {
+	const version = await workspace.getMoonVersion();
+
+	if (satisfies(version, '<1.30.0')) {
+		await vscode.window.showErrorMessage(`Task graph requires moon >= 1.30.0, found ${version}`);
+
+		return;
+	}
+
+	await new GraphVisualizerView(context, workspace, 'task-graph').renderPanel();
+}
+
 export async function appendSchemasConfig(context: vscode.ExtensionContext, workspace: Workspace) {
 	const version = await workspace.getMoonVersion();
 
 	if (satisfies(version, '<1.27.0')) {
-		await vscode.window.showErrorMessage('YAML schemas require moon >= 1.27.0');
+		await vscode.window.showErrorMessage(`YAML schemas require moon >= 1.27.0, found ${version}`);
 
 		return;
 	}

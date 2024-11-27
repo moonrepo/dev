@@ -1,3 +1,8 @@
+## 0.14.0
+
+- Added support for the task graph. Requires moon v1.30.
+- Added support for `.pkl` config files.
+
 ## 0.13.0
 
 - Added a new command that will generate local `yaml.schemas` settings.

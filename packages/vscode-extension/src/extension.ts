@@ -1,5 +1,11 @@
 import vscode from 'vscode';
-import { appendSchemasConfig, runTaskByInput, viewActionGraph, viewProjectGraph } from './commands';
+import {
+	appendSchemasConfig,
+	runTaskByInput,
+	viewActionGraph,
+	viewProjectGraph,
+	viewTaskGraph,
+} from './commands';
 import { LastRunProvider } from './lastRunView';
 import { ProjectsProvider } from './projectsView';
 import { Workspace } from './workspace';
@@ -22,6 +28,7 @@ export function activate(context: vscode.ExtensionContext) {
 		vscode.commands.registerCommand('moon.viewProjectGraph', () =>
 			viewProjectGraph(context, workspace),
 		),
+		vscode.commands.registerCommand('moon.viewTaskGraph', () => viewTaskGraph(context, workspace)),
 		vscode.commands.registerCommand('moon.appendSchemasConfig', () =>
 			appendSchemasConfig(context, workspace),
 		),

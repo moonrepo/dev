@@ -4,6 +4,7 @@ module.exports = {
 	rules: {
 		'max-classes-per-file': 'off',
 		'no-console': 'off',
+		'no-nested-ternary': 'off',
 		'no-param-reassign': 'off',
 		// We want to use exhaustive checks
 		'default-case': 'off',

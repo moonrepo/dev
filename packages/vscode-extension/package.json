@@ -39,6 +39,7 @@
   },
   "activationEvents": [
     "workspaceContains:.moon",
+    "workspaceContains:**/moon.pkl",
     "workspaceContains:**/moon.yml"
   ],
   "extensionDependencies": [
@@ -120,6 +121,11 @@
       {
         "command": "moon.viewProjectGraph",
         "title": "moon: View project graph",
+        "icon": "$(group-by-ref-type)"
+      },
+      {
+        "command": "moon.viewTaskGraph",
+        "title": "moon: View task graph",
         "icon": "$(type-hierarchy-sub)"
       },
       {
@@ -176,6 +182,10 @@
         {
           "command": "moon.viewProjectGraph",
           "when": "moon.hasBinary"
+        },
+        {
+          "command": "moon.viewTaskGraph",
+          "when": "moon.hasBinary"
         }
       ],
       "view/title": [
@@ -211,6 +221,16 @@
         },
         {
           "command": "moon.viewProjectGraph",
+          "when": "view == moonProjectsExternal && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewTaskGraph",
+          "when": "view == moonProjects && moon.hasBinary",
+          "group": "navigation"
+        },
+        {
+          "command": "moon.viewTaskGraph",
           "when": "view == moonProjectsExternal && moon.hasBinary",
           "group": "navigation"
         }
