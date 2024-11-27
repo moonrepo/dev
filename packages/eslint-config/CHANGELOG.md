@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 3.1.3 - 2024-11-27
+
+#### 📦 Dependencies
+
+- Update eslint plugins. ([7a7e69f](https://github.com/moonrepo/dev/commit/7a7e69f))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 3.1.2 - 2024-06-09
 
 **Note:** Version bump only for package eslint-config-moon
