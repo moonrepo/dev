@@ -1,3 +1,9 @@
+# DEPRECATED
+
+> These packages are deprecated and are loosely maintained. We suggest using the following tools
+> instead: [Biome](https://biomejs.dev/) (replaces ESLint + Prettier), [Vitest](https://vitest.dev/)
+> (replaces Jest), and [esbuild](https://esbuild.github.io/) (replaces Babel).
+
 # moon development
 
 ![build status](https://img.shields.io/github/workflow/status/moonrepo/dev/Pipeline)
