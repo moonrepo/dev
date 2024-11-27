@@ -439,14 +439,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 	async runTask(item: TaskItem) {
 		await runTask(item.task.target, this.workspace, (task) => {
-			switch (item.task.type) {
-				case 'build':
-					task.group = TaskGroup.Build;
-					break;
-				default:
-					task.group = TaskGroup.Test;
-					break;
-			}
+			task.group = item.task.type === 'build' ? TaskGroup.Build : TaskGroup.Test;
 		});
 	}
 
