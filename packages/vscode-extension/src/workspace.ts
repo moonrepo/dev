@@ -168,7 +168,7 @@ export class Workspace {
 			binPath += '.exe';
 		}
 
-		if (!path.isAbsolute(binPath)) {
+		if (!path.isAbsolute(binPath) && !binPath.startsWith('~')) {
 			binPath = path.join(this.root, binPath);
 		}
 
