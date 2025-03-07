@@ -1,8 +1,7 @@
 type: 'library'
 
 toolchain:
-  typescript:
-    disabled: true
+  typescript: false
 
 workspace:
   inheritedTasks:
