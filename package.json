@@ -20,7 +20,7 @@
     "jest-circus": "^29.7.0",
     "lerna": "^8.1.9",
     "packemon": "^4.1.1",
-    "prettier": "^3.4.1",
+    "prettier": "^3.5.3",
     "typescript": "^5.7.2"
   },
   "packageManager": "yarn@4.2.2"
