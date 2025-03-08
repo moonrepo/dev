@@ -1,15 +1,18 @@
 import type eslint from 'eslint';
 // import { getTsProjectForEslint } from '@moonrepo/dev';
+import tsPlugin from '@typescript-eslint/eslint-plugin';
+// @ts-expect-error Not typed
+import * as tsParser from '@typescript-eslint/parser';
 
 const config: eslint.Linter.Config = {
-	plugins: ['@typescript-eslint'],
-	parserOptions: {
-		// project: getTsProjectForEslint(),
-		projectService: {
-			allowDefaultProject: ['*.js', '.*.js'],
-			defaultProject: 'tsconfig.json',
+	name: 'moon:typescript',
+	languageOptions: {
+		parser: tsParser,
+		parserOptions: {
+			projectService: true,
 		},
 	},
+	plugins: { '@typescript-eslint': tsPlugin },
 	rules: {
 		// Disabled by Prettier: https://github.com/prettier/eslint-config-prettier/blob/main/index.js#L95
 		// We duplicate and keep track of this here so that we dont configure them
@@ -31,7 +34,6 @@ const config: eslint.Linter.Config = {
 		// Expands upon base config to handle type annotations
 		'default-param-last': 'off',
 		'dot-notation': 'off',
-		'key-spacing': 'off',
 		'no-array-constructor': 'off',
 		'no-dupe-class-members': 'off',
 		'no-duplicate-imports': 'off',
@@ -48,12 +50,10 @@ const config: eslint.Linter.Config = {
 		'no-use-before-define': 'off',
 		'no-useless-constructor': 'off',
 		'prefer-promise-reject-errors': 'off',
-		quotes: 'off',
 		'require-await': 'off',
 		'no-return-await': 'off',
 		'@typescript-eslint/default-param-last': 'error',
 		'@typescript-eslint/dot-notation': 'error',
-		'@typescript-eslint/key-spacing': 'error',
 		'@typescript-eslint/no-array-constructor': 'error',
 		'@typescript-eslint/no-dupe-class-members': 'error',
 		'@typescript-eslint/no-duplicate-imports': 'off', // Prefer import plugin
@@ -77,7 +77,6 @@ const config: eslint.Linter.Config = {
 		],
 		'@typescript-eslint/no-useless-constructor': 'error',
 		'@typescript-eslint/only-throw-error': 'error',
-		'@typescript-eslint/quotes': ['error', 'single', { avoidEscape: true }],
 		'@typescript-eslint/require-await': 'error',
 		'@typescript-eslint/return-await': ['error', 'in-try-catch'],
 
@@ -253,4 +252,4 @@ const config: eslint.Linter.Config = {
 	},
 };
 
-export default config;
+export default [config];

@@ -51,24 +51,17 @@ tasks:
   lint:
     command: 'eslint'
     args:
-      - '--ext'
-      - '.js,.jsx,.ts,.tsx'
       - '--fix'
       - '--report-unused-disable-directives'
       - '--no-error-on-unmatched-pattern'
       - '--exit-on-fatal-error'
-      - '--ignore-path'
-      - '@in(6)'
       - '.'
     inputs:
       - '@globs(configs)'
       - '@globs(sources)'
       - '@globs(tests)'
       - '@globs(typescript)'
-      - '**/.eslintrc'
-      - '**/.eslintrc.*'
-      - '/.eslintignore'
-      - '/.eslintrc.*'
+      - '/eslint.config.*'
 
   # https://moonrepo.dev/docs/guides/examples/jest
   test:

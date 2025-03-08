@@ -107,12 +107,11 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 				`,
 			);
 
-			this.view.webview.html = this.renderHtml(`
-				Finished ${
-					report.context.primaryTargets.length > 0
-						? `<b>${report.context.primaryTargets.join(', ')}</b> `
-						: ''
-				}in ${formatDuration(report.duration)}.
+			this.view.webview.html = this.renderHtml(`Finished ${
+				report.context.primaryTargets.length > 0
+					? `<b>${report.context.primaryTargets.join(', ')}</b> `
+					: ''
+			}in ${formatDuration(report.duration)}.
 
 				<br /><br />
 

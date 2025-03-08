@@ -1,13 +1,11 @@
 import type eslint from 'eslint';
 import { EXTENSIONS_PATTERN, TESTS_LIST } from '@moonrepo/dev';
+import jestPlugin from 'eslint-plugin-jest';
 
-const jestConfig: eslint.Linter.ConfigOverride = {
+const jestConfig: eslint.Linter.Config = {
+	name: 'moon:jest',
 	files: TESTS_LIST,
-	plugins: ['jest'],
-	env: {
-		jest: true,
-		'jest/globals': true,
-	},
+	plugins: { jest: jestPlugin },
 	rules: {
 		// Prefer `it` over `test`
 		'jest/consistent-test-it': 'error',
@@ -80,7 +78,7 @@ const jestConfig: eslint.Linter.ConfigOverride = {
 	},
 };
 
-const miscConfig: eslint.Linter.ConfigOverride = {
+const miscConfig: eslint.Linter.Config = {
 	files: [
 		'**/{__mocks__,__fixtures__}/**/*',
 		`**/{tests,__tests__}/**/{helpers,utils,setup}.{${EXTENSIONS_PATTERN}}`,
@@ -96,8 +94,4 @@ const miscConfig: eslint.Linter.ConfigOverride = {
 
 // We only want to apply the Jest plugin and other testing rules
 // when inside of a test specific file. Not the entire codebase.
-const config: eslint.Linter.Config = {
-	overrides: [jestConfig, miscConfig],
-};
-
-export default config;
+export default [jestConfig, miscConfig];

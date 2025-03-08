@@ -1,8 +1,0 @@
-cjs/
-coverage/
-esm/
-lib/
-mjs/
-node_modules/
-*.d.ts
-*.json

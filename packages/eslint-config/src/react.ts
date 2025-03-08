@@ -1,16 +1,30 @@
 import type eslint from 'eslint';
 import { CASE_SENSITIVE, getPackageVersion } from '@moonrepo/dev';
+// @ts-expect-error Not typed
+import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
+import reactPlugin from 'eslint-plugin-react';
+import reactHooksPlugin from 'eslint-plugin-react-hooks';
+// @ts-expect-error Not typed
+import reactPerfPlugin from 'eslint-plugin-react-perf';
+import browserConfig from './browser';
 
 const reactVersion = getPackageVersion('react');
 
-const reactConfig: eslint.Linter.ConfigOverride = {
-	files: ['*.tsx'],
-	plugins: ['jsx-a11y', 'react', 'react-hooks', 'react-perf'],
-	extends: [require.resolve('./browser.js'), 'plugin:jsx-a11y/recommended'],
-	parserOptions: {
-		ecmaFeatures: {
-			jsx: true,
+const reactConfig: eslint.Linter.Config = {
+	name: 'moon:react',
+	files: ['**/*.tsx'],
+	languageOptions: {
+		parserOptions: {
+			ecmaFeatures: {
+				jsx: true,
+			},
 		},
+	},
+	plugins: {
+		'jsx-a11y': jsxA11yPlugin,
+		react: reactPlugin,
+		'react-hooks': reactHooksPlugin,
+		'react-perf': reactPerfPlugin,
 	},
 	settings: {
 		react: {
@@ -265,17 +279,17 @@ const reactConfig: eslint.Linter.ConfigOverride = {
 	},
 };
 
-const hooksConfig: eslint.Linter.ConfigOverride = {
-	files: ['*.ts', '*.tsx'],
-	plugins: ['react-hooks'],
+const hooksConfig: eslint.Linter.Config = {
+	files: ['**/*.ts', '**/*.tsx'],
+	plugins: { 'react-hooks': reactHooksPlugin },
 	rules: {
 		'react-hooks/rules-of-hooks': 'error',
 		'react-hooks/exhaustive-deps': 'error',
 	},
 };
 
-const testsConfig: eslint.Linter.ConfigOverride = {
-	files: ['*.test.tsx'],
+const testsConfig: eslint.Linter.Config = {
+	files: ['**/*.test.tsx'],
 	rules: {
 		'react/jsx-no-bind': 'off',
 		'react-perf/jsx-no-new-array-as-prop': 'off',
@@ -286,8 +300,10 @@ const testsConfig: eslint.Linter.ConfigOverride = {
 
 // We only want to apply the React plugin and rules
 // to TSX files. Not the entire codebase.
-const config: eslint.Linter.Config = {
-	overrides: [reactConfig, hooksConfig, testsConfig],
-};
-
-export default config;
+export default [
+	browserConfig,
+	jsxA11yPlugin.configs.recommended,
+	reactConfig,
+	hooksConfig,
+	testsConfig,
+];
