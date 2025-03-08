@@ -1,10 +1,16 @@
 import type eslint from 'eslint';
 import { EXTENSIONS_PATTERN, TESTS_LIST } from '@moonrepo/dev';
+import globals from 'globals';
 
-const testsConfig: eslint.Linter.ConfigOverride = {
+const testsConfig: eslint.Linter.Config = {
+	name: 'moon:tests',
 	files: TESTS_LIST,
-	env: {
-		node: true,
+	languageOptions: {
+		globals: {
+			...globals.node,
+			...globals.jest,
+			...globals.vitest,
+		},
 	},
 	rules: {
 		// Disable these as it makes writing tests much easier
@@ -35,7 +41,7 @@ const testsConfig: eslint.Linter.ConfigOverride = {
 	},
 };
 
-const miscConfig: eslint.Linter.ConfigOverride = {
+const miscConfig: eslint.Linter.Config = {
 	files: [
 		'**/{__mocks__,__fixtures__}/**/*',
 		`**/{tests,__tests__}/**/{helpers,utils,setup}.{${EXTENSIONS_PATTERN}}`,
@@ -55,8 +61,4 @@ const miscConfig: eslint.Linter.ConfigOverride = {
 
 // We only want to apply the tests plugin and other testing rules
 // when inside of a test specific file. Not the entire codebase.
-const config: eslint.Linter.Config = {
-	overrides: [testsConfig, miscConfig],
-};
-
-export default config;
+export default [testsConfig, miscConfig];

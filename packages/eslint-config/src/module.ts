@@ -7,9 +7,13 @@ import {
 	NON_JS_REGEX,
 	TS_PATH_PREFIX_REGEX,
 } from '@moonrepo/dev';
+// @ts-expect-error Not typed
+import * as importPlugin from 'eslint-plugin-import';
+import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 
 const config: eslint.Linter.Config = {
-	plugins: ['import', 'simple-import-sort'],
+	name: 'moon:module',
+	plugins: { import: importPlugin, 'simple-import-sort': simpleImportSortPlugin },
 	settings: {
 		'import/extensions': EXTENSIONS,
 		'import/ignore': [...IGNORE_LIST, NON_JS_REGEX],
@@ -127,22 +131,22 @@ const config: eslint.Linter.Config = {
 			},
 		],
 	},
-	overrides: [
-		// Allow default exports from package indexes
-		{
-			files: ['**/index.*'],
-			rules: {
-				'import/no-default-export': 'off',
-			},
-		},
-		// Config files have different semantics
-		{
-			files: CONFIGS_LIST,
-			rules: {
-				'import/no-commonjs': 'off',
-			},
-		},
-	],
 };
 
-export default config;
+export default [
+	config,
+	// Allow default exports from package indexes
+	{
+		files: ['**/index.*'],
+		rules: {
+			'import/no-default-export': 'off',
+		},
+	},
+	// Config files have different semantics
+	{
+		files: CONFIGS_LIST,
+		rules: {
+			'import/no-commonjs': 'off',
+		},
+	},
+];

@@ -4,11 +4,7 @@
     "outDir": "../../.moon/cache/types/packages/eslint-config"
   },
   "include": [
-    "src/**/*",
-    ".eslintrc.js"
-  ],
-  "exclude": [
-    "*.js"
+    "src/**/*"
   ],
   "references": [
     {

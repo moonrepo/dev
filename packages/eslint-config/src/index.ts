@@ -1,36 +1,49 @@
 import type eslint from 'eslint';
+import prettierConfig from 'eslint-config-prettier';
+import globals from 'globals';
 import { ECMA_VERSION } from '@moonrepo/dev';
+// @ts-expect-error Not typed
+// eslint-disable-next-line import/no-unresolved
+import * as tsParser from '@typescript-eslint/parser';
+import asyncConfig from './async';
+import baseConfig from './base';
+import moduleConfig from './module';
+import testsConfig from './tests';
+import typescriptConfig from './typescript';
+// import airbnbConfig from 'eslint-config-airbnb-base';
+import unicornConfig from './unicorn';
+// import { fixupConfigRules } from '@eslint/compat';
 
 const config: eslint.Linter.Config = {
-	parser: '@typescript-eslint/parser',
-	extends: [
-		'airbnb-base',
-		// Order is important!
-		require.resolve('./base.js'),
-		require.resolve('./typescript.js'),
-		require.resolve('./async.js'),
-		require.resolve('./module.js'),
-		require.resolve('./unicorn.js'),
-		require.resolve('./tests.js'),
-		// Add prettier last so it properly turns off rules
-		'prettier',
-	],
-	env: {
-		[`es${ECMA_VERSION}`]: true,
+	name: 'moon:root',
+	languageOptions: {
+		globals: {
+			...globals.browser,
+			...globals.node,
+			__DEV__: 'readonly',
+			__PROD__: 'readonly',
+			__TEST__: 'readonly',
+		},
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		parser: tsParser,
+		parserOptions: {
+			sourceType: 'module',
+			ecmaVersion: ECMA_VERSION,
+		},
 	},
-	globals: {
-		__DEV__: 'readonly',
-		__PROD__: 'readonly',
-		__TEST__: 'readonly',
+	linterOptions: {
+		reportUnusedDisableDirectives: true,
 	},
-	parserOptions: {
-		sourceType: 'module',
-		ecmaVersion: ECMA_VERSION,
-	},
-	reportUnusedDisableDirectives: true,
-	// We cant define rules here otherwise they override the ones
-	// in the extending configs above. This is bad for actual `overrides`!
-	rules: {},
 };
 
-export default config;
+export default [
+	// ...fixupConfigRules(airbnbConfig),
+	config,
+	...baseConfig,
+	...typescriptConfig,
+	...asyncConfig,
+	...moduleConfig,
+	...unicornConfig,
+	...testsConfig,
+	prettierConfig,
+];

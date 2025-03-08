@@ -1,7 +1,10 @@
 import type eslint from 'eslint';
+// @ts-expect-error Not typed
+import promisePlugin from 'eslint-plugin-promise';
 
 const config: eslint.Linter.Config = {
-	plugins: ['promise'],
+	name: 'moon:async',
+	plugins: { promise: promisePlugin },
 	rules: {
 		'promise/param-names': 'error',
 		'promise/valid-params': 'error',
@@ -31,4 +34,4 @@ const config: eslint.Linter.Config = {
 	},
 };
 
-export default config;
+export default [config];

@@ -123,7 +123,7 @@ export async function appendSchemasConfig(context: vscode.ExtensionContext, work
 	) as Record<string, unknown>;
 
 	const schemas =
-		typeof settings['yaml.schemas'] === 'object' && !!settings['yaml.schemas']
+		typeof settings['yaml.schemas'] === 'object' && Boolean(settings['yaml.schemas'])
 			? settings['yaml.schemas']
 			: {};
 

@@ -1,11 +1,10 @@
 import type eslint from 'eslint';
-import { CASE_SENSITIVE, getParentNodeRuntime } from '@moonrepo/dev';
-
-const nodeVersion = getParentNodeRuntime();
+import { CASE_SENSITIVE } from '@moonrepo/dev';
 
 // The following rules are either overriding Airbnb's defaults,
 // or they are enabling new rules that aren't in Airbnb yet.
 const config: eslint.Linter.Config = {
+	name: 'moon:base',
 	rules: {
 		// Use tabs instead of spaces for accessibility
 		indent: ['error', 'tab'],
@@ -15,7 +14,7 @@ const config: eslint.Linter.Config = {
 		'class-methods-use-this': 'off',
 
 		// Encourage breaking up code when applicable
-		complexity: ['error', 11],
+		complexity: ['error', 12],
 
 		// Allow either kind of comments (docblocks vs inline)
 		'multiline-comment-style': 'off',
@@ -87,8 +86,8 @@ const config: eslint.Linter.Config = {
 		'no-restricted-syntax': 'off',
 
 		// Not available on enough platforms yet
-		'prefer-object-has-own': nodeVersion >= 16.9 ? 'error' : 'off',
+		'prefer-object-has-own': 'error',
 	},
 };
 
-export default config;
+export default [config];

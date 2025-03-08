@@ -1,14 +1,16 @@
 import type eslint from 'eslint';
-import { getParentNodeRuntime } from '@moonrepo/dev';
-
-const nodeVersion = getParentNodeRuntime();
+import nodePlugin from 'eslint-plugin-n';
+import compatPlugin from 'eslint-plugin-compat';
+import globals from 'globals';
 
 const config: eslint.Linter.Config = {
-	plugins: ['node', 'compat'],
-	env: {
-		browser: false,
-		node: true,
+	name: 'moon:node',
+	languageOptions: {
+		globals: {
+			...globals.node,
+		},
 	},
+	plugins: { node: nodePlugin, compat: compatPlugin },
 	rules: {
 		// Ensure proper error handling
 		'node/no-callback-literal': 'error',
@@ -35,8 +37,8 @@ const config: eslint.Linter.Config = {
 		'node/prefer-global/url-search-params': 'error',
 
 		// Prefer promises APIs when they are available
-		'node/prefer-promises/dns': nodeVersion >= 15 ? 'error' : 'off',
-		'node/prefer-promises/fs': nodeVersion >= 14 ? 'error' : 'off',
+		'node/prefer-promises/dns': 'error',
+		'node/prefer-promises/fs': 'error',
 
 		// We use TypeScript/ES modules instead
 		'node/exports-style': 'off',
@@ -60,4 +62,4 @@ const config: eslint.Linter.Config = {
 	},
 };
 
-export default config;
+export default [config];

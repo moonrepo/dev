@@ -28,7 +28,7 @@ export const EXTENSIONS_WITHOUT_DOT = EXTENSIONS.map((ext) => ext.slice(1));
 export const EXTENSIONS_PATTERN = EXTENSIONS_WITHOUT_DOT.join(',');
 
 // Globs for finding source files, test files, and test utility files
-export const ALL_FILES_GLOB = `**/{src,tests,__tests__}/**/*.{${EXTENSIONS_PATTERN}}`;
+export const ALL_FILES_GLOB = `**/*.{${EXTENSIONS_PATTERN}}`;
 export const SOURCE_FILES_GLOB = `**/src/**/*.{${EXTENSIONS_PATTERN}}`;
 export const TEST_FILES_GLOB = `**/{tests,__tests__}/**/*.test.{${EXTENSIONS_PATTERN}}`;
 export const TEST_UTILS_GLOB = `**/{tests,__tests__}/**/*.{${EXTENSIONS_PATTERN}}`;
@@ -37,7 +37,7 @@ export const TEST_UTILS_GLOB = `**/{tests,__tests__}/**/*.{${EXTENSIONS_PATTERN}
 export const TESTS_LIST = [TEST_FILES_GLOB, TEST_UTILS_GLOB, `**/test.{${EXTENSIONS_PATTERN}}`];
 
 // List of globs to find config related files
-export const CONFIGS_LIST = ['**/.*.{js,cjs}', '**/*.config.{js,cjs}'];
+export const CONFIGS_LIST = [`**/.*.{${EXTENSIONS_PATTERN}}`, `**/*.config.{${EXTENSIONS_PATTERN}}`];
 
 // Pattern of file extensions
 export const NON_JS_REGEX = String.raw`\.(css|sass|scss|less|gif|png|jpg|jpeg|svg|gql|graphql|yml|yaml)$`;

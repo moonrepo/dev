@@ -1,10 +1,10 @@
 import type eslint from 'eslint';
-import { CONFIGS_LIST, getParentNodeRuntime } from '@moonrepo/dev';
-
-const nodeVersion = getParentNodeRuntime();
+import { CONFIGS_LIST } from '@moonrepo/dev';
+import unicornPlugin from 'eslint-plugin-unicorn';
 
 const config: eslint.Linter.Config = {
-	plugins: ['unicorn'],
+	name: 'moon:unicorn',
+	plugins: { unicorn: unicornPlugin },
 	rules: {
 		// Disabled by Prettier: https://github.com/prettier/eslint-config-prettier/blob/main/index.js#L142
 		// We need to do this as they may be re-enabled based on config extending order.
@@ -23,6 +23,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/no-unreadable-iife': 'error',
 		'unicorn/no-unsafe-regex': 'error',
 		'unicorn/no-zero-fractions': 'error',
+		'unicorn/prefer-math-min-max': 'error',
 		'unicorn/prefer-native-coercion-functions': 'error',
 		'unicorn/prefer-string-raw': 'error',
 		'unicorn/prefer-structured-clone': 'error',
@@ -55,6 +56,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/no-await-in-promise-methods': 'error',
 		'unicorn/no-instanceof-array': 'error',
 		'unicorn/no-invalid-remove-event-listener': 'error',
+		'unicorn/no-negation-in-equality-check': 'error',
 		'unicorn/no-new-array': 'error',
 		'unicorn/no-new-buffer': 'error',
 		'unicorn/no-single-promise-in-promise-methods': 'error',
@@ -66,7 +68,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/throw-new-error': 'error',
 
 		// Ensure todo's are finished
-		'unicorn/expiring-todo-comments': 'error',
+		// 'unicorn/expiring-todo-comments': 'error',
 
 		// Be explicit and avoid edge cases
 		'unicorn/explicit-length-check': 'error',
@@ -85,9 +87,6 @@ const config: eslint.Linter.Config = {
 
 		// Doesnt cover the naming requirements I want
 		'unicorn/filename-case': 'off',
-
-		// Use shorthand file paths as much as possible
-		'unicorn/import-index': ['error', { ignoreImports: true }],
 
 		// Use compact code when applicable
 		'unicorn/no-array-push-push': 'error',
@@ -134,8 +133,8 @@ const config: eslint.Linter.Config = {
 		'unicorn/prefer-math-trunc': 'error',
 		'unicorn/prefer-modern-dom-apis': 'error',
 		'unicorn/prefer-modern-math-apis': 'error',
-		'unicorn/prefer-module': nodeVersion >= 14 ? 'error' : 'off',
-		'unicorn/prefer-node-protocol': nodeVersion >= 16 ? 'error' : 'off',
+		'unicorn/prefer-module': 'error',
+		'unicorn/prefer-node-protocol':  'error',
 		'unicorn/prefer-number-properties': 'error',
 		'unicorn/prefer-object-from-entries': 'error',
 		'unicorn/prefer-query-selector': 'error',
@@ -145,7 +144,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/prefer-string-slice': 'error',
 		'unicorn/prefer-string-starts-ends-with': 'error',
 		'unicorn/prefer-string-trim-start-end': 'error',
-		'unicorn/prefer-top-level-await': nodeVersion >= 14.8 ? 'error' : 'off',
+		'unicorn/prefer-top-level-await': 'error',
 
 		// Autofixing is abrasive
 		'unicorn/prefer-export-from': 'off',
@@ -156,18 +155,16 @@ const config: eslint.Linter.Config = {
 
 		// Not available on enough platforms yet
 		// TODO: Enable in the future!
-		'unicorn/prefer-at': 'off',
-		'unicorn/prefer-string-replace-all': 'off',
+		'unicorn/prefer-at': 'error',
+		'unicorn/prefer-string-replace-all': 'error',
 	},
-	overrides: [
-		// Config files have different semantics
-		{
-			files: CONFIGS_LIST,
-			rules: {
-				'unicorn/prefer-module': 'off',
-			},
-		},
-	],
 };
 
-export default config;
+const testConfig: eslint.Linter.Config = {
+	files: CONFIGS_LIST,
+	rules: {
+		'unicorn/prefer-module': 'off',
+	},
+};
+
+export default [config, testConfig];

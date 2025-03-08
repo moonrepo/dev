@@ -1,9 +1,12 @@
 import type eslint from 'eslint';
+import solidPlugin from 'eslint-plugin-solid';
+import browserConfig from './browser';
 
-const solidConfig: eslint.Linter.ConfigOverride = {
-	files: ['*.ts', '*.tsx'],
-	plugins: ['solid'],
-	extends: [require.resolve('./browser.js'), 'plugin:solid/typescript'],
+const solidConfig: eslint.Linter.Config = {
+	name: 'moon:solid',
+	files: ['**/*.ts', '**/*.tsx'],
+	// @ts-expect-error Not typed
+	plugins: { solid: solidPlugin },
 	parserOptions: {
 		ecmaFeatures: {
 			jsx: true,
@@ -11,10 +14,4 @@ const solidConfig: eslint.Linter.ConfigOverride = {
 	},
 };
 
-// We only want to apply the React plugin and rules
-// to TSX files. Not the entire codebase.
-const config: eslint.Linter.Config = {
-	overrides: [solidConfig],
-};
-
-export default config;
+export default [browserConfig, solidPlugin.configs.typescript, solidConfig];
