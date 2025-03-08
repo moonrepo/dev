@@ -69,11 +69,22 @@ const config: eslint.Linter.Config = {
 		'@typescript-eslint/no-unused-expressions': 'error',
 		'@typescript-eslint/no-unused-vars': [
 			'error',
-			{ vars: 'all', args: 'none', caughtErrors: 'all', ignoreRestSiblings: true },
+			{
+				vars: 'all',
+				args: 'none',
+				caughtErrors: 'all',
+				ignoreRestSiblings: true,
+			},
 		],
 		'@typescript-eslint/no-use-before-define': [
 			'error',
-			{ classes: true, enums: true, functions: true, typedefs: true, variables: true },
+			{
+				classes: true,
+				enums: true,
+				functions: true,
+				typedefs: true,
+				variables: true,
+			},
 		],
 		'@typescript-eslint/no-useless-constructor': 'error',
 		'@typescript-eslint/only-throw-error': 'error',

@@ -19,7 +19,7 @@
 ## 0.10.0
 
 - Added YAML file validation for all moon configuration files.
-	- Requires the `redhat.vscode-yaml` extension to be installed. VSCode should prompt you to install it.
+  - Requires the `redhat.vscode-yaml` extension to be installed. VSCode should prompt you to install it.
 
 ## 0.9.0
 
@@ -29,7 +29,7 @@
 
 - Added a `moon.logLevel` setting, to control the log level of all moon executed commands.
 - Added support for multiple VS Code workspace folders.
-	- When you open a file in another workspace, the moon panels will refresh.
+  - When you open a file in another workspace, the moon panels will refresh.
 - Removed support for moon < 1.0.
 - Replaced `moon.workspaceRoot` setting with `moon.rootPrefixes`.
 
@@ -56,7 +56,7 @@
 
 - Changes to `moon.yml` will now automatically refresh projects.
 - Added file and folder icons to the `assets` folder.
-	- This _does not_ associate them. You'll need to do that manually in your editor settings.
+  - This _does not_ associate them. You'll need to do that manually in your editor settings.
 
 ## 0.2.0
 

@@ -13,7 +13,10 @@ import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 
 const config: eslint.Linter.Config = {
 	name: 'moon:module',
-	plugins: { import: importPlugin, 'simple-import-sort': simpleImportSortPlugin },
+	plugins: {
+		import: importPlugin,
+		'simple-import-sort': simpleImportSortPlugin,
+	},
 	settings: {
 		'import/extensions': EXTENSIONS,
 		'import/ignore': [...IGNORE_LIST, NON_JS_REGEX],
@@ -74,7 +77,11 @@ const config: eslint.Linter.Config = {
 		// Dont resolve custom TS paths, but do others
 		'import/no-unresolved': [
 			'error',
-			{ commonjs: true, caseSensitiveStrict: true, ignore: [TS_PATH_PREFIX_REGEX] },
+			{
+				commonjs: true,
+				caseSensitiveStrict: true,
+				ignore: [TS_PATH_PREFIX_REGEX],
+			},
 		],
 
 		// Prefer modern ESM and MJS code
