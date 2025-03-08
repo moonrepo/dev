@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node-version: [18, 20]
+        node-version: [20, 22]
       fail-fast: true
     env:
       YARN_IGNORE_NODE: 1
@@ -21,9 +21,6 @@ jobs:
       - uses: moonrepo/setup-toolchain@v0
         with:
           auto-install: true
-      - uses: moonrepo/tool-version-action@v1
-        with:
-          node: ${{ matrix.node-version }}
       - run: yarn install --immutable
       - run: yarn setup
       - run: moon ci --log debug --color
