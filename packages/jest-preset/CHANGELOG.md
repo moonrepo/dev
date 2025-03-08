@@ -7,17 +7,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jest-preset-moon
 
-
-
-
-
 ## <small>3.0.1 (2024-05-27)</small>
 
 **Note:** Version bump only for package jest-preset-moon
-
-
-
-
 
 # 3.0.0 - 2024-03-25
 
@@ -26,10 +18,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Drop Node v16 support. Require v18.12+. ([b6ca343](https://github.com/moonrepo/dev/commit/b6ca343))
 
 **Note:** Version bump only for package jest-preset-moon
-
-
-
-
 
 ### 2.0.8 - 2024-02-27
 
@@ -40,10 +28,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jest-preset-moon
 
-
-
-
-
 ### 2.0.7 - 2023-12-31
 
 #### 📦 Dependencies
@@ -51,10 +35,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[packemon]** Update to v3.2.3. ([fce59a1](https://github.com/moonrepo/dev/commit/fce59a1))
 
 **Note:** Version bump only for package jest-preset-moon
-
-
-
-
 
 ### 2.0.6 - 2023-10-30
 
@@ -68,10 +48,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jest-preset-moon
 
-
-
-
-
 ### 2.0.5 - 2023-09-25
 
 #### 📦 Dependencies
@@ -80,10 +56,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jest-preset-moon
 
-
-
-
-
 ### 2.0.4 - 2023-09-04
 
 #### 📦 Dependencies
@@ -91,10 +63,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[jest]** Update to v29.6.4. ([4a33052](https://github.com/moonrepo/dev/commit/4a33052))
 
 **Note:** Version bump only for package jest-preset-moon
-
-
-
-
 
 ### 2.0.3 - 2023-07-31
 
@@ -105,10 +73,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jest-preset-moon
 
-
-
-
-
 ### 2.0.2 - 2023-05-30
 
 #### 📦 Dependencies
@@ -117,10 +81,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jest-preset-moon
 
-
-
-
-
 ### 2.0.1 - 2023-03-13
 
 #### 📦 Dependencies
@@ -128,10 +88,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[jest]** Update to v29.5. ([de0c00c](https://github.com/moonrepo/dev/commit/de0c00c))
 
 **Note:** Version bump only for package jest-preset-moon
-
-
-
-
 
 # 2.0.0 - 2023-02-03
 
@@ -145,10 +101,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package jest-preset-moon
 
-
-
-
-
 ### 1.1.4 - 2023-01-31
 
 #### 📦 Dependencies
@@ -156,10 +108,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[jest]** Update to v27.4. ([0f74a71](https://github.com/moonrepo/dev/commit/0f74a71))
 
 **Note:** Version bump only for package jest-preset-moon
-
-
-
-
 
 # Change Log
 

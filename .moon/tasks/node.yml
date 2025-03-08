@@ -47,6 +47,20 @@ tasks:
       - '@globs(tests)'
       - '**/*.{md,mdx,yml,yaml,json}'
 
+  format-write:
+    command: 'prettier'
+    args:
+      - '--config'
+      - '@in(1)'
+      - '--ignore-path'
+      - '@in(0)'
+      - '--write'
+      - '.'
+    inputs:
+      - '/.prettierignore'
+      - '/.prettierrc.js'
+    local: true
+
   # https://moonrepo.dev/docs/guides/examples/eslint
   lint:
     command: 'eslint'

@@ -134,7 +134,7 @@ const config: eslint.Linter.Config = {
 		'unicorn/prefer-modern-dom-apis': 'error',
 		'unicorn/prefer-modern-math-apis': 'error',
 		'unicorn/prefer-module': 'error',
-		'unicorn/prefer-node-protocol':  'error',
+		'unicorn/prefer-node-protocol': 'error',
 		'unicorn/prefer-number-properties': 'error',
 		'unicorn/prefer-object-from-entries': 'error',
 		'unicorn/prefer-query-selector': 'error',

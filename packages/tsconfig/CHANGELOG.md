@@ -11,10 +11,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package tsconfig-moon
 
-
-
-
-
 ### 1.2.2 - 2023-03-13
 
 #### 📦 Dependencies
@@ -22,10 +18,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[moon]** Update to v0.25. (#31) ([e71e605](https://github.com/moonrepo/dev/commit/e71e605)), closes [#31](https://github.com/moonrepo/dev/issues/31)
 
 **Note:** Version bump only for package tsconfig-moon
-
-
-
-
 
 # Change Log
 

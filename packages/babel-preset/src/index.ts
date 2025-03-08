@@ -1,4 +1,3 @@
- 
 declare const __DEV__: boolean;
 
 export type PluginItem = string | [string, object];

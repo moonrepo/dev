@@ -12,10 +12,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 3.0.3 - 2024-07-15
 
 #### 📦 Dependencies
@@ -24,17 +20,9 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ## <small>3.0.2 (2024-05-27)</small>
 
-* deps(babel): Update to v7.24 latest. ([0dcee1c](https://github.com/moonrepo/dev/commit/0dcee1c))
-
-
-
-
+- deps(babel): Update to v7.24 latest. ([0dcee1c](https://github.com/moonrepo/dev/commit/0dcee1c))
 
 ### 3.0.1 - 2024-04-18
 
@@ -43,10 +31,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel]** Update to v7.24 latest. ([52f5e53](https://github.com/moonrepo/dev/commit/52f5e53))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 # 3.0.0 - 2024-03-25
 
@@ -60,10 +44,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.15 - 2024-02-27
 
 #### 📦 Dependencies
@@ -71,10 +51,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel-preset-solid]** Update to v1.8.15. ([955966a](https://github.com/moonrepo/dev/commit/955966a))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 ### 2.0.14 - 2024-01-26
 
@@ -84,10 +60,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.13 - 2023-12-31
 
 #### 📦 Dependencies
@@ -95,10 +67,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel]** Update to v7.23 latest. ([1469fc9](https://github.com/moonrepo/dev/commit/1469fc9))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 ### 2.0.12 - 2023-12-12
 
@@ -108,10 +76,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.11 - 2023-11-20
 
 #### 📦 Dependencies
@@ -120,10 +84,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.10 - 2023-10-30
 
 #### 📦 Dependencies
@@ -131,10 +91,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel]** Update to v7.23 latest. ([23870a7](https://github.com/moonrepo/dev/commit/23870a7))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 ### 2.0.9 - 2023-09-25
 
@@ -145,10 +101,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.8 - 2023-09-04
 
 #### 📦 Dependencies
@@ -157,10 +109,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.7 - 2023-08-19
 
 #### 📦 Dependencies
@@ -168,10 +116,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel]** Update to v7.22 latest. ([1184a6c](https://github.com/moonrepo/dev/commit/1184a6c))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 ### 2.0.6 - 2023-07-31
 
@@ -182,10 +126,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.5 - 2023-06-13
 
 #### 📦 Dependencies
@@ -193,10 +133,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel]** Update to v7.22 latest. ([3ec4c93](https://github.com/moonrepo/dev/commit/3ec4c93))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 ### 2.0.4 - 2023-05-30
 
@@ -207,10 +143,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.3 - 2023-05-01
 
 #### 📦 Dependencies
@@ -218,10 +150,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel]** Update to v7.21 latest. ([8bee073](https://github.com/moonrepo/dev/commit/8bee073))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 ### 2.0.2 - 2023-04-24
 
@@ -231,10 +159,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 2.0.1 - 2023-03-13
 
 #### 📦 Dependencies
@@ -242,10 +166,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[babel]** Update to v7.21 latest. ([44338eb](https://github.com/moonrepo/dev/commit/44338eb))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 # 2.0.0 - 2023-02-03
 
@@ -259,10 +179,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package babel-preset-moon
 
-
-
-
-
 ### 1.1.4 - 2023-01-31
 
 #### 📦 Dependencies
@@ -272,10 +188,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[moon]** Update to v0.23. ([f95b29f](https://github.com/moonrepo/dev/commit/f95b29f))
 
 **Note:** Version bump only for package babel-preset-moon
-
-
-
-
 
 # Change Log
 

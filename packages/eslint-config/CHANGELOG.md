@@ -11,27 +11,15 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 3.1.2 - 2024-06-09
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ## <small>3.1.1 (2024-05-27)</small>
 
-* deps(@typescript-eslint/*): Update to v7.10. ([82e0a08](https://github.com/moonrepo/dev/commit/82e0a08))
-* deps(eslint-plugin-unicorn): Update to v53. ([78921b1](https://github.com/moonrepo/dev/commit/78921b1))
-* deps(eslint): Update plugins. ([c914369](https://github.com/moonrepo/dev/commit/c914369))
-
-
-
-
+- deps(@typescript-eslint/\*): Update to v7.10. ([82e0a08](https://github.com/moonrepo/dev/commit/82e0a08))
+- deps(eslint-plugin-unicorn): Update to v53. ([78921b1](https://github.com/moonrepo/dev/commit/78921b1))
+- deps(eslint): Update plugins. ([c914369](https://github.com/moonrepo/dev/commit/c914369))
 
 ## 3.1.0 - 2024-04-18
 
@@ -46,10 +34,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 # 3.0.0 - 2024-03-25
 
 #### 💥 Breaking
@@ -62,10 +46,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.1.2 - 2024-02-27
 
 #### 📦 Dependencies
@@ -75,10 +55,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.1.1 - 2024-02-09
 
 #### 🐞 Fixes
@@ -86,10 +62,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - Split out jest into its own file. ([3ce4085](https://github.com/moonrepo/dev/commit/3ce4085))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ## 2.1.0 - 2024-02-09
 
@@ -99,10 +71,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.16 - 2024-02-07
 
 #### 📦 Dependencies
@@ -111,10 +79,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.15 - 2024-01-26
 
 #### 📦 Dependencies
@@ -122,10 +86,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[eslint-plugin-unicorn]** Update to v50. ([596c29b](https://github.com/moonrepo/dev/commit/596c29b))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 2.0.14 - 2023-12-31
 
@@ -136,10 +96,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.13 - 2023-12-12
 
 #### 📦 Dependencies
@@ -148,10 +104,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[typescript-eslint]** Update to v6.13. ([8dabebb](https://github.com/moonrepo/dev/commit/8dabebb))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 2.0.12 - 2023-11-20
 
@@ -162,10 +114,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[eslint]** Update to v8.54. ([190c3a0](https://github.com/moonrepo/dev/commit/190c3a0))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 2.0.11 - 2023-10-30
 
@@ -179,10 +127,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.10 - 2023-09-25
 
 #### 📦 Dependencies
@@ -192,10 +136,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.9 - 2023-09-04
 
 #### 🐞 Fixes
@@ -204,10 +144,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.8 - 2023-09-04
 
 #### 📦 Dependencies
@@ -215,10 +151,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[eslint]** Update to v8.48. ([b37ad01](https://github.com/moonrepo/dev/commit/b37ad01))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 2.0.7 - 2023-08-19
 
@@ -229,10 +161,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[eslint]** Update to v8.47. ([4b67745](https://github.com/moonrepo/dev/commit/4b67745))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 2.0.6 - 2023-07-31
 
@@ -249,10 +177,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.5 - 2023-06-13
 
 #### 📦 Dependencies
@@ -262,10 +186,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.4 - 2023-05-30
 
 #### 📦 Dependencies
@@ -274,10 +194,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[packemon]** Update to v3.1. ([85727f2](https://github.com/moonrepo/dev/commit/85727f2))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 2.0.3 - 2023-04-24
 
@@ -289,10 +205,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 2.0.2 - 2023-03-26
 
 #### 📦 Dependencies
@@ -301,10 +213,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[typescript-eslint]** Update to v5.56. ([c2402a4](https://github.com/moonrepo/dev/commit/c2402a4))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 ### 2.0.1 - 2023-03-13
 
@@ -317,10 +225,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[typescript-eslint]** Update to v5.55. ([d632be7](https://github.com/moonrepo/dev/commit/d632be7))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 # 2.0.0 - 2023-02-03
 
@@ -342,10 +246,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package eslint-config-moon
 
-
-
-
-
 ### 1.4.2 - 2023-01-31
 
 #### 📦 Dependencies
@@ -362,10 +262,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[typescript-eslint]** Update to v5.49. ([fe51420](https://github.com/moonrepo/dev/commit/fe51420))
 
 **Note:** Version bump only for package eslint-config-moon
-
-
-
-
 
 # Change Log
 

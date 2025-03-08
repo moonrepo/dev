@@ -11,18 +11,10 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @moonrepo/dev
 
-
-
-
-
 ## <small>3.0.1 (2024-05-27)</small>
 
-* deps(@typescript-eslint/*): Update to v7.10. ([82e0a08](https://github.com/moonrepo/dev/commit/82e0a08))
-* deps: Update dev and test dependencies. ([539c15e](https://github.com/moonrepo/dev/commit/539c15e))
-
-
-
-
+- deps(@typescript-eslint/\*): Update to v7.10. ([82e0a08](https://github.com/moonrepo/dev/commit/82e0a08))
+- deps: Update dev and test dependencies. ([539c15e](https://github.com/moonrepo/dev/commit/539c15e))
 
 # 3.0.0 - 2024-03-25
 
@@ -32,10 +24,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @moonrepo/dev
 
-
-
-
-
 ### 2.0.1 - 2023-05-30
 
 #### 📦 Dependencies
@@ -43,10 +31,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[packemon]** Update to v3.1. ([85727f2](https://github.com/moonrepo/dev/commit/85727f2))
 
 **Note:** Version bump only for package @moonrepo/dev
-
-
-
-
 
 # 2.0.0 - 2023-02-03
 
@@ -60,10 +44,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 
 **Note:** Version bump only for package @moonrepo/dev
 
-
-
-
-
 ### 1.3.1 - 2023-01-31
 
 #### 📦 Dependencies
@@ -71,10 +51,6 @@ See [Conventional Commits](https://conventionalcommits.org) for commit guideline
 - **[moon]** Update to v0.23. ([f95b29f](https://github.com/moonrepo/dev/commit/f95b29f))
 
 **Note:** Version bump only for package @moonrepo/dev
-
-
-
-
 
 # Change Log
 
