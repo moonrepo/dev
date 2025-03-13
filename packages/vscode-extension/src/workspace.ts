@@ -219,7 +219,7 @@ export class Workspace {
 			// Output is: moon 0.0.0
 			const parts = result.split(' ');
 
-			return parts[parts.length - 1];
+			return parts.at(-1)!;
 		} catch {
 			return '0.0.0';
 		}

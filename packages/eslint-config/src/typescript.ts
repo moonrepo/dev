@@ -1,3 +1,4 @@
+/* eslint-disable import/no-unresolved */
 import type eslint from 'eslint';
 // import { getTsProjectForEslint } from '@moonrepo/dev';
 import tsPlugin from '@typescript-eslint/eslint-plugin';
@@ -7,6 +8,7 @@ import * as tsParser from '@typescript-eslint/parser';
 const config: eslint.Linter.Config = {
 	name: 'moon:typescript',
 	languageOptions: {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		parser: tsParser,
 		parserOptions: {
 			projectService: true,

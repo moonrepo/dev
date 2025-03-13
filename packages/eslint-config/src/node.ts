@@ -1,6 +1,6 @@
 import type eslint from 'eslint';
-import nodePlugin from 'eslint-plugin-n';
 import compatPlugin from 'eslint-plugin-compat';
+import nodePlugin from 'eslint-plugin-n';
 import globals from 'globals';
 
 const config: eslint.Linter.Config = {

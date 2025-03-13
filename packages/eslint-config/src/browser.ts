@@ -1,7 +1,7 @@
 import type eslint from 'eslint';
-import { CONFIGS_LIST, TESTS_LIST } from '@moonrepo/dev';
 import compatPlugin from 'eslint-plugin-compat';
 import globals from 'globals';
+import { CONFIGS_LIST, TESTS_LIST } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	name: 'moon:browser',

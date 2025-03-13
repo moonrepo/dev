@@ -1,6 +1,6 @@
 import type eslint from 'eslint';
-import { EXTENSIONS_PATTERN, TESTS_LIST } from '@moonrepo/dev';
 import globals from 'globals';
+import { EXTENSIONS_PATTERN, TESTS_LIST } from '@moonrepo/dev';
 
 const testsConfig: eslint.Linter.Config = {
 	name: 'moon:tests',

@@ -54,7 +54,7 @@ export class LastRunProvider implements vscode.WebviewViewProvider {
 		}
 
 		const content = comments
-			.map((comment) => comment.replace(/\*\*(\w+)\*\*/g, (_, match) => `<b>${match}</b>`))
+			.map((comment) => comment.replaceAll(/\*\*(\w+)\*\*/g, (_, match) => `<b>${match}</b>`))
 			.join(', ');
 
 		return `| ${content}`;

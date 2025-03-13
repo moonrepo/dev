@@ -1,6 +1,6 @@
 import type eslint from 'eslint';
-import { EXTENSIONS_PATTERN, TESTS_LIST } from '@moonrepo/dev';
 import jestPlugin from 'eslint-plugin-jest';
+import { EXTENSIONS_PATTERN, TESTS_LIST } from '@moonrepo/dev';
 
 const jestConfig: eslint.Linter.Config = {
 	name: 'moon:jest',
