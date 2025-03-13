@@ -2572,7 +2572,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/dev@npm:^3.0.2, @moonrepo/dev@workspace:*, @moonrepo/dev@workspace:packages/dev":
+"@moonrepo/dev@npm:^3.1.0, @moonrepo/dev@workspace:*, @moonrepo/dev@workspace:packages/dev":
   version: 0.0.0-use.local
   resolution: "@moonrepo/dev@workspace:packages/dev"
   dependencies:
@@ -6398,7 +6398,7 @@ __metadata:
   resolution: "eslint-config-moon@workspace:packages/eslint-config"
   dependencies:
     "@eslint/compat": "npm:^1.2.7"
-    "@moonrepo/dev": "npm:^3.0.2"
+    "@moonrepo/dev": "npm:^3.1.0"
     "@typescript-eslint/eslint-plugin": "npm:^8.26.1"
     "@typescript-eslint/parser": "npm:^8.26.1"
     eslint: "npm:^9.22.0"
@@ -8985,7 +8985,7 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "jest-preset-moon@workspace:packages/jest-preset"
   dependencies:
-    "@moonrepo/dev": "npm:^3.0.2"
+    "@moonrepo/dev": "npm:^3.1.0"
     "@types/jest": "npm:^29.5.12"
     jest: "npm:^29.7.0"
     jest-circus: "npm:^29.7.0"
