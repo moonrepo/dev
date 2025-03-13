@@ -15,7 +15,7 @@ export function parseJson<T>(filePath: string): T {
 }
 
 export function parseVersion(version: string): number {
-	return Number.parseFloat(version.replace(/[^\d.]+/g, ''));
+	return Number.parseFloat(version.replaceAll(/[^\d.]+/g, ''));
 }
 
 // PACKAGE.JSON

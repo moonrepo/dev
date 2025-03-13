@@ -46,7 +46,7 @@
     "babel-preset-solid": "^1.9.5"
   },
   "devDependencies": {
-    "@babel/core": "^7.26.9"
+    "@babel/core": "^7.26.10"
   },
   "funding": {
     "type": "ko-fi",

@@ -1,6 +1,6 @@
 import type eslint from 'eslint';
-import { CONFIGS_LIST } from '@moonrepo/dev';
 import unicornPlugin from 'eslint-plugin-unicorn';
+import { CONFIGS_LIST } from '@moonrepo/dev';
 
 const config: eslint.Linter.Config = {
 	name: 'moon:unicorn',

@@ -1,5 +1,8 @@
 import { builtinModules } from 'module';
 import type eslint from 'eslint';
+// @ts-expect-error Not typed
+import * as importPlugin from 'eslint-plugin-import';
+import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 import {
 	CONFIGS_LIST,
 	EXTENSIONS,
@@ -7,13 +10,11 @@ import {
 	NON_JS_REGEX,
 	TS_PATH_PREFIX_REGEX,
 } from '@moonrepo/dev';
-// @ts-expect-error Not typed
-import * as importPlugin from 'eslint-plugin-import';
-import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 
 const config: eslint.Linter.Config = {
 	name: 'moon:module',
 	plugins: {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		import: importPlugin,
 		'simple-import-sort': simpleImportSortPlugin,
 	},

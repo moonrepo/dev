@@ -1,17 +1,18 @@
 import type eslint from 'eslint';
 import solidPlugin from 'eslint-plugin-solid';
+// import { type FixupPluginDefinition,fixupPluginRules } from '@eslint/compat';
 import browserConfig from './browser';
 
 const solidConfig: eslint.Linter.Config = {
 	name: 'moon:solid',
 	files: ['**/*.ts', '**/*.tsx'],
-	// @ts-expect-error Not typed
-	plugins: { solid: solidPlugin },
-	parserOptions: {
-		ecmaFeatures: {
-			jsx: true,
+	languageOptions: {
+		parserOptions: {
+			ecmaFeatures: {
+				jsx: true,
+			},
 		},
 	},
 };
 
-export default [browserConfig, solidPlugin.configs.typescript, solidConfig];
+export default [...browserConfig, solidPlugin.configs['flat/typescript'], solidConfig];

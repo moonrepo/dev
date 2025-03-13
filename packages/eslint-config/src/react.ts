@@ -1,11 +1,11 @@
 import type eslint from 'eslint';
-import { CASE_SENSITIVE, getPackageVersion } from '@moonrepo/dev';
 // @ts-expect-error Not typed
 import jsxA11yPlugin from 'eslint-plugin-jsx-a11y';
 import reactPlugin from 'eslint-plugin-react';
 import reactHooksPlugin from 'eslint-plugin-react-hooks';
 // @ts-expect-error Not typed
 import reactPerfPlugin from 'eslint-plugin-react-perf';
+import { CASE_SENSITIVE, getPackageVersion } from '@moonrepo/dev';
 import browserConfig from './browser';
 
 const reactVersion = getPackageVersion('react');
@@ -21,9 +21,11 @@ const reactConfig: eslint.Linter.Config = {
 		},
 	},
 	plugins: {
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		'jsx-a11y': jsxA11yPlugin,
 		react: reactPlugin,
 		'react-hooks': reactHooksPlugin,
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 		'react-perf': reactPerfPlugin,
 	},
 	settings: {
@@ -302,7 +304,8 @@ const testsConfig: eslint.Linter.Config = {
 // to TSX files. Not the entire codebase.
 export default [
 	browserConfig,
-	jsxA11yPlugin.configs.recommended,
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-member-access
+	jsxA11yPlugin.flatConfigs.recommended,
 	reactConfig,
 	hooksConfig,
 	testsConfig,

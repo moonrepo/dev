@@ -4,6 +4,7 @@ import promisePlugin from 'eslint-plugin-promise';
 
 const config: eslint.Linter.Config = {
 	name: 'moon:async',
+	// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
 	plugins: { promise: promisePlugin },
 	rules: {
 		'promise/param-names': 'error',
