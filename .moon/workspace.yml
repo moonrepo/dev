@@ -5,6 +5,8 @@ projects:
 
 experiments:
   actionPipelineV2: true
+  gitV2: true
+  fasterGlobWalk: true
 
 # https://moonrepo.dev/docs/config/workspace#runner
 runner:
