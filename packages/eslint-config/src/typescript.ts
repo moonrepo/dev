@@ -36,18 +36,12 @@ const config: eslint.Linter.Config = {
 		// Expands upon base config to handle type annotations
 		'default-param-last': 'off',
 		'dot-notation': 'off',
-		'no-array-constructor': 'off',
-		'no-dupe-class-members': 'off',
 		'no-duplicate-imports': 'off',
 		'no-implied-eval': 'off',
-		'no-invalid-this': 'off',
-		'no-loop-func': 'off',
-		'no-loss-of-precision': 'off',
 		'no-redeclare': 'off',
 		'no-shadow': 'off',
 		'no-throw-literal': 'off',
 		'no-undef': 'off', // Doesnt find namespaces
-		'no-unused-expressions': 'off',
 		'no-unused-vars': 'off',
 		'no-use-before-define': 'off',
 		'no-useless-constructor': 'off',
@@ -56,19 +50,13 @@ const config: eslint.Linter.Config = {
 		'no-return-await': 'off',
 		'@typescript-eslint/default-param-last': 'error',
 		'@typescript-eslint/dot-notation': 'error',
-		'@typescript-eslint/no-array-constructor': 'error',
-		'@typescript-eslint/no-dupe-class-members': 'error',
 		'@typescript-eslint/no-duplicate-imports': 'off', // Prefer import plugin
 		'@typescript-eslint/no-implied-eval': 'error',
-		'@typescript-eslint/no-invalid-this': 'error',
-		'@typescript-eslint/no-loop-func': 'error',
-		'@typescript-eslint/no-loss-of-precision': 'error',
 		'@typescript-eslint/no-redeclare': ['error', { ignoreDeclarationMerge: true }],
 		'@typescript-eslint/no-shadow': [
 			'error',
 			{ ignoreOnInitialization: true, ignoreTypeValueShadow: true },
 		],
-		'@typescript-eslint/no-unused-expressions': 'error',
 		'@typescript-eslint/no-unused-vars': [
 			'error',
 			{
