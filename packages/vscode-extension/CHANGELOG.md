@@ -1,3 +1,7 @@
+## 0.15.0
+
+- Added MCP support. Requires VS Code v1.102.0.
+
 ## 0.14.0
 
 - Added support for the task graph. Requires moon v1.30.

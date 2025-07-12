@@ -4,6 +4,7 @@ import vscode, {
 	Disposable,
 	type Event,
 	EventEmitter,
+	type IconPath,
 	TaskGroup,
 	ThemeIcon,
 	TreeItem,
@@ -36,17 +37,17 @@ const LANGUAGE_MANIFESTS: Record<LanguageType, string> = {
 };
 
 // https://devicon.dev
-function createLangIcon(context: vscode.ExtensionContext, name: LanguageType) {
-	const icon = context.asAbsolutePath(path.join(`assets/langs/${name}.svg`));
+function createLangIcon(context: vscode.ExtensionContext, name: LanguageType): IconPath {
+	const icon = vscode.Uri.joinPath(context.extensionUri, `assets/langs/${name}.svg`);
 
-	if (fs.existsSync(icon)) {
+	if (fs.existsSync(icon.fsPath)) {
 		return {
 			dark: icon,
 			light: icon,
 		};
 	}
 
-	const unknown = context.asAbsolutePath(path.join('assets/langs/unknown.svg'));
+	const unknown = vscode.Uri.joinPath(context.extensionUri, 'assets/langs/unknown.svg');
 
 	return {
 		dark: unknown,
