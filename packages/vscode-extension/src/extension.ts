@@ -14,6 +14,7 @@ export function activate(context: vscode.ExtensionContext) {
 	const workspace = new Workspace();
 	const projectsProvider = new ProjectsProvider(context, workspace, 'category');
 	const tagsProvider = new ProjectsProvider(context, workspace, 'tag');
+	const didChangeEmitter = new vscode.EventEmitter<void>();
 
 	context.subscriptions.push(
 		vscode.commands.registerCommand('moon.openSettings', () =>
@@ -52,6 +53,18 @@ export function activate(context: vscode.ExtensionContext) {
 			'moonLastRun',
 			new LastRunProvider(context, workspace),
 		),
+
+		// Support MCP
+		vscode.lm.registerMcpServerDefinitionProvider('moonMcpProvider', {
+			onDidChangeMcpServerDefinitions: didChangeEmitter.event,
+			provideMcpServerDefinitions: async () => {
+				return [
+					new vscode.McpStdioServerDefinition('moon', 'moon', ['mcp'], {
+						MOON_WORKSPACE_ROOT: '${workspaceFolder}',
+					}),
+				];
+			},
+		}),
 	);
 }
 
