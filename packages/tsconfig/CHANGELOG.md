@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.4.1 - 2025-07-25
+
+#### 📦 Dependencies
+
+- **[moon]** Update to v1.39. ([5ffe291](https://github.com/moonrepo/dev/commit/5ffe291))
+
+**Note:** Version bump only for package tsconfig-moon
+
+
+
+
+
 ## 1.3.0 - 2023-03-26
 
 #### 🚀 Updates

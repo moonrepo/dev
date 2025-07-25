@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+### 1.2.1 - 2025-07-25
+
+#### 📦 Dependencies
+
+- **[moon]** Update to v1.39. ([5ffe291](https://github.com/moonrepo/dev/commit/5ffe291))
+
+**Note:** Version bump only for package prettier-config-moon
+
+
+
+
+
 ### 1.1.2 - 2023-03-13
 
 #### 📦 Dependencies

@@ -1,6 +1,6 @@
 {
   "name": "prettier-config-moon",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "Strict Prettier config with a focus on accessibility.",
   "keywords": [
     "prettier",
