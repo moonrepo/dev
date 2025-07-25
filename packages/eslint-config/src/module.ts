@@ -1,6 +1,5 @@
 import { builtinModules } from 'module';
 import type eslint from 'eslint';
-// @ts-expect-error Not typed
 import * as importPlugin from 'eslint-plugin-import';
 import simpleImportSortPlugin from 'eslint-plugin-simple-import-sort';
 import {

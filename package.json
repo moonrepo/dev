@@ -15,7 +15,7 @@
     "@babel/core": "^7.28.0",
     "@moonrepo/cli": "^1.38.5",
     "@moonrepo/dev": "workspace:*",
-    "eslint": "^9.27.0",
+    "eslint": "^9.32.0",
     "jest": "^30.0.5",
     "jest-circus": "^30.0.5",
     "lerna": "^8.2.2",
