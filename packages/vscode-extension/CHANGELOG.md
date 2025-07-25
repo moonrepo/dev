@@ -1,3 +1,7 @@
+## 0.15.1
+
+- Added support for project `layer` in moon v1.39.
+
 ## 0.15.0
 
 - Added MCP support. Requires VS Code v1.102.0.

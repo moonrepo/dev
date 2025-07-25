@@ -13,8 +13,8 @@ import vscode, {
 } from 'vscode';
 import type {
 	LanguageType,
+	LayerType,
 	Project,
-	ProjectType,
 	StackType,
 	Task as ProjectTask,
 	Task,
@@ -184,19 +184,19 @@ class ProjectCategoryItem extends TreeItem {
 		this.projects = projects.map((project) => new ProjectItem(context, this, project));
 
 		let stack: StackType = 'unknown';
-		let type: ProjectType = 'unknown';
+		let layer: LayerType = 'unknown';
 		let label = '';
 
 		// moon >= v1.22
 		if (category.includes('+')) {
-			[stack, type] = category.split('+') as [StackType, ProjectType];
+			[stack, layer] = category.split('+') as [StackType, LayerType];
 		}
 		// moon < v1.22
 		else {
-			type = category as ProjectType;
+			layer = category as LayerType;
 		}
 
-		if (stack === 'unknown' && type === 'unknown') {
+		if (stack === 'unknown' && layer === 'unknown') {
 			label = 'other';
 		} else {
 			if (stack !== 'unknown') {
@@ -218,7 +218,7 @@ class ProjectCategoryItem extends TreeItem {
 				label += ' ';
 			}
 
-			switch (type) {
+			switch (layer) {
 				case 'application':
 					label += 'applications';
 					break;
@@ -385,8 +385,9 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 		this.projects!.forEach((project) => {
 			const stack: string = project.config.stack || 'unknown';
-			const type: string = project.config.type || 'unknown';
-			const key = `${stack}+${type}`;
+			// @ts-expect-error TODO `type` is deprecated!
+			const layer: string = project.config.layer || project.config.type || 'unknown';
+			const key = `${stack}+${layer}`;
 
 			if (key === 'unknown+unknown') {
 				uncategorized.push(project);
