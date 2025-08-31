@@ -1,3 +1,8 @@
+## 0.15.2
+
+- Requires VS Code v1.103.0.
+- Published to Open VSX.
+
 ## 0.15.1
 
 - Added support for project `layer` in moon v1.39.

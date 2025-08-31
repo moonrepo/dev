@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.15.1",
+  "version": "0.15.2",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -21,7 +21,7 @@
     "tasks"
   ],
   "engines": {
-    "vscode": "^1.102.0"
+    "vscode": "^1.103.0"
   },
   "categories": [
     "Testing",
@@ -349,7 +349,9 @@
     "compile": "esbuild src/extension.ts --bundle --outfile=lib/extension.js --external:vscode --format=cjs --platform=node --target=node14",
     "watch": "yarn run compile --sourcemap --watch",
     "package": "vsce package --no-dependencies",
-    "publish": "vsce publish --no-dependencies --no-git-tag-version --message 'Release [ci skip]'"
+    "publish": "yarn run publish:ovsx && yarn run publish:vsce",
+    "publish:vsce": "vsce publish --no-dependencies --no-git-tag-version --message 'Release [ci skip]'",
+    "publish:ovsx": "ovsx publish --no-dependencies -p $OPENVSX_TOKEN"
   },
   "dependencies": {
     "@moonrepo/report": "^1.4.0",
@@ -359,9 +361,10 @@
   "devDependencies": {
     "@moonrepo/types": "^1.31.0",
     "@types/semver": "^7.7.0",
-    "@types/vscode": "1.102.0",
+    "@types/vscode": "1.103.0",
     "@vscode/test-electron": "^2.5.2",
     "@vscode/vsce": "^3.6.0",
-    "esbuild": "^0.25.8"
+    "esbuild": "^0.25.8",
+    "ovsx": "^0.10.5"
   }
 }
