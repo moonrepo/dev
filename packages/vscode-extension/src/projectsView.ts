@@ -385,7 +385,6 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 		this.projects!.forEach((project) => {
 			const stack: string = project.config.stack || 'unknown';
-			// @ts-expect-error TODO `type` is deprecated!
 			const layer: string = project.config.layer || project.config.type || 'unknown';
 			const key = `${stack}+${layer}`;
 
