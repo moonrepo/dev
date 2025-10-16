@@ -43,7 +43,7 @@ export async function runTask(
 	workspace: Workspace,
 	modifier?: (task: Task) => void,
 ) {
-	if (!workspace.root || !workspace.binPath) {
+	if (!workspace.root || !workspace.binPath || !target) {
 		return;
 	}
 

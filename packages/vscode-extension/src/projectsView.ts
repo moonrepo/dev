@@ -99,13 +99,13 @@ class TaskItem extends TreeItem {
 	parent: ProjectItem;
 
 	constructor(parent: ProjectItem, task: ProjectTask) {
-		super(task.target.split(':', 2)[1], TreeItemCollapsibleState.None);
+		super(task.id, TreeItemCollapsibleState.None);
 
 		this.parent = parent;
 		this.task = task;
 		this.id = `${parent.id}-task-${task.id}`;
 		this.contextValue = 'projectTask';
-		this.description = [task.command, ...task.args].join(' ');
+		this.description = [task.command, ...(task.args ?? [])].join(' ');
 
 		switch (task.type) {
 			case 'build':
@@ -150,7 +150,7 @@ class ProjectItem extends TreeItem {
 			this.tooltip = `${metadata.name} - ${metadata.description}`;
 		}
 
-		this.tasks = Object.values(project.tasks)
+		this.tasks = Object.values(project.tasks ?? {})
 			.filter((task) => canShowTask(task, this.parent.hideTasks))
 			.map((task) => new TaskItem(this, task));
 
