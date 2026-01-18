@@ -3,6 +3,22 @@
 All notable changes to this project will be documented in this file.
 See [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## 4.0.4 - 2026-01-18
+
+#### 🚀 Updates
+
+- Support moon v2. ([d17ac83](https://github.com/moonrepo/dev/commit/d17ac83))
+
+#### 📦 Dependencies
+
+- **[eslint]** Update to v9.39. ([a23c770](https://github.com/moonrepo/dev/commit/a23c770))
+
+**Note:** Version bump only for package eslint-config-moon
+
+
+
+
+
 ### 4.0.3 - 2025-07-25
 
 #### 📦 Dependencies
