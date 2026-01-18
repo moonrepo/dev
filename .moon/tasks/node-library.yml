@@ -1,19 +1,22 @@
-$schema: 'https://moonrepo.dev/schemas/tasks.json'
+$schema: ../cache/schemas/tasks.json
+
+inheritedBy:
+  toolchain: node
+  layer: library
 
 tasks:
-  # https://moonrepo.dev/docs/guides/examples/packemon
   build:
-    command: 'packemon'
+    command: packemon
     args:
-      - 'build'
-      - '--addEngines'
-      - '--addExports'
-      - '--declaration'
+      - build
+      - --addEngines
+      - --addExports
+      - --declaration
     inputs:
       - '@globs(sources)'
       - '@globs(typescript)'
-      - 'package.json'
+      - package.json
     outputs:
-      - 'lib'
+      - lib
     env:
-      NODE_ENV: 'production'
+      NODE_ENV: production

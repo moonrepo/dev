@@ -1,22 +1,24 @@
-stack: 'frontend'
-layer: 'tool'
-tags: ['extension']
+stack: frontend
+layer: tool
+tags:
+  - extension
 
 project:
-  name: 'VS Code extension'
-  description: 'This is to purely test metadata in the extension.'
+  title: VS Code extension
+  description: This is to purely test metadata in the extension.
+  maintainers: []
   channel: ''
   owner: ''
-  maintainers: []
 
 workspace:
   inheritedTasks:
-    exclude: ['build']
+    exclude:
+      - build
 
 tasks:
   build:
-    command: 'yarn run compile'
+    command: yarn run compile
     inputs:
-      - 'src/**/*'
+      - src/**/*
     outputs:
-      - 'lib'
+      - lib

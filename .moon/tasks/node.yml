@@ -1,96 +1,90 @@
-$schema: 'https://moonrepo.dev/schemas/tasks.json'
+$schema: ../cache/schemas/tasks.json
 
-# Instead of fine tuning each project, always build dependencies and rely on the cache
+inheritedBy:
+  toolchain: node
+
 implicitDeps:
-  - '^:build'
+  - ^:build
 
 implicitInputs:
-  - 'package.json'
+  - package.json
 
 fileGroups:
   configs:
     - '*.{js,cjs,mjs,json}'
   sources:
-    - 'src/**/*'
-    - 'types/**/*'
+    - src/**/*
+    - types/**/*
   tests:
-    - 'tests/**/*.test.*'
+    - tests/**/*.test.*
     - '**/__tests__/**/*'
   assets:
-    - 'assets/**/*'
-    - 'images/**/*'
-    - 'static/**/*'
+    - assets/**/*
+    - images/**/*
+    - static/**/*
     - '**/*.{scss,css}'
     - '**/*.mdx'
   typescript:
-    - 'tsconfig.json'
-    - 'tsconfig.*.json'
-    - '/tsconfig.json'
-    - '/tsconfig.*.json'
+    - tsconfig.json
+    - tsconfig.*.json
+    - /tsconfig.json
+    - /tsconfig.*.json
 
 tasks:
-  # https://moonrepo.dev/docs/guides/examples/prettier
   format:
-    command: 'prettier'
+    command: prettier
     args:
-      - '--config'
+      - --config
       - '@in(1)'
-      - '--ignore-path'
+      - --ignore-path
       - '@in(0)'
-      - '--check'
-      - '.'
+      - --check
+      - .
     inputs:
-      - '/.prettierignore'
-      - '/.prettierrc.js'
+      - /.prettierignore
+      - /.prettierrc.js
       - '@globs(configs)'
       - '@globs(sources)'
       - '@globs(tests)'
       - '**/*.{md,mdx,yml,yaml,json}'
-
   format-write:
-    command: 'prettier'
+    command: prettier
     args:
-      - '--config'
+      - --config
       - '@in(1)'
-      - '--ignore-path'
+      - --ignore-path
       - '@in(0)'
-      - '--write'
-      - '.'
+      - --write
+      - .
     inputs:
-      - '/.prettierignore'
-      - '/.prettierrc.js'
-    local: true
-
-  # https://moonrepo.dev/docs/guides/examples/eslint
+      - /.prettierignore
+      - /.prettierrc.js
+    preset: server
   lint:
-    command: 'eslint'
+    command: eslint
     args:
-      - '--fix'
-      - '--report-unused-disable-directives'
-      - '--no-error-on-unmatched-pattern'
-      - '--exit-on-fatal-error'
-      - '.'
+      - --fix
+      - --report-unused-disable-directives
+      - --no-error-on-unmatched-pattern
+      - --exit-on-fatal-error
+      - .
     inputs:
       - '@globs(configs)'
       - '@globs(sources)'
       - '@globs(tests)'
       - '@globs(typescript)'
-      - '/eslint.config.*'
-
-  # https://moonrepo.dev/docs/guides/examples/jest
+      - /eslint.config.*
   test:
-    command: 'jest --coverage --passWithNoTests'
+    command: jest --coverage --passWithNoTests
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'
-      - '.babelrc.*'
-      - 'babel.config.*'
-      - 'jest.config.*'
-      - '/babel.config.*'
-
-  # https://moonrepo.dev/docs/guides/examples/typescript
+      - .babelrc.*
+      - babel.config.*
+      - jest.config.*
+      - /babel.config.*
   typecheck:
-    command: 'tsc --build --pretty'
+    command: tsc --build --pretty
     inputs:
       - '@globs(sources)'
       - '@globs(tests)'

@@ -1,0 +1,20 @@
+$schema: ./cache/schemas/toolchains.json
+
+node:
+  version: '22.17.0'
+
+yarn:
+  version: '4.9.2'
+
+javascript:
+  packageManager: yarn
+  dedupeOnLockfileChange: true
+  dependencyVersionFormat: workspace-caret
+  syncProjectWorkspaceDependencies: true
+  inferTasksFromScripts: false
+
+typescript:
+  createMissingConfig: true
+  routeOutDirToCache: true
+  syncProjectReferences: true
+  syncProjectReferencesToPaths: false

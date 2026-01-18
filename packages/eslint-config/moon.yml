@@ -1,4 +1,3 @@
-layer: 'library'
-
+layer: library
 dependsOn:
-  - 'dev'
+  - dev

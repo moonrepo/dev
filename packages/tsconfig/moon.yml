@@ -1,8 +1,10 @@
-layer: 'library'
-
-toolchain:
-  typescript: false
+layer: library
 
 workspace:
   inheritedTasks:
-    exclude: ['build', 'typecheck']
+    exclude:
+      - build
+      - typecheck
+
+toolchains:
+  typescript: null

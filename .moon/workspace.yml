@@ -1,27 +1,12 @@
-$schema: 'https://moonrepo.dev/schemas/workspace.json'
+$schema: ./cache/schemas/workspace.json
 
 projects:
-  - 'packages/*'
+  - packages/*
 
-experiments:
-  actionPipelineV2: true
-  gitV2: true
-  fasterGlobWalk: true
-
-# https://moonrepo.dev/docs/config/workspace#runner
-runner:
-  # Cache these targets in the cloud
-  archivableTargets:
-    - ':format'
-    - ':lint'
-    - ':test'
-    - ':typecheck'
-  # Colors are nice...
-  inheritColorsForPipedTasks: true
-  # Always log the command so consumers understand what's happening.
+pipeline:
   logRunningCommand: true
+  inheritColorsForPipedTasks: true
 
-# https://moonrepo.dev/docs/config/workspace#vcs
 vcs:
-  manager: 'git'
-  defaultBranch: 'master'
+  client: git
+  defaultBranch: master
