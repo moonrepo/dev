@@ -24,7 +24,7 @@ const config: eslint.Linter.Config = {
 			__PROD__: 'readonly',
 			__TEST__: 'readonly',
 		},
-		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		 
 		parser: tsParser,
 		parserOptions: {
 			sourceType: 'module',
