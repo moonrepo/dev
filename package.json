@@ -13,7 +13,7 @@
   ],
   "devDependencies": {
     "@babel/core": "^7.28.0",
-    "@moonrepo/cli": "^2.0.0-beta.0",
+    "@moonrepo/cli": "^2.0.0-alpha.2",
     "@moonrepo/dev": "workspace:*",
     "eslint": "^9.32.0",
     "jest": "^30.0.5",

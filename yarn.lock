@@ -2822,7 +2822,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/cli@npm:^2.0.0-beta.0":
+"@moonrepo/cli@npm:^2.0.0-alpha.2":
   version: 2.0.0-canary.202512052107
   resolution: "@moonrepo/cli@npm:2.0.0-canary.202512052107"
   dependencies:
@@ -11551,7 +11551,7 @@ __metadata:
   resolution: "moon-dev@workspace:."
   dependencies:
     "@babel/core": "npm:^7.28.0"
-    "@moonrepo/cli": "npm:^2.0.0-beta.0"
+    "@moonrepo/cli": "npm:^2.0.0-alpha.2"
     "@moonrepo/dev": "workspace:*"
     eslint: "npm:^9.32.0"
     jest: "npm:^30.0.5"
