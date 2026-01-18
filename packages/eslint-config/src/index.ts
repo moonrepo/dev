@@ -24,7 +24,6 @@ const config: eslint.Linter.Config = {
 			__PROD__: 'readonly',
 			__TEST__: 'readonly',
 		},
-		 
 		parser: tsParser,
 		parserOptions: {
 			sourceType: 'module',
