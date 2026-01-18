@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.15.3",
+  "version": "0.16.0",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -354,12 +354,12 @@
     "publish:ovsx": "ovsx publish --no-dependencies -p $OPENVSX_TOKEN"
   },
   "dependencies": {
-    "@moonrepo/report": "^1.4.0",
+    "@moonrepo/report": "^2.0.1",
     "execa": "^5.1.1",
     "semver": "^7.7.3"
   },
   "devDependencies": {
-    "@moonrepo/types": "^1.33.2",
+    "@moonrepo/types": "^2.0.0",
     "@types/semver": "^7.7.1",
     "@types/vscode": "1.103.0",
     "@vscode/test-electron": "^2.5.2",

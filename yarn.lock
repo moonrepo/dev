@@ -2911,19 +2911,19 @@ __metadata:
   languageName: unknown
   linkType: soft
 
-"@moonrepo/report@npm:^1.4.0":
-  version: 1.4.0
-  resolution: "@moonrepo/report@npm:1.4.0"
+"@moonrepo/report@npm:^2.0.1":
+  version: 2.0.1
+  resolution: "@moonrepo/report@npm:2.0.1"
   dependencies:
-    "@moonrepo/types": "npm:^1.26.0"
-  checksum: 10/81df511c1fd0a54fd9aa16dab61ac29327e75a1515143a0dd13bb376bb2c32bec7c9897767af4955c2360a35e00b02f4d66c78fcb9c10786e2c29bd2bee04beb
+    "@moonrepo/types": "npm:^2.0.0"
+  checksum: 10/5dcbba1c6425fbe5b3a8e2be8e9ad1bd58cf56bffb0be4ad571ee328c3e4429b52e8251bfc28e72aed0dbfe68d630623c1142975c956e0c690adff6c9b32049e
   languageName: node
   linkType: hard
 
-"@moonrepo/types@npm:^1.26.0, @moonrepo/types@npm:^1.33.2":
-  version: 1.33.2
-  resolution: "@moonrepo/types@npm:1.33.2"
-  checksum: 10/4a5c986af828c61ccd53da0abae21e7c698a2cbb5924b1964899f930fc0444176d9fd4fdc83b02cb3e16dc7d61508759305df397b02048a14d3556851acb95d3
+"@moonrepo/types@npm:^2.0.0":
+  version: 2.0.0
+  resolution: "@moonrepo/types@npm:2.0.0"
+  checksum: 10/c9368b997c5d859fb855787877e1e3275e2f0bcce272758d452c4d04cb236f867387e634eb07f55d884245a54d011d10e6c050a49ca1e0ee218bad67137182d8
   languageName: node
   linkType: hard
 
@@ -11527,8 +11527,8 @@ __metadata:
   version: 0.0.0-use.local
   resolution: "moon-console@workspace:packages/vscode-extension"
   dependencies:
-    "@moonrepo/report": "npm:^1.4.0"
-    "@moonrepo/types": "npm:^1.33.2"
+    "@moonrepo/report": "npm:^2.0.1"
+    "@moonrepo/types": "npm:^2.0.0"
     "@types/semver": "npm:^7.7.1"
     "@types/vscode": "npm:1.103.0"
     "@vscode/test-electron": "npm:^2.5.2"

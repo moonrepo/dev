@@ -17,7 +17,6 @@ import type {
 	Project,
 	StackType,
 	Task as ProjectTask,
-	Task,
 } from '@moonrepo/types';
 import { checkProject, runTask } from './commands';
 import type { Workspace } from './workspace';
@@ -56,7 +55,7 @@ function createLangIcon(context: vscode.ExtensionContext, name: LanguageType): I
 }
 
 // eslint-disable-next-line complexity
-function canShowTask(task: Task, hideTargets: Set<string>): boolean {
+function canShowTask(task: ProjectTask, hideTargets: Set<string>): boolean {
 	const { target } = task;
 
 	if (task.options.internal || hideTargets.has(':') || hideTargets.has('*:*')) {
@@ -147,7 +146,8 @@ class ProjectItem extends TreeItem {
 		const { project: metadata } = project.config;
 
 		if (metadata) {
-			this.tooltip = `${metadata.name} - ${metadata.description}`;
+			// @ts-expect-error Support moon v1 `name`
+			this.tooltip = `${metadata.title || metadata.name} - ${metadata.description}`;
 		}
 
 		this.tasks = Object.values(project.tasks ?? {})
@@ -385,6 +385,7 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 		this.projects!.forEach((project) => {
 			const stack: string = project.config.stack || 'unknown';
+			// @ts-expect-error Support moon v1 `type`
 			const layer: string = project.config.layer || project.config.type || 'unknown';
 			const key = `${stack}+${layer}`;
 

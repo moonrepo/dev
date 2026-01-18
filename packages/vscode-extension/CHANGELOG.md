@@ -1,3 +1,7 @@
+## 0.16.0
+
+- Updated to support moon v2.
+
 ## 0.15.2
 
 - Requires VS Code v1.103.0.
