@@ -129,6 +129,9 @@ export async function appendSchemasConfig(context: vscode.ExtensionContext, work
 
 	settings['yaml.schemas'] = {
 		...schemas,
+		'./.moon/cache/schemas/extensions.json': [
+			path.join(workspace.rootPrefix, '.moon/extensions.yml'),
+		],
 		'./.moon/cache/schemas/project.json': ['**/moon.yml'],
 		'./.moon/cache/schemas/tasks.json': [
 			path.join(workspace.rootPrefix, '.moon/tasks.yml'),
@@ -137,6 +140,9 @@ export async function appendSchemasConfig(context: vscode.ExtensionContext, work
 		'./.moon/cache/schemas/template.json': ['**/template.yml'],
 		'./.moon/cache/schemas/toolchain.json': [
 			path.join(workspace.rootPrefix, '.moon/toolchain.yml'),
+		],
+		'./.moon/cache/schemas/toolchains.json': [
+			path.join(workspace.rootPrefix, '.moon/toolchains.yml'),
 		],
 		'./.moon/cache/schemas/workspace.json': [
 			path.join(workspace.rootPrefix, '.moon/workspace.yml'),

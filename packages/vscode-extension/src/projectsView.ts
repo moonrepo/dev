@@ -1,5 +1,6 @@
 import fs from 'fs';
 import path from 'path';
+import { satisfies } from 'semver';
 import vscode, {
 	Disposable,
 	type Event,
@@ -312,12 +313,12 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 
 			// When `.moon/**/*.*` is changed, refresh projects
 			const watcher1 = vscode.workspace.createFileSystemWatcher(
-				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('**/*.{pkl,yml}')),
+				new vscode.RelativePattern(folder.uri, workspace.getMoonDirPath('**/*')),
 			);
 
 			// When `moon.*` is changed, refresh projects
 			const watcher2 = vscode.workspace.createFileSystemWatcher(
-				new vscode.RelativePattern(folder.uri, '**/moon.{pkl,yml}'),
+				new vscode.RelativePattern(folder.uri, '**/moon.*'),
 			);
 
 			watcher1.onDidChange(this.refresh, this);
@@ -357,9 +358,14 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		}
 
 		if (!this.projects) {
-			const { projects } = JSON.parse(
-				await this.workspace.execMoon(['query', 'projects', '--json']),
-			) as {
+			const version = await this.workspace.getMoonVersion();
+			const args = ['query', 'projects'];
+
+			if (satisfies(version, '<2.0.0-alpha.0')) {
+				args.push('--json');
+			}
+
+			const { projects } = JSON.parse(await this.workspace.execMoon(args)) as {
 				projects: Project[];
 			};
 
@@ -451,18 +457,15 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	async viewProject(item: ProjectItem) {
 		await vscode.commands.executeCommand('workbench.view.explorer');
 
-		const yamlUri = Uri.file(path.join(item.project.root, 'moon.yml'));
-		const pklUri = Uri.file(path.join(item.project.root, 'moon.pkl'));
+		for (const ext of ['yaml', 'yml', 'json', 'jsonc', 'toml', 'hcl', 'pkl']) {
+			const uri = Uri.file(path.join(item.project.root, `moon.${ext}`));
 
-		await vscode.commands.executeCommand(
-			'vscode.open',
-			fs.existsSync(yamlUri.fsPath)
-				? yamlUri
-				: fs.existsSync(pklUri.fsPath)
-					? pklUri
-					: item.resourceUri,
-		);
+			if (fs.existsSync(uri.fsPath)) {
+				await vscode.commands.executeCommand('vscode.open', uri);
+				return;
+			}
+		}
 
-		// await vscode.commands.executeCommand('vscode.openFolder', Uri.file(item.project.root));
+		await vscode.commands.executeCommand('vscode.openFolder', Uri.file(item.project.root));
 	}
 }
