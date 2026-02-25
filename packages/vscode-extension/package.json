@@ -359,7 +359,7 @@
     "semver": "^7.7.3"
   },
   "devDependencies": {
-    "@moonrepo/types": "^2.0.0",
+    "@moonrepo/types": "^2.0.1",
     "@types/semver": "^7.7.1",
     "@types/vscode": "1.103.0",
     "@vscode/test-electron": "^2.5.2",

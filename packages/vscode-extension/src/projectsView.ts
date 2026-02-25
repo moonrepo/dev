@@ -146,7 +146,6 @@ class ProjectItem extends TreeItem {
 		const { project: metadata } = project.config;
 
 		if (metadata) {
-			// @ts-expect-error Support moon v1 `name`
 			this.tooltip = `${metadata.title || metadata.name} - ${metadata.description}`;
 		}
 
@@ -410,11 +409,11 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		const tags: Record<string, Project[]> = {};
 		const untagged: Project[] = [];
 
-		this.projects!.forEach((project) => {
-			if (project.config.tags.length === 0) {
+		this.projects?.forEach((project) => {
+			if (project.config.tags?.length === 0) {
 				untagged.push(project);
 			} else {
-				project.config.tags.forEach((tag) => {
+				project.config.tags?.forEach((tag) => {
 					tags[tag] ||= [];
 					tags[tag].push(project);
 				});
