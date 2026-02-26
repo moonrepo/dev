@@ -1,3 +1,7 @@
+## 0.16.2
+
+- Fixed more moon v2 issues.
+
 ## 0.16.1
 
 - Fixed some moon v2 issues.
