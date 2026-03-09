@@ -25,6 +25,13 @@ alt="Screenshot of projects view" width="300px" />
 
 Similar to the projects view, the tags view displays projects grouped by their `tags`.
 
+For each tag, two sections are shown:
+
+- **Tasks** – Lists tasks that exist across projects with that tag. These tasks can be executed for all projects with the tag.
+- **Projects** – Lists the projects associated with the tag.
+
+Running a task from the **Tasks** section will execute the task for all projects matching the tag.
+
 <img
 src="https://raw.githubusercontent.com/moonrepo/dev/master/packages/vscode-extension/images/tags-view.png"
 alt="Screenshot of tags view" width="300px" />
