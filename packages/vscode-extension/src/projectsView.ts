@@ -269,6 +269,49 @@ class ProjectTagItem extends TreeItem {
 	}
 }
 
+class TagTaskItem extends TreeItem {
+	tag: string;
+	taskId: string;
+
+	constructor(tag: string, taskId: string) {
+		super(taskId, TreeItemCollapsibleState.None);
+
+		this.tag = tag;
+		this.taskId = taskId;
+		this.id = `tag-${tag}-task-${taskId}`;
+		this.contextValue = 'tagTask';
+		this.iconPath = new ThemeIcon('play');
+
+		this.command = {
+			command: 'moon.projectTag.runTagTask',
+			title: 'Run Tag Task',
+			arguments: [this],
+		};
+	}
+}
+
+class TagTasksGroup extends TreeItem {
+	parent: ProjectTagItem;
+
+	constructor(parent: ProjectTagItem) {
+		super('Tasks', TreeItemCollapsibleState.Expanded);
+		this.parent = parent;
+		this.contextValue = 'tagTasksGroup';
+		this.iconPath = new ThemeIcon('list-unordered');
+	}
+}
+
+class TagProjectsGroup extends TreeItem {
+	parent: ProjectTagItem;
+
+	constructor(parent: ProjectTagItem) {
+		super('Projects', TreeItemCollapsibleState.Expanded);
+		this.parent = parent;
+		this.contextValue = 'tagProjectsGroup';
+		this.iconPath = new ThemeIcon('repo');
+	}
+}
+
 export type ProjectsType = 'category' | 'tag';
 
 export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
@@ -354,9 +397,36 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 		}
 
 		if (element instanceof ProjectTagItem) {
-			return element.projects;
+			if (element.id === `tag-${UNTAGGED}`) {
+				return element.projects;
+			}
+			return [
+				new TagTasksGroup(element),
+				new TagProjectsGroup(element)
+			];
 		}
 
+		if (element instanceof TagTasksGroup) {
+			const projects = element.parent.projects;
+
+			const taskIds = new Set<string>();
+
+			projects.forEach((projectItem) => {
+				projectItem.tasks.forEach((taskItem) => {
+					taskIds.add(taskItem.task.id);
+				});
+			});
+
+			const tag = element.parent.label!.replace('#', '');
+
+			return Array.from(taskIds)
+				.sort()
+				.map((taskId) => new TagTaskItem(tag, taskId));
+		}
+
+		if (element instanceof TagProjectsGroup) {
+			return element.parent.projects;
+		}
 		if (!this.projects) {
 			const version = await this.workspace.getMoonVersion();
 			const args = ['query', 'projects'];
@@ -447,6 +517,14 @@ export class ProjectsProvider implements vscode.TreeDataProvider<TreeItem> {
 	async runTask(item: TaskItem) {
 		await runTask(item.task.target, this.workspace, (task) => {
 			task.group = item.task.type === 'build' ? TaskGroup.Build : TaskGroup.Test;
+		});
+	}
+
+	async runTagTask(item: TagTaskItem) {
+		const target = `'#${item.tag}:${item.taskId}'`;
+
+		await runTask(target, this.workspace, (task) => {
+			task.group = TaskGroup.Build;
 		});
 	}
 
