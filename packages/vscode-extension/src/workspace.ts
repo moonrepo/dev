@@ -107,32 +107,45 @@ export class Workspace {
 
 		if (workspaceFolder) {
 			this.folder = workspaceFolder;
-
 			this.logger.appendLine(`Found workspace folder ${workspaceFolder.uri.fsPath}`);
 			this.logger.appendLine('Attempting to find a moon installation');
 
 			const rootPrefixes = vscode.workspace
 				.getConfiguration('moon')
 				.get('rootPrefixes', [] as string[]);
+
+			// Always include "." at the end
 			rootPrefixes.push('.');
 
 			let foundRoot = false;
 
 			for (const prefix of rootPrefixes) {
-				const moonDir = path.join(workspaceFolder.uri.fsPath, prefix, '.moon');
+				// Moon v1: <workspace>/.moon
+				const v1Path = path.join(workspaceFolder.uri.fsPath, prefix, '.moon');
 
-				if (fs.existsSync(moonDir)) {
-					this.root = path.dirname(moonDir);
-					this.rootPrefix = prefix;
-					this.binPath = this.findMoonBin();
+				// Moon v2: <workspace>/.config/moon
+				const v2Path = path.join(workspaceFolder.uri.fsPath, prefix, '.config', 'moon');
 
-					this.logger.appendLine(`Found moon workspace root at ${this.root}`);
+				const candidateDirs = [v1Path, v2Path];
 
-					if (this.binPath) {
-						this.logger.appendLine(`Found moon binary at ${this.binPath}`);
+				for (const moonDir of candidateDirs) {
+					if (fs.existsSync(moonDir)) {
+						this.root = path.dirname(moonDir);
+						this.rootPrefix = prefix;
+						this.binPath = this.findMoonBin();
+
+						this.logger.appendLine(`Found moon workspace root at ${this.root}`);
+
+						if (this.binPath) {
+							this.logger.appendLine(`Found moon binary at ${this.binPath}`);
+						}
+
+						foundRoot = true;
+						break;
 					}
+				}
 
-					foundRoot = true;
+				if (foundRoot) {
 					break;
 				}
 			}
@@ -148,7 +161,6 @@ export class Workspace {
 
 		// Update context
 		void vscode.commands.executeCommand('setContext', 'moon.inWorkspaceRoot', this.root !== null);
-
 		void vscode.commands.executeCommand(
 			'setContext',
 			'moon.hasBinary',
