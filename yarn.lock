@@ -3062,18 +3062,18 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/cli@npm:^2.0.0-alpha.2":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/cli@npm:2.0.0-canary.202512052107"
+"@moonrepo/cli@npm:^2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/cli@npm:2.2.1"
   dependencies:
-    "@moonrepo/core-linux-arm64-gnu": "npm:2.0.0-canary.202512052107"
-    "@moonrepo/core-linux-arm64-musl": "npm:2.0.0-canary.202512052107"
-    "@moonrepo/core-linux-x64-gnu": "npm:2.0.0-canary.202512052107"
-    "@moonrepo/core-linux-x64-musl": "npm:2.0.0-canary.202512052107"
-    "@moonrepo/core-macos-arm64": "npm:2.0.0-canary.202512052107"
-    "@moonrepo/core-macos-x64": "npm:2.0.0-canary.202512052107"
-    "@moonrepo/core-windows-x64-msvc": "npm:2.0.0-canary.202512052107"
-    detect-libc: "npm:^2.0.4"
+    "@moonrepo/core-linux-arm64-gnu": "npm:2.2.1"
+    "@moonrepo/core-linux-arm64-musl": "npm:2.2.1"
+    "@moonrepo/core-linux-x64-gnu": "npm:2.2.1"
+    "@moonrepo/core-linux-x64-musl": "npm:2.2.1"
+    "@moonrepo/core-macos-arm64": "npm:2.2.1"
+    "@moonrepo/core-macos-x64": "npm:2.2.1"
+    "@moonrepo/core-windows-x64-msvc": "npm:2.2.1"
+    detect-libc: "npm:^2.1.2"
   dependenciesMeta:
     "@moonrepo/core-linux-arm64-gnu":
       optional: true
@@ -3091,55 +3091,56 @@ __metadata:
       optional: true
   bin:
     moon: moon.js
-  checksum: 10/ca232503265724c60a83154250428bf10a5d4eee5436640338aefb6293639096a447837ec0357160d18a398736b0202da7731292348d935177f3efd431deb92a
+    moonx: moonx.js
+  checksum: 10/1c176cb7650a20ae376266d0a86b4959b0bc2692aee0af3a2a371ad2b3ace4e61c151625a7f0b4137a57822f467be18f505ef11373818abc7a005582766d79e6
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-gnu@npm:2.0.0-canary.202512052107":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/core-linux-arm64-gnu@npm:2.0.0-canary.202512052107"
+"@moonrepo/core-linux-arm64-gnu@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/core-linux-arm64-gnu@npm:2.2.1"
   conditions: os=linux & cpu=arm64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-arm64-musl@npm:2.0.0-canary.202512052107":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/core-linux-arm64-musl@npm:2.0.0-canary.202512052107"
+"@moonrepo/core-linux-arm64-musl@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/core-linux-arm64-musl@npm:2.2.1"
   conditions: os=linux & cpu=arm64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-gnu@npm:2.0.0-canary.202512052107":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/core-linux-x64-gnu@npm:2.0.0-canary.202512052107"
+"@moonrepo/core-linux-x64-gnu@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/core-linux-x64-gnu@npm:2.2.1"
   conditions: os=linux & cpu=x64 & libc=glibc
   languageName: node
   linkType: hard
 
-"@moonrepo/core-linux-x64-musl@npm:2.0.0-canary.202512052107":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/core-linux-x64-musl@npm:2.0.0-canary.202512052107"
+"@moonrepo/core-linux-x64-musl@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/core-linux-x64-musl@npm:2.2.1"
   conditions: os=linux & cpu=x64 & libc=musl
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-arm64@npm:2.0.0-canary.202512052107":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/core-macos-arm64@npm:2.0.0-canary.202512052107"
+"@moonrepo/core-macos-arm64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/core-macos-arm64@npm:2.2.1"
   conditions: os=darwin & cpu=arm64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-macos-x64@npm:2.0.0-canary.202512052107":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/core-macos-x64@npm:2.0.0-canary.202512052107"
+"@moonrepo/core-macos-x64@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/core-macos-x64@npm:2.2.1"
   conditions: os=darwin & cpu=x64
   languageName: node
   linkType: hard
 
-"@moonrepo/core-windows-x64-msvc@npm:2.0.0-canary.202512052107":
-  version: 2.0.0-canary.202512052107
-  resolution: "@moonrepo/core-windows-x64-msvc@npm:2.0.0-canary.202512052107"
+"@moonrepo/core-windows-x64-msvc@npm:2.2.1":
+  version: 2.2.1
+  resolution: "@moonrepo/core-windows-x64-msvc@npm:2.2.1"
   conditions: os=win32 & cpu=x64
   languageName: node
   linkType: hard
@@ -3164,14 +3165,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/types@npm:^2.0.0":
-  version: 2.0.1
-  resolution: "@moonrepo/types@npm:2.0.1"
-  checksum: 10/ecb50ba2ed60e151cebbbb4e04b2788180aa8a033ce2cded26298eb57b356a7a9c00049a6bd338ddddbe0936dfae0c84f27291b47ab4fc92f1439bedf7781d82
-  languageName: node
-  linkType: hard
-
-"@moonrepo/types@npm:^2.2.1":
+"@moonrepo/types@npm:^2.0.0, @moonrepo/types@npm:^2.2.1":
   version: 2.2.1
   resolution: "@moonrepo/types@npm:2.2.1"
   checksum: 10/31c04ce52db82bd0be20355edaecee097112c80a2a8b36cb6f644b413583396ea59d7ec690527e2d10cd5cbbb1bbed56e441c21f7fbe9f27e7fe571a81c4dfd4
@@ -7198,10 +7192,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"detect-libc@npm:^2.0.0, detect-libc@npm:^2.0.4":
-  version: 2.0.4
-  resolution: "detect-libc@npm:2.0.4"
-  checksum: 10/136e995f8c5ffbc515955b0175d441b967defd3d5f2268e89fa695e9c7170d8bed17993e31a34b04f0fad33d844a3a598e0fd519a8e9be3cad5f67662d96fee0
+"detect-libc@npm:^2.0.0, detect-libc@npm:^2.1.2":
+  version: 2.1.2
+  resolution: "detect-libc@npm:2.1.2"
+  checksum: 10/b736c8d97d5d46164c0d1bed53eb4e6a3b1d8530d460211e2d52f1c552875e706c58a5376854e4e54f8b828c9cada58c855288c968522eb93ac7696d65970766
   languageName: node
   linkType: hard
 
@@ -11955,7 +11949,7 @@ __metadata:
   resolution: "moon-dev@workspace:."
   dependencies:
     "@babel/core": "npm:^7.28.6"
-    "@moonrepo/cli": "npm:^2.0.0-alpha.2"
+    "@moonrepo/cli": "npm:^2.2.1"
     "@moonrepo/dev": "workspace:*"
     eslint: "npm:^9.39.2"
     jest: "npm:^30.2.0"
@@ -14264,16 +14258,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0, semver@npm:^7.6.2, semver@npm:^7.6.3, semver@npm:^7.7.2, semver@npm:^7.7.3":
-  version: 7.7.3
-  resolution: "semver@npm:7.7.3"
-  bin:
-    semver: bin/semver.js
-  checksum: 10/8dbc3168e057a38fc322af909c7f5617483c50caddba135439ff09a754b20bdd6482a5123ff543dad4affa488ecf46ec5fb56d61312ad20bb140199b88dfaea9
-  languageName: node
-  linkType: hard
-
-"semver@npm:^7.7.4":
+"semver@npm:^7.1.1, semver@npm:^7.3.4, semver@npm:^7.3.5, semver@npm:^7.3.7, semver@npm:^7.5.2, semver@npm:^7.5.3, semver@npm:^7.5.4, semver@npm:^7.6.0, semver@npm:^7.6.2, semver@npm:^7.6.3, semver@npm:^7.7.2, semver@npm:^7.7.3, semver@npm:^7.7.4":
   version: 7.7.4
   resolution: "semver@npm:7.7.4"
   bin:
