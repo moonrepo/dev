@@ -356,15 +356,15 @@
   "dependencies": {
     "@moonrepo/report": "^2.0.1",
     "execa": "^5.1.1",
-    "semver": "^7.7.3"
+    "semver": "^7.7.4"
   },
   "devDependencies": {
-    "@moonrepo/types": "^2.0.1",
+    "@moonrepo/types": "^2.2.1",
     "@types/semver": "^7.7.1",
     "@types/vscode": "1.103.0",
     "@vscode/test-electron": "^2.5.2",
-    "@vscode/vsce": "^3.6.0",
-    "esbuild": "^0.27.2",
-    "ovsx": "^0.10.8"
+    "@vscode/vsce": "^3.9.1",
+    "esbuild": "^0.28.0",
+    "ovsx": "^0.10.11"
   }
 }
