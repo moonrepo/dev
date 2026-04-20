@@ -3,19 +3,19 @@
   "files": [],
   "references": [
     {
-      "path": "packages/babel-preset"
+      "path": "./packages/babel-preset"
     },
     {
-      "path": "packages/dev"
+      "path": "./packages/dev"
     },
     {
-      "path": "packages/eslint-config"
+      "path": "./packages/eslint-config"
     },
     {
-      "path": "packages/jest-preset"
+      "path": "./packages/jest-preset"
     },
     {
-      "path": "packages/vscode-extension"
+      "path": "./packages/vscode-extension"
     }
   ]
 }
