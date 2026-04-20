@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.16.2",
+  "version": "0.16.3",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -39,8 +39,8 @@
   },
   "activationEvents": [
     "workspaceContains:.moon",
-    "workspaceContains:**/moon.pkl",
-    "workspaceContains:**/moon.yml"
+    "workspaceContains:.config/moon",
+    "workspaceContains:**/moon.*"
   ],
   "extensionDependencies": [
     "redhat.vscode-yaml"
@@ -49,28 +49,32 @@
   "contributes": {
     "yamlValidation": [
       {
-        "fileMatch": "moon.yml",
-        "url": "https://moonrepo.dev/schemas/project.json"
+        "fileMatch": "moon.*",
+        "url": "https://moonrepo.dev/schemas/v2/project.json"
       },
       {
-        "fileMatch": "template.yml",
-        "url": "https://moonrepo.dev/schemas/template.json"
+        "fileMatch": "template.*",
+        "url": "https://moonrepo.dev/schemas/v2/template.json"
       },
       {
-        "fileMatch": ".moon/tasks.yml",
-        "url": "https://moonrepo.dev/schemas/tasks.json"
+        "fileMatch": ".moon/extensions.*",
+        "url": "https://moonrepo.dev/schemas/v2/extensions.json"
       },
       {
-        "fileMatch": ".moon/tasks/**/*.yml",
-        "url": "https://moonrepo.dev/schemas/tasks.json"
+        "fileMatch": ".moon/tasks.*",
+        "url": "https://moonrepo.dev/schemas/v2/tasks.json"
       },
       {
-        "fileMatch": ".moon/toolchain.yml",
-        "url": "https://moonrepo.dev/schemas/toolchain.json"
+        "fileMatch": ".moon/tasks/**/*",
+        "url": "https://moonrepo.dev/schemas/v2/tasks.json"
       },
       {
-        "fileMatch": ".moon/workspace.yml",
-        "url": "https://moonrepo.dev/schemas/workspace.json"
+        "fileMatch": ".moon/toolchains.*",
+        "url": "https://moonrepo.dev/schemas/v2/toolchains.json"
+      },
+      {
+        "fileMatch": ".moon/workspace.*",
+        "url": "https://moonrepo.dev/schemas/v2/workspace.json"
       }
     ],
     "configuration": {

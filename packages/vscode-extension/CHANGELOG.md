@@ -1,3 +1,7 @@
+## 0.16.3
+
+- Updated to use v2 JSON schemas. If you are using v1, you may see validation errors.
+
 ## 0.16.2
 
 - Fixed more moon v2 issues.
