@@ -8,12 +8,19 @@ export function isRealBin(binPath: string): boolean {
 
 	// When in the moonrepo/moon repository, the binary is actually fake,
 	// so we need to account for that!
-	return stats.size > 100;
+	return stats.isFile() && stats.size > 100;
 }
 
 export class Workspace {
 	// Current moon binary path
 	binPath: string | null = null;
+
+	// Current moon config directory path
+	configDir: string | null = null;
+
+	// Current moon config directory name relative to workspace root
+	// Supports either ".moon" or ".config/moon"
+	configDirName: string = '.moon';
 
 	// Current vscode workspace folder
 	folder: vscode.WorkspaceFolder | null = null;
@@ -32,7 +39,7 @@ export class Workspace {
 
 	constructor() {
 		this.logger = vscode.window.createOutputChannel('moon', { log: true });
-		this.onDidChangeWorkspaceEmitter = new vscode.EventEmitter<vscode.WorkspaceFolder>();
+		this.onDidChangeWorkspaceEmitter = new vscode.EventEmitter<vscode.WorkspaceFolder | null>();
 
 		// Find moon workspace from default editor
 		if (vscode.window.activeTextEditor) {
@@ -99,6 +106,8 @@ export class Workspace {
 		this.folder = null;
 		this.root = null;
 		this.rootPrefix = '';
+		this.configDir = null;
+		this.configDirName = '.moon';
 		this.binPath = null;
 
 		this.logger.appendLine(`Attempting to find a VSC workspace folder for ${openUri.fsPath}`);
@@ -120,21 +129,33 @@ export class Workspace {
 			let foundRoot = false;
 
 			for (const prefix of rootPrefixes) {
-				// Moon v1: <workspace>/.moon
-				const v1Path = path.join(workspaceFolder.uri.fsPath, prefix, '.moon');
+				const candidateRoot = path.join(workspaceFolder.uri.fsPath, prefix);
 
-				// Moon v2: <workspace>/.config/moon
-				const v2Path = path.join(workspaceFolder.uri.fsPath, prefix, '.config', 'moon');
+				// Moon v1 config dir: <workspace>/<prefix>/.moon
+				const v1Path = path.join(candidateRoot, '.moon');
 
-				const candidateDirs = [v1Path, v2Path];
+				// Moon v2 config dir: <workspace>/<prefix>/.config/moon
+				const v2Path = path.join(candidateRoot, '.config', 'moon');
 
-				for (const moonDir of candidateDirs) {
-					if (fs.existsSync(moonDir)) {
-						this.root = path.dirname(moonDir);
+				const candidateDirs: Array<{ dir: string; name: string }> = [
+					{ dir: v1Path, name: '.moon' },
+					{ dir: v2Path, name: path.join('.config', 'moon') },
+				];
+
+				for (const { dir, name } of candidateDirs) {
+					if (fs.existsSync(dir) && fs.statSync(dir).isDirectory()) {
+						// IMPORTANT:
+						// The workspace root is the candidate root, not dirname(dir).
+						// For ".config/moon", dirname(dir) would incorrectly be "<root>/.config".
+						this.root = candidateRoot;
 						this.rootPrefix = prefix;
+						this.configDir = dir;
+						this.configDirName = name;
 						this.binPath = this.findMoonBin();
 
-						this.logger.appendLine(`Found moon workspace root at ${this.root}`);
+						this.logger.appendLine(
+							`Found moon workspace root at ${this.root} (config dir: ${this.configDir})`,
+						);
 
 						if (this.binPath) {
 							this.logger.appendLine(`Found moon binary at ${this.binPath}`);
@@ -184,7 +205,7 @@ export class Workspace {
 			binPath = path.join(this.root, binPath);
 		}
 
-		if (fs.existsSync(binPath)) {
+		if (fs.existsSync(binPath) && fs.statSync(binPath).isFile()) {
 			return binPath;
 		}
 
@@ -194,7 +215,7 @@ export class Workspace {
 		for (const dir of paths) {
 			const globalBin = path.join(dir, binName);
 
-			if (fs.existsSync(globalBin)) {
+			if (fs.existsSync(globalBin) && fs.statSync(globalBin).isFile()) {
 				return globalBin;
 			}
 		}
@@ -221,7 +242,11 @@ export class Workspace {
 	}
 
 	getMoonDirPath(file: string, withPrefix: boolean = true): string {
-		return path.join(withPrefix ? this.rootPrefix : '.', '.moon', file);
+		return path.join(withPrefix ? this.rootPrefix : '.', this.configDirName, file);
+	}
+
+	getMoonConfigPath(file: string): string {
+		return this.configDir ? path.join(this.configDir, file) : this.getMoonDirPath(file, false);
 	}
 
 	async getMoonVersion(): Promise<string> {
