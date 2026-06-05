@@ -1,3 +1,7 @@
+## 0.16.4
+
+- Fixed `.config/moon` handling.
+
 ## 0.16.3
 
 - Updated to use v2 JSON schemas. If you are using v1, you may see validation errors.

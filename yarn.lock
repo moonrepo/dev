@@ -3165,10 +3165,10 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@moonrepo/types@npm:^2.0.0, @moonrepo/types@npm:^2.2.1":
-  version: 2.2.1
-  resolution: "@moonrepo/types@npm:2.2.1"
-  checksum: 10/31c04ce52db82bd0be20355edaecee097112c80a2a8b36cb6f644b413583396ea59d7ec690527e2d10cd5cbbb1bbed56e441c21f7fbe9f27e7fe571a81c4dfd4
+"@moonrepo/types@npm:^2.0.0, @moonrepo/types@npm:^2.3.1":
+  version: 2.3.1
+  resolution: "@moonrepo/types@npm:2.3.1"
+  checksum: 10/22cdeec110fec5b8fcb75b0d2f511fe19d6f31774fa50be6f1f6ddbbf3dccab488351a08a11511b9e6c203fcf5df2ec284d9f6485c3f4d49f1cb5181e8708e46
   languageName: node
   linkType: hard
 
@@ -11932,7 +11932,7 @@ __metadata:
   resolution: "moon-console@workspace:packages/vscode-extension"
   dependencies:
     "@moonrepo/report": "npm:^2.0.1"
-    "@moonrepo/types": "npm:^2.2.1"
+    "@moonrepo/types": "npm:^2.3.1"
     "@types/semver": "npm:^7.7.1"
     "@types/vscode": "npm:1.103.0"
     "@vscode/test-electron": "npm:^2.5.2"
