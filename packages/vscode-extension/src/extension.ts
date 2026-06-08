@@ -34,6 +34,8 @@ export function activate(context: vscode.ExtensionContext) {
 			appendSchemasConfig(context, workspace),
 		),
 
+		vscode.commands.registerCommand('moon.projectTag.runTagTask', (item) => tagsProvider.runTagTask(item)),
+
 		// Create a tree view for all moon projects
 		vscode.window.createTreeView('moonProjects', {
 			showCollapseAll: true,
