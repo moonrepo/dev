@@ -1,3 +1,7 @@
+## 0.16.6
+
+- Fixed our release scripts.
+
 ## 0.16.5
 
 - Re-published previous version.

@@ -1,6 +1,6 @@
 {
   "private": true,
-  "version": "0.16.5",
+  "version": "0.16.6",
   "name": "moon-console",
   "publisher": "moonrepo",
   "displayName": "moon console",
@@ -350,9 +350,9 @@
     ]
   },
   "scripts": {
-    "compile": "esbuild src/extension.ts --bundle --outfile=lib/extension.js --external:vscode --format=cjs --platform=node --target=node14",
+    "compile": "rm -rf lib && esbuild src/extension.ts --bundle --outfile=lib/extension.js --external:vscode --format=cjs --platform=node --target=node14",
     "watch": "yarn run compile --sourcemap --watch",
-    "package": "vsce package --no-dependencies",
+    "package": "yarn run compile && vsce package --no-dependencies",
     "publish": "yarn run publish:ovsx && yarn run publish:vsce",
     "publish:vsce": "vsce publish --no-dependencies --no-git-tag-version --message 'Release [ci skip]'",
     "publish:ovsx": "ovsx publish --no-dependencies -p $OPENVSX_TOKEN"
