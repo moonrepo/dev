@@ -1,8 +1,8 @@
 # DEPRECATED
 
 > These packages are deprecated and are loosely maintained. We suggest using the following tools
-> instead: [Biome](https://biomejs.dev/) (replaces ESLint + Prettier), [Vitest](https://vitest.dev/)
-> (replaces Jest), and [esbuild](https://esbuild.github.io/) (replaces Babel).
+> instead: [Vite+](https://viteplus.dev/) or [Biome](https://biomejs.dev/) (replaces ESLint +
+> Prettier), and [Vitest](https://vitest.dev/) (replaces Jest).
 
 # moon development
 
@@ -15,10 +15,6 @@ configurations/presets for common JavaScript tooling -- primarily tools used by 
 authors.
 
 ## Editor extensions
-
-This repo houses the official moon VS Code extension,
-[moonrepo.moon-console](./packages/vscode-extension)! It is currently under heavy development, but
-is in a usable condition.
 
 ## Shared configurations
 
