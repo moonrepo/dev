@@ -13,9 +13,6 @@
     },
     {
       "path": "./packages/jest-preset"
-    },
-    {
-      "path": "./packages/vscode-extension"
     }
   ]
 }

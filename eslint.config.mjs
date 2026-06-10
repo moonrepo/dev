@@ -29,23 +29,6 @@ const config = defineConfig([
 		files: ['packages/eslint-config/**/*'],
 		rules: { 'no-magic-numbers': 'off', 'sort-keys': 'off', 'import/no-default-export': 'off' },
 	},
-	{
-		files: ['packages/vscode-extension/**/*'],
-		rules: {
-			'max-classes-per-file': 'off',
-			'no-console': 'off',
-			'no-nested-ternary': 'off',
-			'no-param-reassign': 'off',
-			// We want to use exhaustive checks
-			'default-case': 'off',
-			// Random version conditionals
-			'no-magic-numbers': 'off',
-			// The `vscode` import isn't real
-			'import/no-unresolved': 'off',
-			// It doesnt like our `@moonrepo/types` package
-			'node/no-unpublished-import': 'off',
-		},
-	},
 ]);
 
 // console.log(config);
